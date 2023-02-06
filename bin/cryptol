@@ -1,0 +1,8 @@
+#!/bin/bash
+export LANG='en_US.UTF-8'
+export LC_CTYPE='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export DIR=`pwd`
+cd $1
+xterm -T Cryptol -fa "monopsace" -fs 14 -fg black -bg white -e $DIR"/bin/cryptol-bin" &
+
