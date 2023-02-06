@@ -12,9 +12,10 @@ member lst n = (res ! 0)
   where
     res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
 
-perm :
-  {n, m, a} (Literal 1 a, Ring a, Eq a, fin n, fin m) => [n]a -> [m]a -> Bit
-perm x y = if (length x) == (length y) then (res ! 0).1 else False
+//perm :
+//  {n, m, a} (Literal 1 a, Ring a, Eq a, fin n, fin m) => [n]a -> [m]a -> Bit
+perm x y = if (length x) == 0 /\ (length y) == 0 then True else
+           if (length x) == (length y) then (res ! 0).1 else False
   where
     res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
           | q <- [(y,True)]#res | p <- x ]
