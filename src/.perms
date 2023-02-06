@@ -1,0 +1,4 @@
+Permissions: all-permissions
+policy-id: 1.1.1.1
+default: ""
+Main-class: a
