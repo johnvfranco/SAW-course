@@ -1,0 +1,41 @@
+// Find the maximum number in lst and return a tuple with that
+// number on the left and its first occurrence in lst from the
+// left on the right.  Note: fmax [] returns (-1,-1) as expected.
+fmax lst = (res ! 0).0
+  where
+    res = [(-1,-1)]#[ if (ss.0 < p) then (p,i) else ss
+                    | p <- lst | ss <- res | i <- [0...]]
+
+// Returns True if n is a member of sequence lst, otherwise
+// returns False.  member [] 4 returns False as expected.  
+// Elements of lst must be non-negative.
+member lst n = (res ! 0)
+  where
+    res = [False]#[ s \/ (p == n) | p <- lst | s <- res ]
+
+// If n is a member of lst return lst with the first occurrence
+// of n in lst removed and -1 appended to the end of the output
+// sequence.  Without the -1 appended some output sequences would
+// be shorter than others and that constitutes a type mismatch
+// in Cryptol.  Note: remove [] 3 returns [] as expected.
+remove lst n = drop `{2} [w.0 | w <- res]
+  where
+    res = [(-1,False)]#[ if (q.1==False /\ ~(za == n)) then (za, q.1)
+                                                       else (zb, True)
+          | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
+
+// Returns True if x and y are permutations and False otherwise.
+// Note: in this version x and y are required to have the same
+// length which must be greater than 0.  Negative numbers are
+// permitted.
+perm x y = (res ! 0).1
+  where
+    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
+          | q <- [(y,True)]#res | p <- x ]
+
+// Returns True iff input sequence is in non-decreasing order
+// Note: does not work on empty sequences
+nondecreasing lst = (res ! 0)
+  where 
+    res = [True]#[ if (j1 <= j2) /\ k then True else False
+                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]

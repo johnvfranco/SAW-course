@@ -1,0 +1,16 @@
+loc = [ (ratio 2 10), (ratio 3 10), (ratio 45 100), (ratio 49 100),
+        (ratio 71 100), (ratio 78 100), (ratio 81 100), (ratio 98 100)]
+gas = [ (ratio 1 10), (ratio 13 100), (ratio 1 10), (ratio 15 100),
+        (ratio 23 100), (ratio 7 100), (ratio 17 100), (ratio 5 100)]
+
+// State: (fuel_seen, fuel_deficit, best_station_so_far)
+s = [(0,0,-1)]#[(if (ps-ss.0 > ss.1) then (ss.0+fs, ps-ss.0, i)
+                                     else (ss.0+fs,ss.1,ss.2))
+               | fs <- gas | ps <- loc | ss <- s | i <- [0 ...]]
+
+station = (s ! 0).2
+station_location = loc @ station
+
+// ps = % of track covered
+// ss.0 = % of fuel seen
+// ps-ss.0 is the fuel deficit 

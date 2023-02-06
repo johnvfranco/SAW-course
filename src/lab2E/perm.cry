@@ -1,0 +1,20 @@
+module perm where
+
+remove : {n, a} (Eq a, Ring a, Literal 1 a, fin n) => [n]a -> a -> [n]a
+remove lst n = drop `{2} [w.0 | w <- res]
+  where
+    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) then (za, q.1)
+                                                         else (zb, True)
+                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
+
+member : {n, a} (Eq a, fin n) => [n]a -> a -> Bit
+member lst n = (res ! 0)
+  where
+    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
+
+perm :
+  {n, m, a} (Literal 1 a, Ring a, Eq a, fin n, fin m) => [n]a -> [m]a -> Bit
+perm x y = if (length x) == (length y) then (res ! 0).1 else False
+  where
+    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
+          | q <- [(y,True)]#res | p <- x ]

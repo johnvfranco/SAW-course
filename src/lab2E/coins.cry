@@ -1,0 +1,29 @@
+// The puzzle goes like this:
+// You've got n coins that add up to s cents - what are they?
+// Use currying - for this example #coins is 30, total sum is 109 cents
+
+coinPuzzle : [10] -> [10] -> [10] -> [10] -> [10] -> [10] -> Bit
+coinPuzzle n s a b c d =
+  (coinCount a b c d n) /\ (coinSum a b c d n s) /\ (n < 100) // avoid overflow
+
+coinSum a b c d n s =
+  ((a + 5*b + 10*c + 25*d) == s) /\ (n <= s)
+
+coinCount a b c d n =
+  (((a + b + c + d) == n) /\      // the coin count adds up to requested n
+                                   // number coins of any type doesn't exceed n
+   (a <= n /\ b <= n /\ c <= n /\ d <= n))  
+
+check a b c d = a*1 + b*5  + c*10 + d*25
+
+// run it like this:
+// Main> :set base=10
+// Main> :set satNum = all
+// Main> :sat coinPuzzle 30 109
+// Satisfiable
+// coinPuzzle 30 109 19 7 3 1 = True
+// coinPuzzle 30 109 24 1 3 2 = True
+// coinPuzzle 30 109 14 13 3 0 = True
+// coinPuzzle 30 109 19 4 7 0 = True
+// Models found: 4
+// (Total Elapsed Time: 0.055s, using "Z3")

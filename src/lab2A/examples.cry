@@ -1,0 +1,54 @@
+// Operators
+res00 = 567 + 111 // 678
+res01 = 567 - 111 // 456
+res02 = 111 - 567 // -456
+res03 = 567 * 111 // 62937
+res04 = 567 / 111 // 5
+res05 = 567 % 111 // 12
+res06 = 567 ^^ 11 // 1947213840615891587090802236583
+res07 = (ratio 7 2) /. (ratio 9 2) // (ratio 7 9)
+res08 = (ratio 7 2)*4 // (ratio 14 1)
+res09 = floor(ratio 7 2) // 3
+res10 = floor(ratio (-7) 2) // -4
+res11 = ceiling(ratio 7 2) // 4
+res12 = ceiling(ratio (-7) 2) // -3
+res13 = trunc(ratio (-7) 2) // -3
+res14 = trunc(ratio 7 2) // 3
+
+// Comparison
+res20 = (ratio 8 4) == 2 // True
+res21 = (ratio 8 4) != 2 // False
+res22 = 2 > (ratio 7 2)  // False
+res23 = 2 < (ratio 7 2)  // True
+
+// Logic
+res30 = (2 > 4) \/ (4 == 3) // False
+res31 = (2 < 4) \/ (4 != 3) // True
+res32 = (or [True, False, True]) // True
+res33 = (and [True, False, True]) // False
+
+// Bit Vector
+res40 = 17 || 29 // 0b11101 (17 is 10001, 29 is 11101)
+res41 = 17 && 29 // 0b10001
+res42 = complement 0b110110001000111 // 0b001001110111000
+res43 = 0b110101 << 2 // 0b010100
+res44 = 0b110101 >> 2 // 0b001101
+res45 = 0b110101 <<< 2 // 0b010111
+res46 = 0b110101 >>> 2 // 0b011101
+
+// Sequences
+res50 = head [23,36,12] // 23
+res51 = head "peanut" // 0x70
+res52 = tail [23,36,12] // [36,12]
+res53 = tail "pea" // [0x65, 0x61]
+res54 = [23,36,12,62,11]@3 // 62 "peanut"@3 is 0x6e
+res55 = [23,36,12,62,11]@@[3,1] // [62, 36]
+res56 = [23,36,12,62,11]!3 // 36 "peanut"!3 is 0x61
+res57 = [23,36,12,62,11]!![3,1] // [36, 62]
+res58 = foldl (/) 1000 [1,2,3,4] // 41
+res59 = foldr (+) 0 [1,2,3,4] // 10
+res60 = reverse [23,36,12,62,11] // [11,62,12,36,23]
+res61 = sum [23,36,12,62,11] // 144
+res62 = product [23,36,12,62,11] // 6776352
+res63 = sort [23,36,12,62,11] // [11,12,23,36,62]
+res64 = sortBy (<) [23,36,12,62,11] // [11,12,23,36,62]

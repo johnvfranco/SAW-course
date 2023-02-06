@@ -1,0 +1,28 @@
+// Hammings problem - given primes list in increasing order, find all
+// numbers whose prime factors are all in the primes list.
+
+// multiply all integers of a stream by a scalar - input is a stream s of 
+// integers and a number m.  Output is a stream such that each number is
+// m times its corresponding number in the input stream.
+times s m = [(s@0)*m]#times (tail s) m
+
+// merge two streams of integers - input is two integer streams in increasing
+// order.  Output is single stream in increasing order, all output tokens exist
+// in input streams.
+merge x y = if (x@0) < (y@0) then [x@0]#merge (tail x) y
+                             else [y@0]#merge x (tail y)
+
+// compute the hamming sequence for a given set of prime numbers.  The input
+// list of primes is in increasing order.
+hamming primes = ham primes 0
+  where 
+    ham p idx =
+      if ((length p) == 0) then [-1,-1...]
+      else if (length p)-1 == idx then
+           [p @ idx] # times (ham p idx) (p@idx)
+      else
+           [p @ idx] # merge (times (ham p idx) (p@idx)) (ham p (idx+1))
+
+hamGood : [64] -> [100][64] -> Bit  /* no output number is multiple of 7 */
+property hamGood x y = 
+  ~((x <= 99) /\ (y == (take `{100} (hamming [3,5,11])))) \/ ~((y@x)%7 == 0)

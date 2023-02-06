@@ -1,0 +1,37 @@
+/* A simple caesar cipher
+   Rotate the ascii table by a fixed amount (s) and index into the remapped
+   ascii table by the input character to compute the ciphertext
+   In this version the ascii table is shrunk to 95 printable characters
+   so to decrypt use 95-s */
+// :s ascii=on
+
+/*
+  Rotate the ascii table from ' ' to '~'  by s positions
+  Examples: map 0 = [32,33,34,...,124,125,126]
+            map 1 = [33,34,35,...,125,126,32]
+            map 2 = [34,35,36,...,126,32,33]
+            map 64 = [96,97,98,...,93,94,95]
+*/
+rot s = [' ' .. '~'] <<< s
+
+shift c key = (rot key) @ (c - ' ')
+
+caesar key msg = [ shift c key | c <- msg ]
+
+// enc:[_][8]
+enc = caesar 11 "How Now Brown Cow"
+enc_ascii = show (enc)
+
+// dec:[_][8]
+dec = caesar 84 enc
+dec_ascii = show (caesar (95-11) enc)
+
+show s = [ c:Char | c <- s]
+
+// Prove it works for messages up to 256 chracters long -
+// :s prover=abc
+// :prove itWorks
+// Q.E.D.
+// (Total Elapsed Time: 8.091s, using "ABC")
+itWorks : [512][8] -> [8] -> Bit
+property itWorks pt key = (caesar (95-key) (caesar key pt)) == pt

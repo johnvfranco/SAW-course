@@ -1,0 +1,95 @@
+/* a permutation */
+tes1 x = [ x@i | i <- [0,3,2,1,4] ]
+res00 = tes1 [1,2,3,4,5]
+
+allButLast : {a, b} [1 + b]a -> [b]a
+allButLast x = [ a | a <- x | i <- (tail x) ]
+
+res01 = allButLast [1,2,3,4,5]
+
+/* reverse a sequence */
+rev : {a, b} (fin b) => [1 + b]a -> [1 + b]a
+rev x = (z!0)
+  where 
+    z = [x]#[ [b]#(allButLast a) | b <- x | a <- z ]
+
+res02 = rev [1,2,3,4,5,6,7]
+
+/* Create a list of 16 numbers, beginning with the first one as input
+   doubled, then followed by numbers that are double the previous one 
+   in the list  */
+funky_0: [32] -> [16][32]
+funky_0 x = iv
+   where iv = [ 2*lr | lr <- [x] # iv | k  <- [1 .. 16] ]
+
+res03 = funky_0 2
+
+/* Slight variation on the one above the first number is not doubled */
+funky_1: [32] -> [16][32]
+funky_1 x = [x]#iv
+   where iv = [ 2*lr | lr <- [x] # iv | k  <- [1 .. 15] ]
+res04 = funky_1 2
+
+/* Infinite version of above */
+funky_2: [32] -> [inf][32]
+funky_2 (x) = [x]#iv
+  where iv  = [ 2*lr | lr <- [x] # iv | k  <- [1 ...] ]
+
+res05 = funky_2 2
+
+/* The ith term in the output list is the sum of input terms from index 0 to
+   index i.  Hence [1 4 8 17] -> [1 5 13 30]  (superincreasing sequence) */
+sum_0 xs = ys
+  where ys = [ x + y | x <- xs | y <- [0] # ys ]
+
+res06 = sum_0 [1,2,3,4,5]
+
+/* output is [] */
+sum_1 xs = ys
+  where ys = [ x + y | x <- ys | y <- [0] # ys ]
+
+res07 = sum_1 [1,2,3,4,5]
+
+/* Fibonnaci numbers */
+/*   1 1 2 3  5  8 13 21 ...   y <- [1 1] # ys
+     1 2 3 5  8 13 21 ...      x <- [1] # ys
+    --------------------------------------------
+ys = 2 3 5 8 13 21 34 ...      ys    */
+
+fib_1 = take `{100} ([1,1]#ys)
+  where 
+    ys = [ x+y | x <- ([1]:[1][256])#ys | y <- ([1,1]:[2][256])#ys ]
+
+
+/* Fibonnaci numbers - Wow! only n numbers are pulled!! */
+fib_2: [256]->[256]
+fib_2 n = (([1,1]#ys)@(n-1))
+  where 
+    ys = [ x+y | x <- [1]#ys | y <- [1,1]#ys ]
+
+res08 = fib_2 100
+
+/* split splits as needed!! */
+res09:[2][24]
+res09 = split(0x570248D00425)  /* [0x48d00425,0x00005702]       */
+res10:[4][12]
+res10 = split(0x570248D00425)  /* [0x0425,0x48d0,0x5702,0x0000] */
+res11:[8][6]
+res11 = split(0x570248D00425)  /* [0x25,0x04,0xd0,0x48,0x02,0x57,0x00,0x00] */
+res12:[2][2][12]
+res12 = split(split(0x570248D00425))  /* [[0x0425,0x48d0] [0x5702,0x0000]]  */
+
+sbox1 : [4][16][4]
+sbox1 = [[14, 4,13, 1, 2,15,11, 8, 3,10, 6,12, 5, 9, 0, 7],
+         [ 0,15, 7, 4,14, 2,13, 1,10, 6,12,11, 9, 5, 3, 8],
+         [ 4, 1,14, 8,13, 6, 2,11,15,12, 9, 7, 3,10, 5, 0],
+         [15,12, 8, 2, 4, 9, 1, 7, 5,11, 3,14,10, 0, 6,13]
+        ]
+s1 = sbox1 @ [True,True]   @ [True,True,True,True]
+s2 = sbox1 @ [True,True]   @ [False,True,True,True]
+s3 = sbox1 @ [True,True]   @ [True,False,True,True]
+s4 = sbox1 @ [True,True]   @ [False,False,True,True]
+s5 = sbox1 @ [False,True]  @ [True,True,True,True]
+s6 = sbox1 @ [True,False]  @ [True,True,True,True]
+s7 = sbox1 @ [False,False] @ [True,True,True,True]
+s8 = reverse(s7)

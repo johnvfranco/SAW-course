@@ -1,0 +1,46 @@
+module bsort where
+import perm
+
+// bbl takes a literal n and an ordered sequence seq and places n in seq
+// so that seq remains ordered.  If seq is empty [n] (plus padding) is
+// returned. If n is less than the first element of seq then n is added
+// to the beginning of seq.  Otherwise bbl is called recursively and
+// returns an ordered sequence whereupon the 1st literal of seq is
+// prepended to the result and returned.
+// bb takes a padded sequence as input and recursively calls bbl where
+// n is the first literal of the input sequence.  The recursion sets up
+// a stack of literals to add to the output list and begins to establish
+// an output list when the input to seq is only the padding.  Thus, when
+// the stacked literals are ready to be added to the output list, what
+// they are added to is ordered and will remain ordered as stacked
+// literals are added to seq.
+// bsort just calls bb on the padded input sequence.  The output of bb
+// is trimmed by take.
+bsort : {n, a} (Cmp a, Integral a, Literal 1 a, fin n) => [n]a -> [n]a
+bsort lst = take `{n} (bb (lst#[-1,-1...]))
+  where
+    bb seq = if (seq@0) == -1 then seq else (bbl (head seq) (bb (tail seq)))
+    bbl n seq =
+      if ((seq@0) == -1) then [n]#[-1,-1...]
+      else if (n < (seq@0)) then [n]#seq
+      else [(seq@0)]#(bbl n (tail seq))
+
+valid lst = z ! 0
+  where
+    z = [True]#[~(x == -1) /\ y | x <- lst | y <- z ]
+
+// :s prover=cvc4
+// :prove isAPerm
+// Q.E.D.
+// (Total Elapsed Time: 12.325s, using "CVC4")
+isAPerm : [8][4] -> Bit
+property isAPerm lst = ~(valid lst) \/ (perm lst (bsort lst))
+
+res00 = bsort []
+res01 = bsort [1]
+res02 = bsort [2,1]
+res03 = bsort [1,2]
+res04 = bsort [7,3,2,8,1,9,2,3,4,1,8,9,4,2,3]
+res05 = bsort [0,0,0,0,1,1,1,1,2,2,2,2,3,3,3]
+res06 = bsort [3,3,3,2,2,2,2,1,1,1,1,0,0,0,0]
+
