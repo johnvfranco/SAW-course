@@ -1,0 +1,3 @@
+#!/bin/bash
+export PATH=`pwd`:`pwd`/src:`pwd`/bin:$PATH
+jdk-lin/bin/java -jar game.jar
