@@ -1,0 +1,35 @@
+midA : [8] -> [8] -> [8]
+midA low high = (low+high)/2
+
+midS : [8] -> [8] -> [8]
+midS low high = low + (high - low)/2
+
+// This theorem shows that as long as high and low are no greater than 255,
+// the sum of low +(high-low)/2 is never greater than 255
+midS_is_safe : [9] -> [9] -> Bit
+property midS_is_safe low high
+   = ~(low < 256 /\ high < 256 /\ low <= high) \/ 
+      ((high-low) < 256) /\ ((high-low)/2 < (256 - low))
+
+// This theorem shows that the midpoint calculation using (low+high)/2
+// differs from the calculation using low+(high-low)/2 by at most 1
+// unless high is 255 in which case they are equal.
+
+midpointsAreClose : [9] -> [9] -> Bit
+property midpointsAreClose low high
+   = (~(0 <= low /\ low <= high /\ high < 255)  \/
+       ((safeMid <= averageMid /\ averageMid <= safeMid+1) \/
+        (averageMid <= safeMid /\ safeMid <= averageMid+1)))
+     /\
+     (~(low <= high /\ high == 255) \/ (averageMid == safeMid))
+  where
+     averageMid = (low+high)/2         // Average of low and high as midpoint
+     safeMid    = (low+(high-low)/2)   // Safe midpoint given low and high
+
+// Cryptol> :l mid.cry
+// Loading module Cryptol
+// Loading module Main
+// Main> :prove midpointsAreClose
+// Q.E.D.
+// (Total Elapsed Time: 0.030s, using "Z3")
+// Main> 
