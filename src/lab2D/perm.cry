@@ -1,7 +1,8 @@
 // See solution.pdf for an explanation
 remove lst n = drop `{2} [w.0 | w <- res]
   where
-    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) then (za, q.1) else (zb, True)
+    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) then (za, q.1)
+                                                         else (zb, True)
                        | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
 // instead of explanation I give three examples of progression of res:
 // res output on remove [2,5,3,7,3,2,0,3] 7

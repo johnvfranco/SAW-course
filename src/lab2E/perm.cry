@@ -12,8 +12,8 @@ member lst n = (res ! 0)
   where
     res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
 
-//perm :
-//  {n, m, a} (Literal 1 a, Ring a, Eq a, fin n, fin m) => [n]a -> [m]a -> Bit
+perm :
+  {n, m, a} (Literal 1 a, Ring a, Eq a, fin n, fin m) => [n]a -> [m]a -> Bit
 perm x y = if (length x) == 0 /\ (length y) == 0 then True else
            if (length x) == (length y) then (res ! 0).1 else False
   where
