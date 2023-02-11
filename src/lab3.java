@@ -141,21 +141,21 @@ class lab3 extends JFrame implements ActionListener {
       // Lab 3
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Specification of AES", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Specification of sn74181 ALU", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 4
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Adder", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Multiplier in assembly", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 5
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Sort alorithms", JLabel.LEFT));
+      p.add(lbl = new JLabel("  An ECU", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
