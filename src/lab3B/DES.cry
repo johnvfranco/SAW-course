@@ -34,7 +34,6 @@ f (r, k) = (SBox(k ^ (r @@ EPz))) @@ PPz
 
 swap [a, b] = b # a
 
-
 // Key expansion
 expandKey : [64] -> [16][48]
 expandKey key = expand (split (key @@ KPz))
