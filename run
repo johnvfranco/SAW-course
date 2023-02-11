@@ -1,9 +1,9 @@
 #!/bin/bash
 export PATH=`pwd`:`pwd`/src:`pwd`/bin:$PATH
-if [ -e jdk-lin/lib/modules.gz ]; then
-  CD=`pwd`
+export CD=`pwd`
+if [ ! -f jdk-lin/lib/modules ]; then
   cd jdk-lin/lib
-  gzip -d modules.gz
+  echo "n" | unzip -o modules.zip
   cd $CD
 fi
 jdk-lin/bin/java -jar game.jar
