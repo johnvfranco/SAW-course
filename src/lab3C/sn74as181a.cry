@@ -1,19 +1,25 @@
 // Input: a and b are sequences of True,False
-// Output: xor of each a,b pair until the end of the shortest sequence is reached
-// Below, both sequences will be of the same length
-// Example:  v_xor [True, False, True, False] [True, True, False, False]
+// Output: xor of each a,b pair until the end of the
+// shortest sequence is reached.  Below, both sequences
+// will be of the same length.
+// Example:  v_xor [True, False, True, False]
+//                 [True, True, False, False]
 // 0b0110
 v_xor a b = [ x^y  | x <- a | y <- b ]
 
 // Input: c is a Bit, a and b are sequences of True,False
-// Output: sequence of Bits where each Bit is the result of adding 2 input bits plus a
-// carry from the previous stage.  The last Bit in the sequence is the last carry bit.
-// Example: v_adder True [False,True,False,True] [False,True,True,True]
+// Output: sequence of Bits where each Bit is the result
+// of adding 2 input bits plus a carry from the previous
+// stage.  The last Bit in the sequence is the last carry
+// bit.
+// Example: v_adder True [False,True,False,True]
+//                       [False,True,True,True]
 // 0b10011
 v_adder c a b = drop `{1} [ w.0 | w <- z ]
   where
-    z = [(False, c)]#[ (x^y^q.1, (x/\y)\/(x/\q.1)\/(y/\q.1))
-	     | x <-a#[False] | y <- b#[False] | q <- z ]
+    z = [(False, c)]#
+        [ (x^y^q.1, (x/\y)\/(x/\q.1)\/(y/\q.1))
+        | x <-a#[False] | y <- b#[False] | q <- z ]
 
 // On Page 4 see four occurrences of f74171_q0
 // if s3 and s2 are T this is  ~((a /\ b) \/ (a /\ ~b)) ->
@@ -35,36 +41,57 @@ f74181_q1 a b s0 s1 s2 s3 = ~((~b /\ s1) \/ (s0 /\ b) \/ a)
 f74181_f0 c a0 b0 m s0 s1 s2 s3 = out
   where
     m_neg = ~m;
-	 tmp = (f74181_q0 a0 b0 s0 s1 s2 s3) ^ (f74181_q1 a0 b0 s0 s1 s2 s3);
-	 out = ~(c /\ m_neg) ^ tmp
+    tmp = (f74181_q0 a0 b0 s0 s1 s2 s3) ^
+          (f74181_q1 a0 b0 s0 s1 s2 s3);
+    out = ~(c /\ m_neg) ^ tmp
 
 f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3 = out
   where
     m_neg = ~m;
-	 tmp1 = (f74181_q0 a1 b1 s0 s1 s2 s3) ^ (f74181_q1 a1 b1 s0 s1 s2 s3);
-	 tmp2 = ~((m_neg /\ (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
-             (m_neg /\ (f74181_q0 a0 b0 s0 s1 s2 s3) /\ c))
+    tmp1 = (f74181_q0 a1 b1 s0 s1 s2 s3) ^
+            (f74181_q1 a1 b1 s0 s1 s2 s3);
+    tmp2 = ~((m_neg /\
+              (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a0 b0 s0 s1 s2 s3) /\
+              c))
     out = tmp1 ^ tmp2
 
 f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3 = out
   where
     m_neg = ~m;
-	 tmp1 = (f74181_q0 a2 b2 s0 s1 s2 s3) ^ (f74181_q1 a2 b2 s0 s1 s2 s3);
-	 tmp2 = ~((m_neg /\ (f74181_q1 a1 b1 s0 s1 s2 s3)) \/
-	          (m_neg /\ (f74181_q0 a1 b1 s0 s1 s2 s3) /\ (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
-				 (m_neg /\ (f74181_q0 a0 b0 s0 s1 s2 s3) /\ (f74181_q0 a1 b1 s0 s1 s2 s3) /\ c));
-	 out = tmp1 ^ tmp2
+    tmp1 = (f74181_q0 a2 b2 s0 s1 s2 s3) ^
+           (f74181_q1 a2 b2 s0 s1 s2 s3);
+    tmp2 = ~((m_neg /\
+              (f74181_q1 a1 b1 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a0 b0 s0 s1 s2 s3) /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              c));
+    out = tmp1 ^ tmp2
 
 f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
   where
     m_neg = ~m;
-	 tmp1 = (f74181_q1 a3 b3 s0 s1 s2 s3) ^ (f74181_q0 a3 b3 s0 s1 s2 s3);
-	 tmp2 = ~((m_neg /\ (f74181_q1 a2 b2 s0 s1 s2 s3)) \/
-	          (m_neg /\ (f74181_q1 a1 b1 s0 s1 s2 s3) /\ (f74181_q0 a2 b2 s0 s2 s2 s3)) \/
-			    (m_neg /\ (f74181_q1 a0 b0 s0 s1 s2 s3) /\ (f74181_q0 a1 b1 s0 s1 s2 s3) /\
-                       (f74181_q0 a2 b2 s0 s1 s2 s3)) \/
-			    (m_neg /\ (f74181_q0 a0 b0 s0 s1 s2 s3) /\ (f74181_q0 a1 b1 s0 s1 s2 s3) /\
-                       (f74181_q0 a2 b2 s0 s1 s2 s3) /\ c))
+    tmp1 = (f74181_q1 a3 b3 s0 s1 s2 s3) ^
+           (f74181_q0 a3 b3 s0 s1 s2 s3);
+    tmp2 = ~((m_neg /\
+              (f74181_q1 a2 b2 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q1 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q0 a2 b2 s0 s2 s2 s3)) \/
+             (m_neg /\
+              (f74181_q1 a0 b0 s0 s1 s2 s3) /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q0 a2 b2 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a0 b0 s0 s1 s2 s3) /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q0 a2 b2 s0 s1 s2 s3) /\
+              c))
     out = tmp1 ^ tmp2
 
 // node 14, Page 4
@@ -113,16 +140,17 @@ f74181_sumout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
 // Functional specification
 f74181_spec c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
    [f74181_f0 c a0 b0 m s0 s1 s2 s3,
-	 f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3,
-	 f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3,
-	 f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
-	 f74181_cout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
-	 f74181_prop c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
-	 f74181_gen c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
-	 f74181_a_b c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3]
+    f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3,
+    f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3,
+    f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_cout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_prop c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_gen c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_a_b c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3]
 
 // Wiring diagram
-f74181_netlist c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = [f0,f1,f2,f3,cout,p,g,a_b]
+f74181_netlist c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
+  [f0,f1,f2,f3,cout,p,g,a_b]
   where
     w0 = ~m
     w1 = ~b0
@@ -197,7 +225,8 @@ f74181_netlist c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = [f0,f1,f2,f3,cout,p,g,a
     cout = w62
     g = w57
 
-v00 = f74181_netlist True False False True True False False False True True False False True True
+v00 = f74181_netlist True False False True True False False
+                     False True True False False True True
 
 f74181_fout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = 
    [(f74181_f0 c a0 b0 m s0 s1 s2 s3),
@@ -240,3 +269,14 @@ property itWorks c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
   where
     a = [a0,a1,a2,a3]
     b = [b0,b1,b2,b3]
+
+// Cryptol> :l sn74as181a.cry
+// Main> :prove xorWorks
+// Q.E.D.
+// (Total Elapsed Time: 0.011s, using "Z3")
+// Main> :prove addingWorks
+// Q.E.D.
+// (Total Elapsed Time: 0.019s, using "Z3")
+// Main> :prove itWorks
+// Q.E.D.
+// (Total Elapsed Time: 0.023s, using "Z3")
