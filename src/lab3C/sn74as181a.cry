@@ -1,3 +1,5 @@
+module sn74as181a where
+
 // Input: a and b are sequences of True,False
 // Output: xor of each a,b pair until the end of the
 // shortest sequence is reached.  Below, both sequences
@@ -40,16 +42,16 @@ f74181_q1 a b s0 s1 s2 s3 = ~((~b /\ s1) \/ (s0 /\ b) \/ a)
 
 f74181_f0 c a0 b0 m s0 s1 s2 s3 = out
   where
-    m_neg = ~m;
+    m_neg = ~m
     tmp = (f74181_q0 a0 b0 s0 s1 s2 s3) ^
-          (f74181_q1 a0 b0 s0 s1 s2 s3);
+          (f74181_q1 a0 b0 s0 s1 s2 s3)
     out = ~(c /\ m_neg) ^ tmp
 
 f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3 = out
   where
-    m_neg = ~m;
+    m_neg = ~m
     tmp1 = (f74181_q0 a1 b1 s0 s1 s2 s3) ^
-            (f74181_q1 a1 b1 s0 s1 s2 s3);
+            (f74181_q1 a1 b1 s0 s1 s2 s3)
     tmp2 = ~((m_neg /\
               (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
              (m_neg /\
@@ -59,9 +61,9 @@ f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3 = out
 
 f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3 = out
   where
-    m_neg = ~m;
+    m_neg = ~m
     tmp1 = (f74181_q0 a2 b2 s0 s1 s2 s3) ^
-           (f74181_q1 a2 b2 s0 s1 s2 s3);
+           (f74181_q1 a2 b2 s0 s1 s2 s3)
     tmp2 = ~((m_neg /\
               (f74181_q1 a1 b1 s0 s1 s2 s3)) \/
              (m_neg /\
@@ -70,14 +72,14 @@ f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3 = out
              (m_neg /\
               (f74181_q0 a0 b0 s0 s1 s2 s3) /\
               (f74181_q0 a1 b1 s0 s1 s2 s3) /\
-              c));
+              c))
     out = tmp1 ^ tmp2
 
 f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
   where
-    m_neg = ~m;
+    m_neg = ~m
     tmp1 = (f74181_q1 a3 b3 s0 s1 s2 s3) ^
-           (f74181_q0 a3 b3 s0 s1 s2 s3);
+           (f74181_q0 a3 b3 s0 s1 s2 s3)
     tmp2 = ~((m_neg /\
               (f74181_q1 a2 b2 s0 s1 s2 s3)) \/
              (m_neg /\
@@ -248,8 +250,8 @@ property xorWorks c a0 a1 a2 a3 b0 b1 b2 b3 =
 property addingWorks c a0 a1 a2 a3 b0 b1 b2 b3 =
          [out0,out1,out2,out3,cout] == (v_adder c a b)
   where
-    a = [a0,a1,a2,a3]
-    b = [b0,b1,b2,b3]
+    a = [a0,a1,a2,a3];
+	 b = [b0,b1,b2,b3]
     s0 = True
     s1 = False
     s2 = False

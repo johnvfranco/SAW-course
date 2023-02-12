@@ -1,0 +1,29 @@
+module f74181_tests where
+import sn74as181a
+
+// m = 1
+logicStuff a0 a1 a2 a3 b0 b1 b2 b3 s0 s1 s2 s3 = 
+  if s == 0 then ~(a) else
+  if s == 1 then ~(a || b) else
+  if s == 2 then (~a && b) else
+  if s == 3 then 0 else
+  if s == 4 then ~(a && b) else
+  if s == 5 then ~b else
+  if s == 6 then (a ^ b) else
+  if s == 7 then a && ~b else
+  if s == 8 then ~a || b else
+  if s == 9 then ~(a ^ b) else
+  if s == 10 then b else
+  if s == 11 then a && b else
+  if s == 12 then 15 else
+  if s == 13 then a || ~b else
+  if s == 14 then a || b else a
+    where
+      a = [a0,a1,a2,a3]:[4];
+	   b = [b0,b1,b2,b3]:[4];
+	   s = [s3,s2,s1,s0]:[4]
+
+property logicStuffWorks a0 a1 a2 a3 b0 b1 b2 b3 s0 s1 s2 s3 =
+    (logicStuff a0 a1 a2 a3 b0 b1 b2 b3 s0 s1 s2 s3) ==
+    (f74181_spec True a0 a1 a2 a3 b0 b1 b2 b3 True s0 s1 s2 s3)@@[0,1,2,3]
+
