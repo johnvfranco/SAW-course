@@ -49,29 +49,26 @@ type State = ([8] // F1
 
 // Our encoding of Legato's algorithm follows the original spec quite closely
 // in spirit, albeit shallowly embedding it in Cryptol. In particular
-// each line in the program becomes a state transformer, captured
-// by the Instruction type below
-type Instruction = State -> State
+// each line in the program becomes a state transformer.
 
-// Shallowly embed each line in Legato's algorithm.
 // Each line modifies the state and passes the control
 // to the next. Note that the next instruction is dynamically
 // chosen for the jump instructions
 
 // step01: LDX #8; load X immediate with the integer 8 
-step01 : Instruction
+step01 : State -> State
 step01 (f1, f2, a, _, l, c, z) = step02 (f1, f2, a, 8, l, c, z)
 
 // step02: LDA #0; load A immediate with the integer 0 
-step02 : Instruction
+step02 : State -> State
 step02 (f1, f2, _, x, l, c, z) = step03 (f1, f2, 0, x, l, c, z)
 
 // step03: CLC; set C to 0
-step03 : Instruction
+step03 : State -> State
 step03 (f1, f2, a, x, l, _, z) = step04 (f1, f2, a, x, l, False, z)
 
 // step04: LOOP  ROR F1; rotate F1 right circular through C 
-step04 : Instruction
+step04 : State -> State
 step04 (f1, f2, a, x, l, c, z) = step05 (f1', f2, a, x, l, b0, z)
   where 
     [b7,b6,b5,b4,b3,b2,b1,b0] = f1 // LSB is on the right
@@ -79,18 +76,18 @@ step04 (f1, f2, a, x, l, c, z) = step05 (f1', f2, a, x, l, b0, z)
 
 // step05 : BCC ZCOEF; branch to ZCOEF if C = 0 
 // ZCOEF is step8 in our encoding
-step05 : Instruction
+step05 : State -> State
 step05 (f1, f2, a, x, l, c, z)
   = if (c == 0)
          then step08 (f1, f2, a, x, l, c, z)
          else step06 (f1, f2, a, x, l, c, z)   // Try changing step6 to step7
 
 // step06: CLC; set C to 0
-step06 : Instruction
+step06 : State -> State
 step06 (f1, f2, a, x, l, _, z) = step07 (f1, f2, a, x, l, False, z)
 
 // step07: ADC F2; set A to A+F2+C and C to the carry
-step07 : Instruction
+step07 : State -> State
 step07 (f1, f2, a, x, l, c, z) = step08 (f1, f2, a', x, l, c', z')
   where 
     a' = a + f2 + (if c then (1:[8]) else (0:[8]))
@@ -103,27 +100,27 @@ step07 (f1, f2, a, x, l, c, z) = step08 (f1, f2, a', x, l, c', z')
     z' = a' == 0
 
 // step08 : ZCOEF ROR A; rotate A right circular through C 
-step08 : Instruction
+step08 : State -> State
 step08 (f1, f2, a, x, l, c, z) = step09 (f1, f2, a', x, l, a0, z)
   where 
     [a7,a6,a5,a4,a3,a2,a1,a0] = a // LSB is on the right
     a' = [c,a7,a6,a5,a4,a3,a2,a1] // ROR; result is the right rotation
 
 // step09 : ROR LOW; rotate LOW right circular through C 
-step09 : Instruction
+step09 : State -> State
 step09 (f1, f2, a, x, l, c, z) = step10 (f1, f2, a, x, l', l0, z)
   where 
     [l7,l6,l5,l4,l3,l2,l1,l0] = l // LSB is on the right
     l' = [c,l7,l6,l5,l4,l3,l2,l1] // ROR; result is the right rotation
 
 // step10: DEX; set X to X-1
-step10 : Instruction
+step10 : State -> State
 step10 (f1, f2, a, x, l, c, z) = step11 (f1, f2, a, x', l, c, x'==0)
   where x' = x-1
 
 // step11: BNE LOOP; branch to LOOP if Z = 0 
 // LOOP is step04 in our encoding
-step11 : Instruction
+step11 : State -> State
 step11 (f1, f2, a, x, l, c, z)
   = if (z == 0)
        then step04 (f1, f2, a, x, l, c, z)
