@@ -38,10 +38,8 @@ import perm
      of the odd elements of p
 */
 
-/*
-  Input: x - finite sequence of numbers
-  Output: infinite list, padding with -1s after the split elements
-*/
+//  Input: x - finite sequence of numbers
+//  Output: infinite list, padding with -1s after the split elements
 splito : {n,a} (Literal 1 a, Integral a, Eq a, fin n) => [n]a -> [inf]a
 splito x = s ax 
   where
@@ -50,10 +48,8 @@ splito x = s ax
           else [(p@1)]#(s (drop `{2} p))
     ax = x#[-1,-1 ...]
 
-/*
-  Input: x - finite sequence
-  Output: infinite sequence, padding with -1s after the split elements
-*/
+//  Input: x - finite sequence
+//  Output: infinite sequence, padding with -1s after the split elements
 splite : {n,a} (Literal 1 a, Integral a, Eq a, fin n) => [n]a -> [inf]a
 splite x = s ax
   where
@@ -61,10 +57,8 @@ splite x = s ax
           else [(p@0)]#(s (drop `{2} p))
     ax = x#[-1,-1 ...]
 
-/*
-  Inputs: px, py - two infinite lists in nondecreasing order (padded with -1s)
-  Output: infinite list, nondecreasing, containing all of px and py, padded
-*/
+//  Inputs: px, py: two infinite lists in nondecreasing order (padded with -1s)
+//  Output: infinite list, nondecreasing, containing all of px and py, padded
 merge : {a} (Literal 1 a, Ring a, Cmp a) => [inf]a -> [inf]a -> [inf]a
 merge px py = 
       if (px@0) == -1 then py
@@ -72,10 +66,8 @@ merge px py =
       else if (px@0) < (py@0) then [(px@0)]#(merge (tail px) py)
       else [(py@0)]#(merge px (tail py))
 
-/*
-  Input: finite sequence lst of numbers
-  Output: finite nondecreasing sequence of numbers that is a permutation of lst
-*/
+//  Input: finite sequence lst of numbers
+//  Output: finite nondecreasing sequence of numbers that is permutation of lst
 mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 1) => [cnt][a] -> [cnt][a]
 mergesort lst = take `{cnt} (mergesrt ax)
   where

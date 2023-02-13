@@ -33,7 +33,7 @@ valid lst = z ! 0
 // :prove isAPerm
 // Q.E.D.
 // (Total Elapsed Time: 12.325s, using "CVC4")
-isAPerm : [8][4] -> Bit
+isAPerm : [16][4] -> Bit
 property isAPerm lst = ~(valid lst) \/ (perm lst (bsort lst))
 
 res00 = bsort []
