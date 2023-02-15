@@ -1,3 +1,4 @@
+// Determine if two input sequences are a permutation
 // See solution.pdf for an explanation
 remove lst n = drop `{2} [w.0 | w <- res]
   where
@@ -44,7 +45,8 @@ res10 = perm [11,44,23,82,66,91,42,41,63,72,82,12,16,21,91,72,71]
              [44,91,72,11,71,42,12,63,16,23,91,82,21,72,41,82,66]
 res11 = perm [11,44,23,82,66,91,42,41,63,72,82,12,16,21,91,72,71]
              [44,71,72,11,71,42,12,63,16,23,91,82,21,72,41,82,66]
+res12 = perm [97] ['a']
 
 // Use :s base=2 to see the results
 results = [res00, res01, res02, res03, res04, res05, res06, res07,
-           res08, res09, res10, res11]
+           res08, res09, res10, res11, res12]
