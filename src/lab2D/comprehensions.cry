@@ -88,4 +88,4 @@ v16 = [(0,0,-1)]#[(if (ps-ss.0 > ss.1) then (ss.0+fs, ps-ss.0, i)
 station_to_start_from = (v16 ! 0).2
 location_of_station = loc @ station_to_start_from
 // station_to_start_from is fifth one (5th is at pos 4 in sequence)
-// location_of_station is (ration 71 100)
+// location_of_station is (ratio 71 100)
