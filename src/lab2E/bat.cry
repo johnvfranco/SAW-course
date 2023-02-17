@@ -1,3 +1,24 @@
+//  Riddle of the Bitcoin and the Tiger(s)
+//  9 rooms - Bitcoin is in one room - other rooms may be empty or have tigers
+//  Player wins if room with Bitcoin is selected.  Player is eaten if room with
+//  a tiger is selected.
+//
+//  Signs on doors of rooms:
+//     ROOM 1: THE BITCOIN IS IN A ROOM WITH AN UNEVEN NUMBER
+//     ROOM 2: THIS ROOM IS EMPTY
+//     ROOM 3: EITHER SIGN 5 TELLS THE TRUTH, OR SIGN 7 IS LYING
+//     ROOM 4: SIGN 1 IS LYING
+//     ROOM 5: SIGN 2 IS LYING OR SIGN 4 TELLS THE TRUTH
+//     ROOM 6: SIGN 3 IS LYING
+//     ROOM 7: THE BITCOIN IS NOT IN ROOM 1
+//     ROOM 8: THIS ROOM HOSTS A TIGER, AND ROOM 9 IS EMPTY
+//     ROOM 9: THIS ROOM HOSTS A TIGER, AND SIGN 6 IS LYING
+//
+//  Sign on the door with BITCOIN is True
+//  Signs on doors hiding a TIGER are False
+//  Signs on doors of empty rooms are either True or False
+//  If you know whether room 8 is empty, you uniquely know what room the
+//  BITCOIN is in
 Bitcoin_in_one_room b1 b2 b3 b4 b5 b6 b7 b8 b9 =
    ((~b1) \/ (~b2)) /\
    ((~b1) \/ (~b3)) /\
