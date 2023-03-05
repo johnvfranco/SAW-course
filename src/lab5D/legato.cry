@@ -1,0 +1,156 @@
+// Legato's challenge in Cryptol
+// June 28, 2009
+// Author: Levent Erkok, Galois, Inc.
+// This file is in the public domain
+
+/* An encoding and correctness proof of Legato's multiplier in Cryptol
+
+   For details: 
+     http://www.cs.utexas.edu/~moore/acl2/workshop-2004/contrib/legato/
+	  Weakest-Preconditions-Report.pdf
+
+   Legato's challenge, as apparently referred to in ACL2 circles, is
+   to prove a deep-embedding of Legato's algorithm correct with respect
+   to a Mostek simulator coded in ACL2. We do *not* attempt to solve
+   Legato's challenge in Cryptol. We merely code and prove that Legato's
+   multiplier is correct.
+*/
+
+/* Here's Legato's algorithm, as coded in Mostek assembly
+
+ step01:       LDX #8         ; load X immediate with the integer 8
+ step02:       LDA #0         ; load A immediate with the integer 0 
+ step03:       CLC            ; set C to 0
+ step04: LOOP  ROR F1         ; rotate F1 right circular through C 
+ step05:       BCC ZCOEF      ; branch to ZCOEF if C = 0 
+ step06:       CLC            ; set C to 0 
+ step07:       ADC F2         ; set A to A+F2+C and C to the carry 
+ step08: ZCOEF ROR A          ; rotate A right circular through C 
+ step09:       ROR LOW        ; rotate LOW right circular through C 
+ step10:       DEX            ; set X to X-1 
+ step11:       BNE LOOP       ; branch to LOOP if Z = 0 
+
+Note that apparently the CLC in step3 was later added by Warren Hunt; the
+original spec did not include this statement. However, without this
+addition, the algorithm does not work correctly for all starting states,
+so we adopt this change as well.
+*/
+
+// An abstraction of the Mostek state; only parts relevant
+// to the Legato's multiplier are modeled for simplicity
+type State = ([8] // F1
+             ,[8] // F2
+             ,[8] // A
+             ,[8] // X
+             ,[8] // LOW
+             ,Bit // C (Carry)
+             ,Bit // Z (Zero)
+             )
+
+// Our encoding of Legato's algorithm follows the original spec quite closely
+// in spirit, albeit shallowly embedding it in Cryptol. In particular
+// each line in the program becomes a state transformer.
+
+// Each line modifies the state and passes the control
+// to the next. Note that the next instruction is dynamically
+// chosen for the jump instructions
+
+// step01: LDX #8; load X immediate with the integer 8 
+step01 : State -> State
+step01 (f1, f2, a, _, l, c, z) = step02 (f1, f2, a, 8, l, c, z)
+
+// step02: LDA #0; load A immediate with the integer 0 
+step02 : State -> State
+step02 (f1, f2, _, x, l, c, z) = step03 (f1, f2, 0, x, l, c, z)
+
+// step03: CLC; set C to 0
+step03 : State -> State
+step03 (f1, f2, a, x, l, _, z) = step04 (f1, f2, a, x, l, False, z)
+
+// step04: LOOP  ROR F1; rotate F1 right circular through C 
+step04 : State -> State
+step04 (f1, f2, a, x, l, c, z) = step05 (f1', f2, a, x, l, b0, z)
+  where 
+    [b7,b6,b5,b4,b3,b2,b1,b0] = f1 // LSB is on the right
+    f1' = [c,b7,b6,b5,b4,b3,b2,b1] // ROR; 
+
+// step05 : BCC ZCOEF; branch to ZCOEF if C = 0 
+// ZCOEF is step8 in our encoding
+step05 : State -> State
+step05 (f1, f2, a, x, l, c, z)
+  = if (c == 0)
+         then step08 (f1, f2, a, x, l, c, z)
+         else step06 (f1, f2, a, x, l, c, z)   // Try changing step6 to step7
+
+// step06: CLC; set C to 0
+step06 : State -> State
+step06 (f1, f2, a, x, l, _, z) = step07 (f1, f2, a, x, l, False, z)
+
+// step07: ADC F2; set A to A+F2+C and C to the carry
+step07 : State -> State
+step07 (f1, f2, a, x, l, c, z) = step08 (f1, f2, a', x, l, c', z')
+  where 
+    a' = a + f2 + (if c then (1:[8]) else (0:[8]))
+    // Was there a carry? Check that "real" result is larger than 255
+    // Note that we need at most 9 bits for this addition
+    a'Large : [9]
+    a'Large = (zero # a) + (zero # f2) + (if c then (1:[9]) else (0:[9]))
+    c' = a'Large > (255:[9])
+    // set the zero flag
+    z' = a' == 0
+
+// step08 : ZCOEF ROR A; rotate A right circular through C 
+step08 : State -> State
+step08 (f1, f2, a, x, l, c, z) = step09 (f1, f2, a', x, l, a0, z)
+  where 
+    [a7,a6,a5,a4,a3,a2,a1,a0] = a // LSB is on the right
+    a' = [c,a7,a6,a5,a4,a3,a2,a1] // ROR; result is the right rotation
+
+// step09 : ROR LOW; rotate LOW right circular through C 
+step09 : State -> State
+step09 (f1, f2, a, x, l, c, z) = step10 (f1, f2, a, x, l', l0, z)
+  where 
+    [l7,l6,l5,l4,l3,l2,l1,l0] = l // LSB is on the right
+    l' = [c,l7,l6,l5,l4,l3,l2,l1] // ROR; result is the right rotation
+
+// step10: DEX; set X to X-1
+step10 : State -> State
+step10 (f1, f2, a, x, l, c, z) = step11 (f1, f2, a, x', l, c, x'==0)
+  where x' = x-1
+
+// step11: BNE LOOP; branch to LOOP if Z = 0 
+// LOOP is step04 in our encoding
+step11 : State -> State
+step11 (f1, f2, a, x, l, c, z)
+  = if (z == 0)
+       then step04 (f1, f2, a, x, l, c, z)
+       else (f1, f2, a, x, l, c, z)        // done!
+
+// legato: given two 8 bit arguments f1 and f2, return 8 bit
+// results hi and lo, s.t. f1 * f2 = hi * 256 + lo
+// We take the initial state as an argument; i.e., the
+// algorithm will work regardless of the state of the machine
+legato : ([8], [8], State) -> ([8], [8])
+legato (f1, f2, st) = (hi, lo)
+  where 
+    // get the relevant parts to construct the starting state
+    (_, _, A, X, LOW, C, Z) = st
+    // Run legato multiplier; final A is hi; and final LOW is low
+    (_, _, hi, _, lo, _, _) = step01 (f1, f2, A, X, LOW, C, Z)
+
+// State the correctness of the algorithm
+// Z3 proves this in about 1.5 minutes
+// Note that the search space has 2^58 bits in this case
+multiplyIsCorrect : [8] -> [8] -> State -> Bit
+property multiplyIsCorrect x y st =
+  ((x*y == lo) &&
+  (((((zero#x):[16])*((zero#y):[16]))/256) == ((zero#hi):[16])))
+    where
+      (hi, lo) = legato(x,y,st)
+
+// cryptol> :l legato.cry
+// legato> :s prover=z3
+// legato> :prove multiplyIsCorrect
+// Q.E.D.
+// (Total Elapsed Time: 1m:36.607s, using "Z3")
+

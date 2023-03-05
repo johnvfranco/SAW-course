@@ -1,0 +1,25 @@
+module solution where
+import DES
+
+// Returns a sequence of 1s iff all numbers in (expandKey key) are the same
+func key = z
+  where
+    z = [ x == y | x <- (expandKey key) | y <- (drop `{1} (expandKey key)) ]
+     
+// Exercise 1: weak keys
+property WeakKeys key = (func key) == ~zero
+
+// Then, in cryptol:
+// solution> :s satNum=all
+// solution> :sat WeakKeys
+
+// Exercise 2:
+// Encrypting twice should not produce original plaintext
+WK : [64] -> [64] -> Bit
+property WK key pt = (DES.encrypt key (DES.encrypt key pt)) == pt
+// solution> :s prover=boolector
+// solution> :prove WK
+// Counterexample
+// WK 0xbe38506e28f20628 0x67ff7750c8ef5f99 = False
+// (Total Elapsed Time: 2.180s, using "Boolector")
+

@@ -1,0 +1,284 @@
+module sn74as181a where
+
+// Input: a and b are sequences of True,False
+// Output: xor of each a,b pair until the end of the
+// shortest sequence is reached.  Below, both sequences
+// will be of the same length.
+// Example:  v_xor [True, False, True, False]
+//                 [True, True, False, False]
+// 0b0110
+v_xor a b = [ x^y  | x <- a | y <- b ]
+
+// Input: c is a Bit, a and b are sequences of True,False
+// Output: sequence of Bits where each Bit is the result
+// of adding 2 input bits plus a carry from the previous
+// stage.  The last Bit in the sequence is the last carry
+// bit.
+// Example: v_adder True [False,True,False,True]
+//                       [False,True,True,True]
+// 0b10011
+v_adder c a b = drop `{1} [ w.0 | w <- z ]
+  where
+    z = [(False, c)]#
+        [ (x^y^q.1, (x/\y)\/(x/\q.1)\/(y/\q.1))
+        | x <-a#[False] | y <- b#[False] | q <- z ]
+
+// On Page 4 see four occurrences of f74171_q0
+// if s3 and s2 are T this is  ~((a /\ b) \/ (a /\ ~b)) ->
+//    if a is False then True else False -> ~a
+// if s3 and s2 are False this is True
+// if s3 is True and s2 is False this is ~(a /\ b) 
+// if s3 is False and s2 is True this is ~(a /\ ~b)
+// (f74181_q0 True True True True True True) -> False
+f74181_q0 a b s0 s1 s2 s3 = ~((b /\ s3 /\ a) \/ (a /\ s2 /\ ~b))
+
+// On Page 4 see four occurrences of f74171_q1
+// if s1 and s0 are True this is ~(~b \/ a \/ b) = False
+// if s1 and s0 are False this is ~a
+// if s1 is True and s0 is False this is ~(~b \/ a)
+// if s1 is False and s0 is True this is ~(a \/ b)
+// (f74181_q1 True True True True True True) -> False
+f74181_q1 a b s0 s1 s2 s3 = ~((~b /\ s1) \/ (s0 /\ b) \/ a)
+
+f74181_f0 c a0 b0 m s0 s1 s2 s3 = out
+  where
+    m_neg = ~m
+    tmp = (f74181_q0 a0 b0 s0 s1 s2 s3) ^
+          (f74181_q1 a0 b0 s0 s1 s2 s3)
+    out = ~(c /\ m_neg) ^ tmp
+
+f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3 = out
+  where
+    m_neg = ~m
+    tmp1 = (f74181_q0 a1 b1 s0 s1 s2 s3) ^
+            (f74181_q1 a1 b1 s0 s1 s2 s3)
+    tmp2 = ~((m_neg /\
+              (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a0 b0 s0 s1 s2 s3) /\
+              c))
+    out = tmp1 ^ tmp2
+
+f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3 = out
+  where
+    m_neg = ~m
+    tmp1 = (f74181_q0 a2 b2 s0 s1 s2 s3) ^
+           (f74181_q1 a2 b2 s0 s1 s2 s3)
+    tmp2 = ~((m_neg /\
+              (f74181_q1 a1 b1 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a0 b0 s0 s1 s2 s3) /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              c))
+    out = tmp1 ^ tmp2
+
+f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
+  where
+    m_neg = ~m
+    tmp1 = (f74181_q1 a3 b3 s0 s1 s2 s3) ^
+           (f74181_q0 a3 b3 s0 s1 s2 s3)
+    tmp2 = ~((m_neg /\
+              (f74181_q1 a2 b2 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q1 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q0 a2 b2 s0 s2 s2 s3)) \/
+             (m_neg /\
+              (f74181_q1 a0 b0 s0 s1 s2 s3) /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q0 a2 b2 s0 s1 s2 s3)) \/
+             (m_neg /\
+              (f74181_q0 a0 b0 s0 s1 s2 s3) /\
+              (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+              (f74181_q0 a2 b2 s0 s1 s2 s3) /\
+              c))
+    out = tmp1 ^ tmp2
+
+// node 14, Page 4
+f74181_a_b c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
+  where
+    out = ((f74181_f0 c a0 b0 m s0 s1 s2 s3) /\
+           (f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3) /\
+           (f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3) /\
+           (f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3))
+
+// node 15, Page 4
+f74181_prop c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
+  where
+    out = ~((f74181_q0 a0 b0 s0 s1 s2 s3) /\
+            (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+            (f74181_q0 a2 b2 s0 s1 s2 s3) /\
+            (f74181_q0 a3 b3 s0 s1 s2 s3))
+
+// node 17, Page 4
+f74181_gen c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
+  where
+   out = ~(((f74181_q0 a3 b3 s0 s1 s2 s3) /\
+            (f74181_q0 a2 b2 s0 s1 s2 s3) /\
+            (f74181_q0 a1 b1 s0 s1 s2 s3) /\
+            (f74181_q1 a0 b0 s0 s1 s2 s3)) \/
+           ((f74181_q0 a3 b3 s0 s1 s2 s3) /\
+            (f74181_q0 a2 b2 s0 s1 s2 s3) /\
+            (f74181_q1 a1 b1 s0 s1 s2 s3)) \/
+           ((f74181_q0 a3 b3 s0 s1 s2 s3) /\
+            (f74181_q1 a2 b2 s0 s1 s2 s3)) \/
+           (f74181_q1 a3 b3 s0 s1 s2 s3))
+
+// node 16, Page 4
+f74181_cout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = out
+  where
+    out = (~(f74181_gen c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3)) \/
+          ((~(f74181_prop c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3)) /\ c)
+
+f74181_sumout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
+   [(f74181_f0 c a0 b0 m s0 s1 s2 s3),
+    (f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3),
+    (f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3),
+    (f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3),
+    (f74181_cout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3)]
+
+// Functional specification
+f74181_spec c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
+   [f74181_f0 c a0 b0 m s0 s1 s2 s3,
+    f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3,
+    f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3,
+    f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_cout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_prop c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_gen c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3,
+    f74181_a_b c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3]
+
+// Wiring diagram
+f74181_netlist c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
+  [f0,f1,f2,f3,cout,p,g,a_b]
+  where
+    w0 = ~m
+    w1 = ~b0
+    w2 = ~b1
+    w3 = ~b2
+    w4 = ~b3
+    w5 = a0
+    w6 = b0 /\ s0
+    w7 = s1 /\ w1
+    w8 = w1 /\ s2 /\ a0
+    w9 = a0 /\ s3 /\ b0
+    w10 = a1
+    w11 = b1 /\ s0
+    w12 = s1 /\ w2
+    w13 = w2 /\ s2 /\ a1
+    w14 = a1 /\ s3 /\ b1
+    w15 = a2
+    w16 = b2 /\ s0
+    w17 = s1 /\ w3
+    w18 = w3 /\ s2 /\ a2
+    w19 = a2 /\ s3 /\ b2
+    w20 = a3
+    w21 = b3 /\ s0
+    w22 = s1 /\ w4
+    w23 = w4 /\ s2 /\ a3
+    w24 = a3 /\ s3 /\ b3
+    w25 = ~(w5 \/ w6 \/ w7)
+    w26 = ~(w8 \/ w9)
+    w27 = ~(w10 \/ w11 \/ w12)
+    w28 = ~(w13 \/ w14)
+    w29 = ~(w15 \/ w16 \/ w17)
+    w30 = ~(w18 \/ w19)
+    w31 = ~(w20 \/ w21 \/ w22)
+    w32 = ~(w23 \/ w24)
+    w33 = (w25 ^ w26)
+    w34 = (w27 ^ w28)
+    w35 = (w29 ^ w30)
+    w36 = (w31 ^ w32)
+    w37 = ~(w0 /\ c)
+    w38 = w0 /\ w25
+    w39 = (w0 /\ w26 /\ c)
+    w40 = (w0 /\ w27)
+    w41 = (w0 /\ w25 /\ w28)
+    w42 = (w0 /\ w28 /\ w26 /\ c)
+    w43 = (w0 /\ w29)
+    w44 = (w0 /\ w27 /\ w30)
+    w45 = (w0 /\ w25 /\ w30 /\ w28)
+    w46 = (w0 /\ w30 /\ w28 /\ w26 /\ c)
+    w47 = ~(w26 /\ w28 /\ w30 /\ w32)
+    w48 = ~(c /\ w26 /\ w28 /\ w30 /\ w32)
+    w49 = (w25 /\ w28 /\ w30 /\ w32)
+    w50 = (w27 /\ w30 /\ w32)
+    w51 = (w29 /\ w32)
+    w52 = w31
+    w53 = w37
+    w54 = ~(w38 \/ w39)
+    w55 = ~(w40 \/ w41 \/ w42)
+    w56 = ~(w43 \/ w44 \/ w45 \/ w46)
+    w57 = ~(w49 \/ w50 \/ w51 \/ w52)
+    w58 = (w53 ^ w33)
+    w59 = (w54 ^ w34)
+    w60 = (w55 ^ w35)
+    w61 = (w56 ^ w36)
+    w62 = (~w48 \/ ~w57)
+    w63 = (w58 /\ w59 /\ w60 /\ w61)
+    f0 = w58
+    f1 = w59
+    f2 = w60
+    f3 = w61
+    a_b = w63
+    p = w47
+    cout = w62
+    g = w57
+
+v00 = f74181_netlist True False False True True False False
+                     False True True False False True True
+
+f74181_fout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 = 
+   [(f74181_f0 c a0 b0 m s0 s1 s2 s3),
+    (f74181_f1 c a0 a1 b0 b1 m s0 s1 s2 s3),
+    (f74181_f2 c a0 a1 a2 b0 b1 b2 m s0 s1 s2 s3),
+    (f74181_f3 c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3)]
+
+property xorWorks c a0 a1 a2 a3 b0 b1 b2 b3 =
+   (f74181_fout c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3) == (v_xor a b)
+     where
+       a = [a0,a1,a2,a3]
+       b = [b0,b1,b2,b3]
+       s0 = False
+       s1 = True
+       s2 = True
+       s3 = False
+       m = True
+
+property addingWorks c a0 a1 a2 a3 b0 b1 b2 b3 =
+         [out0,out1,out2,out3,cout] == (v_adder c a b)
+  where
+    a = [a0,a1,a2,a3];
+	 b = [b0,b1,b2,b3]
+    s0 = True
+    s1 = False
+    s2 = False
+    s3 = True
+    m = False
+    output = (f74181_spec (~c) a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3)
+    out0 = output@0
+    out1 = output@1
+    out2 = output@2
+    out3 = output@3
+    out4 = output@4
+    cout = ~out4
+
+property itWorks c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3 =
+    (f74181_spec c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3) ==
+    (f74181_netlist c a0 a1 a2 a3 b0 b1 b2 b3 m s0 s1 s2 s3)
+  where
+    a = [a0,a1,a2,a3]
+    b = [b0,b1,b2,b3]
+
+// Cryptol> :l sn74as181a.cry
+// Main> :prove xorWorks
+// Q.E.D.
+// (Total Elapsed Time: 0.011s, using "Z3")
+// Main> :prove addingWorks
+// Q.E.D.
+// (Total Elapsed Time: 0.019s, using "Z3")
+// Main> :prove itWorks
+// Q.E.D.
+// (Total Elapsed Time: 0.023s, using "Z3")

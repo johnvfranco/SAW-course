@@ -1,0 +1,22 @@
+module alt where
+import DES
+
+// Returns a sequence of 1s iff all numbers in (expandKey key) are the same
+func x = z
+  where
+    z = [ a == b | a <- x | b <- drop `{1} x ]
+
+property WeakKeys key = (func (expandKey key)) == ~zero
+
+// Then, in cryptol:
+// alt> :s satNum=all
+// alt> :sat WeakKeys
+
+WK : [64] -> [64] -> Bit
+property WK key pt = (DES.encrypt key (DES.encrypt key pt)) == pt
+// alt> :s prover=boolector
+// alt> :prove WK
+// Counterexample
+// WK 0xbe38506e28f20628 0x67ff7750c8ef5f99 = False
+// (Total Elapsed Time: 2.184s, using "Boolector")
+

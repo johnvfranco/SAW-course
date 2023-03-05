@@ -1,0 +1,12 @@
+plus : ([31],[31]) -> [31]
+plus (a, b) = if sab @ 0 then sab' + 1 else sab'
+  where
+     sab = ((zero : [1]) # a) + ((zero : [1]) # b)
+     sab' = drop `{1} sab
+
+add xs = sums ! 0
+  where
+    sums = [0] # [plus (s, x) | s <- sums | x <- xs]
+
+v (ss) = add [ s <<< c | s <- ss@@[15,13,10,4,0,0]
+                       | c <- [15,17,21,20,8,0]]
