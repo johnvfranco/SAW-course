@@ -22,7 +22,7 @@ class lab6 extends JFrame implements ActionListener {
    String fpath = null;
    
    public lab6 (aFrame pnt) {
-      super("Proving functional correctness");
+      super("Proving memory safety");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
       parent = pnt;
@@ -35,13 +35,13 @@ class lab6 extends JFrame implements ActionListener {
          y[i] = null;
          z[i] = null;
       }
-
+      
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab6/";
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
-
+      
       setLayout(new BorderLayout());
       setBackground(bkgd);
 
@@ -57,7 +57,7 @@ class lab6 extends JFrame implements ActionListener {
 
       JPanel rs = new JPanel(new FlowLayout(FlowLayout.CENTER));
       rs.setBackground(bkgd);      
-      rs.add(title = new JLabel("Lesson 6                      ", JLabel.CENTER));
+      rs.add(title = new JLabel("Lesson 5                      ", JLabel.CENTER));
       title.setFont(new Font("Helvetica", Font.BOLD, 22));
       title.setForeground(new Color(0,0,150));
       xq.add(rs,BorderLayout.CENTER);
@@ -114,7 +114,7 @@ class lab6 extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Proving functional correctness"));
+      p.add(lbl = new JLabel("  Proving memory safety"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
