@@ -17,8 +17,9 @@ class aFrame extends JFrame implements ActionListener {
    lab2 kx = null;
    lab3 ox = null;
    lab4 re = null;
-   lab5 ar = null;
-   lab6 ds = null;
+	lab5 tt = null;
+   lab6 ar = null;
+   lab7 ds = null;
    cdx_game cg = null;
    
    public aFrame () {
@@ -69,7 +70,7 @@ class aFrame extends JFrame implements ActionListener {
       JPanel xy = new JPanel(new BorderLayout());
       xy.setBackground(bkgd);
 
-      JPanel q = new JPanel(new GridLayout(8,1));
+      JPanel q = new JPanel(new GridLayout(9,1));
       q.setBackground(bkgd);
 
       // Linux tutorial
@@ -122,8 +123,8 @@ class aFrame extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[5] = new JButton("Synopsis"));      
       p.add(b[5] = new JButton("Lesson 5"));
-      d[5].setEnabled(false);
-      b[5].setEnabled(false);
+      d[5].setEnabled(true);
+      b[5].setEnabled(true);
       q.add(p);
 
       // Lab 6
@@ -136,22 +137,32 @@ class aFrame extends JFrame implements ActionListener {
       b[6].setEnabled(false);
       q.add(p);
 
-      // Contest
+      // Lab 7
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[7] = new JButton("Synopsis"));      
-      p.add(b[7] = new JButton("Contest"));
+      p.add(b[7] = new JButton("Lesson 7"));
       d[7].setEnabled(false);
       b[7].setEnabled(false);
+      q.add(p);
+
+      // Contest
+      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      p.setBackground(bkgd);
+      p.add(new JLabel("      "));
+      p.add(d[8] = new JButton("Synopsis"));      
+      p.add(b[8] = new JButton("Contest"));
+      d[8].setEnabled(false);
+      b[8].setEnabled(false);
       q.add(p);
       
       xy.add("West", q);
       
-      q = new JPanel(new GridLayout(8,1));
+      q = new JPanel(new GridLayout(9,1));
       q.setBackground(bkgd);
 
-      for (int i=0 ; i < 8 ; i++) {
+      for (int i=0 ; i < 9 ; i++) {
          d[i].setPreferredSize(new Dimension(100,24));
          b[i].setPreferredSize(new Dimension(100,24));
       }
@@ -194,11 +205,18 @@ class aFrame extends JFrame implements ActionListener {
       // Lab 5
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Proving memory safety", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Software Analysis Workbench", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 6
+      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      p.setBackground(bkgd);
+      p.add(lbl = new JLabel("  Proving memory safety", JLabel.LEFT));
+      lbl.setFont(fnt);
+      q.add(p);
+
+      // Lab 7
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
       p.add(lbl = new JLabel("  Proving functional correctness", JLabel.LEFT));
@@ -245,12 +263,15 @@ class aFrame extends JFrame implements ActionListener {
          re = new lab4(this);
          setVisible(false);
       } else if (evt.getSource() == b[5]) {
-         ar = new lab5(this);
+         tt = new lab5(this);
          setVisible(false);
       } else if (evt.getSource() == b[6]) {
-         ds = new lab6(this);
+         ar = new lab6(this);
          setVisible(false);
       } else if (evt.getSource() == b[7]) {
+         ds = new lab7(this);
+         setVisible(false);
+      } else if (evt.getSource() == b[8]) {
          cg = new cdx_game(this);
          setVisible(false);
       }
@@ -260,8 +281,9 @@ class aFrame extends JFrame implements ActionListener {
       else if (evt.getSource() == d[3]) getDoc(fpath+"/lab3/synopsis.pdf");
       else if (evt.getSource() == d[4]) getDoc(fpath+"/lab4/synopsis.pdf");
       else if (evt.getSource() == d[5]) getDoc(fpath+"/lab5/synopsis.pdf");
-      else if (evt.getSource() == d[6]) getDoc(fpath+"/slab6/ynopsis.pdf");
-      else if (evt.getSource() == d[7]) getDoc(fpath+"/cdest/synopsis.pdf");
+      else if (evt.getSource() == d[6]) getDoc(fpath+"/lab6/synopsis.pdf");
+      else if (evt.getSource() == d[7]) getDoc(fpath+"/lab7/ynopsis.pdf");
+      else if (evt.getSource() == d[8]) getDoc(fpath+"/cdest/synopsis.pdf");
    }
 
    public void getDoc (String name) {
@@ -276,7 +298,7 @@ class aFrame extends JFrame implements ActionListener {
 public class a {
    public static void main (String args[]) {
       aFrame af = new aFrame();
-      af.setSize(700,460);
+      af.setSize(700,490);
       af.setVisible(true);
    }
 }
