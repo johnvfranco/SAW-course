@@ -79,7 +79,7 @@ class lab3 extends JFrame implements ActionListener {
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[1] = new JButton("Synopsis"));
-      p.add(b[1] = new JButton("Lesson 2.1"));
+      p.add(b[1] = new JButton("Lesson 3.1"));
       q.add(p);
 
       // Lab 2
@@ -87,7 +87,7 @@ class lab3 extends JFrame implements ActionListener {
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[2] = new JButton("Synopsis"));      
-      p.add(b[2] = new JButton("Lesson 2.2"));
+      p.add(b[2] = new JButton("Lesson 3.2"));
       q.add(p);
 
       // Lab 3
@@ -95,7 +95,7 @@ class lab3 extends JFrame implements ActionListener {
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[3] = new JButton("Synopsis"));      
-      p.add(b[3] = new JButton("Lesson 2.3"));
+      p.add(b[3] = new JButton("Lesson 3.3"));
       q.add(p);
 
       // Lab 4
@@ -103,7 +103,7 @@ class lab3 extends JFrame implements ActionListener {
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[4] = new JButton("Synopsis"));      
-      p.add(b[4] = new JButton("Lesson 2.4"));
+      p.add(b[4] = new JButton("Lesson 3.4"));
       q.add(p);
 
       // Lab 5
@@ -111,7 +111,7 @@ class lab3 extends JFrame implements ActionListener {
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[5] = new JButton("Synopsis"));      
-      p.add(b[5] = new JButton("Lesson 2.5"));
+      p.add(b[5] = new JButton("Lesson 3.5"));
       q.add(p);
 
       xy.add("West", q);
