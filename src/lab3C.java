@@ -112,7 +112,7 @@ class lab3C extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  AES Specification"));
+      p.add(lbl = new JLabel("  sn74181 ALU spec"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
