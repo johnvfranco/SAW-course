@@ -1,0 +1,26 @@
+// Helpful SAW Shortcuts and Functions
+
+// Shortcuts for common integer types 
+
+let  i8 = llvm_int  8;
+let i16 = llvm_int 16;
+let i32 = llvm_int 32;
+let i64 = llvm_int 64;
+
+/* Generate a fresh variable x of given type as well as a pointer xp
+   that points to x */
+let ptr_to_fresh (name : String) (type : LLVMType) = do {
+    x <- llvm_fresh_var name type;
+    p <- llvm_alloc type;
+    llvm_points_to p (llvm_term x);
+    return (x, p);
+};
+
+/* Read-only version of ptr_to_fresh. Use when you aren't going to 
+   be modifying the memory the pointer is pointing to */
+let ptr_to_fresh_readonly (name : String) (type : LLVMType) = do {
+    x <- llvm_fresh_var name type;
+    p <- llvm_alloc_readonly type;
+    llvm_points_to p (llvm_term x);
+    return (x, p);
+};
