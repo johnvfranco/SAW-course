@@ -1,11 +1,14 @@
-m <- llvm_load_module "add_in.bc"
-
-// Enter your specification here:
+m <- llvm_load_module "add_in.bc";
 
 let add_in_spec = do {
 
-};
+    x <- llvm_fresh_var "x" (llvm_int 32);
+    y <- llvm_fresh_var "y" (llvm_int 32);
 
-// Attempt to verify your specification
+    llvm_execute_func [llvm_term x, llvm_term y];
+
+    ret <- llvm_fresh_var "ret" (llvm_int 32);
+    llvm_return (llvm_term ret);    
+};
 
 add_in_ov <- llvm_verify m "add_in" [] true add_in_spec z3;
