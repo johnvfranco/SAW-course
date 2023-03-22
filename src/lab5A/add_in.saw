@@ -1,14 +1,19 @@
 m <- llvm_load_module "add_in.bc";
 
+let ptr_to_fresh(name : String) (type : LLVMType) = do {
+    x <- llvm_fresh_var name type;
+    p <- llvm_alloc type;
+    llvm_points_to p (llvm_term x);
+    return (x, p);
+};
+
 let add_in_spec = do {
 
-    x <- llvm_fresh_var "x" (llvm_int 32);
+    (x,p) <- ptr_to_fresh "x" (llvm_int 32);
     y <- llvm_fresh_var "y" (llvm_int 32);
 
-    llvm_execute_func [llvm_term x, llvm_term y];
-
-    ret <- llvm_fresh_var "ret" (llvm_int 32);
-    llvm_return (llvm_term ret);    
+    llvm_execute_func [p, llvm_term y];
+    llvm_return (llvm_term {{ x+y : [32]}});
 };
 
 add_in_ov <- llvm_verify m "add_in" [] true add_in_spec z3;

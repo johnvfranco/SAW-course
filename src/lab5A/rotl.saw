@@ -1,0 +1,23 @@
+// Rotational Left Shift
+
+m <- llvm_load_module "rotl.bc";
+
+// Declare the specification
+let rotl_spec = do {
+
+    // Initialise our variables
+    x <- llvm_fresh_var "x" (llvm_int 32);
+    r <- llvm_fresh_var "r" (llvm_int 8);
+
+    // Add in the preconditions!
+    llvm_precond {{ 0 < r }};
+    llvm_precond {{ r < 32}};
+
+    // Call the function and return the value
+    llvm_execute_func [llvm_term x, llvm_term r];
+	 llvm_return (llvm_term {{ (x >> (32 - (r % 32))) || (x << (r % 32)) }});
+};
+
+// Verify the proof
+
+rotl_ov <- llvm_verify m "ROTL" [] true rotl_spec z3;
