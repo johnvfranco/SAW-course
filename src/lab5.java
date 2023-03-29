@@ -104,8 +104,8 @@ class lab5 extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[4] = new JButton("Synopsis"));      
       p.add(b[4] = new JButton("Lesson 5.4"));
-		d[4].setEnabled(false);
-		b[4].setEnabled(false);
+		d[4].setEnabled(true);
+		b[4].setEnabled(true);
       q.add(p);
 
       // Lab 5
@@ -114,8 +114,8 @@ class lab5 extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[5] = new JButton("Synopsis"));      
       p.add(b[5] = new JButton("Lesson 5.5"));
-		d[5].setEnabled(false);
-		b[5].setEnabled(false);
+		d[5].setEnabled(true);
+		b[5].setEnabled(true);
       q.add(p);
 
       xy.add("West", q);
@@ -152,14 +152,14 @@ class lab5 extends JFrame implements ActionListener {
       // Lab 4
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  TBD 1", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Salsa20", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 5
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  TBD 2", JLabel.LEFT));
+      p.add(lbl = new JLabel("  AES", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
