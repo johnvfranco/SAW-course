@@ -112,7 +112,7 @@ class lab5E extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  TBD"));
+      p.add(lbl = new JLabel("  AES"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
