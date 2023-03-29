@@ -165,7 +165,7 @@ class lab5B extends JFrame implements ActionListener {
          }
          try { Thread.sleep(500); } catch (Exception e) { }
       }
-      else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.cry");
+      else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
       else if (evt.getSource() == z[0]) {
