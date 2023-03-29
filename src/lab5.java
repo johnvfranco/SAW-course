@@ -104,6 +104,8 @@ class lab5 extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[4] = new JButton("Synopsis"));      
       p.add(b[4] = new JButton("Lesson 5.4"));
+		d[4].setEnabled(false);
+		b[4].setEnabled(false);
       q.add(p);
 
       // Lab 5
@@ -112,6 +114,8 @@ class lab5 extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[5] = new JButton("Synopsis"));      
       p.add(b[5] = new JButton("Lesson 5.5"));
+		d[5].setEnabled(false);
+		b[5].setEnabled(false);
       q.add(p);
 
       xy.add("West", q);
