@@ -112,7 +112,7 @@ class lab5D extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  TBD"));
+      p.add(lbl = new JLabel("  Salsa20"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
