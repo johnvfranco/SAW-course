@@ -1,0 +1,8 @@
+c1 <- llvm_load_module "ffs_ref.bc";
+c2 <- llvm_load_module "ffs_imp.bc";
+
+c_ffs_ref <- llvm_extract c1 "ffs_ref";
+c_ffs_imp <- llvm_extract c2 "ffs_imp";
+
+write_aig "c_ffs_ref.aig" c_ffs_ref;
+write_aig "c_ffs_imp.aig" c_ffs_imp;
