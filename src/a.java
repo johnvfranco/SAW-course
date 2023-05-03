@@ -23,7 +23,7 @@ class aFrame extends JFrame implements ActionListener {
    cdx_game cg = null;
    
    public aFrame () {
-      super("Cryptol for Verification");
+      super("Cryptol/SAW for Verification");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       setLayout(new BorderLayout());
       setBackground(bkgd);
@@ -50,7 +50,7 @@ class aFrame extends JFrame implements ActionListener {
 
       JPanel rs = new JPanel(new FlowLayout(FlowLayout.CENTER));
       rs.setBackground(bkgd);      
-      rs.add(title = new JLabel("Cryptol for Verification                ", JLabel.CENTER));
+      rs.add(title = new JLabel("Cryptol/SAW for Verification                ", JLabel.CENTER));
       title.setFont(new Font("Helvetica", Font.BOLD, 22));
       title.setForeground(new Color(0,0,150));
       xq.add(rs,BorderLayout.CENTER);
