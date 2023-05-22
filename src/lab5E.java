@@ -112,7 +112,7 @@ class lab5E extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  AES"));
+      p.add(lbl = new JLabel("  SHA256"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
@@ -180,7 +180,7 @@ class lab5E extends JFrame implements ActionListener {
             fc = new JFileChooser(fpath);
             javax.swing.filechooser.FileFilter filter =
                new FileNameExtensionFilter("Editable files",
-                                           new String[] {"txt", "cry", "tex"});
+                                           new String[] {"txt", "cry", "tex","c","h"});
             fc.setFileFilter(filter);
             fc.addChoosableFileFilter(filter);
             fc.showOpenDialog(this);
