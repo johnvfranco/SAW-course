@@ -106,6 +106,16 @@ SHA256' blocks = hash!0 where
 SHA256 : {a} (fin a, 64 >= width (8*a)) => [a][8] -> [256]
 SHA256 msg = join (SHA256' [ split x | x <- preprocess(join msg)])
 
+null_digest = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+digest_in_bytes : {i} (fin i, 64 >= width (8*i)) => [i][8] -> [32][8]
+digest_in_bytes msg = if all_chars msg then split(SHA256 msg) else
+					 	    null_digest
+
+all_chars msg = y ! 0
+  where
+    y = [True]#[ z /\ (if (x < 32) \/ (x > 127) then False else True) | x <- msg | z <- y ]
+
 property katsPass = ~zero == [test == kat | (test,kat) <- kats ]
 
 kats = [ (SHA256 "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq"
