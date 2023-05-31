@@ -133,8 +133,8 @@ class aFrame extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[6] = new JButton("Synopsis"));      
       p.add(b[6] = new JButton("Lesson 6"));
-      d[6].setEnabled(false);
-      b[6].setEnabled(false);
+      d[6].setEnabled(true);
+      b[6].setEnabled(true);
       q.add(p);
 
       // Lab 7
