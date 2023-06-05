@@ -22,7 +22,7 @@ class lab6A extends JFrame implements ActionListener {
    String fpath = null;
    
    public lab6A (lab6 pnt) {
-      super("What is Memory Safety");
+      super("Memory Safety");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
       parent = pnt;
@@ -112,7 +112,7 @@ class lab6A extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Introduction to SAW"));
+      p.add(lbl = new JLabel("  Memory Safety"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
