@@ -212,7 +212,7 @@ class aFrame extends JFrame implements ActionListener {
       // Lab 6
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Proving memory safety", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Code safety", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
