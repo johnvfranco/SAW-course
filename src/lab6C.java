@@ -22,7 +22,7 @@ class lab6C extends JFrame implements ActionListener {
    String fpath = null;
    
    public lab6C (lab6 pnt) {
-      super("Writing a specification");
+      super("Type Safety");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
       parent = pnt;
@@ -89,7 +89,7 @@ class lab6C extends JFrame implements ActionListener {
       p.setBackground(bkgd);      
       p.add(new JLabel("        "));
       p.add(y[0] = new JButton("Background"));
-      p.add(z[0] = new JButton("Cryptol"));
+      /* p.add(z[0] = new JButton("Cryptol")); */
       q.add(p);
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
@@ -99,7 +99,7 @@ class lab6C extends JFrame implements ActionListener {
       p.add(b[0] = new JButton("Solution"));
       q.add(p);
 
-      z[0].setPreferredSize(new Dimension(110,24));
+      /* z[0].setPreferredSize(new Dimension(110,24)); */
       y[0].setPreferredSize(new Dimension(135,24));
       x[0].setPreferredSize(new Dimension(70,24));
       c[0].setPreferredSize(new Dimension(70,24));
@@ -112,7 +112,7 @@ class lab6C extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Cryptol/SAW Safety Checks"));
+      p.add(lbl = new JLabel("  Type Safety"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
@@ -130,13 +130,15 @@ class lab6C extends JFrame implements ActionListener {
          if (y[i] != null) y[i].addActionListener(this);
          if (z[i] != null) z[i].addActionListener(this);
       }
-      
+
+		/*
       String command = "cryptol "+fpath;
       try {
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
       }
+		*/
 
       setSize(600,260);
       setVisible(true);
@@ -168,6 +170,7 @@ class lab6C extends JFrame implements ActionListener {
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
+		/*
       else if (evt.getSource() == z[0]) {
          String command = "cryptol "+fpath;
          try {
@@ -175,7 +178,8 @@ class lab6C extends JFrame implements ActionListener {
          } catch (Exception e) {
             System.out.println("Runtime: "+e.toString());
          }
-      } else if (evt.getSource() == x[0]) {
+		} */
+		else if (evt.getSource() == x[0]) {
          try {
             fc = new JFileChooser(fpath);
             javax.swing.filechooser.FileFilter filter =
