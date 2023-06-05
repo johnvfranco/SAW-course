@@ -23,7 +23,7 @@ class lab6D extends JFrame implements ActionListener {
    String fpath = null;
    
    public lab6D (lab6 pnt) {
-      super("Writing a specification");
+      super("Cryptol/SAW Safety Checks");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
       parent = pnt;
@@ -115,7 +115,7 @@ class lab6D extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Advanced Examples"));
+      p.add(lbl = new JLabel("  Cryptol/SAW Safety Checks"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
