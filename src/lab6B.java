@@ -22,7 +22,7 @@ class lab6B extends JFrame implements ActionListener {
    String fpath = null;
    
    public lab6B (lab6 pnt) {
-      super("Examples");
+      super("Thread Safety");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
       parent = pnt;
@@ -112,7 +112,7 @@ class lab6B extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Examples in Java"));
+      p.add(lbl = new JLabel("  Thread Safety"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
