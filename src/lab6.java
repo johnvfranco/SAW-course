@@ -20,7 +20,7 @@ class lab6 extends JFrame implements ActionListener {
    String fpath = null;
    
    public lab6 (aFrame pnt) {
-      super("Memory Safety");
+      super("Code Safety");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
       parent = pnt;
@@ -51,7 +51,7 @@ class lab6 extends JFrame implements ActionListener {
 
       JPanel rs = new JPanel(new FlowLayout(FlowLayout.CENTER));
       rs.setBackground(bkgd);      
-      rs.add(title = new JLabel("Software Analysis Workbench             ", JLabel.CENTER));
+      rs.add(title = new JLabel("Code Safety             ", JLabel.CENTER));
       title.setFont(new Font("Helvetica", Font.BOLD, 22));
       title.setForeground(new Color(0,0,150));
       xq.add(rs,BorderLayout.CENTER);
@@ -131,35 +131,35 @@ class lab6 extends JFrame implements ActionListener {
       // Lab 1
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  What is Memory Safety", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Memory Safety", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 2
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Examples in Java", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Thread Safety", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 3
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Cryptol and SAW Safety Checks", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Type Safety", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 4
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Advanced Examples", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Cryptol and SAW Safety Checks", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 5
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  TBD", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Conclusions", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
