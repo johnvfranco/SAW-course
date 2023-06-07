@@ -89,7 +89,7 @@ class lab6A extends JFrame implements ActionListener {
       p.setBackground(bkgd);      
       p.add(new JLabel("        "));
       p.add(y[0] = new JButton("Background"));
-      /*p.add(z[0] = new JButton("Cryptol")); */
+      /**/p.add(z[0] = new JButton("Cryptol")); /**/
       q.add(p);
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
@@ -99,7 +99,7 @@ class lab6A extends JFrame implements ActionListener {
       p.add(b[0] = new JButton("Solution"));
       q.add(p);
 
-      /* z[0].setPreferredSize(new Dimension(110,24)); */
+      /**/ z[0].setPreferredSize(new Dimension(110,24)); /**/
       y[0].setPreferredSize(new Dimension(135,24));
       x[0].setPreferredSize(new Dimension(70,24));
       c[0].setPreferredSize(new Dimension(70,24));
@@ -131,14 +131,14 @@ class lab6A extends JFrame implements ActionListener {
          if (z[i] != null) z[i].addActionListener(this);
       }
 
-		/* 
+      /**/
       String command = "cryptol "+fpath;
       try {
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
       }
-		*/
+      /**/
 
       setSize(550,260);
       setVisible(true);
@@ -170,20 +170,22 @@ class lab6A extends JFrame implements ActionListener {
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
-         /* else if (evt.getSource() == z[0]) {
-               String command = "cryptol "+fpath;
-               try {
-                  Runtime.getRuntime().exec(command);
-               } catch (Exception e) {
-                  System.out.println("Runtime: "+e.toString());
-               }
-			   } */
-		else if (evt.getSource() == x[0]) {
+      /**/
+      else if (evt.getSource() == z[0]) {
+         String command = "cryptol "+fpath;
+         try {
+            Runtime.getRuntime().exec(command);
+         } catch (Exception e) {
+            System.out.println("Runtime: "+e.toString());
+         }
+      } /**/
+      else if (evt.getSource() == x[0]) {
          try {
             fc = new JFileChooser(fpath);
             javax.swing.filechooser.FileFilter filter =
-               new FileNameExtensionFilter("Editable files",
-														 new String[] {"txt", "cry", "tex", "saw", "c","cc","py","h","Makefile","ll"});
+               new FileNameExtensionFilter(
+						 "Editable files",
+                   new String[] {"txt","cry","tex","saw", "c","cc","py","h","Makefile","ll"});
             fc.setFileFilter(filter);
             fc.addChoosableFileFilter(filter);
             fc.showOpenDialog(this);
