@@ -1,0 +1,6 @@
+//:safe z1  (unsafe - divide by zero error if b is 0)
+usaf : [8] -> [8] -> [8]
+usaf a b = (a/b):[8]
+
+saf : [8] -> [8] -> [8]
+saf a b = if b == 0 then 1 else (a/b)
