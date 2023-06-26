@@ -1,0 +1,15 @@
+// Returns True iff elmts is a sequence whose numbers are always increasing
+// in order (all are distinct)
+inputOK : [10][16] -> [8]
+inputOK elmts = z ! 0
+  where
+    z = [1]#[ if x >= y /\ q == 1 then 0 else q
+            | q <- z | x <- elmts | y <- (tail elmts) ]
+
+// Returns the first location of a given key in the given list
+// or -1 (255) if the key is not in the list
+linSearchIdx : [16] -> [10][16] -> [8]
+linSearchIdx key xs = if (inputOK xs) == 1 then s!0 else 255
+  where
+    s = [255]#[ if (key == x /\ h == -1) then c else h
+              | x <- xs |  h <- s | c <- [0...]]  
