@@ -1,0 +1,25 @@
+import "linear_search.cry";
+
+let safe_setup = do {
+    xs <- llvm_fresh_var "array" (llvm_array 233 (llvm_int 16));
+    pxs <- llvm_alloc (llvm_array 233 (llvm_int 16));
+    llvm_points_to pxs (llvm_term xs);
+    key <- llvm_fresh_var "key" (llvm_int 16);
+	 llvm_execute_func [ llvm_term key, pxs ];
+    llvm_return (llvm_term {{ linSearchIdx key xs }});
+};
+
+let inputOK_setup = do {
+    xs <- llvm_fresh_var "array" (llvm_array 233 (llvm_int 16));
+    pxs <- llvm_alloc (llvm_array 233 (llvm_int 16));
+    llvm_points_to pxs (llvm_term xs);
+    llvm_execute_func [ pxs ];
+    llvm_return (llvm_term {{ inputOK xs }});
+};
+
+let main : TopLevel () = do {
+    m <- llvm_load_module "bsearch_safe.bc";
+	 inp_OK <- llvm_verify m "inputOK" [] true inputOK_setup z3;	 
+    saf_proof <- llvm_verify m "b_search" [inp_OK] true safe_setup z3;
+    print "Done!";
+};
