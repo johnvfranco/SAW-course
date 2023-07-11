@@ -56,7 +56,7 @@ class lab6D extends JFrame implements ActionListener {
 
       JPanel rs = new JPanel(new FlowLayout(FlowLayout.CENTER));
       rs.setBackground(bkgd);      
-      rs.add(title = new JLabel("Lesson 6.4                      ", JLabel.CENTER));
+      rs.add(title = new JLabel("Lesson 6.3                      ", JLabel.CENTER));
       title.setFont(new Font("Helvetica", Font.BOLD, 22));
       title.setForeground(new Color(0,0,150));
       xq.add(rs,BorderLayout.CENTER);
