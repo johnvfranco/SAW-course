@@ -104,8 +104,8 @@ class lab6 extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[3] = new JButton("Synopsis"));      
       p.add(b[3] = new JButton("Lesson 6.3"));
-		d[3].setEnabled(true);
-		b[3].setEnabled(true);
+		d[3].setEnabled(false);
+		b[3].setEnabled(false);
       q.add(p);
 
       // Lab 5
@@ -114,8 +114,8 @@ class lab6 extends JFrame implements ActionListener {
       p.add(new JLabel("      "));
       p.add(d[4] = new JButton("Synopsis"));      
       p.add(b[4] = new JButton("Lesson 6.4"));
-		d[4].setEnabled(true);
-		b[4].setEnabled(true);
+		d[4].setEnabled(false);
+		b[4].setEnabled(false);
       q.add(p);
 
       xy.add("West", q);
