@@ -71,7 +71,7 @@ class lab6 extends JFrame implements ActionListener {
       JPanel xy = new JPanel(new BorderLayout());
       xy.setBackground(bkgd);
 
-      JPanel q = new JPanel(new GridLayout(5,1));
+      JPanel q = new JPanel(new GridLayout(4,1));
       q.setBackground(bkgd);
 
       // Lab 1
@@ -83,6 +83,14 @@ class lab6 extends JFrame implements ActionListener {
       q.add(p);
 
       // Lab 2
+      //p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      //p.setBackground(bkgd);
+      //p.add(new JLabel("      "));
+      //p.add(d[2] = new JButton("Synopsis"));      
+      //p.add(b[2] = new JButton("Lesson 6.2"));
+      //q.add(p);
+
+      // Lab 3
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
@@ -90,15 +98,17 @@ class lab6 extends JFrame implements ActionListener {
       p.add(b[2] = new JButton("Lesson 6.2"));
       q.add(p);
 
-      // Lab 3
+      // Lab 4
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[3] = new JButton("Synopsis"));      
       p.add(b[3] = new JButton("Lesson 6.3"));
+		d[3].setEnabled(true);
+		b[3].setEnabled(true);
       q.add(p);
 
-      // Lab 4
+      // Lab 5
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
@@ -108,22 +118,12 @@ class lab6 extends JFrame implements ActionListener {
 		b[4].setEnabled(true);
       q.add(p);
 
-      // Lab 5
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(d[5] = new JButton("Synopsis"));      
-      p.add(b[5] = new JButton("Lesson 6.5"));
-		d[5].setEnabled(true);
-		b[5].setEnabled(true);
-      q.add(p);
-
       xy.add("West", q);
       
-      q = new JPanel(new GridLayout(5,1));
+      q = new JPanel(new GridLayout(4,1));
       q.setBackground(bkgd);
 
-      for (int i=1 ; i < 6 ; i++) {
+      for (int i=1 ; i < 5 ; i++) {
          d[i].setPreferredSize(new Dimension(110,24));
          b[i].setPreferredSize(new Dimension(110,24));
       }
@@ -136,11 +136,11 @@ class lab6 extends JFrame implements ActionListener {
       q.add(p);
 
       // Lab 2
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Thread Safety", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      //p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      //p.setBackground(bkgd);
+      //p.add(lbl = new JLabel("  Thread Safety", JLabel.LEFT));
+      //lbl.setFont(fnt);
+      //q.add(p);
 
       // Lab 3
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -174,7 +174,7 @@ class lab6 extends JFrame implements ActionListener {
          if (d[i] != null) d[i].addActionListener(this);
       }
 
-      setSize(700,380);      
+      setSize(700,340);      
       setVisible(true);
    }
    
@@ -193,24 +193,26 @@ class lab6 extends JFrame implements ActionListener {
       } else if (evt.getSource() == b[1]) {
          vx = new lab6A(this);
          setVisible(false);
-      } else if (evt.getSource() == b[2]) {
-         kx = new lab6B(this);
-         setVisible(false);
-      } else if (evt.getSource() == b[3]) {
+      }
+		   // else if (evt.getSource() == b[2]) {
+		   //   kx = new lab6B(this);
+         //   setVisible(false);
+			// }
+	     else if (evt.getSource() == b[2]) {
          ox = new lab6C(this);
          setVisible(false);
-      } else if (evt.getSource() == b[4]) {
+      } else if (evt.getSource() == b[3]) {
          re = new lab6D(this); 
          setVisible(false);
-      } else if (evt.getSource() == b[5]) {
+      } else if (evt.getSource() == b[4]) {
          ar = new lab6E(this);
          setVisible(false);
       }
       else if (evt.getSource() == d[1]) getDoc(fpath+"/lab6A/synopsis.pdf");
-      else if (evt.getSource() == d[2]) getDoc(fpath+"/lab6B/synopsis.pdf");
-      else if (evt.getSource() == d[3]) getDoc(fpath+"/lab6C/synopsis.pdf");
-      else if (evt.getSource() == d[4]) getDoc(fpath+"/lab6D/synopsis.pdf");
-      else if (evt.getSource() == d[5]) getDoc(fpath+"/lab6E/synopsis.pdf");
+      else if (evt.getSource() == d[2]) getDoc(fpath+"/lab6C/synopsis.pdf");
+      else if (evt.getSource() == d[3]) getDoc(fpath+"/lab6D/synopsis.pdf");
+      else if (evt.getSource() == d[4]) getDoc(fpath+"/lab6E/synopsis.pdf");
+      //else if (evt.getSource() == d[5]) getDoc(fpath+"/lab6E/synopsis.pdf");
    }
 
    public void getDoc (String name) {
