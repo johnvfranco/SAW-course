@@ -19,7 +19,7 @@ let inputOK_setup = do {
 
 let main : TopLevel () = do {
    m <- llvm_load_module "bsearch_safe.bc";
-	inp_OK <- llvm_verify m "inputOK" [] true inputOK_setup abc;
-   saf_proof <- llvm_verify m "b_search" [inp_OK] true safe_setup abc;
+	inp_OK <- llvm_verify m "inputOK" [] true inputOK_setup z3;
+   saf_proof <- llvm_verify m "b_search" [inp_OK] true safe_setup z3;
    print "Done!";
 };
