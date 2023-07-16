@@ -1,0 +1,3 @@
+gf a = 4+2*x+a
+  where
+    x=6  // what x is initialized to in global2.c

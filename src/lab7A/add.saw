@@ -1,0 +1,19 @@
+import "add.cry";
+
+let add_spec = do {
+   // Create fresh variables for `x` and `y`
+   x <- llvm_fresh_var "x" (llvm_int 16);
+   y <- llvm_fresh_var "y" (llvm_int 16);
+
+   // Invoke the function with the fresh variables
+   llvm_execute_func [llvm_term x, llvm_term y];
+
+   // The function returns a value containing the sum of x and y
+   llvm_return (llvm_term {{ add x y }});
+};
+
+let main : TopLevel () = do {
+   m <- llvm_load_module "add.bc";
+   func_proof <- llvm_verify m "add" [] false add_spec z3;
+   print "Done!";
+};
