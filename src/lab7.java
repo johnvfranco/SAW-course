@@ -71,7 +71,7 @@ class lab7 extends JFrame implements ActionListener {
       JPanel xy = new JPanel(new BorderLayout());
       xy.setBackground(bkgd);
 
-      JPanel q = new JPanel(new GridLayout(5,1));
+      JPanel q = new JPanel(new GridLayout(1,1));
       q.setBackground(bkgd);
 
       // Lab 1
@@ -79,51 +79,51 @@ class lab7 extends JFrame implements ActionListener {
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[1] = new JButton("Synopsis"));
-      p.add(b[1] = new JButton("Lesson 5.1"));
+      p.add(b[1] = new JButton("Lesson 7.1"));
       q.add(p);
 
       // Lab 2
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(d[2] = new JButton("Synopsis"));      
-      p.add(b[2] = new JButton("Lesson 5.2"));
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      // p.setBackground(bkgd);
+      // p.add(new JLabel("      "));
+      // p.add(d[2] = new JButton("Synopsis"));      
+      // p.add(b[2] = new JButton("Lesson 7.2"));
+      // q.add(p);
 
       // Lab 3
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(d[3] = new JButton("Synopsis"));      
-      p.add(b[3] = new JButton("Lesson 5.3"));
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      // p.setBackground(bkgd);
+      // p.add(new JLabel("      "));
+      // p.add(d[3] = new JButton("Synopsis"));      
+      // p.add(b[3] = new JButton("Lesson 7.3"));
+      // q.add(p);
 
       // Lab 4
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(d[4] = new JButton("Synopsis"));      
-      p.add(b[4] = new JButton("Lesson 5.4"));
-		d[4].setEnabled(true);
-		b[4].setEnabled(true);
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      // p.setBackground(bkgd);
+      // p.add(new JLabel("      "));
+      // p.add(d[4] = new JButton("Synopsis"));      
+      // p.add(b[4] = new JButton("Lesson 7.4"));
+		// d[4].setEnabled(true);
+		// b[4].setEnabled(true);
+      // q.add(p);
 
       // Lab 5
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(d[5] = new JButton("Synopsis"));      
-      p.add(b[5] = new JButton("Lesson 5.5"));
-		d[5].setEnabled(true);
-		b[5].setEnabled(true);
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      // p.setBackground(bkgd);
+      // p.add(new JLabel("      "));
+      // p.add(d[5] = new JButton("Synopsis"));      
+      // p.add(b[5] = new JButton("Lesson 7.5"));
+		// d[5].setEnabled(true);
+		// b[5].setEnabled(true);
+      // q.add(p);
 
       xy.add("West", q);
       
-      q = new JPanel(new GridLayout(5,1));
+      q = new JPanel(new GridLayout(1,1));
       q.setBackground(bkgd);
 
-      for (int i=1 ; i < 6 ; i++) {
+      for (int i=1 ; i < 2 ; i++) {
          d[i].setPreferredSize(new Dimension(110,24));
          b[i].setPreferredSize(new Dimension(110,24));
       }
@@ -131,37 +131,37 @@ class lab7 extends JFrame implements ActionListener {
       // Lab 1
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Introduction to SAW", JLabel.LEFT));
+      p.add(lbl = new JLabel("  Proving Functional Correctness", JLabel.LEFT));
       lbl.setFont(fnt);
       q.add(p);
 
       // Lab 2
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Equivalence checking", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      // p.setBackground(bkgd);
+      // p.add(lbl = new JLabel("  Equivalence checking", JLabel.LEFT));
+      // lbl.setFont(fnt);
+      // q.add(p);
 
       // Lab 3
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Equivalence across languages", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      // p.setBackground(bkgd);
+      // p.add(lbl = new JLabel("  Equivalence across languages", JLabel.LEFT));
+      // lbl.setFont(fnt);
+      // q.add(p);
 
       // Lab 4
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Salsa20", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      // p.setBackground(bkgd);
+      // p.add(lbl = new JLabel("  Salsa20", JLabel.LEFT));
+      // lbl.setFont(fnt);
+      // q.add(p);
 
       // Lab 5
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  SHA256", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      // p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      // p.setBackground(bkgd);
+      // p.add(lbl = new JLabel("  SHA256", JLabel.LEFT));
+      // lbl.setFont(fnt);
+      // q.add(p);
 
       xy.add("Center", q);
       
@@ -174,7 +174,7 @@ class lab7 extends JFrame implements ActionListener {
          if (d[i] != null) d[i].addActionListener(this);
       }
 
-      setSize(700,380);      
+      setSize(700,240);      
       setVisible(true);
    }
    
@@ -193,24 +193,25 @@ class lab7 extends JFrame implements ActionListener {
       } else if (evt.getSource() == b[1]) {
          vx = new lab7A(this);
          setVisible(false);
-      } else if (evt.getSource() == b[2]) {
-         kx = new lab7B(this);
-         setVisible(false);
-      } else if (evt.getSource() == b[3]) {
-         ox = new lab7C(this);
-         setVisible(false);
-      } else if (evt.getSource() == b[4]) {
-         re = new lab7D(this); 
-         setVisible(false);
-      } else if (evt.getSource() == b[5]) {
-         ar = new lab7E(this);
-         setVisible(false);
       }
+		// else if (evt.getSource() == b[2]) {
+      //    kx = new lab7B(this);
+      //    setVisible(false);
+      // } else if (evt.getSource() == b[3]) {
+      //    ox = new lab7C(this);
+      //    setVisible(false);
+      // } else if (evt.getSource() == b[4]) {
+      //    re = new lab7D(this); 
+      //    setVisible(false);
+      // } else if (evt.getSource() == b[5]) {
+      //    ar = new lab7E(this);
+      //    setVisible(false);
+      // }
       else if (evt.getSource() == d[1]) getDoc(fpath+"/lab7A/synopsis.pdf");
-      else if (evt.getSource() == d[2]) getDoc(fpath+"/lab7B/synopsis.pdf");
-      else if (evt.getSource() == d[3]) getDoc(fpath+"/lab7C/synopsis.pdf");
-      else if (evt.getSource() == d[4]) getDoc(fpath+"/lab7D/synopsis.pdf");
-      else if (evt.getSource() == d[5]) getDoc(fpath+"/lab7E/synopsis.pdf");
+      // else if (evt.getSource() == d[2]) getDoc(fpath+"/lab7B/synopsis.pdf");
+      // else if (evt.getSource() == d[3]) getDoc(fpath+"/lab7C/synopsis.pdf");
+      // else if (evt.getSource() == d[4]) getDoc(fpath+"/lab7D/synopsis.pdf");
+      // else if (evt.getSource() == d[5]) getDoc(fpath+"/lab7E/synopsis.pdf");
    }
 
    public void getDoc (String name) {
