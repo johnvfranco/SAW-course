@@ -14,6 +14,8 @@ class lab6E extends JFrame implements ActionListener {
    JButton z[] = new JButton[24];   
    JButton exit = null;
    JButton term = null;
+   JButton tutorial = null;
+   JButton manual = null;
    Color bkgd = new Color(255,255,255);
    JLabel lbl, title;
    Font fnt = new Font("Helvetica", Font.PLAIN, 18);
@@ -67,8 +69,12 @@ class lab6E extends JFrame implements ActionListener {
 
       xq = new JPanel(new FlowLayout(FlowLayout.CENTER,0,20));
       xq.setBackground(bkgd);
+      xq.add(manual = new JButton("  manual  "));
+      xq.add(new JLabel("   "));
+      xq.add(tutorial = new JButton(" tutorial "));
+      xq.add(new JLabel("   "));
       xq.add(exit = new JButton("   Back   "));
-      xq.add(new JLabel("       "));
+      xq.add(new JLabel("   "));
       xq.add(term = new JButton(" Terminal "));
       add("South", xq);
 
@@ -123,6 +129,8 @@ class lab6E extends JFrame implements ActionListener {
 
       exit.addActionListener(this);
       term.addActionListener(this);
+		manual.addActionListener(this);
+		tutorial.addActionListener(this);
       for (int i=0 ; i < 24 ; i++) {
          if (b[i] != null) b[i].addActionListener(this);
          if (c[i] != null) c[i].addActionListener(this);
@@ -165,6 +173,8 @@ class lab6E extends JFrame implements ActionListener {
          }
          try { Thread.sleep(500); } catch (Exception e) { }
       }
+      else if (evt.getSource() == manual) getDoc(fpath+"/manual.pdf");
+      else if (evt.getSource() == tutorial) getDoc(fpath+"/tutorial.pdf");
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
