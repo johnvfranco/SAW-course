@@ -19,11 +19,12 @@ class lab7A extends JFrame implements ActionListener {
    Color bkgd = new Color(255,255,255);
    JLabel lbl, title;
    Font fnt = new Font("Helvetica", Font.PLAIN, 18);
-   lab7 parent = null;
+   //lab7 parent = null;
+	aFrame parent = null;
    JFileChooser fc = null;
    String fpath = null;
    
-   public lab7A (lab7 pnt) {
+   public lab7A (aFrame pnt) {
       super("Proving Functional Correctness");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
@@ -57,7 +58,7 @@ class lab7A extends JFrame implements ActionListener {
 
       JPanel rs = new JPanel(new FlowLayout(FlowLayout.CENTER));
       rs.setBackground(bkgd);      
-      rs.add(title = new JLabel("Lesson 7.1                      ", JLabel.CENTER));
+      rs.add(title = new JLabel("Lesson 7                      ", JLabel.CENTER));
       title.setFont(new Font("Helvetica", Font.BOLD, 22));
       title.setForeground(new Color(0,0,150));
       xq.add(rs,BorderLayout.CENTER);
