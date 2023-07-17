@@ -22,7 +22,8 @@ class lab6C extends JFrame implements ActionListener {
    lab6 parent = null;
    JFileChooser fc = null;
    String fpath = null;
-   
+   String cpath = null;
+	
    public lab6C (lab6 pnt) {
       super("Type Safety");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -39,6 +40,7 @@ class lab6C extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab6C/";
+         cpath = (new java.io.File(".").getCanonicalPath())+"/src/common/";			
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
@@ -175,8 +177,8 @@ class lab6C extends JFrame implements ActionListener {
          }
          try { Thread.sleep(500); } catch (Exception e) { }
       }
-      else if (evt.getSource() == manual) getDoc(fpath+"/manual.pdf");
-      else if (evt.getSource() == tutorial) getDoc(fpath+"/tutorial.pdf");
+      else if (evt.getSource() == manual) getDoc(cpath+"/manual.pdf");
+      else if (evt.getSource() == tutorial) getDoc(cpath+"/tutorial.pdf");
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
