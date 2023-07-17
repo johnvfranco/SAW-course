@@ -138,13 +138,15 @@ class lab5E extends JFrame implements ActionListener {
          if (y[i] != null) y[i].addActionListener(this);
          if (z[i] != null) z[i].addActionListener(this);
       }
-      
+
+		/*
       String command = "cryptol "+fpath;
       try {
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
       }
+		*/
 
       setSize(550,260);
       setVisible(true);

@@ -96,7 +96,7 @@ class lab7A extends JFrame implements ActionListener {
       p.setBackground(bkgd);      
       p.add(new JLabel("        "));
       p.add(y[0] = new JButton("Background"));
-      /**/p.add(z[0] = new JButton("Cryptol")); /**/
+      p.add(z[0] = new JButton("Cryptol"));
       q.add(p);
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
@@ -140,14 +140,14 @@ class lab7A extends JFrame implements ActionListener {
          if (z[i] != null) z[i].addActionListener(this);
       }
 
-      /**/
+      /*
       String command = "cryptol "+fpath;
       try {
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
       }
-      /**/
+      */
 
       setSize(600,260);
       setVisible(true);
@@ -181,7 +181,6 @@ class lab7A extends JFrame implements ActionListener {
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
-      /**/
       else if (evt.getSource() == z[0]) {
          String command = "cryptol "+fpath;
          try {
@@ -189,7 +188,7 @@ class lab7A extends JFrame implements ActionListener {
          } catch (Exception e) {
             System.out.println("Runtime: "+e.toString());
          }
-      } /**/
+      }
       else if (evt.getSource() == x[0]) {
          try {
             fc = new JFileChooser(fpath);
