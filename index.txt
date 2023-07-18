@@ -1,0 +1,34 @@
+     Labs
+Directory  Title
+---------  ----------------------
+Linx     Linux Primer
+
+Lab1     What is Math Logic?
+
+           Cryptol Control, Syntax, Semantics
+Lab2A    Commands and built-in functions
+Lab2B    Types
+Lab2C    Data structures
+Lab2D    Sequence comprehensions
+Lab2E    Functions
+
+            Writing Specifications
+Lab3A    Human devised spec of ZUC to Cryptol spec
+Lab3B    Specification of DES
+Lab3C    Secification of an sn74181 ALU
+Lab3D    Multiplier in assembly
+Lab3E    An ECU
+
+         Software Analysis Workbench
+Lab5A    Intro to SAW
+Lab5B    Equivalence checking
+Lab5C    Equivalence across languages
+Lab5D    Salsa20
+Lab5E    SHA256
+
+              Code Safety
+Lab6A    Proving memory safety
+Lab6C    Proving type safety
+
+Lab7A    Proving functional correctness
+
