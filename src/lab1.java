@@ -14,12 +14,15 @@ class lab1 extends JFrame implements ActionListener {
    JButton z[] = new JButton[24];   
    JButton exit = null;
    JButton term = null;
+   JButton manual = null;
+   JButton primitives = null;
    Color bkgd = new Color(255,255,255);
    JLabel lbl, title;
    Font fnt = new Font("Helvetica", Font.PLAIN, 18);
    aFrame parent = null;
    JFileChooser fc = null;
    String fpath = null;
+   String cpath = null;	
    
    public lab1 (aFrame pnt) {
       super("What is Math Logic and why do we need it?");
@@ -37,6 +40,7 @@ class lab1 extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab1/";
+         cpath = (new java.io.File(".").getCanonicalPath())+"/src/common/";			
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
@@ -68,9 +72,13 @@ class lab1 extends JFrame implements ActionListener {
 
       xq = new JPanel(new FlowLayout(FlowLayout.CENTER,0,20));
       xq.setBackground(bkgd);
-      xq.add(exit = new JButton("   Back   "));
-      xq.add(new JLabel("       "));
+      xq.add(manual = new JButton("  Manual  "));
+      xq.add(new JLabel("   "));
+      xq.add(primitives = new JButton("Primitives"));
+      xq.add(new JLabel("   "));
       xq.add(term = new JButton(" Terminal "));
+      xq.add(new JLabel("              "));
+      xq.add(exit = new JButton("   Back   "));
       add("South", xq);
 
       JPanel xt = new JPanel(new GridLayout(1,1));
@@ -128,7 +136,9 @@ class lab1 extends JFrame implements ActionListener {
       add("Center", xt);
 
       exit.addActionListener(this);
-      term.addActionListener(this);      
+      term.addActionListener(this);
+      manual.addActionListener(this);
+      primitives.addActionListener(this);      		
       for (int i=0 ; i < 24 ; i++) {
          if (b[i] != null) b[i].addActionListener(this);
          if (c[i] != null) c[i].addActionListener(this);
@@ -137,12 +147,14 @@ class lab1 extends JFrame implements ActionListener {
          if (z[i] != null) z[i].addActionListener(this);         
       }
 
+		/*
       String command = "cryptol "+fpath;
       try {
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
       }
+		*/
       
       setSize(550,260);
       setVisible(true);
@@ -171,6 +183,8 @@ class lab1 extends JFrame implements ActionListener {
          }
          try { Thread.sleep(500); } catch (Exception e) { }
       }
+      else if (evt.getSource() == manual) getDoc(cpath+"/ProgrammingCryptol.pdf");
+      else if (evt.getSource() == primitives) getDoc(cpath+"/CryptolPrims.pdf");
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
