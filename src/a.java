@@ -282,7 +282,7 @@ class aFrame extends JFrame implements ActionListener {
       else if (evt.getSource() == d[4]) getDoc(fpath+"/lab4/synopsis.pdf");
       else if (evt.getSource() == d[5]) getDoc(fpath+"/lab5/synopsis.pdf");
       else if (evt.getSource() == d[6]) getDoc(fpath+"/lab6/synopsis.pdf");
-      else if (evt.getSource() == d[7]) getDoc(fpath+"/lab7A/ynopsis.pdf");
+      else if (evt.getSource() == d[7]) getDoc(fpath+"/lab7A/synopsis.pdf");
       else if (evt.getSource() == d[8]) getDoc(fpath+"/cdest/synopsis.pdf");
    }
 
