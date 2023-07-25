@@ -25,7 +25,7 @@ class lab5E extends JFrame implements ActionListener {
 	String cpath = null;
    
    public lab5E (lab5 pnt) {
-      super("SHA256");
+      super("SHA512");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
       parent = pnt;
@@ -120,7 +120,7 @@ class lab5E extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  SHA256"));
+      p.add(lbl = new JLabel("  SHA512"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);

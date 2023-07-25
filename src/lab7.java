@@ -159,7 +159,7 @@ class lab7 extends JFrame implements ActionListener {
       // Lab 5
       // p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       // p.setBackground(bkgd);
-      // p.add(lbl = new JLabel("  SHA256", JLabel.LEFT));
+      // p.add(lbl = new JLabel("  SHA512", JLabel.LEFT));
       // lbl.setFont(fnt);
       // q.add(p);
 
