@@ -1,6 +1,6 @@
 import "add.cry";
 
-let add_spec = do {
+let add_setup = do {
    // Create fresh variables for `x` and `y`
    x <- llvm_fresh_var "x" (llvm_int 16);
    y <- llvm_fresh_var "y" (llvm_int 16);
@@ -14,6 +14,6 @@ let add_spec = do {
 
 let main : TopLevel () = do {
    m <- llvm_load_module "add.bc";
-   func_proof <- llvm_verify m "add" [] false add_spec z3;
+   func_proof <- llvm_verify m "add" [] false add_setup z3;
    print "Done!";
 };

@@ -12,7 +12,7 @@ let ptr_to_fresh n ty = do {
     return (x, p);
 };
 
-let dotprod_spec n = do {
+let dotprod_setup n = do {
     let nt = llvm_term {{ `n : [32] }};
     (xs, xsp) <- ptr_to_fresh "xs" (llvm_array n (llvm_int 32));
     (ys, ysp) <- ptr_to_fresh "ys" (llvm_array n (llvm_int 32));
@@ -26,5 +26,5 @@ let dotprod_spec n = do {
 
 m <- llvm_load_module "dotprod_struct.bc";
 
-dotprod_ov <- llvm_verify m "dotprod_struct" [] true (dotprod_spec 2) z3;
-llvm_verify m "dotprod_wrap" [dotprod_ov] true (dotprod_spec 2) z3;
+dotprod_ov <- llvm_verify m "dotprod_struct" [] true (dotprod_setup 2) z3;
+llvm_verify m "dotprod_wrap" [dotprod_ov] true (dotprod_setup 2) z3;
