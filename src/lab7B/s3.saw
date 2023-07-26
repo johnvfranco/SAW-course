@@ -1,0 +1,53 @@
+import "SHA512.cry";
+
+// Specify the sha512_state_st struct from a SHAState
+let points_to_sha512_state_st_common ptr (h, sz, block, n) num = do {
+  llvm_points_to (llvm_field ptr "h") (llvm_term h);
+
+  // Specify `sha512_state_st.Nl` and `sha512_state_st.Nh` contain `sz`
+  llvm_points_to_at_type (llvm_field ptr "Nl") (llvm_int 128) (llvm_term sz);
+
+  if eval_bool {{ `num == 0 }} then do {
+    // Do not specify anything about `sha512_state_st.p`
+    return ();
+  } else do {
+    // Specify that the first `num` bytes of `sha512_state_st.p` match the
+    // first `num` bits of `state.block`.
+    // Untyped check because the size of `sha512_state_st.p` does not match
+    // the size of (take`{num} state.block) unless `num` == `128`
+    llvm_points_to_untyped (llvm_field ptr "p") (llvm_term block);
+  };
+
+  llvm_points_to (llvm_field ptr "num") (llvm_term n);
+  llvm_points_to (llvm_field ptr "md_len") (llvm_term {{ `64 : [32] }});
+};
+
+// Specify the sha512_state_st struct from a SHAState
+let points_to_sha512_state_st ptr state num = do {
+   points_to_sha512_state_st_common ptr
+   ({{ state.h }}, {{ state.sz }}, {{ take`{num} state.block }}, {{ state.n }})
+   num;
+};
+
+let SHA512_Init_setup = do {
+  // Precondition: `sha_ptr` is a pointer to a `sha512_state_st` struct
+  sha_ptr <- llvm_alloc (llvm_struct "struct.sha512_state_st");
+
+  // Call function with `sha_ptr`
+  llvm_execute_func [sha_ptr];
+
+  // Postcondition: `sha_ptr` holds an initialized SHA512 context
+  points_to_sha512_state_st
+    sha_ptr
+    {{ { h = SHAH0, block = zero : [128][8], n = 0 : [32], sz = 0 : [128] } }}
+    0;
+
+  // Postcondition: The function returns 1
+  llvm_return (llvm_term {{ 1 : [32] }});
+};
+
+let main : TopLevel () = do {
+   m <- llvm_load_module "sha512.bc";
+	SHA512_Init_ov <- llvm_verify m "SHA512_Init" [] true SHA512_Init_setup z3;
+   print "Done!";
+};

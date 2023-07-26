@@ -1,0 +1,44 @@
+import "SHA512.cry";
+
+let Sigma0_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ SIGMA_0 x }});
+};
+
+let Sigma1_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ SIGMA_1 x }});
+};
+
+let sigma0_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ sigma_0 x }});
+};
+
+let sigma1_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ sigma_1 x }});
+};
+
+let Ch_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  y <- llvm_fresh_var "y" (llvm_int 64);
+  z <- llvm_fresh_var "z" (llvm_int 64);
+  llvm_execute_func [llvm_term x, llvm_term y, llvm_term z];
+  llvm_return (llvm_term {{ Ch x y z }});
+};
+
+let main : TopLevel () = do {
+   m <- llvm_load_module "sha512.bc";
+   Sigma0_ov <- llvm_verify m "Sigma0" [] true Sigma0_setup z3;
+   Sigma1_ov <- llvm_verify m "Sigma1" [] true Sigma1_setup z3;
+   sigma0_ov <- llvm_verify m "sigma0" [] true sigma0_setup z3;
+   sigma1_ov <- llvm_verify m "sigma1" [] true sigma1_setup z3;
+   Ch_ov <- llvm_verify m "Ch" [] true Ch_setup z3;
+	print "Done!";
+};
+

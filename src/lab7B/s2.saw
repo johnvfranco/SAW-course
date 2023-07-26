@@ -1,0 +1,91 @@
+import "SHA512.cry";
+
+// Given a value v of type ty, allocate and return a pointer to memory storing v
+let alloc_init ty v = do {
+  p <- crucible_alloc ty;
+  crucible_points_to p v;
+  return p;
+};
+
+// Given a name n and a type ty, allocate a fresh variable x of type ty and return
+// a tuple of x and a pointer to x.
+let pointer_to_fresh n ty = do {
+  x <- crucible_fresh_var n ty;
+  p <- alloc_init ty (crucible_term x);
+  return (x, p);
+};
+
+// Given a value v of type ty, allocate and return a read only pointer to memory
+// storing v
+let alloc_init_readonly ty v = do {
+  p <- crucible_alloc_readonly ty;
+  crucible_points_to p v;
+  return p;
+};
+
+// Given a name n and a type ty, allocate a fresh variable x of type ty and return
+// a tuple of x and a read only pointer to x.
+let pointer_to_fresh_readonly n ty = do {
+  x <- crucible_fresh_var n ty;
+  p <- alloc_init_readonly ty (crucible_term x);
+  return (x, p);
+};
+
+let Sigma0_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ S0 x }});
+};
+
+let Sigma1_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ S1 x }});
+};
+
+let sigma0_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ s0 x }});
+};
+
+let sigma1_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  llvm_execute_func [llvm_term x];
+  llvm_return (llvm_term {{ s1 x }});
+};
+
+let Ch_setup = do {
+  x <- llvm_fresh_var "x" (llvm_int 64);
+  y <- llvm_fresh_var "y" (llvm_int 64);
+  z <- llvm_fresh_var "z" (llvm_int 64);
+  llvm_execute_func [llvm_term x, llvm_term y, llvm_term z];
+  llvm_return (llvm_term {{ Ch x y z }});
+};
+
+/*
+ * Specification of block function for SHA512
+ */
+let sha512_block_data_order_setup = do {
+  (state, state_ptr) <- pointer_to_fresh "state" (llvm_array 8 (llvm_int 64));
+  (data, data_ptr) <- pointer_to_fresh_readonly "data" (llvm_array 128 (llvm_int 8));
+
+  llvm_execute_func [state_ptr, data_ptr, llvm_term {{ 1 : [64] }}];
+
+  llvm_points_to state_ptr (llvm_term {{ processBlock_Common state (split (join data)) }});
+};
+
+let main : TopLevel () = do {
+   m <- llvm_load_module "sha512.bc";
+   Sigma0_ov <- llvm_verify m "Sigma0" [] true Sigma0_setup z3;
+   Sigma1_ov <- llvm_verify m "Sigma1" [] true Sigma1_setup z3;
+   sigma0_ov <- llvm_verify m "sigma0" [] true sigma0_setup z3;
+   sigma1_ov <- llvm_verify m "sigma1" [] true sigma1_setup z3;
+   Ch_ov <- llvm_verify m "Ch" [] true Ch_setup z3;
+   sha512_block_data_order_ov <- llvm_verify m "sha512_block_data_order"
+         [Sigma0_ov, Sigma1_ov, sigma0_ov, sigma1_ov, Ch_ov] true
+         sha512_block_data_order_setup
+         (w4_unint_z3 ["SIGMA_0", "SIGMA_1", "sigma_0", "sigma_1", "Ch"]);
+   print "Done!";
+};
+
