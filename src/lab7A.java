@@ -19,13 +19,12 @@ class lab7A extends JFrame implements ActionListener {
    Color bkgd = new Color(255,255,255);
    JLabel lbl, title;
    Font fnt = new Font("Helvetica", Font.PLAIN, 18);
-   //lab7 parent = null;
-	aFrame parent = null;
+   lab7 parent = null;
    JFileChooser fc = null;
    String fpath = null;
 	String cpath = null;
    
-   public lab7A (aFrame pnt) {
+   public lab7A (lab7 pnt) {
       super("Proving Functional Correctness");
       setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       
@@ -60,7 +59,7 @@ class lab7A extends JFrame implements ActionListener {
 
       JPanel rs = new JPanel(new FlowLayout(FlowLayout.CENTER));
       rs.setBackground(bkgd);      
-      rs.add(title = new JLabel("Lesson 7                      ", JLabel.CENTER));
+      rs.add(title = new JLabel("Lesson 7.1                      ", JLabel.CENTER));
       title.setFont(new Font("Helvetica", Font.BOLD, 22));
       title.setForeground(new Color(0,0,150));
       xq.add(rs,BorderLayout.CENTER);
@@ -108,7 +107,7 @@ class lab7A extends JFrame implements ActionListener {
       p.add(b[0] = new JButton("Solution"));
       q.add(p);
 
-      /**/ z[0].setPreferredSize(new Dimension(110,24)); /**/
+      z[0].setPreferredSize(new Dimension(110,24));
       y[0].setPreferredSize(new Dimension(135,24));
       x[0].setPreferredSize(new Dimension(70,24));
       c[0].setPreferredSize(new Dimension(70,24));

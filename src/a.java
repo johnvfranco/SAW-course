@@ -19,7 +19,7 @@ class aFrame extends JFrame implements ActionListener {
    lab4 re = null;
 	lab5 tt = null;
    lab6 ar = null;
-   lab7A ds = null;
+   lab7 ds = null;
    cdx_game cg = null;
    
    public aFrame () {
@@ -269,7 +269,7 @@ class aFrame extends JFrame implements ActionListener {
          ar = new lab6(this);
          setVisible(false);
       } else if (evt.getSource() == b[7]) {
-         ds = new lab7A(this);
+         ds = new lab7(this);
          setVisible(false);
       } else if (evt.getSource() == b[8]) {
          cg = new cdx_game(this);
@@ -282,7 +282,7 @@ class aFrame extends JFrame implements ActionListener {
       else if (evt.getSource() == d[4]) getDoc(fpath+"/lab4/synopsis.pdf");
       else if (evt.getSource() == d[5]) getDoc(fpath+"/lab5/synopsis.pdf");
       else if (evt.getSource() == d[6]) getDoc(fpath+"/lab6/synopsis.pdf");
-      else if (evt.getSource() == d[7]) getDoc(fpath+"/lab7A/synopsis.pdf");
+      else if (evt.getSource() == d[7]) getDoc(fpath+"/lab7/synopsis.pdf");
       else if (evt.getSource() == d[8]) getDoc(fpath+"/cdest/synopsis.pdf");
    }
 

@@ -71,7 +71,7 @@ class lab5 extends JFrame implements ActionListener {
       JPanel xy = new JPanel(new BorderLayout());
       xy.setBackground(bkgd);
 
-      JPanel q = new JPanel(new GridLayout(5,1));
+      JPanel q = new JPanel(new GridLayout(4,1));
       q.setBackground(bkgd);
 
       // Lab 1
@@ -109,21 +109,21 @@ class lab5 extends JFrame implements ActionListener {
       q.add(p);
 
       // Lab 5
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(d[5] = new JButton("Synopsis"));      
-      p.add(b[5] = new JButton("Lesson 5.5"));
-		d[5].setEnabled(true);
-		b[5].setEnabled(true);
-      q.add(p);
+      //p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      //p.setBackground(bkgd);
+      //p.add(new JLabel("      "));
+      //p.add(d[5] = new JButton("Synopsis"));      
+      //p.add(b[5] = new JButton("Lesson 5.5"));
+		//d[5].setEnabled(true);
+		//b[5].setEnabled(true);
+      //q.add(p);
 
       xy.add("West", q);
       
-      q = new JPanel(new GridLayout(5,1));
+      q = new JPanel(new GridLayout(4,1));
       q.setBackground(bkgd);
 
-      for (int i=1 ; i < 6 ; i++) {
+      for (int i=1 ; i < 5 ; i++) {
          d[i].setPreferredSize(new Dimension(110,24));
          b[i].setPreferredSize(new Dimension(110,24));
       }
@@ -157,11 +157,11 @@ class lab5 extends JFrame implements ActionListener {
       q.add(p);
 
       // Lab 5
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  SHA512", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      //p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      //p.setBackground(bkgd);
+      //p.add(lbl = new JLabel("  SHA512", JLabel.LEFT));
+      //lbl.setFont(fnt);
+      //q.add(p);
 
       xy.add("Center", q);
       
@@ -174,7 +174,7 @@ class lab5 extends JFrame implements ActionListener {
          if (d[i] != null) d[i].addActionListener(this);
       }
 
-      setSize(700,380);      
+      setSize(700,340);      
       setVisible(true);
    }
    
@@ -202,15 +202,11 @@ class lab5 extends JFrame implements ActionListener {
       } else if (evt.getSource() == b[4]) {
          re = new lab5D(this); 
          setVisible(false);
-      } else if (evt.getSource() == b[5]) {
-         ar = new lab5E(this);
-         setVisible(false);
-      }
+      } 
       else if (evt.getSource() == d[1]) getDoc(fpath+"/lab5A/synopsis.pdf");
       else if (evt.getSource() == d[2]) getDoc(fpath+"/lab5B/synopsis.pdf");
       else if (evt.getSource() == d[3]) getDoc(fpath+"/lab5C/synopsis.pdf");
       else if (evt.getSource() == d[4]) getDoc(fpath+"/lab5D/synopsis.pdf");
-      else if (evt.getSource() == d[5]) getDoc(fpath+"/lab5E/synopsis.pdf");
    }
 
    public void getDoc (String name) {

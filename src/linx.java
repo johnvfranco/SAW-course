@@ -62,9 +62,9 @@ class linx extends JFrame implements ActionListener {
 
       xq = new JPanel(new FlowLayout(FlowLayout.CENTER,0,20));
       xq.setBackground(bkgd);
-      xq.add(exit = new JButton("   Back   "));
-      xq.add(new JLabel("       "));
       xq.add(term = new JButton(" Terminal "));
+      xq.add(new JLabel("              "));
+      xq.add(exit = new JButton("   Back   "));
       add("South", xq);
 
       JPanel xt = new JPanel(new GridLayout(1,1));
