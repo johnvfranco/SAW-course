@@ -1,0 +1,68 @@
+import Float
+
+/*
+type Circle = { radius : Rational, left : [64], top : [64] }
+type Rectangle = { height : [64], width : [64], left : [64], top : [64] }
+type Displacement = { left : [64], top : [64] }
+
+aCircle : Circle
+aCircle = { radius=(ratio 5 2), left=20, top=16}
+
+areaCircle : Circle -> Rational
+areaCircle b = (b.radius * b.radius * (ratio 355 113))
+
+c = areaCircle { radius=(ratio 5 2), left=0, top=0 }
+
+aCircleArea = areaCircle aCircle
+
+nudgeCircle : Circle -> Displacement -> Circle
+nudgeCircle circle d =
+   { radius = circle.radius, left = circle.left+d.left, top = circle.top+d.top }
+
+disp : Displacement
+disp = { left= 12, top=2 }
+
+newDisp : Displacement
+newDisp = { left= -32, top=2 }
+
+movedaCircle = nudgeCircle aCircle disp
+secondTry = nudgeCircle aCircle newDisp
+*/
+
+type Circle = { radius : Rational, left : Float16, top : Float16 }
+type Displacement = { left : Float16, top : Float16 }
+
+aCircle : Circle
+aCircle = { radius=(ratio 5 2), left=20, top=16}
+
+areaCircle : Circle -> Rational
+areaCircle b = (b.radius * b.radius * (ratio 355 113))
+
+c = areaCircle { radius=(ratio 5 2), left=0, top=0 }
+
+aCircleArea = areaCircle aCircle
+
+nudgeCircle : Circle -> Displacement -> Circle
+nudgeCircle circle d =
+   { radius = circle.radius, left = circle.left+d.left, top = circle.top+d.top }
+
+disp : Displacement
+disp = { left= 12, top=2 }
+
+newDisp : Displacement 
+newDisp = { left = -32, top=2 }
+
+movedaCircle = nudgeCircle aCircle disp
+secondTry = nudgeCircle aCircle newDisp
+
+type BMI = { weight : Float16, height : Float16 }
+type BMIimp = { weight : Float16, feet : Float16, inches : Float16 }
+
+calcBMI : BMI -> Float16
+calcBMI bmi = bmi.weight /. bmi.height /. bmi.height * 10000
+
+calcBMIimp : BMIimp -> Float16
+calcBMIimp bmi = bmi.weight /. (bmi.feet*12+bmi.inches) /. (bmi.feet*12+bmi.inches) * 703
+
+t1 = { weight=80, height=174 }
+t2 = { weight=180.0, feet=5.0, inches=8.5 }
