@@ -1,0 +1,36 @@
+parameter
+  type w : #
+  type constraint (fin w, w <= 64, 32 <= w)
+
+type SHAState = { h : [8][64],
+                  block : [128][8],
+                  Nl : [64],
+						Nh : [64],
+                  num : [32],
+						md_len : [32]
+                }
+
+stateInit : SHAState
+stateInit = { h = [1,2,3,4,5,6,7,8],
+              block = zero,
+				  Nl = 11,
+				  Nh = 16,
+				  num = 1,
+				  md_len = 128 }
+
+stateManip : SHAState -> SHAState
+stateManip s = { h = s.h,
+                 block = s.block,
+					  Nl = s.Nl,
+					  Nh = s.Nh,
+					  num = s.num,
+					  md_len = 42 }
+
+H0 : [2][w]
+H0 = [100,101]
+
+v1 : [2][32]
+v1 = [23,34]
+
+type v2 = [2][32]
+v2 = [23,34]

@@ -1,0 +1,137 @@
+// Loading module Cryptol
+// Cryptol> :l foxChickenCornRedux.cry
+// Loading module Cryptol
+// Loading module Main
+// Main> :s base=2
+// Main> :s satNum=all
+// Main> :sat solution
+// Satisfiable
+// solution
+//   [{left = 0b1111, right = 0b0000}, {left = 0b1100, right = 0b0011},
+//    {left = 0b1101, right = 0b0010}, {left = 0b1000, right = 0b0111},
+//    {left = 0b1011, right = 0b0100}, {left = 0b0010, right = 0b1101},
+//    {left = 0b0011, right = 0b1100}, {left = 0b0000, right = 0b1111}]
+//   = True
+// solution
+//   [{left = 0b1111, right = 0b0000}, {left = 0b1100, right = 0b0011},
+//    {left = 0b1101, right = 0b0010}, {left = 0b0100, right = 0b1011},
+//    {left = 0b0111, right = 0b1000}, {left = 0b0010, right = 0b1101},
+//    {left = 0b0011, right = 0b1100}, {left = 0b0000, right = 0b1111}]
+//   = True
+// Models found: 2
+// (Total Elapsed Time: 0.108s, using "Z3")
+
+type OneBank = [4]
+type BankState = {left : OneBank, right: OneBank }
+
+startState : BankState
+startState = { left = 0b1111, right = 0b0000 }
+endState : BankState
+endState = { left = 0b0000, right = 0b1111 }
+
+solution : [8]BankState -> Bit
+property solution states =
+	(neighborsConsistent states) /\
+	(allStatesSafeAndValid states) /\
+	(allStatesUnique states) /\
+	(states ! 0 == endState) /\
+	(states @ 0 == startState)
+
+// make sure, in sequence states, that the next state in sequence can be a nextState
+// of the current state in sequence
+neighborsConsistent states = z ! 0
+  where
+    z = [True]#[ ((y == nextState x 0) \/
+                  (y == nextState x 1) \/
+			         (y == nextState x 2)) /\ p
+	            | x <- states | y <- drop `{1} states | p <- z]
+
+// if s.left is even then s.right is odd and represents the move to opposite
+// bank.  Then out.left will be s.left OR s.right masked with 0bXXX1
+// where 0bXXX is 1 << idx and out.right will be s.right masked with 0xXXX0
+// if s.right is even then s.left is odd and represents the move to opposite
+// bank.  Then out.right will be s.right OR s.left masked with 0bXXX1
+// where 0bXXX is 1 << idx and out.left will be s.left masked with 0xXXX0
+nextState : BankState -> [4] -> BankState
+nextState s idx =
+   if s.right % 2 == 1 then
+     { left = s.left || s.right && (0b0001 || (1 << (idx+1))),
+       right = s.right && 0b1110 && (~ (1 << (idx+1):[4])) }
+   else
+     { left = s.left && 0b1110 && (~ (1 << (idx+1):[4])),
+       right = s.right || s.left && (0b0001 || (1 << (idx+1))) }
+
+// True iff all states in sequence states are safe states and are valid
+allStatesSafeAndValid : {n} (fin n) => [n]BankState -> Bit
+allStatesSafeAndValid states = z ! 0
+  where
+    z = [True]#[ safeAndValidState y /\ x | y <- states | x <- z ]
+
+// a state is safe and valid if no bank has a number 6 or 10 and the xor of
+// both banks is 0b1111
+safeAndValidState : BankState -> Bit
+safeAndValidState s =
+   ~(s.left == 10 \/ s.left == 6 \/ s.right == 10 \/ s.right == 6) /\
+	s.left ^ s.right == 0xF
+
+// returns True iff there are two or more states in sequence states that
+// are identical
+allStatesUnique states = ~(z ! 0)
+  where
+    z = [False]#[ (states@i == states@j /\ ~(i == j)) \/ k
+	             | k <- z | i <- [0..7] , j <- [0..7] ]
+
+pp states = [ xlate state | state <- states]
+
+xlate : BankState -> [51][8]
+xlate state =
+  if (state.left == 0b1111 /\ state.right == 0b0000) then
+     "fox corn chicken farmer || empty                   "
+  else if (state.left == 0b0011 /\ state.right == 0b1100) then
+     "         chicken farmer || fox corn                "
+  else if (state.left == 0b1011 /\ state.right == 0b0100) then
+     "     fox chicken farmer || corn                    "
+  else if (state.left == 0b0111 /\ state.right == 0b1000) then
+     "    corn chicken farmer || fox                     "
+  else if (state.left == 0b1100 /\ state.right == 0b0011) then
+     "               fox corn || chicken farmer          "
+  else if (state.left == 0b0000 /\ state.right == 0b1111) then
+     "                  empty || fox corn chicken farmer "
+  else if (state.left == 0b1101 /\ state.right == 0b0010) then
+     "        fox corn farmer || chicken                 "
+  else if (state.left == 0b1000 /\ state.right == 0b0111) then
+     "                    fox || corn chicken farmer     "
+  else if (state.left == 0b0010 /\ state.right == 0b1101) then
+     "                chicken || fox corn farmer         "
+  else if (state.left == 0b0100 /\ state.right == 0b1011) then
+     "                   corn || fox chicken farmer      "
+  else
+     "                      error                        "
+
+
+s1 = [{left = 0b1111, right = 0b0000},
+      {left = 0b1100, right = 0b0011},
+		{left = 0b1101, right = 0b0010},
+		{left = 0b1000, right = 0b0111},
+		{left = 0b1011, right = 0b0100},
+		{left = 0b0010, right = 0b1101},
+		{left = 0b0011, right = 0b1100},
+		{left = 0b0000, right = 0b1111}]
+
+s2 = [{left = 0b1111, right = 0b0000},
+      {left = 0b1100, right = 0b0011},
+      {left = 0b1101, right = 0b0010},
+		{left = 0b0100, right = 0b1011},
+      {left = 0b0111, right = 0b1000},
+		{left = 0b0010, right = 0b1101},
+      {left = 0b0011, right = 0b1100},
+		{left = 0b0000, right = 0b1111}]
+
+t1 = { left=0b0100, right=0b1011 }
+t2 = { left=0b0011, right=0b1100 }
+t3 = { left=0b1001, right=0b0110 }
+t4 = { left=0b1001, right=0b0111 }
+t5 = { left=0b1111, right=0b0000 }
+t6 = { left=0b0000, right=0b1111 }
+t7 = { left=0b1011, right=0b0100 }
+t8 = { left=0b1101, right=0b0010 }
