@@ -114,5 +114,5 @@ property Bitcoin_and_tiger b1 b2 b3 b4 b5 b6 b7 b8 b9
      (assign_values_to_signs b1 b2 b3 b4 b5 b6 b7 b8 b9 
                              t1 t2 t3 t4 t5 t6 t7 t8 t9
                              s1 s2 s3 s4 s5 s6 s7 s8 s9) /\
-     (t8 \/ t9))            /* Room 8 is occupied */
-    \/ (Bitcoin_in_room b7) /* Proves that Bitcoin must be in Room 7 */
+     t8)                       /* Room 8 is occupied */
+    \/ (Bitcoin_in_room b7)    /* Proves that Bitcoin must be in Room 7 */

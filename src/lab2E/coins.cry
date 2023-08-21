@@ -10,7 +10,7 @@ coinSum a b c d n s =
   ((a + 5*b + 10*c + 25*d) == s) /\ (n <= s)
 
 coinCount a b c d n =
-  (((a + b + c + d) == n) /\      // the coin count adds up to requested n
+  (((a + b + c + d) == n) /\       // the coin count adds up to requested n
                                    // number coins of any type doesn't exceed n
    (a <= n /\ b <= n /\ c <= n /\ d <= n))  
 
