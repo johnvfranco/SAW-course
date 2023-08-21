@@ -24,6 +24,7 @@ s = [(0,0,-1)]#[(if (ps-ss.0 > ss.1) then (ss.0+fs, ps-ss.0, i)
                                      else (ss.0+fs,ss.1,ss.2))
                | fs <- gas | ps <- loc | ss <- s | i <- [0 ...]]
 
+// Answers:
 station = (s ! 0).2
 station_location = loc @ station
 
