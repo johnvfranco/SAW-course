@@ -40,7 +40,7 @@ class lab3A extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab3A/";
-         cpath = (new java.io.File(".").getCanonicalPath())+"/src/common/";			
+         cpath = (new java.io.File(".").getCanonicalPath())+"/src/common/";
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }

@@ -120,7 +120,7 @@ class lab3D extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Hardware Specification"));
+      p.add(lbl = new JLabel("  Multiplier Specification"));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
