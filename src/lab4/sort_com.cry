@@ -1,0 +1,77 @@
+// Sort algorithm: let lst be the list to sort and let acc initially be a
+// sequence of 0s of the same length as lst.   In a round, elements of lst
+// are compared with elements of acc, starting from the right (greatest
+// elements first).  If the lst element is greater than the existing acc
+// element, the acc element moves down by 1 and makes way for the lst
+// element to ne placed in where the acc element had been.  If the lst
+// element is not greater then it is placed before the acc element it is
+// compared with.  This process has the effect that greater elements move
+// one position to the right and the lesser elements one position to the
+// left on a round.  Thus, running a number of rounds equal to the length
+// of lst sorts lst.  Empty input list is not allowed.
+round : {n, b} (Literal 0 b, Cmp b, fin n) => [1 + n]b -> [1 + n]b
+round lst = z ! 0
+  where
+    z = [q]#[ if (lst@i) > (acc@(i+1))
+	           then (insert (insert acc (acc@(i+1)) i) (lst@i) (i+1))
+				  else (insert acc (lst@i) i)
+		  | acc <- z | i <- (reverse (take `{n} [0...])) ];
+		  q = insert (makeZeros lst) (last lst) ((length lst)-1)
+
+
+// replace the ith element of sequence lst with the number m
+insert lst m i = [ if k==i then m else x | x <- lst | k <- [0...]]
+
+// Create a sequence of zeros equal in length to input sequence lst
+makeZeros lst = [ 0 | i <- lst ]
+
+// Sort a given input sequence lst - the a numbers of rounds equal to
+// the length of lst
+sort lst =  z ! 0
+  where
+    z = [ round x | x <- [lst]#z | i <- lst ]
+
+// The next three are for function perm which returns True if and only if
+// both input sequences are permutations of each other
+remove lst n = drop `{2} [w.0 | w <- res]
+  where
+    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
+                         then (za, q.1)
+                         else (zb, True)
+                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
+
+// Returns True if and only if the element n is a member of sequence lst
+member lst n = (res ! 0)
+  where
+    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
+
+// Returns True if and only if sequence x is a permutation of sequence y
+perm x y = if (length x) == 0 /\ (length y) == 0 then True else
+           if (length x) == (length y) then (res ! 0).1 else False
+  where
+    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
+          | q <- [(y,True)]#res | p <- x ]
+
+// Returns True if and only if the sequence lst has no -1s and no 0s
+valid lst = (z ! 0)
+  where
+    z = [True]#[(x > 0 /\ ~(x == -1)) /\ y | x <- lst | y <- z ]
+
+// Theorem stating a valid sequence lst implies lst is a permutation
+// of (sort lst)
+isAPerm : [6][32] -> Bit
+property isAPerm lst = if (valid lst) then perm lst (sort lst) else True
+
+// Returns True if and only if for every pair of consecutive numbers in
+// lst, the left number is never greater than the right number
+//nondecreasing : [6][32] -> Bit
+nondecreasing lst = (res ! 0)
+  where
+    res = [True]#[ if (j1 <= j2) /\ k then True else False
+                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+
+// Theorem stating a valid sequence lst implies the sequence (sort lst)
+// is nondecreasing
+sortIsOrdered : [6][32] -> Bit
+property sortIsOrdered lst = if (valid lst) then nondecreasing (sort lst) else True
+

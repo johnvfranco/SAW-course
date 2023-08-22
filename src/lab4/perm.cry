@@ -1,0 +1,56 @@
+remove lst n = drop `{2} [w.0 | w <- res]
+  where
+    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
+                         then (za, q.1)
+                         else (zb, True)
+                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
+
+member lst n = (res ! 0)
+  where
+    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
+
+perm x y = if (length x) == 0 /\ (length y) == 0 then True else
+           if (length x) == (length y) then (res ! 0).1 else False
+  where
+    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
+          | q <- [(y,True)]#res | p <- x ]
+
+permReflexive : [10][32] -> [10][32] -> Bit
+property permReflexive x y = if x == y then perm x y else True
+
+permSymmetric : [10][32] -> [10][32] -> Bit
+property permSymmetric x y =
+   if ~(member x (2^^32-1)) /\ ~(member y (2^^32-1)) /\ perm x y
+   then perm y x else True
+
+permTransitive : [6][32] -> [6][32] -> [6][32] -> Bit
+property permTransitive x y z =
+   if ~(member x (2^^32-1)) /\ ~(member y (2^^32-1)) /\ ~(member z (2^^32-1)) /\
+	    perm x y /\ perm y z
+	then perm x z else True
+
+bsort : {n, a} (Cmp a, Integral a, Literal 1 a, fin n) => [n]a -> [n]a
+bsort lst = take `{n} (bb (lst#[-1,-1...]))
+  where
+    bb seq = if (seq@0) == -1 then seq else (bbl (head seq) (bb (tail seq)))
+    bbl n seq =
+      if ((seq@0) == -1) then [n]#[-1,-1...]
+      else if (n < (seq@0)) then [n]#seq
+      else [(seq@0)]#(bbl n (tail seq))
+		
+valid lst = z ! 0
+  where
+    z = [True]#[~(x == -1) /\ y | x <- lst | y <- z ]
+
+isAPerm : [6][32] -> Bit
+property isAPerm lst = if (valid lst) then perm lst (bsort lst) else True
+
+nondecreasing : [6][32] -> Bit
+nondecreasing lst = (res ! 0)
+  where
+    res = [True]#[ if (j1 <= j2) /\ k then True else False
+                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+
+bsortIsOrdered : [6][32] -> Bit
+property bsortIsOrdered lst = if valid lst then nondecreasing (bsort lst) else True
+
