@@ -1,5 +1,21 @@
 module mrgsrt where
-import perm
+
+remove lst n = drop `{2} [w.0 | w <- res]
+  where
+    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
+                         then (za, q.1)
+                         else (zb, True)
+                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
+
+member lst n = (res ! 0)
+  where
+    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
+
+perm x y = if (length x) == 0 /\ (length y) == 0 then True else
+           if (length x) == (length y) then (res ! 0).1 else False
+  where
+    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
+          | q <- [(y,True)]#res | p <- x ]
 
 /************************************************************************/
 /*                                                                      */
@@ -14,15 +30,15 @@ import perm
    subfunctions operate on infinite lists to allow for recursion
    subfunctions are as follows:
    splito: 
-     Input - x=finite list
+     Input - lst=finite list
      Output - infinite list, padded with -1s after the split elements
-     Process: best described as [ x@i | i <- [1,3...] ]
+     Process: best described as [ lst@i | i <- [1,3...] ]
    splite:
-     Input - x=finite list
+     Input - lst=finite list
      Output - infinite list, padded with -1s after the split elements
-     Process: best described as [ x@i | i <- [0,2...] ]
+     Process: best described as [ lst@i | i <- [0,2...] ]
    merge:
-     Inputs: x, y - two infinite lists in nondecreasing order (padded with -1s)
+     Inputs: px, py - two infinite lists in nondecreasing order (padded with -1s)
      Output: infinite list, nondecreasing, containing all of px & py, padded
      Process: merge two padded infinite lists, up to the padding
      if px@0 is -1 then return py, if py@0 is -1 then return px
@@ -36,13 +52,13 @@ import perm
      of the odd elements of p
 */
 
-//  Input: lst - finite sequence of numbers
-//  Output: infinite list, padding with -1s after the split elements
+//  Input: lst - -1 padded finite sequence of numbers
+//  Output: lst with only odd indexed elements followed by -1 padding
 splito : {n,a} [n]a -> [inf]a
 splito lst = [ lst@i | i <- [1,3...] ]
 
-//  Input: lst - finite sequence
-//  Output: infinite sequence, padding with -1s after the split elements
+//  Input: lst - -1 padded finite sequence of numbers
+//  Output: lst with only even indexed elements followed by -1 padding
 splite : {n,a} [n]a -> [inf]a
 splite lst = [ lst@i | i <- [0,2...] ]
 
@@ -50,19 +66,19 @@ splite lst = [ lst@i | i <- [0,2...] ]
 //  Output: infinite list, nondecreasing, containing all of px and py, padded
 merge : {a} (Literal 1 a, Ring a, Cmp a) => [inf]a -> [inf]a -> [inf]a
 merge px py = 
-      if (px@0) == -1 then py
-      else if (py@0) == -1 then px
-      else if (px@0) < (py@0) then [(px@0)]#(merge (tail px) py)
-      else [(py@0)]#(merge px (tail py))
+      if px@0 == -1 then py
+      else if py@0 == -1 then px
+      else if px@0 < py@0 then [px@0]#(merge (tail px) py)
+      else [py@0]#(merge px (tail py))
 
 //  Input: finite sequence lst of numbers
 //  Output: finite nondecreasing sequence of numbers that is permutation of lst
-mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 1) => [cnt][a] -> [cnt][a]
+mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 0) => [cnt][a] -> [cnt][a]
 mergesort lst = take `{cnt} (mergesrt ax)
   where
     mergesrt p = 
-      if (((p@0) == -1) \/ ((p@1) == -1)) then p
-      else (merge (mergesrt (splite p)) (mergesrt (splito p)))
+      if (p@0 == -1) \/ (p@1 == -1) then p
+      else merge (mergesrt (splite p)) (mergesrt (splito p))
     ax = lst#[-1,-1 ...]
 
 res00 = take `{3} (splite [1,2,3,4,5,6])
@@ -101,5 +117,14 @@ valid lst = z ! 0
   where
     z = [True]#[~(x == -1) /\ y | x <- lst | y <- z ]
 
-isAPerm : [8][64] -> Bit
+isAPerm : [6][32] -> Bit
 property isAPerm lst = if valid lst then perm lst (mergesort lst) else True
+
+nondecreasing lst = (res ! 0)
+  where
+    res = [True]#[ if (j1 <= j2) /\ k then True else False
+                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+
+mergesortIsOrdered : [6][32] -> Bit
+property mergesortIsOrdered lst =
+   if valid lst then nondecreasing (mergesort lst) else True
