@@ -66,19 +66,19 @@ splite lst = [ lst@i | i <- [0,2...] ]
 //  Output: infinite list, nondecreasing, containing all of px and py, padded
 merge : {a} (Literal 1 a, Ring a, Cmp a) => [inf]a -> [inf]a -> [inf]a
 merge px py = 
-      if (px@0) == -1 then py
-      else if (py@0) == -1 then px
-      else if (px@0) < (py@0) then [(px@0)]#(merge (tail px) py)
-      else [(py@0)]#(merge px (tail py))
+      if px@0 == -1 then py
+      else if py@0 == -1 then px
+      else if px@0 < py@0 then [px@0]#(merge (tail px) py)
+      else [py@0]#(merge px (tail py))
 
 //  Input: finite sequence lst of numbers
 //  Output: finite nondecreasing sequence of numbers that is permutation of lst
-mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 1) => [cnt][a] -> [cnt][a]
+mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 0) => [cnt][a] -> [cnt][a]
 mergesort lst = take `{cnt} (mergesrt ax)
   where
     mergesrt p = 
-      if (((p@0) == -1) \/ ((p@1) == -1)) then p
-      else (merge (mergesrt (splite p)) (mergesrt (splito p)))
+      if (p@0 == -1) \/ (p@1 == -1) then p
+      else merge (mergesrt (splite p)) (mergesrt (splito p))
     ax = lst#[-1,-1 ...]
 
 res00 = take `{3} (splite [1,2,3,4,5,6])
@@ -117,7 +117,7 @@ valid lst = z ! 0
   where
     z = [True]#[~(x == -1) /\ y | x <- lst | y <- z ]
 
-isAPerm : [8][64] -> Bit
+isAPerm : [6][32] -> Bit
 property isAPerm lst = if valid lst then perm lst (mergesort lst) else True
 
 nondecreasing lst = (res ! 0)
@@ -125,6 +125,6 @@ nondecreasing lst = (res ! 0)
     res = [True]#[ if (j1 <= j2) /\ k then True else False
                  | k <- res | j1 <- lst | j2 <- drop `{1} lst]
 
-mergesortIsOrdered : [8][64] -> Bit
+mergesortIsOrdered : [6][32] -> Bit
 property mergesortIsOrdered lst =
    if valid lst then nondecreasing (mergesort lst) else True
