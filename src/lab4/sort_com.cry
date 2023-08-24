@@ -1,16 +1,17 @@
 import perm
 
-// Sort algorithm: let lst be the list to sort and let acc initially be a
-// sequence of 0s of the same length as lst.   In a round, elements of lst
-// are compared with elements of acc, starting from the right (greatest
+// Sort algorithm: let lst be the sequence to sort and let acc initially
+// be a sequence of -1s of the same length as lst.   In a round, elements 
+// of lst are compared with elements of acc, starting from the right (greatest
 // elements first).  If the lst element is greater than the existing acc
-// element, the acc element moves down by 1 and makes way for the lst
-// element to be placed where the acc element had been.  If the lst
-// element is not greater then it is placed before the acc element it is
-// compared with.  This process has the effect that greater elements move
-// at most one position to the right and lesser elements at most one 
-// position to the left on a round.  Thus, running a number of rounds 
-// equal to the length of lst sorts lst.
+// element, the acc element moves down (to the left) by 1 position and
+// makes way for the lst element to be placed where the acc element had been.
+// If the lst element is not greater then it is placed before (to the left
+// of) the acc element it is compared with.  This process has the effect
+// that greater elements move at most one position to the right and lesser
+// elements at most one position to the left on a round.  Thus, running a
+// number of rounds equal to the length of lst, output of one round being
+// input to the next round, sorts lst.  Empty input sequence is not allowed.
 round : {n, b} (Literal 1 b, Ring b, Cmp b, fin n) => [1 + n]b -> [1 + n]b
 round lst = z ! 0
   where
@@ -33,7 +34,7 @@ sort lst =  z ! 0
   where
     z = [ round x | x <- [lst]#z | i <- lst ]
 
-// Returns True if and only if the sequence lst has no -1s and no 0s
+// Returns True if and only if the sequence lst has no -1s 
 valid lst = (z ! 0)
   where
     z = [True]#[ ~(x == -1) /\ y | x <- lst | y <- z ]
