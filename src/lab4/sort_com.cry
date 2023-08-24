@@ -54,5 +54,6 @@ nondecreasing lst = (res ! 0)
 // Theorem stating a valid sequence lst implies the sequence (sort lst)
 // is nondecreasing
 sortIsOrdered : [6][32] -> Bit
-property sortIsOrdered lst = if (valid lst) then nondecreasing (sort lst) else True
+property sortIsOrdered lst =
+   if (valid lst) then nondecreasing (sort lst) else True
 
