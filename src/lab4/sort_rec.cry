@@ -11,12 +11,13 @@ import perm
 // one position to the right and the lesser elements one position to the
 // left on a round.  Thus, running a number of rounds equal to the length
 // of lst sorts lst.  Empty input list is not allowed.
+round : {n, a} (Literal 1 a, Ring a, Cmp a, fin n) => [1 + n]a -> [1 + n]a -> [1 + n]a
 round lst acc = (func lst ((length lst)-1) acc)
   where
     func lt i ac =
       if (i == -1)
 		then ac
-      else if ((last ac) == 0)
+      else if ((last ac) == -1)
 		     then func lt (i-1) (insert ac (lt@i) i) 
 	        else if (lt@i) > (ac@(i+1))
                 then func lt (i-1) (insert (insert ac (ac@(i+1)) i) (lt@i) (i+1))
@@ -26,18 +27,18 @@ round lst acc = (func lst ((length lst)-1) acc)
 insert lst m i = [ if k==i then m else x | x <- lst | k <- [0...]]
 
 // Create a sequence of zeros equal in length to input sequence lst
-makeZeros lst = [ 0 | i <- lst ]
+makeNegs lst = [ -1 | i <- lst ]
 
 // Sort a given input sequence lst - the a numbers of rounds equal to
 // the length of lst
 sort lst =  z ! 0
   where
-    z = [ round x (makeZeros lst)  | x <- [lst]#z | i <- lst ]
+    z = [ round x (makeNegs lst)  | x <- [lst]#z | i <- lst ]
 
 // Returns True if and only if the sequence lst has no -1s and no 0s
 valid lst = (z ! 0)
   where
-    z = [True]#[(x > 0 /\ ~(x == -1)) /\ y | x <- lst | y <- z ]
+    z = [True]#[ ~(x == -1) /\ y | x <- lst | y <- z ]
 
 // Theorem stating a valid sequence lst implies lst is a permutation
 // of (sort lst)

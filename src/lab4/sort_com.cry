@@ -5,30 +5,30 @@ import perm
 // are compared with elements of acc, starting from the right (greatest
 // elements first).  If the lst element is greater than the existing acc
 // element, the acc element moves down by 1 and makes way for the lst
-// element to ne placed in where the acc element had been.  If the lst
+// element to be placed where the acc element had been.  If the lst
 // element is not greater then it is placed before the acc element it is
 // compared with.  This process has the effect that greater elements move
-// one position to the right and the lesser elements one position to the
-// left on a round.  Thus, running a number of rounds equal to the length
-// of lst sorts lst.  Empty input list is not allowed.
-round : {n, b} (Literal 0 b, Cmp b, fin n) => [1 + n]b -> [1 + n]b
+// at most one position to the right and lesser elements at most one 
+// position to the left on a round.  Thus, running a number of rounds 
+// equal to the length of lst sorts lst.
+round : {n, b} (Literal 1 b, Ring b, Cmp b, fin n) => [1 + n]b -> [1 + n]b
 round lst = z ! 0
   where
-    z = [q]#[ if (lst@i) > (acc@(i+1))
+    z = [q]#[ if lst@i > acc@(i+1)
 	           then (insert (insert acc (acc@(i+1)) i) (lst@i) (i+1))
 				  else (insert acc (lst@i) i)
 		  | acc <- z | i <- (reverse (take `{n} [0...])) ];
-		  q = insert (makeZeros lst) (last lst) ((length lst)-1)
+		  q = insert (makeNegs lst) (last lst) ((length lst)-1)
 
 
 // replace the ith element of sequence lst with the number m
 insert lst m i = [ if k==i then m else x | x <- lst | k <- [0...]]
 
-// Create a sequence of zeros equal in length to input sequence lst
-makeZeros lst = [ 0 | i <- lst ]
+// Create a sequence of -1s equal in length to input sequence lst
+makeNegs lst = [ -1 | i <- lst ]
 
-// Sort a given input sequence lst - the a numbers of rounds equal to
-// the length of lst
+// Sort a given input sequence lst - the number of rounds is equal to
+// the length of lst and obtained with i <- lst.
 sort lst =  z ! 0
   where
     z = [ round x | x <- [lst]#z | i <- lst ]
@@ -36,7 +36,7 @@ sort lst =  z ! 0
 // Returns True if and only if the sequence lst has no -1s and no 0s
 valid lst = (z ! 0)
   where
-    z = [True]#[(x > 0 /\ ~(x == -1)) /\ y | x <- lst | y <- z ]
+    z = [True]#[ ~(x == -1) /\ y | x <- lst | y <- z ]
 
 // Theorem stating a valid sequence lst implies lst is a permutation
 // of (sort lst)
@@ -54,6 +54,5 @@ nondecreasing lst = (res ! 0)
 // Theorem stating a valid sequence lst implies the sequence (sort lst)
 // is nondecreasing
 sortIsOrdered : [6][32] -> Bit
-property sortIsOrdered lst =
-   if (valid lst) then nondecreasing (sort lst) else True
+property sortIsOrdered lst = if (valid lst) then nondecreasing (sort lst) else True
 

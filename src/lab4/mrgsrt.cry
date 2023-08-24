@@ -21,7 +21,7 @@ import perm
      Output - infinite list, padded with -1s after the split elements
      Process: best described as [ lst@i | i <- [0,2...] ]
    merge:
-     Inputs: px, py - two infinite lists in nondecreasing order (padded w/ -1s)
+     Inputs: px, py - two infinite lists in nondecreasing order (padded with -1s)
      Output: infinite list, nondecreasing, containing all of px & py, padded
      Process: merge two padded infinite lists, up to the padding
      if px@0 is -1 then return py, if py@0 is -1 then return px
@@ -60,7 +60,7 @@ mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 0) => [cnt][a] -> [cnt][a]
 mergesort lst = take `{cnt} (mergesrt ax)
   where
     mergesrt p = 
-      if (p@0 == -1) \/ (p@1 == -1) then p
+      if p@0 == -1 \/ p@1 == -1 then p
       else merge (mergesrt (splite p)) (mergesrt (splito p))
     ax = lst#[-1,-1 ...]
 
