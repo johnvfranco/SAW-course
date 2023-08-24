@@ -1,0 +1,27 @@
+import perm
+
+bsort : {n, a} (Cmp a, Integral a, Literal 1 a, fin n) => [n]a -> [n]a
+bsort lst = take `{n} (bb (lst#[-1,-1...]))
+  where
+    bb seq = if (seq@0) == -1 then seq else (bbl (head seq) (bb (tail seq)))
+    bbl n seq =
+      if ((seq@0) == -1) then [n]#[-1,-1...]
+      else if (n < (seq@0)) then [n]#seq
+      else [(seq@0)]#(bbl n (tail seq))
+		
+valid lst = z ! 0
+  where
+    z = [True]#[~(x == -1) /\ y | x <- lst | y <- z ]
+
+isAPerm : [6][32] -> Bit
+property isAPerm lst = if (valid lst) then perm lst (bsort lst) else True
+
+nondecreasing : [6][32] -> Bit
+nondecreasing lst = (res ! 0)
+  where
+    res = [True]#[ if (j1 <= j2) /\ k then True else False
+                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+
+bsortIsOrdered : [6][32] -> Bit
+property bsortIsOrdered lst = if valid lst then nondecreasing (bsort lst) else True
+

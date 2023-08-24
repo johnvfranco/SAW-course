@@ -1,3 +1,5 @@
+import perm
+
 // Sort algorithm: let lst be the list to sort and let acc initially be a
 // sequence of 0s of the same length as lst.   In a round, elements of lst
 // are compared with elements of acc, starting from the right (greatest
@@ -30,27 +32,6 @@ makeZeros lst = [ 0 | i <- lst ]
 sort lst =  z ! 0
   where
     z = [ round x | x <- [lst]#z | i <- lst ]
-
-// The next three are for function perm which returns True if and only if
-// both input sequences are permutations of each other
-remove lst n = drop `{2} [w.0 | w <- res]
-  where
-    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
-                         then (za, q.1)
-                         else (zb, True)
-                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
-
-// Returns True if and only if the element n is a member of sequence lst
-member lst n = (res ! 0)
-  where
-    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
-
-// Returns True if and only if sequence x is a permutation of sequence y
-perm x y = if (length x) == 0 /\ (length y) == 0 then True else
-           if (length x) == (length y) then (res ! 0).1 else False
-  where
-    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
-          | q <- [(y,True)]#res | p <- x ]
 
 // Returns True if and only if the sequence lst has no -1s and no 0s
 valid lst = (z ! 0)

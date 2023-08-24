@@ -1,21 +1,4 @@
-module mrgsrt where
-
-remove lst n = drop `{2} [w.0 | w <- res]
-  where
-    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
-                         then (za, q.1)
-                         else (zb, True)
-                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
-
-member lst n = (res ! 0)
-  where
-    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
-
-perm x y = if (length x) == 0 /\ (length y) == 0 then True else
-           if (length x) == (length y) then (res ! 0).1 else False
-  where
-    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
-          | q <- [(y,True)]#res | p <- x ]
+import perm
 
 /************************************************************************/
 /*                                                                      */
