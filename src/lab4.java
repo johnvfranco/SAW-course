@@ -181,7 +181,7 @@ class lab4 extends JFrame implements ActionListener {
       }
       else if (evt.getSource() == manual) getDoc(cpath+"/ProgrammingCryptol.pdf");
       else if (evt.getSource() == primitives) getDoc(cpath+"/CryptolPrims.pdf");
-      else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
+      else if (evt.getSource() == b[0]) getDoc(fpath+"/solutions.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
       else if (evt.getSource() == z[0]) {
