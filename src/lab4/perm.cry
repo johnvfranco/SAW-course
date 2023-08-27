@@ -1,24 +1,24 @@
 module perm where
 
-remove lst n = drop `{2} [w.0 | w <- res]
+remove lst n = drop `{2} [w.0 | w <- z]
   where
-    res = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
-                         then (za, q.1)
-                         else (zb, True)
-                       | za <- [-1]#lst | zb <- lst#[-1] | q <- res ]
+    z = [(-1,False)]#[ if (q.1 == False /\ ~(za == n)) 
+                       then (za, q.1)
+                       else (zb, True)
+                     | za <- [-1]#lst | zb <- lst#[-1] | q <- z ]
 
-member lst n = (res ! 0)
+member lst n = z ! 0
   where
-    res = [False]#[ ss \/ (p == n) | p <- lst | ss <- res ]
+    z = [False]#[ ss \/ (p == n) | p <- lst | ss <- z ]
 
 perm x y = if (length x) == 0 /\ (length y) == 0 then True else
-           if (length x) == (length y) then (res ! 0).1 else False
+           if (length x) == (length y) then (z ! 0).1 else False
   where
-    res = [ ((remove q.0 p), (member q.0 p) /\ q.1)
-          | q <- [(y,True)]#res | p <- x ]
+    z = [ ((remove q.0 p), (member q.0 p) /\ q.1)
+        | q <- [(y,True)]#z | p <- x ]
 
 permReflexive : [10][32] -> [10][32] -> Bit
-property permReflexive x y = if x == y then perm x y else True
+property permReflexive x y = ~(x == y) \/ perm x y
 
 permSymmetric : [10][32] -> [10][32] -> Bit
 property permSymmetric x y =
@@ -31,3 +31,4 @@ property permTransitive x y z =
 	    perm x y /\ perm y z
 	then perm x z else True
 
+// use cvc4 prover

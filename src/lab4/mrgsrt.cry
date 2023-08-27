@@ -64,6 +64,7 @@ mergesort lst = take `{cnt} (mergesrt ax)
       else merge (mergesrt (splite p)) (mergesrt (splito p))
     ax = lst#[-1,-1 ...]
 
+// For the following use :s base=10
 res00 = take `{3} (splite [1,2,3,4,5,6])
 res01 = take `{3} (splite [1,2,3,4,5,6,7])
 res02 = take `{4} (splite [1,2,3,4,5,6,7,8])
@@ -101,7 +102,9 @@ valid lst = z ! 0
     z = [True]#[~(x == -1) /\ y | x <- lst | y <- z ]
 
 isAPerm : [6][32] -> Bit
-property isAPerm lst = if valid lst then perm lst (mergesort lst) else True
+property isAPerm lst = ~(valid lst) \/ perm lst (mergesort lst)
+
+// use cvc4 for isAPerm (0.595s)
 
 nondecreasing lst = (res ! 0)
   where
@@ -110,4 +113,6 @@ nondecreasing lst = (res ! 0)
 
 mergesortIsOrdered : [6][32] -> Bit
 property mergesortIsOrdered lst =
-   if valid lst then nondecreasing (mergesort lst) else True
+    ~(valid lst) \/ nondecreasing (mergesort lst)
+
+// use cvc4 for mergesortIsOrdered (0.176s)

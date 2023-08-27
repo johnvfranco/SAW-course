@@ -21,7 +21,6 @@ round lst = z ! 0
 		  | acc <- z | i <- (reverse (take `{n} [0...])) ];
 		  q = insert (makeNegs lst) (last lst) ((length lst)-1)
 
-
 // replace the ith element of sequence lst with the number m
 insert lst m i = [ if k==i then m else x | x <- lst | k <- [0...]]
 
@@ -42,7 +41,7 @@ valid lst = (z ! 0)
 // Theorem stating a valid sequence lst implies lst is a permutation
 // of (sort lst)
 isAPerm : [6][32] -> Bit
-property isAPerm lst = if (valid lst) then perm lst (sort lst) else True
+property isAPerm lst =  ~(valid lst) \/ perm lst (sort lst)
 
 // Returns True if and only if for every pair of consecutive numbers in
 // lst, the left number is never greater than the right number
@@ -55,5 +54,5 @@ nondecreasing lst = (res ! 0)
 // Theorem stating a valid sequence lst implies the sequence (sort lst)
 // is nondecreasing
 sortIsOrdered : [6][32] -> Bit
-property sortIsOrdered lst = if (valid lst) then nondecreasing (sort lst) else True
+property sortIsOrdered lst = ~(valid lst) \/ nondecreasing (sort lst)
 

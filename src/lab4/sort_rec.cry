@@ -37,25 +37,25 @@ sort lst = z ! 0
     z = [ round x (makeNegs lst)  | x <- [lst]#z | i <- lst ]
 
 // Returns True if and only if the sequence lst has no -1s
-valid lst = (z ! 0)
+valid lst = z ! 0
   where
     z = [True]#[ ~(x == -1) /\ y | x <- lst | y <- z ]
 
 // Theorem stating a valid sequence lst implies lst is a permutation
 // of (sort lst)
 isAPerm : [6][32] -> Bit
-property isAPerm lst = if (valid lst) then perm lst (sort lst) else True
+property isAPerm lst = ~(valid lst) \/ perm lst (sort lst)
 
 // Returns True if and only if for every pair of consecutive numbers in
 // lst, the left number is never greater than the right number
 nondecreasing : [6][32] -> Bit
-nondecreasing lst = (res ! 0)
+nondecreasing lst = z ! 0
   where
-    res = [True]#[ if (j1 <= j2) /\ k then True else False
-                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+    z = [True]#[ if (j1 <= j2) /\ k then True else False
+               | k <- z | j1 <- lst | j2 <- drop `{1} lst]
 
 // Theorem stating a valid sequence lst implies the sequence (sort lst)
 // is nondecreasing
 sortIsOrdered : [6][32] -> Bit
-property sortIsOrdered lst = if (valid lst) then nondecreasing (sort lst) else True
+property sortIsOrdered lst = ~(valid lst) \/ nondecreasing (sort lst)
 
