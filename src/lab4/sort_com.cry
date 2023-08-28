@@ -46,10 +46,10 @@ property isAPerm lst =  ~(valid lst) \/ perm lst (sort lst)
 // Returns True if and only if for every pair of consecutive numbers in
 // lst, the left number is never greater than the right number
 //nondecreasing : [6][32] -> Bit
-nondecreasing lst = (res ! 0)
+nondecreasing lst = z ! 0
   where
-    res = [True]#[ if (j1 <= j2) /\ k then True else False
-                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+    z = [True]#[ if (j1 <= j2) /\ k then True else False
+               | k <- z | j1 <- lst | j2 <- drop `{1} lst]
 
 // Theorem stating a valid sequence lst implies the sequence (sort lst)
 // is nondecreasing

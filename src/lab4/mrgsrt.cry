@@ -106,10 +106,10 @@ property isAPerm lst = ~(valid lst) \/ perm lst (mergesort lst)
 
 // use cvc4 for isAPerm (0.595s)
 
-nondecreasing lst = (res ! 0)
+nondecreasing lst = z ! 0
   where
-    res = [True]#[ if (j1 <= j2) /\ k then True else False
-                 | k <- res | j1 <- lst | j2 <- drop `{1} lst]
+    z = [True]#[ if (j1 <= j2) /\ k then True else False
+               | k <- z | j1 <- lst | j2 <- drop `{1} lst]
 
 mergesortIsOrdered : [6][32] -> Bit
 property mergesortIsOrdered lst =
