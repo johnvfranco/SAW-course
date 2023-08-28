@@ -18,8 +18,8 @@ round lst = z ! 0
     z = [q]#[ if lst@i > acc@(i+1)
 	           then (insert (insert acc (acc@(i+1)) i) (lst@i) (i+1))
 				  else (insert acc (lst@i) i)
-		  | acc <- z | i <- (reverse (take `{n} [0...])) ];
-		  q = insert (makeNegs lst) (last lst) ((length lst)-1)
+		  | acc <- z | i <- (reverse (take `{n} [0...])) ]
+    q = insert (makeNegs lst) (last lst) ((length lst)-1)
 
 // replace the ith element of sequence lst with the number m
 insert lst m i = [ if k==i then m else x | x <- lst | k <- [0...]]
