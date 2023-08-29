@@ -28,7 +28,7 @@ property permSymmetric x y =
 permTransitive : [6][32] -> [6][32] -> [6][32] -> Bit
 property permTransitive x y z =
    if ~(member x (2^^32-1)) /\ ~(member y (2^^32-1)) /\ ~(member z (2^^32-1)) /\
-	    perm x y /\ perm y z
-	then perm x z else True
+       perm x y /\ perm y z
+   then perm x z else True
 
 // use cvc4 prover

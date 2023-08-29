@@ -16,9 +16,9 @@ round : {n, b} (Literal 1 b, Ring b, Cmp b, fin n) => [1 + n]b -> [1 + n]b
 round lst = z ! 0
   where
     z = [q]#[ if lst@i > acc@(i+1)
-	           then (insert (insert acc (acc@(i+1)) i) (lst@i) (i+1))
-				  else (insert acc (lst@i) i)
-		  | acc <- z | i <- (reverse (take `{n} [0...])) ]
+              then (insert (insert acc (acc@(i+1)) i) (lst@i) (i+1))
+              else (insert acc (lst@i) i)
+        | acc <- z | i <- (reverse (take `{n} [0...])) ]
     q = insert (makeNegs lst) (last lst) ((length lst)-1)
 
 // replace the ith element of sequence lst with the number m
@@ -34,7 +34,7 @@ sort lst =  z ! 0
     z = [ round x | x <- [lst]#z | i <- lst ]
 
 // Returns True if and only if the sequence lst has no -1s 
-valid lst = (z ! 0)
+valid lst = z ! 0
   where
     z = [True]#[ ~(x == -1) /\ y | x <- lst | y <- z ]
 

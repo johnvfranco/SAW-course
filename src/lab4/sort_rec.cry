@@ -16,13 +16,11 @@ round : {n, a} (Literal 1 a, Ring a, Cmp a, fin n) => [1 + n]a -> [1 + n]a -> [1
 round lst acc = (func lst ((length lst)-1) acc)
   where
     func lt i ac =
-      if (i == -1)
-		then ac
-      else if ((last ac) == -1)
-		     then func lt (i-1) (insert ac (lt@i) i) 
-	        else if (lt@i) > (ac@(i+1))
-                then func lt (i-1) (insert (insert ac (ac@(i+1)) i) (lt@i) (i+1))
-                else func lt (i-1) (insert ac (lt@i) i)
+      if i == -1
+      then ac
+      else if (last ac) == -1 \/ lt@i <= ac@(i+1)
+           then func lt (i-1) (insert ac (lt@i) i) 
+           else func lt (i-1) (insert (insert ac (ac@(i+1)) i) (lt@i) (i+1))
 
 // replace the ith element of sequence lst with the number m
 insert lst m i = [ if k==i then m else x | x <- lst | k <- [0...]]
