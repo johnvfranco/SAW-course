@@ -120,7 +120,7 @@ class lab3E extends JFrame implements ActionListener {
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  An ECU "));
+      p.add(lbl = new JLabel("  Bounded Model Checking "));
       lbl.setFont(fnt);
       q.add(p);
       xy.add("Center", q);
