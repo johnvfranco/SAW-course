@@ -1,0 +1,21 @@
+type State = {  cb : [4][12],  // call buttons - 1/floor, 4 total
+               cbl : [4][12],  // call button lights - 1/floor, 4 total
+                eb : [4][12],  // elevator buttons - 1/floor, 4 total
+					ebl : [4][12],  // elevator button lights - 1/button, 4 total
+					ids : [12],     // elevator door sensor
+					ods : [4][12],  // outside door sensor - 1/floor, 4 total
+					mtr : [12],     // motor direction, in motion
+					 fs : [4][12],  // floor sensor - 1/floor, 4 total
+					 pe : [12] }    // person(s) in elevator
+
+initState : State
+initState = {  cb = [0,0,0,0], // no call buttons pressed
+              cbl = [0,0,0,0], // all call button lights are off
+				   eb = [0,0,0,0], // no elevator buttons pressed
+				  ebl = [0,0,0,0], // elevator button lights are off
+				  ids = 0,         // elevator door is open
+				  ods = [0,1,1,1], // outside floor door is open on 1st floor only
+				  mtr = 0,         // elevator is stationary
+				   fs = [1,0,0,0], // elevator is on 1st floor
+					pe = 0 }        // no one is in the elevator
+
