@@ -195,7 +195,7 @@ class lab5C extends JFrame implements ActionListener {
             javax.swing.filechooser.FileFilter filter =
                new FileNameExtensionFilter(
 						 "Editable files",
-                   new String[] {"txt","cry","tex","saw","c","cc","py","h","<akefile","ll"});
+                   new String[] {"txt","cry","tex","saw","c","cc","py","h","Makefile","ll","java"});
             fc.setFileFilter(filter);
             fc.addChoosableFileFilter(filter);
             fc.showOpenDialog(this);
