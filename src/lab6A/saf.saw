@@ -1,0 +1,22 @@
+import "saf.cry";
+
+let safe_setup = do {
+    arr <- llvm_fresh_var "array" (llvm_array 10 (llvm_int 8));
+    parr <- llvm_alloc (llvm_array 10 (llvm_int 8));
+    llvm_points_to parr (llvm_term arr);
+
+    idx <- llvm_fresh_var "index" (llvm_array 1 (llvm_int 8));
+    pidx <- llvm_alloc (llvm_array 1 (llvm_int 8));
+    llvm_points_to pidx (llvm_term idx);
+
+	 llvm_execute_func [ pidx, parr ];
+
+    llvm_points_to pidx (llvm_term {{ saf idx arr }});
+};
+
+
+let main : TopLevel () = do {
+    m <- llvm_load_module "saf.bc";
+    saf_proof <- llvm_verify m "saf" [] false safe_setup yices;
+    print "Done!";
+};
