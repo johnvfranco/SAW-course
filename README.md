@@ -33,4 +33,3 @@ number repeatedly until you are happy with the content size.  You can set that
 size as the default when the viewer is showing something by clicking the menu
 icon that looks like three horizontal bars on top of each other and choosing
 'Save Current Settings as Default'.
-select 
