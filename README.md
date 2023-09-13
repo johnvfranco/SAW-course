@@ -27,7 +27,7 @@ wheel to select 'Large', 'Huge', or 'Enormous'.  Do the same for the terminal
 although the font selection there is not as good as for the Cryptol window
 (not known why at the moment).  To control the size of the pdf viewer content
 first adjust the size of the pdf viewer window by grabbing a corner with the
-mouse and dragging in until you have the size you want and second, drop the
+mouse and dragging it until you have the size you want and second, drop the
 size menu (last on the left in the rightmost group of widgets) and select a
 number repeatedly until you are happy with the content size.  You can set that
 size as the default when the viewer is showing something by clicking the menu
