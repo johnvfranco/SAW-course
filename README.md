@@ -26,9 +26,9 @@ simultaneouly with the Right mouse button to get the VT Fonts menu and scroll
 down with the mouse wheel to select 'Large', 'Huge', or 'Enormous'.  Do the
 same for the terminal although the font selection there is not as good as
 for the Cryptol window (not known why at the moment).  If the text editor
-is emacs, drop the view menu and select 'Zoom In' or 'Zoom Out' as needed.
-If the text editor is gedit you have to install the text size plugin like
-this:
+is the default (gnome-terminal running emacs), drop the view menu and select
+'Zoom In' or 'Zoom Out' as needed.  If the text editor is gedit you have to
+install the text size plugin like this:
 
    sudo apt-get install -y gedit-plugin-text-size
 
