@@ -20,16 +20,27 @@ or
 
 and then invoke run.  Doing this will enlarge the Java windows and Dialogs
 proportionately, including the File Chooser.  This will not affect the size
-of the Cryptol application, the Terminal, or the pdf viewer (evince) windows.
-To enlarge the Cryptol window press the Contol key simultaneouly with the
-Right mouse button to get the VT Fonts menu and scroll down with the mouse
-wheel to select 'Large', 'Huge', or 'Enormous'.  Do the same for the terminal
-although the font selection there is not as good as for the Cryptol window
-(not known why at the moment).  To control the size of the pdf viewer content
-first adjust the size of the pdf viewer window by grabbing a corner with the
-mouse and dragging it until you have the size you want and second, drop the
-size menu (last on the left in the rightmost group of widgets) and select a
-number repeatedly until you are happy with the content size.  You can set that
-size as the default when the viewer is showing something by clicking the menu
-icon that looks like three horizontal bars on top of each other and choosing
-'Save Current Settings as Default'.
+of the Cryptol application, the Text Editor, the Terminal, or the pdf viewer
+(evince) windows.  To enlarge the Cryptol window press the Contol key
+simultaneouly with the Right mouse button to get the VT Fonts menu and scroll
+down with the mouse wheel to select 'Large', 'Huge', or 'Enormous'.  Do the
+same for the terminal although the font selection there is not as good as
+for the Cryptol window (not known why at the moment).  If the text editor
+is emacs, drop the view menu and select 'Zoom In' or 'Zoom Out' as needed.
+If the text editor is gedit you have to install the text size plugin like
+this:
+
+   sudo apt-get install -y gedit-plugin-text-size
+
+then click the 3 horizontal bars atop each other icon and select preferences,
+then select plugins then scroll down and select the text size plugin.  To
+change content size hold the control key while scrolling with the mouse
+thumbwheel.  Other text editors have their own ways to control content
+size.  To control the size of the pdf viewer content first adjust the size
+of the pdf viewer window by grabbing a corner with the mouse and dragging
+it until you have the size you want and second, drop the size menu (last
+on the left in the rightmost group of widgets) and select a number repeatedly
+until you are happy with the content size.  You can set that size as the
+default when the viewer is showing something by clicking the menu icon that
+looks like three horizontal bars atop each other and choosing 'Save Current
+Settings as Default'.
