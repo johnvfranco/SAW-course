@@ -23,19 +23,19 @@ proportionately, including the File Chooser.  This will not affect the size
 of the Cryptol application, the Text Editor, the Terminal, or the pdf viewer
 (evince) windows.  To enlarge the Cryptol window press the Contol key
 simultaneouly with the Right mouse button to get the VT Fonts menu and scroll
-down with the mouse wheel to select 'Large', 'Huge', or 'Enormous'.  Do the
-same for the terminal although the font selection there is not as good as
-for the Cryptol window (not known why at the moment).  If the text editor
-is the default (gnome-terminal running emacs), drop the view menu and select
-'Zoom In' or 'Zoom Out' as needed.  If the text editor is gedit you have to
-install the text size plugin like this:
+down with the mouse wheel to select 'Large', 'Huge', or 'Enormous'.  The
+terminal is now gnome-terminal.  To enlarge the terminal, and get some good
+looking fonts as well, drop the terminal's View menu and select 'Zoom In'
+or 'Zoom Out' as needed.  If the text editor is the default (gnome-terminal
+running emacs), drop the view menu and select 'Zoom In' or 'Zoom Out' as needed.
+If the text editor is gedit you have to install the text size plugin like this:
 
    sudo apt-get install -y gedit-plugin-text-size
 
 then click the 3 horizontal bars atop each other icon and select preferences,
 then select plugins then scroll down and select the text size plugin.  To
 change content size hold the control key while scrolling with the mouse
-thumbwheel.  Other text editors have their own ways to control content
+thumb-wheel.  Other text editors have their own ways to control content
 size.  To control the size of the pdf viewer content first adjust the size
 of the pdf viewer window by grabbing a corner with the mouse and dragging
 it until you have the size you want and second, drop the size menu (last
