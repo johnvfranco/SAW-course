@@ -26,9 +26,13 @@ simultaneouly with the Right mouse button to get the VT Fonts menu and scroll
 down with the mouse wheel to select 'Large', 'Huge', or 'Enormous'.  The
 terminal is now gnome-terminal.  To enlarge the terminal, and get some good
 looking fonts as well, drop the terminal's View menu and select 'Zoom In'
-or 'Zoom Out' as needed.  If the text editor is the default (gnome-terminal
-running emacs), drop the view menu and select 'Zoom In' or 'Zoom Out' as needed.
-If the text editor is gedit you have to install the text size plugin like this:
+or 'Zoom Out' as needed.  To keep the large fonts for future invocations
+drop the terminal's Edit menu, select Preferences, click Custom font, click
+the font name, which is likely Monospace, and click '+' or '-' until you
+are happy with the size.  If the text editor is the default (gnome-terminal
+running emacs), drop the view menu and select 'Zoom In' or 'Zoom Out' as
+needed.  Remember the font size as for the case of the terminal above.  If
+the text editor is gedit you have to install the text size plugin like this:
 
    sudo apt-get install -y gedit-plugin-text-size
 
