@@ -97,7 +97,7 @@ class intr extends JFrame implements ActionListener {
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);      
       p.add(new JLabel("        "));
-      p.add(y[0] = new JButton("Background"));
+      p.add(y[0] = new JButton("Introduction"));
       p.add(z[0] = new JButton("Cryptol"));
       q.add(p);
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -187,7 +187,7 @@ class intr extends JFrame implements ActionListener {
       else if (evt.getSource() == primitives) getDoc(cpath+"/CryptolPrims.pdf");
       else if (evt.getSource() == b[0]) getDoc(fpath+"/solution.pdf");
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
-      else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
+      else if (evt.getSource() == y[0]) getDoc(fpath+"/introduction.pdf");
       else if (evt.getSource() == z[0]) {
          String command = "cryptol "+fpath;
          try {
