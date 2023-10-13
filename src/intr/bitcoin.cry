@@ -1,0 +1,45 @@
+// Three boxes are presented to you.  One contains Bitcoin, the other two are 
+// empty. Each box has imprinted on it a clue as to its contents; the clues 
+// are:
+// Box 1: "The Bitcoin is not here" 
+// Box 2: "The Bitcoin is not here" 
+// Box 3: "The Bitcoin is in Box 2"
+// One message is true; the other two are false.  Which box has the Bitcoin?
+
+// exactly one of x1 x2 x3 is True
+one_is_true : Bit -> Bit -> Bit -> Bit
+one_is_true x1 x2 x3 =
+  (~x1 \/ ~x2) /\ (~x1 \/ ~x3) /\ (~x2 \/ ~x3) /\ (x1 \/ x2 \/ x3)
+
+// x1 is True/False if and only if x2 is True/False
+iff : Bit -> Bit -> Bit
+iff x1 x2 = x1 == x2
+
+// not x is True if x is False and is False if x is True
+not : Bit -> Bit
+not x = if x then False else True
+
+// Meaning of signs
+// if sign1 is True then the Bitcoin is not in box1 otherwise it is in box1
+// if sign2 is True then the Bitcoin is not in box2 otherwise it is in box2
+// if sign3 is true then the Bitcoin is in box2 otherwise it is not in box2
+setup : Bit -> Bit -> Bit -> Bit -> Bit -> Bit
+setup s1 s2 s3 b1 b2 =
+  (iff s1 (not b1)) /\ (iff s2 (not b2)) /\ (iff s3 b2)
+
+implies : Bit -> Bit -> Bit
+implies x1 x2 = if x1 then x2 else True
+
+ans : Bit -> Bit -> Bit -> Bit -> Bit -> Bit -> Bit
+property ans s1 s2 s3 b1 b2 b3 =
+  (implies ((one_is_true s1 s2 s3) /\ // one sign is True
+            (one_is_true b1 b2 b3) /\ // one box has the Bitcoin
+	    (setup s1 s2 s3 b1 b2))   // signs match
+	 b1)                          // then b1 has the Bitcoin
+
+// Main> :l bitcoin.cry 
+// Loading module Cryptol
+// Loading module Main
+// Main> :prove ans
+// Q.E.D.
+// (Total Elapsed Time: 0.028s, using "Z3")

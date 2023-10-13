@@ -1,0 +1,68 @@
+// Kaloton Puzzle
+//   The Kalotans are a tribe with a peculiar quirk: their females
+//   always tell the truth and their males never make two consecutive
+//   true statements, or two consecutive untrue statements.
+//
+//   An anthropologist (let's call him Worf) has begun to study them.
+//   Worf does not yet know the Kalotan language.  One day, he meets a
+//   Kalotan (heterosexual) couple and their child Kibi (also called "kid").
+//   Worf asks the kid: ``Are you a boy?''  The kid answers in Kalotan,
+//   which of course Worf doesn't understand.
+//
+//   Worf turns to the parents (who know English) for explanation.  One
+//   of them (parent1) says: "Kibi said: `I am a girl.'" The other (parent2)
+//   adds: "Kibi is a boy.  Kibi lied."
+//
+//   Solve for the sex of the parents and Kibi.
+
+// -----------------------------------------
+// variables: parent1: T=male, F=female
+// parent2: T=male, F=female
+//            kid: T=male, F=female
+//            kid-said: T=male, F=female
+//            kid-lied: T=yes, F=no
+//
+// if parent1 is a female then 
+//    kibi said it is a girl (female response) 
+//       and
+//    either kibi is a boy and did not lie 
+//       or (male response - alt T,F)
+//          kibi is a girl and did lie 
+//              otherwise
+//                 (male response does not matter)
+//                  kibi is a boy and kibi lied  (female response)
+
+xor : Bit -> Bit -> Bit
+xor a b = a ^ b
+
+heterosexual_parents : Bit -> Bit -> Bit
+heterosexual_parents parent1 parent2 = ~(parent1 == parent2)
+
+meaning_of_kid_lied : Bit -> Bit -> Bit -> Bit
+meaning_of_kid_lied kid_said kid kid_lied = xor (kid_said == kid) kid_lied
+
+parents_said : Bit -> Bit -> Bit -> Bit -> Bit
+parents_said parent1 kid_said kid kid_lied =
+  if ~parent1 then (~kid_said /\ (xor kid kid_lied)) else (kid /\ kid_lied)
+
+people_types : Bit -> Bit -> Bit -> Bit -> Bit -> Bit
+property people_types parent1 parent2 kid_said kid kid_lied =
+ (heterosexual_parents parent1 parent2 /\
+  meaning_of_kid_lied kid_said kid kid_lied /\
+  parents_said parent1 kid_said kid kid_lied)
+
+// use: Main> :s satNum=all
+//      Main> :sat people_types
+
+// The following is unsatisfiable
+// use: Main> :sat checkit1
+property checkit1 parent1 parent2 kid kid_said kid_lied =
+  ~(parent1 /\ ~parent2 /\ ~kid_said /\ kid /\ kid_lied) /\
+  (people_types parent1 parent2 kid_said kid kid_lied)
+
+// The following proves
+// use: Main> :prove checkit2
+property checkit2 parent1 parent2 kid kid_said kid_lied =
+  ~(people_types parent1 parent2 kid_said kid kid_lied) \/
+  (parent1 /\ ~parent2 /\ ~kid_said /\ kid /\ kid_lied) 
+

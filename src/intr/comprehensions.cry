@@ -1,0 +1,128 @@
+// Simple example of a comprehension
+v01 = [x | x <- [1...] | y <- [1..10]]
+// v01 is [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].
+// Note: x and y take values interactively and simultaneously.  x is
+// taken from an infinite list but the comprehension is controlled
+// by y as it runs out of tokens after receiving value 10.
+
+v02 = [ (x,y) | x <- [10..12] , y <- [1..4]]
+// v02 is [(10, 1), (10, 2), (10, 3), (10, 4), (11, 1), (11, 2),
+//         (11, 3), (11, 4), (12, 1), (12, 2), (12, 3), (12, 4)]
+// Note: pairs are constructed from all possible combinations
+// of values of x between 10 and 12 and y between 1 and 4.
+
+v03 = [ (x,y,z) | x <- [10,11] , y <- [20,21], z <- [30,31]]
+// v03 is [(10, 20, 30), (10, 20, 31), (10, 21, 30), (10, 21, 31),
+//         (11, 20, 30), (11, 20, 31), (11, 21, 30), (11, 21, 31)]
+// Note: all possible triples from values taken by x, y, and z
+
+v04 = [ (x,y,z) | x <- [10,11] , y <- [20,21] | z <- [30,31,32]]
+// v04 is [(10, 20, 30), (10, 21, 31), (11, 20, 32)]
+// Note: the rightmost | controls the number of triples output
+
+v05 = [1]#[ x+y | x <- v05 | y <- [1]#v05 ]
+v06 = take `{10} v05
+// v05 is an infinite sequence [1, 2, 3, 5, 8, ...] of Fibonaccis
+// v06 is a finite subsequence of 10 of the first 10 of those
+// Note: as v05 is being constructed, it is used inside the
+// comprehension to construct the next element of the sequence v05
+
+// Pigeon hole formulas - set base=10
+ph = [1,1,1,0,1,2,2,1,1]  // shows number of pigeons in each of 9 holes
+v07 = [0]#[ x+y | x <- ph | y <- v07 ]  // sum all holes to get # pigeons
+v08 = v07 ! 0 // number of pigeons is last State
+// v07 is [0, 1, 2, 3, 3, 4, 6, 8, 9, 10]
+// v08 is 10
+
+// Condition that no hole has > 1 pigeon - set base=2
+v09 = [True]#[ (x <= 1) /\ y | x <- ph | y <- v09 ]
+v10 = v09 ! 0
+// v09 is 0b1111110000
+// v10 is False meaning at least one hole has more than one pigeon
+
+// The following reverses a sequence
+lst = [16,42,23,77]
+v11 = [lst] # [[b]#(tail (a >> 1)) | a <- v11 | b <- lst ]
+v12 = v11 ! 0
+// v11 is [[16, 42, 23, 77], [16, 16, 42, 23], [42, 16, 16, 42],
+//         [23, 42, 16, 16], [77, 23, 42, 16]]
+// v12 is [77, 23, 42, 16]
+
+// Creates a list of 16 numbers, beginning with the first one, p,
+// as input, doubled, then followed by numbers that are double the
+// previous one.
+p = 3
+v13 = [ 2*lr | lr <- [p] # v13 | k <- [1 .. 16]]
+// v13 is [6, 12, 24, 48, 96, 192, 384, 768, 1536, 3072, 6144,
+//         12288, 24576, 49152, 98304, 196608]
+
+// An infinite version of the above
+v14 = [2*lr | lr <- [p] # v14 | k <- [1...]]
+v15 = take `{12} v14
+// v14 is [6, 12, 24, 48, 96, ...]
+// v15 is [6, 12, 24, 48, 96, 192, 384, 768, 1536, 3072, 6144, 12288]
+
+// Try this
+// Cryptol infers types hence things like v01 : {a} (Literal 1 a, Integral a) => [10]a
+// and like "* Using 'Integer' for type argument 'a' of 'Cryptol::infFrom'
+// but v01:[10][32] narrows the type to a sequence of 10 32 bit numbers and the above
+// disappears.  This is a monomorphic type.  The inferred type is polymorphic.
+// Main> :l comprehensions.cry
+// Main> :s base=10
+// Main> :t v01
+// v01 : {a} (Literal 1 a, Integral a) => [10]a
+// Main> v01
+// Showing a specific instance of polymorphic result:
+//  * Using 'Integer' for type argument 'a' of 'Cryptol::infFrom'
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// Main> v01:[10][32]
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// Main> :t v02
+// v02 : {a, b} (Literal 4 b, Literal 12 a) => [12](a, b)
+// Main> v02:[12]([32],[32])
+// [(10, 1), (10, 2), (10, 3), (10, 4), (11, 1), (11, 2), (11, 3),
+//  (11, 4), (12, 1), (12, 2), (12, 3), (12, 4)]
+// :t v03
+// v03 : {a, b, c} (Literal 31 c, Literal 21 b, Literal 11 a) => [8](a, b, c)
+// Main> v03:[8]([32],[32],[32])
+// [(10, 20, 30), (10, 20, 31), (10, 21, 30), (10, 21, 31),
+//  (11, 20, 30), (11, 20, 31), (11, 21, 30), (11, 21, 31)]
+// Main> :t v04
+// v04 : {a, b, c} (Literal 32 c, Literal 21 b, Literal 11 a) => [3](a, b, c)
+// Main> v04:[3]([32],[32],[32])
+// [(10, 20, 30), (10, 21, 31), (11, 20, 32)]
+// Main> :t v05
+// v05 : {a} (Ring a, Literal 1 a) => [inf]a
+// Main> v05
+// Showing a specific instance of polymorphic result:
+//   * Using 'Integer' for type argument 'a' of '(Cryptol::+)'
+// [1, 2, 3, 5, 8, ...]
+// Main> v05:[inf][32]
+// [1, 2, 3, 5, 8, ...]
+// Main> :t v06
+// v06 : {a} (Ring a, Literal 1 a) => [10]a
+// Main> v06:[10][32]
+// [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+// Main> :t v07
+// v07 : {a} (Ring a, Literal 2 a) => [10]a
+// Main> v07:[10][32]
+// [0, 1, 2, 3, 3, 4, 6, 8, 9, 10]
+// Main> :t v08
+// v08 : {a} (Literal 2 a, Ring a) => a
+// Main> :t v11
+// v11 : {a} (Literal 77 a, Zero a) => [5][4]a
+// Main> v11:[5][4][32]
+// [[16, 42, 23, 77], [16, 16, 42, 23], [42, 16, 16, 42],
+//  [23, 42, 16, 16], [77, 23, 42, 16]]
+// Main> :t v12
+// v12 : {a} (Literal 77 a, Zero a) => [4]a
+// Main> v12:[4][32]
+// [77, 23, 42, 16]
+// Main> :t v14
+// v14 : {a} (Literal 3 a, Ring a) => [inf]a
+// Main> v14:[inf][32]
+// [6, 12, 24, 48, 96, ...]
+// Main> :t v15
+// v15 : {a} (Ring a, Literal 3 a) => [12]a
+// Main> v15:[12][32]
+// [6, 12, 24, 48, 96, 192, 384, 768, 1536, 3072, 6144, 12288]

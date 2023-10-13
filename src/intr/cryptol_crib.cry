@@ -1,0 +1,568 @@
+/*
+  Cryptol Crib Sheet1
+
+  To Use Cryptol:
+    1. From the linux command line: 'prompt> cryptol' to get this:
+
+         / __| '__| | | | '_ \| __/ _ \| |
+        | (__| |  | |_| | |_) | || (_) | |
+         \___|_|   \__, | .__/ \__\___/|_|
+                   |___/|_| version 2.12.0 (901a1d1)
+
+       Loading module Cryptol
+       Cryptol>
+       Type :? for help
+       Cryptol>
+    2. To load a source file, in this case tests.cry, do this:
+       Cryptol> :l tests.cry
+       Loading module Cryptol
+		 Loading module Main
+       Main>
+    3. To set the base to 10 do this:
+       Main> :s base=10
+		 Main>
+    4. To invoke a function, in this case rev(..) (reverse a list) do this:
+       Main> rev([1 2 3])
+       [3 2 1]
+       Main>
+    5. To switch to a different backend, in this case yices, do this:
+       Main> :s prover=yices
+		 Main>
+    6. All source files are edited using any simple text editor. The following 
+       examples are assumed to be written to file then loaded as above. Where 
+       Main> shows up, the functions in the file are invoked.
+*/
+
+// Typing
+
+// type signature of (==)
+// Main> :t (==)
+// (==) : {a} (Eq a) => a -> a -> Bit
+res00 = 1 == 1
+res01 = "peanut" == [112, 101, 97, 110, 117, 116]
+res02 = (ratio 7 2) == (ratio 14 4)
+
+// type signature of (===) : equality of two functions
+// Main> :t (===)
+// (===) : {a, b} (Eq b) => (a -> b) -> (a -> b) -> a -> Bit
+sqDiff1 (x, y) = x^^2 - y^^2
+sqDiff2 (x, y) = (x-y) * (x+y)
+// Main> :t sqDiff1
+// sqDiff1 : {a} (Ring a) => (a, a) -> a
+// Main> :t sqDiff2
+// sqDiff2 : {a} (Ring a) => (a, a) -> a
+
+sqDiffs_same : ([64],[64]) -> Bit
+property sqDiffs_same = sqDiff1 === sqDiff2
+// Main> :prove sqDiffs_same
+// Q.E.D.
+// (Total Elapsed Time: 0.007s, using "Z3")
+// Hence the two functions are the same on 64 bit inputs
+
+// Positional type arguments
+// Main> :t groupBy
+// groupBy : {each, parts, a} (fin each) => [each * parts]a -> [parts][each]a
+// Main> res04
+// [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+// Mail> res05
+// [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]]
+// Mail> res06
+// [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]]
+res04 = groupBy `{_,3} [1..12]
+res05 = groupBy `{2} [1..12]
+res06 = groupBy `{2,_} [1..12]
+
+// Main> :t take
+// take : {front, back, a} [front + back]a -> [front]a
+// Main> res07
+// [1,2,3,4]
+// Main> res08
+// [1,2,3,4]
+res07 = take `{4,_} [1..12]
+res08 = take `{4} [1..12]
+
+// Inline argument type declaration
+// Main> :t addBytes
+// addBytes : [8] -> [8] -> [8]
+// Main> addBytes 222 111
+// 77
+addBytes (x:[8]) (y:[8]) = x + y
+
+// Inferred types
+// Main> :t 43
+// 43 : {a} (Literal 43 a) => a
+// These can be made monomorphic - see below
+
+// A 10 bit number
+xx = 3:[10]
+yy = 3:[10]
+zz = 3:[11]
+// xx + zz can't be added due to type mismatch
+// Main> :t xx+yy
+// (xx + yy) : [10]
+
+// Main> :t xxx+yyy
+// (xxx + yyy) : {a} (Ring a, Literal 3 a) => a
+// Main> :t xxx+zz
+// (xxx + zz) : [11]
+// Main> :t toInteger(xxx+zz)
+// toInteger (xxx + zz) : Integer
+xxx = 3
+yyy = 3
+
+// Main> res09
+// 2
+// Main> res10
+// 18
+res09 = 3+15:[4]
+res10 = 3+toInteger(15:[4])
+
+// Main> :t (/)
+// (/) : {a} (Integral a) => a -> a -> a
+// Main> :t (/.)
+// (/.) : {a} (Field a) => a -> a -> a
+// Main> res11
+// (ratio 1 1)
+res11 = (ratio 7 2) /. (ratio 14 4)
+
+// Main> :t res12
+// res12 : {a} (Literal 2 a) => [2]a
+// Main> :t res13
+// res13 : {a} (Ring ([2]a), Literal 2 a) => [3][2]a
+// Main> res13
+// [[1, 2], [2, 4], [3, 6]]
+res12 = [1, 2]
+res13 = [res12, res12+res12, res12+res12+res12]
+
+// Main> res14
+// [1, 2, 3, 4, 5]
+// Main> res15
+// [0, 1, 2, 3, 4, 5]
+// Main> res16
+// 5
+// Main> res17
+// [4, 5]
+// Main> res18
+// 1
+// Main> res19
+// [1, 2]
+res14 = [1, 2, 3, 4, 5]
+res15 = [0]#res14
+res16 = res14!0
+res17 = res14!![1,0]
+res18 = res14@0
+res19 = res14@@[0,1]
+
+// Convert sequence of numbers to characters
+show : {n} [n]Char -> [n]Char
+show s = [ c:Char | c <- s]
+
+// Tuples 
+// Main> res22
+// ([210, 218, 213, 226, 218, 230], (ratio 37 1), (ratio 26 5))
+// Main> res23
+// [210, 218, 213, 226, 218, 230]
+// Main> :s ascii=on
+// Main> res26
+// "peanut"
+res20 = ("peanut", 34, (ratio 6 5))
+res21 = ("butter", (ratio 3 1), 4)
+res22 = res20 + res21
+res23 = res22.0
+res24 = res22.1
+res25 = res22.2
+res26 = show(res20.0)
+
+// Enumerations
+// Main> res27
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// Main> res28
+// [1, 3, 5, 7, 9]
+// Main> res29
+// [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+// Main> res32
+// True
+// Main> res33
+// [-1, -1, -1, -1, -1, ...]
+res27 = [1..10]
+res28 = [1,3..10]
+res29 = [10,9..1]
+res30 = [1..10]:[10][16]
+res31 = [1..10:[16]]
+res32 = res30 == res31
+res33 = [-1,-1...]
+
+// Some variables:
+
+v00:[32]
+v00 = 45
+
+v01:[64]
+v01 = 72625
+
+/*
+in the c language:
+unsigned int v0 = 45;
+unsigned long v1 = 72625;
+
+Arrays:
+*/
+
+// sequence of 8 32 bit numbers
+v02:[8][32]
+v02 = [1, 2, 3, 4, 5, 6, 7, 8]
+
+// sequence indexing is 0,1,2... so element 1 in this case is 2
+v03 = v02 @ 1
+
+// sequence of 8 numbers
+// Main>:t v04 
+// v04 : {a} (Literal 8 a) => [8]a
+v04 = [1..8]
+
+// 8 bit number
+// Main> :s base=2
+// Main> v05
+// 0b00010111
+v05:[8]
+v05 = 23
+
+// Look at bits of v05
+// Main> v06
+// True
+v06 = v05@3
+
+// Main> v07
+// False
+v07 = v05@4
+
+// Main> v08
+// True
+v08 = v05@6
+
+// Main> v09
+// 0b0001
+v09 = v05@@[0..3]
+
+/*
+In the c language
+unsigned int v02[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+for (int i=0 ; i < 8 ; i++) cout << v02[i] << " ";
+printf("%d",v02[1]);
+unsigned char v05 = 23;
+
+f(x,0,7);
+00010111
+f(x,3,3);
+0
+f(x,4,4);
+1
+f(x,6,6);
+0
+f(x,0,3);
+0111
+
+void f(unsigned char z, int s, int e) {
+   for (int i=e ; i >= s ; i--)
+   printf("%d",(int)((z>>i)&1));
+   printf(\n);
+}
+
+Operations:
+*/
+
+// Assign value
+// Main> :s base=10
+// Main> v10
+// 23
+v10:[8]
+v10=23
+
+// Main> v11
+// 65
+v11:[8]
+v11=65
+
+//:s base=2
+
+// Main> :t v12
+// v12 : [8]
+// Main> v12
+// 88
+v12 = v10+v11
+
+// Main> :t v13
+// v13 : [8]
+// Main> v13
+// 214
+v13 = v10-v11
+
+// Main> :t v14
+// v14 : [8]
+// Main> v14
+// 215
+v14 = v10*v11
+
+// Main> :t v15
+// v15 : [8]
+// Main> v15
+// 2
+v15 = v11/v10
+
+// Main> :t v16
+// v16 : [8]
+// Main> v16
+// 19
+v16 = v11 % v10
+
+// Main> :t v19
+// v19 : [8]
+// Main> v19
+// 11
+v19 = v10 >> 1
+
+// Main> :t v20
+// v20 : [8]
+// Main> v20
+// 46
+v20 = v10 << 1
+
+
+v21:[8][32]
+v21 = [2,3,6,4,3,2,7,8]
+
+v22:[8][32]
+v22 = [1,8,3,4,2,1,1,9]
+
+// Main> :t v23
+// v23 : [8][32]
+// Main> v23
+// [3, 11, 9, 8, 5, 3, 8, 17]
+v23 = v21 + v22
+
+/*
+Function examples:
+
+Simple for loop, using [..|..] operator. Type of function is inferred by 
+cryptol to be sf:{a b} (fin a,b >= 2) => [a][b] -> [a][b] (maps any finite 
+list of a numbers of width b ≥ 2 to a list of the same type). Symbol @ 
+allows array indexing. */
+
+p:[6][8]
+p = [1,2,3,4,5,6]
+
+// Main> :t sf
+// sf : {n, a} (Literal 2 a, Ring a) => [n]a -> [n]a
+// size of list can be finite or infinite depending on input
+// number of bits (a) depends on input
+// Main> sf p
+// [2, 4, 6, 8, 10, 12]
+// Main> :t (sf p)
+// (sf p) : [6][8]
+sf z = [ 2*(z@i) | i <- [0...] | j <- z ]
+
+/*
+Reverse the elements of an array. Construct where is used to establish a value
+ln that is used twice in rev. Inferred type is rev:{a b} (fin a) => [a]b ->
+[a]b. Observe that b does not have to be a number. Note: there is a built-in
+function called reverse with the same functionality as rev.  cryptol 
+
+rev : {a, b} (fin b) => [1 + b]a -> [1 + b]a
+rev x = (z!0)
+  where 
+    z = [x]#[ [b]#(allButLast a) | b <- x | a <- z ]
+    allButLast q = [ a | a <- q | i <- (tail q) ]
+
+Membership in a list. The function’s input type is explicitly stated to be any
+length integer list of at least one 32 bit number and a 32 bit number. The
+output is a single Bit which is True if n is a member of list x. A list s is
+initialized to False. As n is tested against elements of x either True or False
+is appended to s. If True is appended, all following elements of s will be
+True. The last element of s is the output. This is a simple example using
+concatenation (#) and if-then-else.  cryptol 
+*/
+
+// Main> member 3 [1,3,4,5]
+// True
+// Main> member 3 []
+// False
+member : {a,b} (fin b, Cmp a) => a -> [b]a -> Bit
+member n x = s!0
+   where 
+      s = [False]# [ j == n \/ k | k <- s | j <- x ]
+
+/*
+Merge two infinite increasing streams of integers. This is defined recursively
+which cryptol does not object to because argument types always match (due to
+inf). First example of tail.
+
+cryptol
+*/
+
+// Main> merge [1,3...] [2,4...]
+// [1, 2, 3, 4, 5, ...]
+//merge : {a} (fin a) => [inf][a] -> [inf][a] -> [inf][a]
+merge px py = 
+      if (px@0) == -1 then py
+      else if (py@0) == -1 then px
+      else if (px@0) < (py@0) then [(px@0)]#(merge (tail px) py)
+      else [(py@0)]#(merge px (tail py))
+
+/*
+c++ (continued)
+class Merge : public Stream {
+   Stream *s1, *s2;
+public:
+   Merge (Stream *a, Stream *b) {
+      if (a->isNull() && b->isNull()) {
+         first = -1;
+      } else if (a->isNull() || (!b->isNull() && a->first >= b->first)) {
+         s1 = b; s2 = a; first = s1->first;
+      } else {
+         s1 = a; s2 = b; first = s1->first;
+      }
+   }
+
+   Stream *rest() {
+      if (isNull()) return new Stream();
+      return new Merge(s1->rest(),s2);
+   }
+};
+
+Sum all numbers in an arbitrarily long list. This is a recursive solution 
+so lists are padded with zero:[inf][m]. Function f is made tail recursive 
+to allow cryptol to complete the sum of the necessary elements.
+cryptol
+*/
+
+// Main> sum1 [1,2,3,4]
+// 10 
+sum1 : {n, a} (Literal 0 a, Ring a, fin n) => [n]a -> a
+sum1 x = z ! 0 where z = [0]#[ a+b | a <- x | b <- z ]
+
+/*
+c
+uint_32 sum2(uint_32 x[], uint_32 acc, int n) {
+   if (n == 0) return acc;
+   return sum2(x, acc+x[n-1], n-1);
+}
+
+uint_32 sum1(uint_32 x[], int n) {
+   return sum2(x,0,n);
+}
+
+uint_32 p[] = { 1,2,3,4,5,6 };
+printf("%d",sum1(p,6));
+
+Sort a list of numbers using mergesort. Mergesort splits a list into two 
+roughly equal sized lists - the odd indexed elements go to one list and 
+the even indexed elements go to the other, recursively sorts both lists, 
+then merges the two now sorted lists. The variable i in srt is needed to 
+allow cryptol to show termination.
+
+cryptol
+*/
+
+// Main> splite [1..12]
+// [1, 3, 5, 7, 9, ...]
+splite : {n,a} (Literal 1 a, Integral a, Eq a, fin n) => [n]a -> [inf]a
+splite x = s ax
+  where
+    s pt = if ((pt@0) == -1) then pt
+          else [(pt@0)]#(s (drop `{2} pt))
+    ax = x#[-1,-1 ...]
+
+// Main> splito [1..12]
+// [2, 4, 6, 8, 10. ...]
+splito : {n,a} (Literal 1 a, Integral a, Eq a, fin n) => [n]a -> [inf]a
+splito x = s ax
+  where
+    s pt = if ((pt@0) == -1) then pt
+          else if ((pt@1) == -1) then (drop `{1} pt)
+          else [(pt@1)]#(s (drop `{2} pt))
+    ax = x#[-1,-1 ...]
+
+// User crafted type signature to use cnt
+// Main> mergesort [5,2,4,1,9,6,3,2,5]
+// [1, 2, 2, 3, 4, 5, 5, 6, 9]
+mergesort : {cnt, a} (fin cnt, fin a, a >= 1, cnt >= 1) => [cnt][a] -> [cnt][a]
+mergesort lst = take `{cnt} (mergesrt ax)
+  where
+    mergesrt pt =
+      if (((pt@0) == -1) \/ ((pt@1) == -1)) then pt
+      else (merge (mergesrt (splite t)) (mergesrt (splito t)))
+      where
+        t = take `{cnt} pt
+    ax = lst#[-1,-1 ...]
+
+/*
+c++
+class Split : public Stream {
+   Stream *s;
+public:
+   Split(Stream *str) {
+      first = str->first; s = str;
+   }
+   Stream *rest() {
+      if (isNull() || s->rest()-isNull() || s->rest()->rest()->isNull())
+         return new Stream();
+      return new Split(s->rest()->rest());
+   }
+};
+
+class MergeSort : public Stream {
+   Stream *s;
+public:
+   MergeSort(Stream *str) {
+      Stream *s1 = new Split(str);
+      Stream *s2 = new Split(str->rest());
+      if (s1->isNull() && s2->isNull()) {
+         s = new Stream(); 
+         first = -1;
+      } else if (s2->isNull() && s1->rest()->isNull()) {
+         s = new Stream(); first = s->first;
+      } else {
+         s = new Merge(new MergeSort(s1), new MergeSort(s2));
+         first = s->first;
+      }
+   }
+
+   Stream *rest() { return s->rest(); }
+};
+
+Returns True if and only if elements of list x are in increasing order.
+cryptol
+*/
+
+// Main> ord [1..8]
+// True
+// Main> ord [1,2,3,2,6]
+// False
+ord : {a,b} (fin a, Cmp b) => [1+a]b -> Bit
+ord x = s!0
+   where 
+      s = [True]#[ if (j1 <= j2) /\ k then True else False
+                 | k <- s | j1 <- x | j2 <- drop `{1} x]
+
+/*
+c
+bool ordered (u int 32 x[], int sz) {
+   bool *s = new bool[sz+1];
+   s[0] = true;
+   for (int i=0 ; i < sz-1 ; i++)
+      s[i+1] = (x[i] < x[i+1]) ? s[i] & true : false;
+   return s[sz-1];
+}
+
+Returns True if and only if list x does not contain -1.
+cryptol
+*/
+
+// Main> valid [1,2,3,4]
+// True
+// Main> valid [1,2,-1,4]
+// False
+valid : {n, a} (Literal 1 a, Ring a, Eq a, fin n) => [n]a -> Bit
+valid x = z!0
+  where 
+    z = [True]#[ ~(j == -1) /\ q | q <- z | j <- x ]
