@@ -1,27 +1,33 @@
+Orientation:
+-----------
+Read intro.pdf
+
 Running:
 -------
 To run the application issue command 'run' from, say, gnome-terminal.
 Each lesson has documentation suitable for that lesson.
 
-The following should be installed on the host: gnome-terminal, xterm, emacs, evince.
-Applications evince and gnome-terminal are likely already installed.  Evince is the
-pdf viewer and gnome-terminal is the terminal and also supports running 'emacs -nw'.
-If not, do this in a terminal running on the host:
+The following should be installed on the host: gnome-terminal, xterm,
+emacs, evince.  Applications evince and gnome-terminal are likely already
+installed.  Evince is the pdf viewer and gnome-terminal is the terminal
+and also supports running 'emacs -nw'.  If not, do this in a terminal
+running on the host:
 
    sudo apt install gnome-terminal
 	sudo apt install evince
 
-Emacs is the default text editor and is not already installed in most cases.  Do
-this to install emacs:
+Emacs is the default text editor and is not already installed in most cases.
+Do this to install emacs:
 
    sudo apt install emacs
 
-It may be that xterm is not installed.  Xterm is used to run Cryptol.  To install
-do this:
+It may be that xterm is not installed.  Xterm is used to run Cryptol.
+To install do this:
 
    sudo apt install xterm
 
-An alternative to emacs is gedit which surely is already installed on the host.
+An alternative to emacs is gedit which surely is already installed on
+the host.
 
 Compiling:
 ---------
@@ -37,7 +43,7 @@ Java code.  Compiling or running the first time gives this output:
    ../jdk-lin/bin/jar cfm game.jar .perms *.class sounds images \
            lab1 lab2 lab2A lab2B lab2C lab2D lab2E lab3 lab3A lab3B lab3C \
            lab3D lab3E lab4 lab5 lab5A lab5B lab5C lab5D lab5E lab6 \
-           lab6A lab6B lab6C lab6D lab6E lab7 lab7A lab7B linx
+           lab6A lab6B lab6C lab6D lab6E lab7 lab7A lab7B linx intr
    find . -name "*.class" -exec rm {} \;
    mv game.jar ..
 
@@ -76,34 +82,37 @@ of the Cryptol application, the Text Editor, the Terminal, or the pdf viewer
 
   Terminal:
   --------
-    The terminal is now gnome-terminal.  To enlarge the terminal, and get some
-    good looking fonts as well, drop the terminal's View menu and select 'Zoom In'
-    or 'Zoom Out' as needed.  To keep the large fonts for future invocations drop
-    the terminal's Edit menu, select Preferences, click Custom font, click the
-    font name, which is likely Monospace, and click '+' or '-' until you are happy
-    with the size.
+    The terminal is now gnome-terminal.  To enlarge the terminal, and get
+	 some good looking fonts as well, drop the terminal's View menu and
+	 select 'Zoom In' or 'Zoom Out' as needed.  To keep the large fonts
+	 for future invocations drop the terminal's Edit menu, select
+	 Preferences, click Custom font, click the font name, which is likely
+	 Monospace, and click '+' or '-' until you are happy with the size.
   
   Text Editor:
   -----------
-    If the text editor is the default (gnome-terminal running emacs), drop the view
-    menu and select 'Zoom In' or 'Zoom Out' as needed.  Remember the font size as
-    for the case of the terminal above.  If the text editor is gedit you have to
-    install the text size plugin like this:
+    If the text editor is the default (gnome-terminal running emacs),
+	 drop the view menu and select 'Zoom In' or 'Zoom Out' as needed.
+	 Remember the font size as for the case of the terminal above.  If
+	 the text editor is gedit you have to install the text size plugin
+	 like this:
   
        sudo apt-get install -y gedit-plugin-text-size
 
-    then click the 3 horizontal bars atop each other icon and select preferences,
-    then select plugins then scroll down and select the text size plugin.  To
-    change content size hold the control key while scrolling with the mouse
-    thumb-wheel.  Other text editors have their own ways to control content size.
+    then click the 3 horizontal bars atop each other icon and select
+	 preferences, then select plugins then scroll down and select the
+	 text size plugin.  To change content size hold the control key
+	 while scrolling with the mouse thumb-wheel.  Other text editors
+	 have their own ways to control content size.
 
   PDF Viewer (evince):
   -------------------
-    To control the size of the pdf viewer content first adjust the size of the
-    pdf viewer window by grabbing a corner with the mouse and dragging it until
-    you have the size you want and second, drop the size menu (last on the left
-    in the rightmost group of widgets) and select a number repeatedly until you
-    are happy with the content size.  You can set that size as the default when
-    the viewer is showing something by clicking the menu icon that looks like
-    three horizontal bars atop each other and choosing 'Save Current Settings
+    To control the size of the pdf viewer content first adjust the
+	 size of the pdf viewer window by grabbing a corner with the mouse
+	 and dragging it until you have the size you want and second, drop
+	 the size menu (last on the left in the rightmost group of widgets)
+	 and select a number repeatedly until you are happy with the content
+	 size.  You can set that size as the default when the viewer is
+	 showing something by clicking the menu icon that looks like three
+	 horizontal bars atop each other and choosing 'Save Current Settings
     as Default'.
