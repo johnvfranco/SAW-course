@@ -12,7 +12,7 @@ class aFrame extends JFrame implements ActionListener {
    Color bkgd = new Color(255,255,255);
    JLabel lbl, title;
    Font fnt = new Font("Helvetica", Font.PLAIN, 18);
-	intr it = null;
+	//	intr it = null;
    linx lx = null;
    lab1 vx = null;
    lab2 kx = null;
@@ -71,19 +71,19 @@ class aFrame extends JFrame implements ActionListener {
       JPanel xy = new JPanel(new BorderLayout());
       xy.setBackground(bkgd);
 
-      JPanel q = new JPanel(new GridLayout(10,1));
+      JPanel q = new JPanel(new GridLayout(9,1));
       q.setBackground(bkgd);
 
 		// Introduction
-      JPanel p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-      p.setBackground(bkgd);
-      p.add(new JLabel("      "));
-      p.add(new JLabel("      "));
-      p.add(b[9] = new JButton("Intro"));
-      q.add(p);
+      //JPanel p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      //p.setBackground(bkgd);
+      //p.add(new JLabel("      "));
+      //p.add(new JLabel("      "));
+      //p.add(b[9] = new JButton("Intro"));
+      //q.add(p);
 
       // Linux tutorial
-      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      JPanel p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
       p.add(new JLabel("      "));
       p.add(d[0] = new JButton("Synopsis"));
@@ -168,20 +168,20 @@ class aFrame extends JFrame implements ActionListener {
       
       xy.add("West", q);
       
-      q = new JPanel(new GridLayout(10,1));
+      q = new JPanel(new GridLayout(9,1));
       q.setBackground(bkgd);
 
-      for (int i=0 ; i < 10 ; i++) {
+      for (int i=0 ; i < 9 ; i++) {
          if (d[i] != null) d[i].setPreferredSize(new Dimension(100,24));
          if (b[i] != null) b[i].setPreferredSize(new Dimension(100,24));
       }
 
       // Introduction
-      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-      p.setBackground(bkgd);
-      p.add(lbl = new JLabel("  Introduction to Course", JLabel.LEFT));
-      lbl.setFont(fnt);
-      q.add(p);
+      //p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      //p.setBackground(bkgd);
+      //p.add(lbl = new JLabel("  Introduction to Course", JLabel.LEFT));
+      //lbl.setFont(fnt);
+      //q.add(p);
 		
       // Linux Totorial
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -263,10 +263,11 @@ class aFrame extends JFrame implements ActionListener {
          (new PlaySound("leave-12.wav")).start();
          try { Thread.sleep(500); } catch (Exception e) { }
          System.exit(1);
-      } else if (evt.getSource() == b[9]) {
-         it = new intr(this);
-         setVisible(false);
-      } else if (evt.getSource() == b[0]) {
+      } //else if (evt.getSource() == b[9]) {
+        // it = new intr(this);
+        // setVisible(false);
+        //}
+	   else if (evt.getSource() == b[0]) {
          lx = new linx(this);
          setVisible(false);
       } else if (evt.getSource() == b[1]) {
