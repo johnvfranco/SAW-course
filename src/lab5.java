@@ -15,7 +15,6 @@ class lab5 extends JFrame implements ActionListener {
    lab5B kx = null;
    lab5C ox = null;
    lab5D re = null;
-   lab5E ar = null;
    aFrame parent = null;
    String fpath = null;
    
