@@ -154,10 +154,22 @@ class cdx_game extends JFrame implements ActionListener {
       }
       else if (evt.getSource() == c[0]) getDoc(fpath+"/manual.pdf");
       else if (evt.getSource() == c[3]) getDoc(fpath+"/contest.pdf");
-      else if (evt.getSource() == c[1])
-         (new sendFile("cdest","cdest-linux.tar", 1)).start();
-      else if (evt.getSource() == c[2]) 
-         (new sendFile("cdest","cdest-linux.tar", 2)).start();
+      else if (evt.getSource() == c[1]) {
+			try {
+				Runtime rt = Runtime.getRuntime();
+				rt.exec("./run-gui");
+			} catch (Exception e) {
+				System.out.println(e.toString());
+			}
+		}
+      else if (evt.getSource() == c[2]) {
+			try {
+				Runtime rt = Runtime.getRuntime();
+				rt.exec("./run-txt");
+			} catch (Exception e) {
+				System.out.println(e.toString());				
+			}
+		}
    }
 
    public void getDoc (String name) {
