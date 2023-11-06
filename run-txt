@@ -1,3 +1,9 @@
 #!/bin/bash
+export CD=`pwd`
+if [ ! -f jdk-lin/lib/modules ]; then
+  cd jdk-lin/lib
+  echo "n" | unzip -o modules.zip
+  cd $CD
+fi
 cd cdest/src-lin
 xterm -T Scorer -fn 10x20 -geometry 80x24+100+100 -fg black -bg white -e "../../jdk-lin/bin/java -jar cdx-contest.jar"
