@@ -66,10 +66,16 @@ class cdx_game extends JFrame implements ActionListener {
       JPanel xy = new JPanel(new BorderLayout());
       xy.setBackground(bkgd);
 
-      JPanel q = new JPanel(new GridLayout(3,1));
+      JPanel q = new JPanel(new GridLayout(4,1));
       q.setBackground(bkgd);
 
       JPanel p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+
+      p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+      p.setBackground(bkgd);
+      p.add(new JLabel("        "));
+      p.add(c[3] = new JButton("Doc"));
+      q.add(p);
 
       p = new JPanel(new FlowLayout(FlowLayout.RIGHT));
       p.setBackground(bkgd);
@@ -94,9 +100,16 @@ class cdx_game extends JFrame implements ActionListener {
       c[0].setPreferredSize(new Dimension(100,24));
       c[1].setPreferredSize(new Dimension(100,24));
       c[2].setPreferredSize(new Dimension(100,24));
+      c[3].setPreferredSize(new Dimension(100,24));		
       
-      q = new JPanel(new GridLayout(3,1));
+      q = new JPanel(new GridLayout(4,1));
       q.setBackground(bkgd);
+
+      p = new JPanel(new FlowLayout(FlowLayout.LEFT));
+      p.setBackground(bkgd);
+      p.add(lbl = new JLabel("  Outline"));
+      lbl.setFont(fnt);
+      q.add(p);
 
       p = new JPanel(new FlowLayout(FlowLayout.LEFT));
       p.setBackground(bkgd);
@@ -127,7 +140,7 @@ class cdx_game extends JFrame implements ActionListener {
          if (c[i] != null) c[i].addActionListener(this);
       }
       
-      setSize(450,270);
+      setSize(450,310);
       setVisible(true);
       setResizable(true);
    }
@@ -140,6 +153,7 @@ class cdx_game extends JFrame implements ActionListener {
          dispose();
       }
       else if (evt.getSource() == c[0]) getDoc(fpath+"/manual.pdf");
+      else if (evt.getSource() == c[3]) getDoc(fpath+"/contest.pdf");
       else if (evt.getSource() == c[1])
          (new sendFile("cdest","cdest-linux.tar", 1)).start();
       else if (evt.getSource() == c[2]) 
