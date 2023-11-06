@@ -1,0 +1,5 @@
+#!/bin/bash
+cd ../Contestants
+../contest/bin/tar cf $1.tar $1/keys $1/sbin $1/Parms $1/run.client \
+$1/run.vpn $1/stop.client $1/client.conf $1/JAVA.txt $1/README.txt
+chmod go-w $1.tar

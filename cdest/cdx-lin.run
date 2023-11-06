@@ -1,0 +1,6 @@
+#!/bin/bash
+# takes up to two arguments - one can be Start to start a contest on the fly
+# and the second one can be Reset to reset the scores.  Reset will always
+# be done first if it is one of the arguments
+cd src-lin
+./run

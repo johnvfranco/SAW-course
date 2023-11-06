@@ -1,0 +1,3 @@
+#!/bin/bash
+address=`cat ../Contestants/$1/email.txt`
+bin/mutt -s "Contest Credentials" $address -a ../Contestants/$1.tar < ../config/contest-setup.txt

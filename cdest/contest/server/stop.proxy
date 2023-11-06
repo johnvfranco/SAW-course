@@ -1,0 +1,10 @@
+#!/bin/bash
+LINE=`pstree -paul | grep ssh | grep 8080 | grep visitor`
+IFS=',' read -ra N <<< $LINE
+PID=${N[1]}
+if [ -z "$PID" ]; then
+   echo no proxy running
+else
+   kill -9 $PID
+   echo proxy with pid $PID killed
+fi

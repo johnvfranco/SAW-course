@@ -1,0 +1,4 @@
+A publicly available version of the Java sdk is included in the package to
+minimize problems that might occur when there is a mismatch in the version
+used to compile cdx-contest.jar and the version that runs it.  Feel free to
+experiment with compiling and running with your own version of Java.

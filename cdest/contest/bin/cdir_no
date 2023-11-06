@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ../Contestants
+../contest/bin/tar cf $1.tar $1
+chmod go-w $1.tar

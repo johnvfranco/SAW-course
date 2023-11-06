@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -e vpn.pid ]; then
+   sudo kill -9 `cat vpn.pid`
+   rm -f vpn.pid
+fi
+
+rm -f nohup.out
+rm -f *.log
