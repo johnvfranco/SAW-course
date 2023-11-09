@@ -111,13 +111,13 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
          }
 			command = "chmod go-w ../Contestants";
 			Runtime.getRuntime().exec(command);
-         fs = new File("../config/vpnKeyIds.txt");
+         fs = new File("../contest/vpnKeyIds.txt");
          if (!fs.exists()) {
             cnt.msgs.setText("Abort sending - 'vpnKeyIds' does not exist "+
                                     "- use a prepare button\n");
             return false;
          }
-         fis = new FileInputStream("../config/vpnKeyIds.txt");
+         fis = new FileInputStream("../contest/vpnKeyIds.txt");
          BufferedReader br = new BufferedReader(new InputStreamReader(fis));
          String player;
          while ((player = br.readLine()) != null) {
@@ -208,7 +208,7 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
                   Runtime.getRuntime().exec(command);
                } catch (Exception e) {
                   cnt.msgs.setText("Unable to create VPNServer directory");
-		  e.printStackTrace();
+						e.printStackTrace();
                }
             }
          } catch (Exception x) {

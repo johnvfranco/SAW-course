@@ -175,7 +175,7 @@ class DistributeKeys extends Thread {
       if (fs == null || !fs.exists()) (new File("../Contestants")).mkdir();
       
       try {
-         fis = new FileInputStream("../config/vpnKeyIds.txt");
+         fis = new FileInputStream("../contest/vpnKeyIds.txt");
          br = new BufferedReader(new InputStreamReader(fis));
          while ((str = br.readLine()) != null) {
             String user = str;
@@ -586,7 +586,7 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
       try {
          String str = "";
          String tmp = null;
-         fis = new FileInputStream("../config/game-id.txt");
+         fis = new FileInputStream("../contest/game-id.txt");
          BufferedReader br = new BufferedReader(new InputStreamReader(fis));
          while ((tmp = br.readLine()) != null) str += tmp + "\n";
          StringTokenizer t = new StringTokenizer(str,"\n");
@@ -630,7 +630,7 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
 
    public void saveGameId () {
       try {
-         FileOutputStream fos = new FileOutputStream("../config/game-id.txt");
+         FileOutputStream fos = new FileOutputStream("../contest/game-id.txt");
          PrintWriter pw = new PrintWriter(fos, true);
          pw.println(country.getText());
          pw.println(state.getText());

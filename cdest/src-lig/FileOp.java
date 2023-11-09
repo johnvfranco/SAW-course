@@ -15,6 +15,10 @@ public class FileOp {
 				pout.flush();
 				pout.close();
 				fout.close();
+			} else {
+				System.out.println("File "+in+" or "+out+" does not exist");
+				if (fout != null) fout.close();
+				return;
 			}
 			fout = new FileWriter(file, true);
          fin = new FileInputStream(in);

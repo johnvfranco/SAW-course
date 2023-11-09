@@ -8,7 +8,7 @@ public class SaveDB {
       byte[] addr;
       
       try {
-			fos = new FileOutputStream("../config/"+GameParameters.PLAYER_DB_FILE);
+			fos = new FileOutputStream("../contest/"+GameParameters.PLAYER_DB_FILE);
 			fw  = new FileWriter(fos.getFD());
 	 
 			int i=0;
