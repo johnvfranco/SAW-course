@@ -212,7 +212,7 @@ class lab1 extends JFrame implements ActionListener {
       }
    }
 
-    public void getDoc (String name) {
+	public void getDoc (String name) {
       try {
          Desktop.getDesktop().open(new File(name));
       } catch (Exception e) {
