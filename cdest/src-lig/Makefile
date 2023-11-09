@@ -4,6 +4,6 @@ cdx: Go.java Monitor.java Contest.java GameParameters.java Player.java \
 		Output.java Messages.java MakeStandings.java ReadParm.java \
 		ReadPlayerDB.java configFrame.java transferFrame.java vpnFrame.java
 	rm -f *.class
-	../jdk-lin/bin/javac Run.java
-	../jdk-lin/bin/jar cfm cdx-contest.jar .perms-run.txt *.class
+	../../jdk-lin/bin/javac Run.java
+	../../jdk-lin/bin/jar cfm cdx-contest.jar .perms-run.txt *.class
 	rm -f *.class
