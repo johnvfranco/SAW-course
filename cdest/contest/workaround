@@ -5,4 +5,10 @@ read city
 read org
 read ou
 read email
+echo $country
+echo $province
+echo $city
+echo $org
+echo $ou
+echo $email
 EASYRSA_REQ_COUNTRY=$country EASYRSA_REQ_PROVINCE=$province EASYRSA_REQ_CITY=$city EASYRSA_REQ_ORG=$org EASYRSA_REQ_OU=$ou EASYRSA_REQ_EMAIL=$email EASYRSA_REQ_CN=$1 ./easyrsa --batch gen-req $1 nopass 

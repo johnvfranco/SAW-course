@@ -1,0 +1,94 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            d4:ee:8d:7f:eb:ab:32:c7:26:46:77:df:0b:8f:ae:46
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=California, L=San Francisco, O=Copyleft Certificate Co, OU=My Organizational Unit, CN=ChangeMe/emailAddress=me@example.net
+        Validity
+            Not Before: Nov 10 17:47:54 2023 GMT
+            Not After : Nov  9 17:47:54 2024 GMT
+        Subject: C=US, ST=OH, L=Cincinnati, O=University of Cincinnati, OU=Dept_Elec_Com_ Eng_Com_Sci., CN=client142/emailAddress=franco@gauss.ececs.uc.edu
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ea:3a:e4:a2:ca:40:b1:85:a3:f8:08:5d:d4:c9:
+                    94:b2:ef:37:ed:f5:f1:0d:c8:40:19:c6:e7:41:fe:
+                    62:80:b9:e8:2c:21:6c:17:69:f9:1f:7e:24:c2:2b:
+                    a1:5a:42:99:48:63:02:6a:49:a9:e3:3e:a2:e3:76:
+                    ed:c3:24:63:60:5b:46:0f:97:67:eb:cf:26:85:4d:
+                    27:65:da:30:ca:b1:3e:7a:28:ae:e4:1b:f0:46:0f:
+                    d4:f7:3f:ab:6b:3c:83:c3:44:9f:8b:e9:2c:f0:a0:
+                    de:c3:40:2c:e0:30:c8:e7:f1:5e:3b:f7:e0:f0:ea:
+                    ac:7e:0f:36:9c:6a:a7:b1:a2:37:1f:ae:e3:51:52:
+                    ec:ef:13:81:8a:8c:28:b9:63:ae:e5:fe:f4:ef:66:
+                    a2:50:4b:42:a8:3b:cb:30:a6:10:1a:56:6d:34:a9:
+                    68:c5:a9:18:94:19:bc:50:3c:54:38:b3:33:bf:c4:
+                    be:1c:2a:89:9d:0c:c6:06:50:28:8a:b7:18:b9:18:
+                    45:6a:ee:d7:93:9c:aa:80:94:1f:0b:21:3e:ae:e9:
+                    cd:02:8d:82:bb:f3:d5:f0:42:a7:cd:d9:61:a8:bf:
+                    6d:d6:f5:a8:fd:70:a5:14:73:79:bf:7a:c7:23:b9:
+                    ad:ac:95:ef:8e:bd:d6:e9:50:6b:ae:57:03:15:f7:
+                    3d:0b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                6D:B0:9F:06:99:B0:B4:23:68:7D:DE:B1:A0:4E:2C:F4:B9:CF:1B:CA
+            X509v3 Authority Key Identifier: 
+                keyid:C8:27:DA:64:30:08:40:08:4A:25:CC:DC:43:99:DE:77:A1:FE:77:BD
+                DirName:/C=US/ST=California/L=San Francisco/O=Copyleft Certificate Co/OU=My Organizational Unit/CN=ChangeMe/emailAddress=me@example.net
+                serial:A9:48:C3:7E:FC:1B:B0:A1
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+    Signature Algorithm: sha256WithRSAEncryption
+         0b:5a:81:bf:fc:46:0d:a8:67:0b:98:d8:29:51:2f:d0:70:18:
+         8d:92:4a:20:a3:8d:cb:fa:76:ba:7e:f3:3c:cc:26:7d:dc:13:
+         0b:9f:83:62:ea:25:ff:a6:d8:b4:e0:8c:5d:e8:b2:e6:d8:bd:
+         ca:18:ad:98:c1:77:be:55:ef:61:2c:4d:8c:ea:2a:0c:5e:8f:
+         50:2b:30:69:62:67:98:f4:fa:80:ed:26:cf:dd:bb:60:58:02:
+         09:f0:10:70:40:4e:8b:96:6c:e0:14:eb:0e:3c:14:fd:88:1b:
+         42:f4:8d:d3:5d:eb:18:37:04:6d:70:63:84:cb:5b:6c:c8:ee:
+         23:6c:9e:0b:96:ab:c2:ca:f7:fd:8a:0d:96:b2:0c:35:ca:df:
+         63:09:28:2a:69:45:73:67:c8:15:1d:2e:00:6a:33:c6:3c:2e:
+         66:64:47:1c:a5:cc:21:e5:82:5f:8d:c9:64:60:96:37:48:cb:
+         43:02:d6:bc:95:a7:bc:2f:54:8b:39:3d:ee:36:15:68:39:b3:
+         33:f5:e3:93:24:ed:84:9c:66:c9:31:01:73:91:54:01:60:b0:
+         11:ea:d1:42:b2:0a:f8:55:28:f8:69:50:13:9e:37:b1:7b:35:
+         40:d5:ae:bc:7c:cb:d8:fa:4f:e4:b1:11:55:26:b2:61:43:74:
+         bf:79:5c:ca
+-----BEGIN CERTIFICATE-----
+MIIFKzCCBBOgAwIBAgIRANTujX/rqzLHJkZ33wuPrkYwDQYJKoZIhvcNAQELBQAw
+ga8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1T
+YW4gRnJhbmNpc2NvMSAwHgYDVQQKDBdDb3B5bGVmdCBDZXJ0aWZpY2F0ZSBDbzEf
+MB0GA1UECwwWTXkgT3JnYW5pemF0aW9uYWwgVW5pdDERMA8GA1UEAwwIQ2hhbmdl
+TWUxHTAbBgkqhkiG9w0BCQEWDm1lQGV4YW1wbGUubmV0MB4XDTIzMTExMDE3NDc1
+NFoXDTI0MTEwOTE3NDc1NFowgbYxCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJPSDET
+MBEGA1UEBwwKQ2luY2lubmF0aTEhMB8GA1UECgwYVW5pdmVyc2l0eSBvZiBDaW5j
+aW5uYXRpMSQwIgYDVQQLDBtEZXB0X0VsZWNfQ29tXyBFbmdfQ29tX1NjaS4xEjAQ
+BgNVBAMMCWNsaWVudDE0MjEoMCYGCSqGSIb3DQEJARYZZnJhbmNvQGdhdXNzLmVj
+ZWNzLnVjLmVkdTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOo65KLK
+QLGFo/gIXdTJlLLvN+318Q3IQBnG50H+YoC56CwhbBdp+R9+JMIroVpCmUhjAmpJ
+qeM+ouN27cMkY2BbRg+XZ+vPJoVNJ2XaMMqxPnooruQb8EYP1Pc/q2s8g8NEn4vp
+LPCg3sNALOAwyOfxXjv34PDqrH4PNpxqp7GiNx+u41FS7O8TgYqMKLljruX+9O9m
+olBLQqg7yzCmEBpWbTSpaMWpGJQZvFA8VDizM7/EvhwqiZ0MxgZQKIq3GLkYRWru
+15OcqoCUHwshPq7pzQKNgrvz1fBCp83ZYai/bdb1qP1wpRRzeb96xyO5rayV7469
+1ulQa65XAxX3PQsCAwEAAaOCATcwggEzMAkGA1UdEwQCMAAwHQYDVR0OBBYEFG2w
+nwaZsLQjaH3esaBOLPS5zxvKMIHkBgNVHSMEgdwwgdmAFMgn2mQwCEAISiXM3EOZ
+3neh/ne9oYG1pIGyMIGvMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
+YTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzEgMB4GA1UECgwXQ29weWxlZnQgQ2Vy
+dGlmaWNhdGUgQ28xHzAdBgNVBAsMFk15IE9yZ2FuaXphdGlvbmFsIFVuaXQxETAP
+BgNVBAMMCENoYW5nZU1lMR0wGwYJKoZIhvcNAQkBFg5tZUBleGFtcGxlLm5ldIIJ
+AKlIw378G7ChMBMGA1UdJQQMMAoGCCsGAQUFBwMCMAsGA1UdDwQEAwIHgDANBgkq
+hkiG9w0BAQsFAAOCAQEAC1qBv/xGDahnC5jYKVEv0HAYjZJKIKONy/p2un7zPMwm
+fdwTC5+DYuol/6bYtOCMXeiy5ti9yhitmMF3vlXvYSxNjOoqDF6PUCswaWJnmPT6
+gO0mz927YFgCCfAQcEBOi5Zs4BTrDjwU/YgbQvSN013rGDcEbXBjhMtbbMjuI2ye
+C5arwsr3/YoNlrIMNcrfYwkoKmlFc2fIFR0uAGozxjwuZmRHHKXMIeWCX43JZGCW
+N0jLQwLWvJWnvC9Uizk97jYVaDmzM/XjkyTthJxmyTEBc5FUAWCwEerRQrIK+FUo
++GlQE543sXs1QNWuvHzL2PpP5LERVSayYUN0v3lcyg==
+-----END CERTIFICATE-----

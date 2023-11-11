@@ -623,12 +623,12 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
          BufferedReader br = new BufferedReader(new InputStreamReader(fis));
          while ((tmp = br.readLine()) != null) str += tmp + "\n";
          StringTokenizer t = new StringTokenizer(str,"\n");
-         if (t.hasMoreTokens()) country.setText(t.nextToken());
-         if (t.hasMoreTokens()) state.setText(t.nextToken());
-         if (t.hasMoreTokens()) city.setText(t.nextToken());
-         if (t.hasMoreTokens()) org.setText(t.nextToken());
-         if (t.hasMoreTokens()) unit.setText(t.nextToken());
-         if (t.hasMoreTokens()) mail.setText(t.nextToken());
+         if (t.hasMoreTokens()) country.setText(t.nextToken().replaceAll("[!$&\"`]","."));
+         if (t.hasMoreTokens()) state.setText(t.nextToken().replaceAll("[!$&\"`]","."));
+         if (t.hasMoreTokens()) city.setText(t.nextToken().replaceAll("[!$&\"`]","."));
+         if (t.hasMoreTokens()) org.setText(t.nextToken().replaceAll("[!$&\"`]","."));
+         if (t.hasMoreTokens()) unit.setText(t.nextToken().replaceAll("[!$&\"`]","."));
+         if (t.hasMoreTokens()) mail.setText(t.nextToken().replaceAll("[!$&\"`]","."));
       } catch (Exception e) {
          cf.monitor.text.append("Problem reading game id info from file "+
                                 "game-id.txt\n");
@@ -665,12 +665,12 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
       try {
          FileOutputStream fos = new FileOutputStream("../contest/game-id.txt");
          PrintWriter pw = new PrintWriter(fos, true);
-         pw.println(country.getText());
-         pw.println(state.getText());
-         pw.println(city.getText());
-         pw.println(org.getText());
-         pw.println(unit.getText());
-         pw.println(mail.getText());
+         pw.println((country.getText()).replaceAll("[!$&\"`]","."));
+         pw.println((state.getText()).replaceAll("[!$&\"`]","."));
+         pw.println((city.getText()).replaceAll("[!$&\"`]","."));
+         pw.println((org.getText()).replaceAll("[!$&\"`]","."));
+         pw.println((unit.getText()).replaceAll("[!$&\"`]","."));
+         pw.println((mail.getText()).replaceAll("[!$&\"`]","."));
          fos.close();
       } catch (Exception e) {
          cf.monitor.text.append("Problem writing game identification info "+
