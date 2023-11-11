@@ -1,0 +1,5 @@
+#!/bin/bash
+export EASYRSA_BATCH=1
+echo "Running workaround for "$1 >> keys.log
+./workaround client$1 < game-id.txt
+echo "workaround for "$1" completed" >> keys.log

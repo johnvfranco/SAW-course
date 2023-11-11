@@ -1,0 +1,6 @@
+#!/bin/bash
+rm -f keys.log
+export EASYRSA_BATCH=1
+echo "Running ./easyrsa init-pki" >> keys.log
+./easyrsa init-pki
+echo "init-pki completed" >> keys.log

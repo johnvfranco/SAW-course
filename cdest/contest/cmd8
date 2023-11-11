@@ -1,0 +1,6 @@
+#!/bin/bash
+let N=$1+100
+export EASYRSA_BATCH=1
+echo "Putting entry for client"$1" into ipp.txt" >> keys.log
+echo "client"$i",10.8.0."$N >> ./server/ipp.txt
+echo "ipp.txt entry for client"$1" completed" >> keys.log

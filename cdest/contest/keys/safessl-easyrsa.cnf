@@ -1,6 +1,6 @@
 # For use with Easy-RSA 3.1 and OpenSSL or LibreSSL
 
-RANDFILE		= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/.rnd
+RANDFILE		= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/.rnd
 
 ####################################################################
 [ ca ]
@@ -9,17 +9,17 @@ default_ca	= CA_default		# The default ca section
 ####################################################################
 [ CA_default ]
 
-dir		= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys	# Where everything is kept
-certs		= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys			# Where the issued certs are kept
-crl_dir		= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys			# Where the issued crl are kept
-database	= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/index.txt	# database index file.
-new_certs_dir	= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/certs_by_serial	# default place for new certs.
+dir		= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys	# Where everything is kept
+certs		= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys			# Where the issued certs are kept
+crl_dir		= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys			# Where the issued crl are kept
+database	= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/index.txt	# database index file.
+new_certs_dir	= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/certs_by_serial	# default place for new certs.
 
-certificate	= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/ca.crt	 	# The CA certificate
-serial		= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/serial 		# The current serial number
-crl		= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/crl.pem 		# The current CRL
-private_key	= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/private/ca.key	# The private key
-RANDFILE	= /home/franco/Courses/C6055/CDX/Scoreboard/contest/keys/.rand		# private random number file
+certificate	= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/ca.crt	 	# The CA certificate
+serial		= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/serial 		# The current serial number
+crl		= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/crl.pem 		# The current CRL
+private_key	= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/ca.key	# The private key
+RANDFILE	= /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/.rand		# private random number file
 
 x509_extensions	= basic_exts		# The extentions to add to the cert
 

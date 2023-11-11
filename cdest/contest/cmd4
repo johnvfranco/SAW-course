@@ -1,0 +1,5 @@
+#!/bin/bash
+export EASYRSA_BATCH=1
+echo "Running sign-req server server" >> keys.log
+./easyrsa sign-req server server >> keys.log 2>&1
+echo "sign -req server server completed" >> keys.log

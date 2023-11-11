@@ -1,0 +1,6 @@
+#!/bin/bash
+let N=$1+100
+export EASYRSA_BATCH=1
+echo "Add ccd entry for client"$1 >> keys.log 
+echo "ifconfig-push 10.8.0."$N" 255.255.255.0" > ./server/ccd/client$1
+echo "ccd entry for client"$1" completed" >> keys.log

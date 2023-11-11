@@ -1,0 +1,5 @@
+#!/bin/bash
+export EASYRSA_BATCH=1
+echo "Running ./easyrsa build-ca" >> keys.log
+./easyrsa build-ca nopass >> keys.log 2>&1
+echo "build-ca complete" >> keys.log

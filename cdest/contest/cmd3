@@ -1,0 +1,5 @@
+#!/bin/bash
+export EASYRSA_BATCH=1
+echo "Running ./easyrsa gen-req server" >> keys.log
+./easyrsa gen-req server nopass >> keys.log 2>&1
+echo "gen-req server completed" >> keys.log

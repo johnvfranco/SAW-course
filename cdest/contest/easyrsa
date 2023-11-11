@@ -316,7 +316,7 @@ clean_temp() {
 prog_exit() {
 	ESTAT=0
 	[ -n "$1" ] && ESTAT=$1
-	(stty echo 2>/dev/null) || set -o echo
+	(stty echo 2>/dev/null) # || set -o echo
 	echo "" # just to get a clean line
 	exit "$ESTAT"
 } # => prog_exit()
@@ -489,9 +489,9 @@ Your newly created PKI dir is: $EASYRSA_PKI
 
 hide_read_pass()
 {
-	(stty -echo 2>/dev/null) || set +o echo
+	(stty -echo 2>/dev/null) # || set +o echo
 	read -r "$@"
-	(stty echo 2>/dev/null) || set -o echo
+	(stty echo 2>/dev/null) # || set -o echo
 } # => hide_read_pass()
 
 # build-ca backend:

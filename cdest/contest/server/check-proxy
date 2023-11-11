@@ -1,2 +1,0 @@
-#!/bin/bash
-pstree -paul | grep ssh | grep visitor
