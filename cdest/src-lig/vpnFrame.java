@@ -352,15 +352,48 @@ class MakeKeys extends Thread {
       }
       
       vf.cf.msgs.setText("Wrote vars file - creating keys and certs ...");
-      try { sleep(1000); } catch (Exception e) { }
+      try { Thread.sleep(1000); } catch (Exception e) { }
 
       try {
          vf.cf.msgs.setText("Making keys - might want to take a tea or "+
 									 "coffee break");
-         command = "./make-keys "+String.valueOf(cnt);
-         Runtime.getRuntime().exec(command);
-         command = "chmod -R go-w ../contest/keys";
-         Runtime.getRuntime().exec(command);
+			// easyrsa init-pki
+			Runtime.getRuntime().exec("./cmd1", null, new File("../contest"));
+			try { Thread.sleep(1000); } catch (Exception e) { }
+			command = "echo making CA key and certificate >> keys.log";
+			Runtime.getRuntime().exec(command, null, new File("../contest"));
+			Runtime.getRuntime().exec("./cmd2", null, new File("../contest"));
+			try { Thread.sleep(1000); } catch (Exception e) { }			
+			command = "echo making server key and certificate >> keys.log";
+			Runtime.getRuntime().exec(command, null, new File("../contest"));
+			Runtime.getRuntime().exec("./cmd3", null, new File("../contest"));
+			try { Thread.sleep(1000); } catch (Exception e) { }			
+			Runtime.getRuntime().exec("./cmd4", null, new File("../contest"));
+			try { Thread.sleep(1000); } catch (Exception e) { }
+			Runtime.getRuntime().exec("rm -rf ../contest/server/ccd");
+			try { Thread.sleep(1000); } catch (Exception e) { }			
+			Runtime.getRuntime().exec("mkdir ../contest/server/ccd");
+			try { Thread.sleep(1000); } catch (Exception e) { }			
+			Runtime.getRuntime().exec("rm -f ../contest/server/ipp.txt");
+			for (int i=0 ; i <= cnt ; i++) {
+				Runtime.getRuntime().exec("./cmd5 "+i, null, new File("../contest"));
+				try { Thread.sleep(2000); } catch (Exception e) { }				
+				Runtime.getRuntime().exec("./cmd6 "+i, null, new File("../contest"));
+				try { Thread.sleep(1000); } catch (Exception e) { }				
+				vf.cf.msgs.setText("Making keys - might want to take a tea or "+
+										 "coffee break - processing: "+i);
+				Runtime.getRuntime().exec("./cmd7 "+i, null, new File("../contest"));
+				Runtime.getRuntime().exec("./cmd8 "+i, null, new File("../contest"));
+				try { Thread.sleep(1000); } catch (Exception e) { }
+			}
+         command = "chmod -R go-w ../contest/server/ccd";
+			Runtime.getRuntime().exec(command);
+			command = "chmod -R go-w ../contest/server/keys";
+			Runtime.getRuntime().exec(command);
+			
+			try { Thread.sleep(1000); } catch (Exception e) { }
+			vf.cf.msgs.setText("Client, server, CA, diffie-hellman keys being created");
+         Runtime.getRuntime().exec("./cmd9", null, new File("../contest"));
       } catch (Exception e) {
          vf.cf.msgs.setText("make-keys failed: "+command);
          running = false;
@@ -379,7 +412,7 @@ class MakeKeys extends Thread {
          }
          try { sleep(1000); } catch (Exception e) { }
       }
-      vf.cf.msgs.setText("Client, server, CA, diffie-hellman keys created");
+      vf.cf.msgs.setText("Client, server, CA, diffie-hellman keys created - see contest/keys.log for details");
       running = false;
     }
 }

@@ -751,7 +751,7 @@ class Monitor extends JFrame implements ActionListener {
       try {
 			File file = new File("../config/cdx.log");
 			FileWriter fr = new FileWriter(file, true);
-			fr.write(str+"\n");
+			fr.write(s+"\n");
 			fr.close();
       } catch (Exception e) {
 			this.out.print("  toLog: "+e.toString());

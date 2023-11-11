@@ -1,0 +1,7 @@
+#!/bin/sh
+#sudo killall openvpn
+#sleep 1
+#ssh -N -f -T -D 8080 visitor@helios.ececs.uc.edu
+#sleep 1
+sudo ./run.vpn 
+

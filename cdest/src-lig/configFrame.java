@@ -1137,7 +1137,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
 
       setSize(1200,600);
       setVisible(true);
-      // setResizable(false);
+      //      setResizable(false);
    }
 
    public void setDates () {
@@ -1210,7 +1210,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       msgs.setText("");
        FileOutputStream fos = null;
       try {
-         fos = new FileOutputStream("../contest/Parameters.txt");
+         fos = new FileOutputStream("../config/Parameters.txt");
          PrintWriter pw = new PrintWriter(fos, true);
          pw.println("//Database Parameters");
          pw.println(c[0]+" "+yesNoConvert(b[0].getSelectedItem()));
@@ -1235,7 +1235,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
          pw.println("END_IIME_CONV "+dc.ending+" "+dc.timez);
          fos.close();
          
-         monitor.toLog("Parameters.txt created", 0);
+         monitor.toLog("Parameters.txt created", 0);  
       } catch (Exception e) { }
    }
 
@@ -1249,9 +1249,9 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
          monitor.toLog("Created Parameters and Contestants directories", 0);
          fos = new FileOutputStream("../Parameters/Parameters.txt");
          PrintWriter pw = new PrintWriter(fos, true);
-         fps = new FileOutputStream("../contest/Parameters.txt");
+         fps = new FileOutputStream("Parameters.txt");
          PrintWriter ph = new PrintWriter(fps, true);
-         String command = "chmod -R go-w ../Parameters ../Contestants ../config ../contest";
+         String command = "chmod -R go-w ../Parameters ../Contestants";
          try {
             Runtime.getRuntime().exec(command);
          } catch (Exception e) { e.printStackTrace(); }
@@ -1318,7 +1318,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       monitor.toLog("Reading "+GameParameters.PLAYER_DB_FILE+" to make and populate"+
                     "player directories", 0);
       try {
-         fis = new FileInputStream("../contest/"+GameParameters.PLAYER_DB_FILE);
+         fis = new FileInputStream("../config/"+GameParameters.PLAYER_DB_FILE); /******/
          BufferedReader br = new BufferedReader(new InputStreamReader(fis));
          vpnfos = new FileOutputStream("../contest/vpnKeyIds.txt");
          vpnKeyIds = new PrintWriter(vpnfos, true);

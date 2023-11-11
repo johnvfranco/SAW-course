@@ -14,7 +14,7 @@ public class MakeStandings extends Thread {
 		for (int i=0 ; i < 1500 ; i++) players[i] = null;
 		
       try {
-         FileInputStream fis = new FileInputStream("../config/"+
+         FileInputStream fis = new FileInputStream("../config/"+     /******/
 																	GameParameters.PLAYER_DB_FILE);
          BufferedReader br = new BufferedReader(new FileReader(fis.getFD()));
 
@@ -77,7 +77,8 @@ public class MakeStandings extends Thread {
 						"</tr>\n"+
 						"</table><p>\n"+
 						"<font size=+2 color=#0000BB><b>"+
-						"<nobr>Scoreboard</nobr></b></font><p>\n"+
+						"<nobr>Scoreboard</nobr></b></font><br>\n"+
+						"<font size=-1>Scoreboard updates after a probe cycle is complete</font>\n"+						
 						"<p><font size=-1 color=\"#cc0000\">"+ds+"</font><p>\n"+
 						//  "</center>\n"+
 						"<p>\n"+

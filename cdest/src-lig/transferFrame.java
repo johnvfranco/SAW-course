@@ -196,6 +196,7 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
                   return false;
                }
                (new File("../VPNServer")).mkdir();
+					try { Thread.sleep(1000); } catch (Exception e) { }
                command = "mv ../contest/server.tar ../VPNServer";
                try {
                   Runtime.getRuntime().exec(command);
@@ -208,7 +209,7 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
                   Runtime.getRuntime().exec(command);
                } catch (Exception e) {
                   cnt.msgs.setText("Unable to create VPNServer directory");
-						e.printStackTrace();
+		  e.printStackTrace();
                }
             }
          } catch (Exception x) {
