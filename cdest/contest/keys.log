@@ -2,15 +2,15 @@ Running ./easyrsa init-pki
 init-pki completed
 Running ./easyrsa build-ca
 Generating RSA private key, 2048 bit long modulus
-.......................................................+++
-...................+++
+..................................................................................+++
+..................................+++
 e is 65537 (0x10001)
 build-ca complete
 Running ./easyrsa gen-req server
 Generating a 2048 bit RSA private key
-....................................................................................................+++
-......................................................................................................................................................................+++
-writing new private key to '/home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/server.key.zisDpu2c7C'
+....+++
+...............+++
+writing new private key to '/home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/server.key.ZeucmBsjj2'
 -----
 gen-req server completed
 Running sign-req server server
@@ -25,7 +25,7 @@ organizationName      :ASN.1 12:'Copyleft Certificate Co'
 organizationalUnitName:ASN.1 12:'My Organizational Unit'
 commonName            :ASN.1 12:'ChangeMe'
 emailAddress          :IA5STRING:'me@example.net'
-Certificate is to be certified until Nov 10 23:33:08 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:21 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -44,7 +44,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client0'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:13 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -67,7 +67,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client1'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:17 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -90,7 +90,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client2'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:21 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -113,14 +113,14 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client3'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:25 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:38 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client3 completed
 Add ccd entry for client3
-ccd entry for client3 completed
 Putting entry for client3 into ipp.txt
+ccd entry for client3 completed
 ipp.txt entry for client3 completed
 Running workaround for 4
 workaround for 4 completed
@@ -136,7 +136,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client4'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:29 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -159,7 +159,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client5'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:33 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -182,7 +182,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client6'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:37 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:50 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -205,15 +205,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client7'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:41 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:54 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client7 completed
 Add ccd entry for client7
-ccd entry for client7 completed
 Putting entry for client7 into ipp.txt
 ipp.txt entry for client7 completed
+ccd entry for client7 completed
 Running workaround for 8
 workaround for 8 completed
 Running easyrsa sign-req client8
@@ -228,7 +228,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client8'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:45 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:58:58 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -251,15 +251,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client9'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:49 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:02 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client9 completed
 Add ccd entry for client9
+ccd entry for client9 completed
 Putting entry for client9 into ipp.txt
 ipp.txt entry for client9 completed
-ccd entry for client9 completed
 Running workaround for 10
 workaround for 10 completed
 Running easyrsa sign-req client10
@@ -274,7 +274,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client10'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:53 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:06 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -297,7 +297,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client11'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:33:57 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:10 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -320,7 +320,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client12'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:01 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -343,7 +343,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client13'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:05 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -366,7 +366,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client14'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:09 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -389,15 +389,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client15'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:13 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client15 completed
 Add ccd entry for client15
+ccd entry for client15 completed
 Putting entry for client15 into ipp.txt
 ipp.txt entry for client15 completed
-ccd entry for client15 completed
 Running workaround for 16
 workaround for 16 completed
 Running easyrsa sign-req client16
@@ -412,7 +412,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client16'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:17 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -435,7 +435,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client17'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:21 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -458,14 +458,14 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client18'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:25 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:38 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client18 completed
 Add ccd entry for client18
-ccd entry for client18 completed
 Putting entry for client18 into ipp.txt
+ccd entry for client18 completed
 ipp.txt entry for client18 completed
 Running workaround for 19
 workaround for 19 completed
@@ -481,7 +481,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client19'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:29 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -504,7 +504,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client20'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:33 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -527,7 +527,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client21'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:37 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:50 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -550,15 +550,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client22'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:41 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:54 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client22 completed
 Add ccd entry for client22
-ccd entry for client22 completed
 Putting entry for client22 into ipp.txt
 ipp.txt entry for client22 completed
+ccd entry for client22 completed
 Running workaround for 23
 workaround for 23 completed
 Running easyrsa sign-req client23
@@ -573,7 +573,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client23'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:45 2024 GMT (365 days)
+Certificate is to be certified until Nov 10 23:59:58 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -596,7 +596,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client24'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:49 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:02 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -619,7 +619,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client25'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:53 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:06 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -642,7 +642,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client26'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:34:57 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:10 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -665,15 +665,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client27'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:01 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client27 completed
 Add ccd entry for client27
-ccd entry for client27 completed
 Putting entry for client27 into ipp.txt
 ipp.txt entry for client27 completed
+ccd entry for client27 completed
 Running workaround for 28
 workaround for 28 completed
 Running easyrsa sign-req client28
@@ -688,7 +688,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client28'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:05 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -711,7 +711,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client29'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:09 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -734,15 +734,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client30'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:13 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client30 completed
 Add ccd entry for client30
+ccd entry for client30 completed
 Putting entry for client30 into ipp.txt
 ipp.txt entry for client30 completed
-ccd entry for client30 completed
 Running workaround for 31
 workaround for 31 completed
 Running easyrsa sign-req client31
@@ -757,7 +757,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client31'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:17 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -780,7 +780,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client32'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:21 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -803,7 +803,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client33'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:38 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -826,7 +826,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client34'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -849,7 +849,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client35'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -872,7 +872,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client36'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:50 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -895,15 +895,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client37'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:54 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client37 completed
 Add ccd entry for client37
-ccd entry for client37 completed
 Putting entry for client37 into ipp.txt
 ipp.txt entry for client37 completed
+ccd entry for client37 completed
 Running workaround for 38
 workaround for 38 completed
 Running easyrsa sign-req client38
@@ -918,7 +918,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client38'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:00:58 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -941,15 +941,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client39'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:02 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client39 completed
 Add ccd entry for client39
+ccd entry for client39 completed
 Putting entry for client39 into ipp.txt
 ipp.txt entry for client39 completed
-ccd entry for client39 completed
 Running workaround for 40
 workaround for 40 completed
 Running easyrsa sign-req client40
@@ -964,7 +964,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client40'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:06 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -987,7 +987,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client41'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:35:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:10 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1010,15 +1010,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client42'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client42 completed
 Add ccd entry for client42
-ccd entry for client42 completed
 Putting entry for client42 into ipp.txt
 ipp.txt entry for client42 completed
+ccd entry for client42 completed
 Running workaround for 43
 workaround for 43 completed
 Running easyrsa sign-req client43
@@ -1033,7 +1033,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client43'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1056,7 +1056,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client44'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1079,7 +1079,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client45'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1102,15 +1102,15 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client46'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client46 completed
 Add ccd entry for client46
-ccd entry for client46 completed
 Putting entry for client46 into ipp.txt
 ipp.txt entry for client46 completed
+ccd entry for client46 completed
 Running workaround for 47
 workaround for 47 completed
 Running easyrsa sign-req client47
@@ -1125,7 +1125,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client47'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1148,7 +1148,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client48'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:38 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1171,14 +1171,14 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client49'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client49 completed
 Add ccd entry for client49
-Putting entry for client49 into ipp.txt
 ccd entry for client49 completed
+Putting entry for client49 into ipp.txt
 ipp.txt entry for client49 completed
 Running workaround for 50
 workaround for 50 completed
@@ -1194,7 +1194,7 @@ organizationName      :ASN.1 12:'University of Cincinnati .'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client50'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 00:01:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1203,2307 +1203,7 @@ Add ccd entry for client50
 ccd entry for client50 completed
 Putting entry for client50 into ipp.txt
 ipp.txt entry for client50 completed
-Running workaround for 51
-workaround for 51 completed
-Running easyrsa sign-req client51
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client51'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:38 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client51 completed
-Add ccd entry for client51
-ccd entry for client51 completed
-Putting entry for client51 into ipp.txt
-ipp.txt entry for client51 completed
-Running workaround for 52
-workaround for 52 completed
-Running easyrsa sign-req client52
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client52'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:42 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client52 completed
-Add ccd entry for client52
-ccd entry for client52 completed
-Putting entry for client52 into ipp.txt
-ipp.txt entry for client52 completed
-Running workaround for 53
-workaround for 53 completed
-Running easyrsa sign-req client53
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client53'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:46 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client53 completed
-Add ccd entry for client53
-ccd entry for client53 completed
-Putting entry for client53 into ipp.txt
-ipp.txt entry for client53 completed
-Running workaround for 54
-workaround for 54 completed
-Running easyrsa sign-req client54
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client54'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:50 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client54 completed
-Add ccd entry for client54
-ccd entry for client54 completed
-Putting entry for client54 into ipp.txt
-ipp.txt entry for client54 completed
-Running workaround for 55
-workaround for 55 completed
-Running easyrsa sign-req client55
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client55'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:54 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client55 completed
-Add ccd entry for client55
-Putting entry for client55 into ipp.txt
-ipp.txt entry for client55 completed
-ccd entry for client55 completed
-Running workaround for 56
-workaround for 56 completed
-Running easyrsa sign-req client56
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client56'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:36:58 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client56 completed
-Add ccd entry for client56
-ccd entry for client56 completed
-Putting entry for client56 into ipp.txt
-ipp.txt entry for client56 completed
-Running workaround for 57
-workaround for 57 completed
-Running easyrsa sign-req client57
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client57'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:02 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client57 completed
-Add ccd entry for client57
-ccd entry for client57 completed
-Putting entry for client57 into ipp.txt
-ipp.txt entry for client57 completed
-Running workaround for 58
-workaround for 58 completed
-Running easyrsa sign-req client58
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client58'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:06 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client58 completed
-Add ccd entry for client58
-ccd entry for client58 completed
-Putting entry for client58 into ipp.txt
-ipp.txt entry for client58 completed
-Running workaround for 59
-workaround for 59 completed
-Running easyrsa sign-req client59
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client59'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:10 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client59 completed
-Add ccd entry for client59
-ccd entry for client59 completed
-Putting entry for client59 into ipp.txt
-ipp.txt entry for client59 completed
-Running workaround for 60
-workaround for 60 completed
-Running easyrsa sign-req client60
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client60'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:14 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client60 completed
-Add ccd entry for client60
-ccd entry for client60 completed
-Putting entry for client60 into ipp.txt
-ipp.txt entry for client60 completed
-Running workaround for 61
-workaround for 61 completed
-Running easyrsa sign-req client61
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client61'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:18 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client61 completed
-Add ccd entry for client61
-ccd entry for client61 completed
-Putting entry for client61 into ipp.txt
-ipp.txt entry for client61 completed
-Running workaround for 62
-workaround for 62 completed
-Running easyrsa sign-req client62
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client62'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:22 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client62 completed
-Add ccd entry for client62
-ccd entry for client62 completed
-Putting entry for client62 into ipp.txt
-ipp.txt entry for client62 completed
-Running workaround for 63
-workaround for 63 completed
-Running easyrsa sign-req client63
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client63'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:26 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client63 completed
-Add ccd entry for client63
-ccd entry for client63 completed
-Putting entry for client63 into ipp.txt
-ipp.txt entry for client63 completed
-Running workaround for 64
-workaround for 64 completed
-Running easyrsa sign-req client64
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client64'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:30 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client64 completed
-Add ccd entry for client64
-Putting entry for client64 into ipp.txt
-ipp.txt entry for client64 completed
-ccd entry for client64 completed
-Running workaround for 65
-workaround for 65 completed
-Running easyrsa sign-req client65
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client65'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:34 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client65 completed
-Add ccd entry for client65
-ccd entry for client65 completed
-Putting entry for client65 into ipp.txt
-ipp.txt entry for client65 completed
-Running workaround for 66
-workaround for 66 completed
-Running easyrsa sign-req client66
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client66'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:38 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client66 completed
-Add ccd entry for client66
-ccd entry for client66 completed
-Putting entry for client66 into ipp.txt
-ipp.txt entry for client66 completed
-Running workaround for 67
-workaround for 67 completed
-Running easyrsa sign-req client67
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client67'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:42 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client67 completed
-Add ccd entry for client67
-ccd entry for client67 completed
-Putting entry for client67 into ipp.txt
-ipp.txt entry for client67 completed
-Running workaround for 68
-workaround for 68 completed
-Running easyrsa sign-req client68
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client68'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:46 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client68 completed
-Add ccd entry for client68
-ccd entry for client68 completed
-Putting entry for client68 into ipp.txt
-ipp.txt entry for client68 completed
-Running workaround for 69
-workaround for 69 completed
-Running easyrsa sign-req client69
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client69'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:50 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client69 completed
-Add ccd entry for client69
-ccd entry for client69 completed
-Putting entry for client69 into ipp.txt
-ipp.txt entry for client69 completed
-Running workaround for 70
-workaround for 70 completed
-Running easyrsa sign-req client70
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client70'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:54 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client70 completed
-Add ccd entry for client70
-ccd entry for client70 completed
-Putting entry for client70 into ipp.txt
-ipp.txt entry for client70 completed
-Running workaround for 71
-workaround for 71 completed
-Running easyrsa sign-req client71
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client71'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:37:58 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client71 completed
-Add ccd entry for client71
-ccd entry for client71 completed
-Putting entry for client71 into ipp.txt
-ipp.txt entry for client71 completed
-Running workaround for 72
-workaround for 72 completed
-Running easyrsa sign-req client72
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client72'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:02 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client72 completed
-Add ccd entry for client72
-ccd entry for client72 completed
-Putting entry for client72 into ipp.txt
-ipp.txt entry for client72 completed
-Running workaround for 73
-workaround for 73 completed
-Running easyrsa sign-req client73
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client73'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:06 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client73 completed
-Add ccd entry for client73
-ccd entry for client73 completed
-Putting entry for client73 into ipp.txt
-ipp.txt entry for client73 completed
-Running workaround for 74
-workaround for 74 completed
-Running easyrsa sign-req client74
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client74'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:10 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client74 completed
-Add ccd entry for client74
-ccd entry for client74 completed
-Putting entry for client74 into ipp.txt
-ipp.txt entry for client74 completed
-Running workaround for 75
-workaround for 75 completed
-Running easyrsa sign-req client75
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client75'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:14 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client75 completed
-Add ccd entry for client75
-Putting entry for client75 into ipp.txt
-ipp.txt entry for client75 completed
-ccd entry for client75 completed
-Running workaround for 76
-workaround for 76 completed
-Running easyrsa sign-req client76
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client76'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:18 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client76 completed
-Add ccd entry for client76
-ccd entry for client76 completed
-Putting entry for client76 into ipp.txt
-ipp.txt entry for client76 completed
-Running workaround for 77
-workaround for 77 completed
-Running easyrsa sign-req client77
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client77'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:22 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client77 completed
-Add ccd entry for client77
-ccd entry for client77 completed
-Putting entry for client77 into ipp.txt
-ipp.txt entry for client77 completed
-Running workaround for 78
-workaround for 78 completed
-Running easyrsa sign-req client78
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client78'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:26 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client78 completed
-Add ccd entry for client78
-ccd entry for client78 completed
-Putting entry for client78 into ipp.txt
-ipp.txt entry for client78 completed
-Running workaround for 79
-workaround for 79 completed
-Running easyrsa sign-req client79
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client79'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:30 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client79 completed
-Add ccd entry for client79
-Putting entry for client79 into ipp.txt
-ipp.txt entry for client79 completed
-ccd entry for client79 completed
-Running workaround for 80
-workaround for 80 completed
-Running easyrsa sign-req client80
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client80'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:34 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client80 completed
-Add ccd entry for client80
-ccd entry for client80 completed
-Putting entry for client80 into ipp.txt
-ipp.txt entry for client80 completed
-Running workaround for 81
-workaround for 81 completed
-Running easyrsa sign-req client81
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client81'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:38 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client81 completed
-Add ccd entry for client81
-ccd entry for client81 completed
-Putting entry for client81 into ipp.txt
-ipp.txt entry for client81 completed
-Running workaround for 82
-workaround for 82 completed
-Running easyrsa sign-req client82
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client82'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:42 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client82 completed
-Add ccd entry for client82
-ccd entry for client82 completed
-Putting entry for client82 into ipp.txt
-ipp.txt entry for client82 completed
-Running workaround for 83
-workaround for 83 completed
-Running easyrsa sign-req client83
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client83'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:46 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client83 completed
-Add ccd entry for client83
-ccd entry for client83 completed
-Putting entry for client83 into ipp.txt
-ipp.txt entry for client83 completed
-Running workaround for 84
-workaround for 84 completed
-Running easyrsa sign-req client84
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client84'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:50 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client84 completed
-Add ccd entry for client84
-ccd entry for client84 completed
-Putting entry for client84 into ipp.txt
-ipp.txt entry for client84 completed
-Running workaround for 85
-workaround for 85 completed
-Running easyrsa sign-req client85
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client85'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:54 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client85 completed
-Add ccd entry for client85
-Putting entry for client85 into ipp.txt
-ipp.txt entry for client85 completed
-ccd entry for client85 completed
-Running workaround for 86
-workaround for 86 completed
-Running easyrsa sign-req client86
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client86'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:38:58 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client86 completed
-Add ccd entry for client86
-ccd entry for client86 completed
-Putting entry for client86 into ipp.txt
-ipp.txt entry for client86 completed
-Running workaround for 87
-workaround for 87 completed
-Running easyrsa sign-req client87
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client87'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:02 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client87 completed
-Add ccd entry for client87
-ccd entry for client87 completed
-Putting entry for client87 into ipp.txt
-ipp.txt entry for client87 completed
-Running workaround for 88
-workaround for 88 completed
-Running easyrsa sign-req client88
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client88'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:06 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client88 completed
-Add ccd entry for client88
-ccd entry for client88 completed
-Putting entry for client88 into ipp.txt
-ipp.txt entry for client88 completed
-Running workaround for 89
-workaround for 89 completed
-Running easyrsa sign-req client89
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client89'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:10 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client89 completed
-Add ccd entry for client89
-ccd entry for client89 completed
-Putting entry for client89 into ipp.txt
-ipp.txt entry for client89 completed
-Running workaround for 90
-workaround for 90 completed
-Running easyrsa sign-req client90
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client90'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:14 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client90 completed
-Add ccd entry for client90
-Putting entry for client90 into ipp.txt
-ipp.txt entry for client90 completed
-ccd entry for client90 completed
-Running workaround for 91
-workaround for 91 completed
-Running easyrsa sign-req client91
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client91'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:18 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client91 completed
-Add ccd entry for client91
-ccd entry for client91 completed
-Putting entry for client91 into ipp.txt
-ipp.txt entry for client91 completed
-Running workaround for 92
-workaround for 92 completed
-Running easyrsa sign-req client92
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client92'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:22 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client92 completed
-Add ccd entry for client92
-ccd entry for client92 completed
-Putting entry for client92 into ipp.txt
-ipp.txt entry for client92 completed
-Running workaround for 93
-workaround for 93 completed
-Running easyrsa sign-req client93
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client93'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:26 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client93 completed
-Add ccd entry for client93
-ccd entry for client93 completed
-Putting entry for client93 into ipp.txt
-ipp.txt entry for client93 completed
-Running workaround for 94
-workaround for 94 completed
-Running easyrsa sign-req client94
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client94'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:30 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client94 completed
-Add ccd entry for client94
-Putting entry for client94 into ipp.txt
-ipp.txt entry for client94 completed
-ccd entry for client94 completed
-Running workaround for 95
-workaround for 95 completed
-Running easyrsa sign-req client95
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client95'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:34 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client95 completed
-Add ccd entry for client95
-ccd entry for client95 completed
-Putting entry for client95 into ipp.txt
-ipp.txt entry for client95 completed
-Running workaround for 96
-workaround for 96 completed
-Running easyrsa sign-req client96
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client96'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:38 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client96 completed
-Add ccd entry for client96
-Putting entry for client96 into ipp.txt
-ipp.txt entry for client96 completed
-ccd entry for client96 completed
-Running workaround for 97
-workaround for 97 completed
-Running easyrsa sign-req client97
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client97'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:42 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client97 completed
-Add ccd entry for client97
-ccd entry for client97 completed
-Putting entry for client97 into ipp.txt
-ipp.txt entry for client97 completed
-Running workaround for 98
-workaround for 98 completed
-Running easyrsa sign-req client98
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client98'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:46 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client98 completed
-Add ccd entry for client98
-ccd entry for client98 completed
-Putting entry for client98 into ipp.txt
-ipp.txt entry for client98 completed
-Running workaround for 99
-workaround for 99 completed
-Running easyrsa sign-req client99
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client99'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:50 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client99 completed
-Add ccd entry for client99
-ccd entry for client99 completed
-Putting entry for client99 into ipp.txt
-ipp.txt entry for client99 completed
-Running workaround for 100
-workaround for 100 completed
-Running easyrsa sign-req client100
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client100'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:54 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client100 completed
-Add ccd entry for client100
-Putting entry for client100 into ipp.txt
-ipp.txt entry for client100 completed
-ccd entry for client100 completed
-Running workaround for 101
-workaround for 101 completed
-Running easyrsa sign-req client101
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client101'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:39:58 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client101 completed
-Add ccd entry for client101
-ccd entry for client101 completed
-Putting entry for client101 into ipp.txt
-ipp.txt entry for client101 completed
-Running workaround for 102
-workaround for 102 completed
-Running easyrsa sign-req client102
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client102'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:02 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client102 completed
-Add ccd entry for client102
-ccd entry for client102 completed
-Putting entry for client102 into ipp.txt
-ipp.txt entry for client102 completed
-Running workaround for 103
-workaround for 103 completed
-Running easyrsa sign-req client103
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client103'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:06 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client103 completed
-Add ccd entry for client103
-ccd entry for client103 completed
-Putting entry for client103 into ipp.txt
-ipp.txt entry for client103 completed
-Running workaround for 104
-workaround for 104 completed
-Running easyrsa sign-req client104
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client104'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:10 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client104 completed
-Add ccd entry for client104
-ccd entry for client104 completed
-Putting entry for client104 into ipp.txt
-ipp.txt entry for client104 completed
-Running workaround for 105
-workaround for 105 completed
-Running easyrsa sign-req client105
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client105'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:14 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client105 completed
-Add ccd entry for client105
-ccd entry for client105 completed
-Putting entry for client105 into ipp.txt
-ipp.txt entry for client105 completed
-Running workaround for 106
-workaround for 106 completed
-Running easyrsa sign-req client106
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client106'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:18 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client106 completed
-Add ccd entry for client106
-Putting entry for client106 into ipp.txt
-ipp.txt entry for client106 completed
-ccd entry for client106 completed
-Running workaround for 107
-workaround for 107 completed
-Running easyrsa sign-req client107
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client107'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:22 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client107 completed
-Add ccd entry for client107
-ccd entry for client107 completed
-Putting entry for client107 into ipp.txt
-ipp.txt entry for client107 completed
-Running workaround for 108
-workaround for 108 completed
-Running easyrsa sign-req client108
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client108'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:26 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client108 completed
-Add ccd entry for client108
-ccd entry for client108 completed
-Putting entry for client108 into ipp.txt
-ipp.txt entry for client108 completed
-Running workaround for 109
-workaround for 109 completed
-Running easyrsa sign-req client109
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client109'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:30 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client109 completed
-Add ccd entry for client109
-ccd entry for client109 completed
-Putting entry for client109 into ipp.txt
-ipp.txt entry for client109 completed
-Running workaround for 110
-workaround for 110 completed
-Running easyrsa sign-req client110
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client110'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:34 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client110 completed
-Add ccd entry for client110
-ccd entry for client110 completed
-Putting entry for client110 into ipp.txt
-ipp.txt entry for client110 completed
-Running workaround for 111
-workaround for 111 completed
-Running easyrsa sign-req client111
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client111'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:38 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client111 completed
-Add ccd entry for client111
-ccd entry for client111 completed
-Putting entry for client111 into ipp.txt
-ipp.txt entry for client111 completed
-Running workaround for 112
-workaround for 112 completed
-Running easyrsa sign-req client112
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client112'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:42 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client112 completed
-Add ccd entry for client112
-ccd entry for client112 completed
-Putting entry for client112 into ipp.txt
-ipp.txt entry for client112 completed
-Running workaround for 113
-workaround for 113 completed
-Running easyrsa sign-req client113
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client113'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:46 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client113 completed
-Add ccd entry for client113
-ccd entry for client113 completed
-Putting entry for client113 into ipp.txt
-ipp.txt entry for client113 completed
-Running workaround for 114
-workaround for 114 completed
-Running easyrsa sign-req client114
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client114'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:50 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client114 completed
-Add ccd entry for client114
-ccd entry for client114 completed
-Putting entry for client114 into ipp.txt
-ipp.txt entry for client114 completed
-Running workaround for 115
-workaround for 115 completed
-Running easyrsa sign-req client115
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client115'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:54 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client115 completed
-Add ccd entry for client115
-Putting entry for client115 into ipp.txt
-ipp.txt entry for client115 completed
-ccd entry for client115 completed
-Running workaround for 116
-workaround for 116 completed
-Running easyrsa sign-req client116
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client116'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:40:58 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client116 completed
-Add ccd entry for client116
-ccd entry for client116 completed
-Putting entry for client116 into ipp.txt
-ipp.txt entry for client116 completed
-Running workaround for 117
-workaround for 117 completed
-Running easyrsa sign-req client117
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client117'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:02 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client117 completed
-Add ccd entry for client117
-ccd entry for client117 completed
-Putting entry for client117 into ipp.txt
-ipp.txt entry for client117 completed
-Running workaround for 118
-workaround for 118 completed
-Running easyrsa sign-req client118
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client118'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:06 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client118 completed
-Add ccd entry for client118
-ccd entry for client118 completed
-Putting entry for client118 into ipp.txt
-ipp.txt entry for client118 completed
-Running workaround for 119
-workaround for 119 completed
-Running easyrsa sign-req client119
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client119'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:10 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client119 completed
-Add ccd entry for client119
-ccd entry for client119 completed
-Putting entry for client119 into ipp.txt
-ipp.txt entry for client119 completed
-Running workaround for 120
-workaround for 120 completed
-Running easyrsa sign-req client120
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client120'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:14 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client120 completed
-Add ccd entry for client120
-ccd entry for client120 completed
-Putting entry for client120 into ipp.txt
-ipp.txt entry for client120 completed
-Running workaround for 121
-workaround for 121 completed
-Running easyrsa sign-req client121
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client121'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:18 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client121 completed
-Add ccd entry for client121
-Putting entry for client121 into ipp.txt
-ccd entry for client121 completed
-ipp.txt entry for client121 completed
-Running workaround for 122
-workaround for 122 completed
-Running easyrsa sign-req client122
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client122'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:22 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client122 completed
-Add ccd entry for client122
-ccd entry for client122 completed
-Putting entry for client122 into ipp.txt
-ipp.txt entry for client122 completed
-Running workaround for 123
-workaround for 123 completed
-Running easyrsa sign-req client123
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client123'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:26 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client123 completed
-Add ccd entry for client123
-ccd entry for client123 completed
-Putting entry for client123 into ipp.txt
-ipp.txt entry for client123 completed
-Running workaround for 124
-workaround for 124 completed
-Running easyrsa sign-req client124
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client124'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:30 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client124 completed
-Add ccd entry for client124
-ccd entry for client124 completed
-Putting entry for client124 into ipp.txt
-ipp.txt entry for client124 completed
-Running workaround for 125
-workaround for 125 completed
-Running easyrsa sign-req client125
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client125'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:34 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client125 completed
-Add ccd entry for client125
-ccd entry for client125 completed
-Putting entry for client125 into ipp.txt
-ipp.txt entry for client125 completed
-Running workaround for 126
-workaround for 126 completed
-Running easyrsa sign-req client126
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client126'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:38 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client126 completed
-Add ccd entry for client126
-ccd entry for client126 completed
-Putting entry for client126 into ipp.txt
-ipp.txt entry for client126 completed
-Running workaround for 127
-workaround for 127 completed
-Running easyrsa sign-req client127
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client127'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:42 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client127 completed
-Add ccd entry for client127
-ccd entry for client127 completed
-Putting entry for client127 into ipp.txt
-ipp.txt entry for client127 completed
-Running workaround for 128
-workaround for 128 completed
-Running easyrsa sign-req client128
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client128'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:46 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client128 completed
-Add ccd entry for client128
-ccd entry for client128 completed
-Putting entry for client128 into ipp.txt
-ipp.txt entry for client128 completed
-Running workaround for 129
-workaround for 129 completed
-Running easyrsa sign-req client129
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client129'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:50 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client129 completed
-Add ccd entry for client129
-ccd entry for client129 completed
-Putting entry for client129 into ipp.txt
-ipp.txt entry for client129 completed
-Running workaround for 130
-workaround for 130 completed
-Running easyrsa sign-req client130
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client130'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:54 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client130 completed
-Add ccd entry for client130
-Putting entry for client130 into ipp.txt
-ccd entry for client130 completed
-ipp.txt entry for client130 completed
-Running workaround for 131
-workaround for 131 completed
-Running easyrsa sign-req client131
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client131'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:41:58 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client131 completed
-Add ccd entry for client131
-ccd entry for client131 completed
-Putting entry for client131 into ipp.txt
-ipp.txt entry for client131 completed
-Running workaround for 132
-workaround for 132 completed
-Running easyrsa sign-req client132
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client132'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:02 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client132 completed
-Add ccd entry for client132
-ccd entry for client132 completed
-Putting entry for client132 into ipp.txt
-ipp.txt entry for client132 completed
-Running workaround for 133
-workaround for 133 completed
-Running easyrsa sign-req client133
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client133'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:06 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client133 completed
-Add ccd entry for client133
-ccd entry for client133 completed
-Putting entry for client133 into ipp.txt
-ipp.txt entry for client133 completed
-Running workaround for 134
-workaround for 134 completed
-Running easyrsa sign-req client134
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client134'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:10 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client134 completed
-Add ccd entry for client134
-ccd entry for client134 completed
-Putting entry for client134 into ipp.txt
-ipp.txt entry for client134 completed
-Running workaround for 135
-workaround for 135 completed
-Running easyrsa sign-req client135
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client135'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:14 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client135 completed
-Add ccd entry for client135
-ccd entry for client135 completed
-Putting entry for client135 into ipp.txt
-ipp.txt entry for client135 completed
-Running workaround for 136
-workaround for 136 completed
-Running easyrsa sign-req client136
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client136'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:18 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client136 completed
-Add ccd entry for client136
-Putting entry for client136 into ipp.txt
-ccd entry for client136 completed
-ipp.txt entry for client136 completed
-Running workaround for 137
-workaround for 137 completed
-Running easyrsa sign-req client137
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client137'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:22 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client137 completed
-Add ccd entry for client137
-ccd entry for client137 completed
-Putting entry for client137 into ipp.txt
-ipp.txt entry for client137 completed
-Running workaround for 138
-workaround for 138 completed
-Running easyrsa sign-req client138
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client138'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:26 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client138 completed
-Add ccd entry for client138
-ccd entry for client138 completed
-Putting entry for client138 into ipp.txt
-ipp.txt entry for client138 completed
-Running workaround for 139
-workaround for 139 completed
-Running easyrsa sign-req client139
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client139'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:30 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client139 completed
-Add ccd entry for client139
-ccd entry for client139 completed
-Putting entry for client139 into ipp.txt
-ipp.txt entry for client139 completed
-Running workaround for 140
-workaround for 140 completed
-Running easyrsa sign-req client140
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client140'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:35 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client140 completed
-Add ccd entry for client140
-ccd entry for client140 completed
-Putting entry for client140 into ipp.txt
-ipp.txt entry for client140 completed
-Running workaround for 141
-workaround for 141 completed
-Running easyrsa sign-req client141
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client141'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:39 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client141 completed
-Add ccd entry for client141
-ccd entry for client141 completed
-Putting entry for client141 into ipp.txt
-ipp.txt entry for client141 completed
-Running workaround for 142
-workaround for 142 completed
-Running easyrsa sign-req client142
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client142'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:43 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client142 completed
-Add ccd entry for client142
-ccd entry for client142 completed
-Putting entry for client142 into ipp.txt
-ipp.txt entry for client142 completed
-Running workaround for 143
-workaround for 143 completed
-Running easyrsa sign-req client143
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client143'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:47 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client143 completed
-Add ccd entry for client143
-ccd entry for client143 completed
-Putting entry for client143 into ipp.txt
-ipp.txt entry for client143 completed
-Running workaround for 144
-workaround for 144 completed
-Running easyrsa sign-req client144
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client144'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:51 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client144 completed
-Add ccd entry for client144
-ccd entry for client144 completed
-Putting entry for client144 into ipp.txt
-ipp.txt entry for client144 completed
-Running workaround for 145
-workaround for 145 completed
-Running easyrsa sign-req client145
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client145'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:55 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client145 completed
-Add ccd entry for client145
-Putting entry for client145 into ipp.txt
-ccd entry for client145 completed
-ipp.txt entry for client145 completed
-Running workaround for 146
-workaround for 146 completed
-Running easyrsa sign-req client146
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client146'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:42:59 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client146 completed
-Add ccd entry for client146
-ccd entry for client146 completed
-Putting entry for client146 into ipp.txt
-ipp.txt entry for client146 completed
-Running workaround for 147
-workaround for 147 completed
-Running easyrsa sign-req client147
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client147'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:43:03 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client147 completed
-Add ccd entry for client147
-ccd entry for client147 completed
-Putting entry for client147 into ipp.txt
-ipp.txt entry for client147 completed
-Running workaround for 148
-workaround for 148 completed
-Running easyrsa sign-req client148
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client148'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:43:07 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client148 completed
-Add ccd entry for client148
-ccd entry for client148 completed
-Putting entry for client148 into ipp.txt
-ipp.txt entry for client148 completed
-Running workaround for 149
-workaround for 149 completed
-Running easyrsa sign-req client149
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client149'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:43:11 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client149 completed
-Add ccd entry for client149
-ccd entry for client149 completed
-Putting entry for client149 into ipp.txt
-ipp.txt entry for client149 completed
-Running workaround for 150
-workaround for 150 completed
-Running easyrsa sign-req client150
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'OH'
-localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
-commonName            :ASN.1 12:'client150'
-emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:43:15 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign-req for client150 completed
-Add ccd entry for client150
-ccd entry for client150 completed
-Putting entry for client150 into ipp.txt
-ipp.txt entry for client150 completed
 WARNING: can't open config file: /iWars/vpn/ssl/openssl.cnf
 Generating DH parameters, 2048 bit long safe prime, generator 2
 This is going to take a long time
-...........+..........................................................................................++*++*
+.........+........................+.......................+.......................................................+...........................+.....................................................................................................................................................................................................................................................................................................................+....................................................................................................................................................................................+..........................................................+................................................................................................................+...............................................................................+.............................................................................................+................................................+..+...............................................................................................+.........................................................................................................................................................................................................................................................+...........................................+...........................................................................................................................+.....................+.........................................................................................................................................................................................................................................................................................................................................+....................................................................................................................................................................................+.....................................................................................................................................+.......................................................................................................................+..............................................+.....................................................+.................................+........................................................+...............+...................................+.....................................................+......................................................+...........................................................+..........................................................+......................+....................................................................................+..............................................................+.........................+..........................................................+.........................................................................................................+............................+..................................................................................................................................................................................................................................................+......................................+.+.........................................+...................................+...............................+......................+............................+......................................................................+............+...............................................................................................................++*++*
