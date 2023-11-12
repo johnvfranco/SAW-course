@@ -1,4 +1,0 @@
-#!/bin/bash
-cd ../Contestants
-tar cf $1.tar $1
-chmod go-w $1.tar

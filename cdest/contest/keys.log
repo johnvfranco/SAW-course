@@ -2,34 +2,25 @@ Running ./easyrsa init-pki
 init-pki completed
 Running ./easyrsa build-ca
 Generating RSA private key, 2048 bit long modulus
-..................................................................................+++
-..................................+++
+.........................................................+++
+..........................................................................................+++
 e is 65537 (0x10001)
 build-ca complete
 Running ./easyrsa gen-req server
 Generating a 2048 bit RSA private key
-....+++
-...............+++
-writing new private key to '/home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/server.key.ZeucmBsjj2'
+.................................................................................................................................................................................................................................................................Running sign-req server server
+......
+Easy-RSA error:
+
+No request found for the input: 'server'
+Expected to find the request at: /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/reqs/server.req
+
+sign -req server server completed
+.......................................+++
+...........................+++
+writing new private key to '/home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/server.key.zoVCEKbN1x'
 -----
 gen-req server completed
-Running sign-req server server
-Using configuration from /home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/safessl-easyrsa.cnf
-Check that the request matches the signature
-Signature ok
-The Subject's Distinguished Name is as follows
-countryName           :PRINTABLE:'US'
-stateOrProvinceName   :ASN.1 12:'California'
-localityName          :ASN.1 12:'San Francisco'
-organizationName      :ASN.1 12:'Copyleft Certificate Co'
-organizationalUnitName:ASN.1 12:'My Organizational Unit'
-commonName            :ASN.1 12:'ChangeMe'
-emailAddress          :IA5STRING:'me@example.net'
-Certificate is to be certified until Nov 10 23:58:21 2024 GMT (365 days)
-
-Write out database with 1 new entries
-Data Base Updated
-sign -req server server completed
 Running workaround for 0
 workaround for 0 completed
 Running easyrsa sign-req client0
@@ -40,11 +31,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client0'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -63,11 +54,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client1'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -86,11 +77,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client2'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -109,18 +100,18 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client3'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client3 completed
 Add ccd entry for client3
-Putting entry for client3 into ipp.txt
 ccd entry for client3 completed
+Putting entry for client3 into ipp.txt
 ipp.txt entry for client3 completed
 Running workaround for 4
 workaround for 4 completed
@@ -132,11 +123,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client4'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:31 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -155,11 +146,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client5'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:35 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -178,11 +169,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client6'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:39 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -201,19 +192,19 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client7'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:43 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client7 completed
 Add ccd entry for client7
+ccd entry for client7 completed
 Putting entry for client7 into ipp.txt
 ipp.txt entry for client7 completed
-ccd entry for client7 completed
 Running workaround for 8
 workaround for 8 completed
 Running easyrsa sign-req client8
@@ -224,11 +215,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client8'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:58:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:47 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -247,11 +238,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client9'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:51 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -270,11 +261,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client10'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:55 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -293,11 +284,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client11'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:46:59 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -316,11 +307,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client12'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:03 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -339,11 +330,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client13'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:07 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -362,11 +353,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client14'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:11 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -385,11 +376,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client15'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:15 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -408,11 +399,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client16'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:19 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -431,11 +422,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client17'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:23 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -454,18 +445,18 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client18'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:27 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client18 completed
 Add ccd entry for client18
-Putting entry for client18 into ipp.txt
 ccd entry for client18 completed
+Putting entry for client18 into ipp.txt
 ipp.txt entry for client18 completed
 Running workaround for 19
 workaround for 19 completed
@@ -477,11 +468,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client19'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:31 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -500,11 +491,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client20'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:35 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -523,11 +514,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client21'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:39 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -546,19 +537,19 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client22'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:43 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client22 completed
 Add ccd entry for client22
+ccd entry for client22 completed
 Putting entry for client22 into ipp.txt
 ipp.txt entry for client22 completed
-ccd entry for client22 completed
 Running workaround for 23
 workaround for 23 completed
 Running easyrsa sign-req client23
@@ -569,11 +560,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client23'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 10 23:59:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:47 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -592,11 +583,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client24'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:51 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -615,11 +606,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client25'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:55 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -638,11 +629,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client26'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:47:59 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -661,19 +652,19 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client27'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:03 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client27 completed
 Add ccd entry for client27
+ccd entry for client27 completed
 Putting entry for client27 into ipp.txt
 ipp.txt entry for client27 completed
-ccd entry for client27 completed
 Running workaround for 28
 workaround for 28 completed
 Running easyrsa sign-req client28
@@ -684,11 +675,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client28'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:07 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -707,11 +698,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client29'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:11 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -730,11 +721,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client30'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:15 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -753,11 +744,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client31'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:19 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -776,19 +767,19 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client32'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:23 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client32 completed
 Add ccd entry for client32
-ccd entry for client32 completed
 Putting entry for client32 into ipp.txt
 ipp.txt entry for client32 completed
+ccd entry for client32 completed
 Running workaround for 33
 workaround for 33 completed
 Running easyrsa sign-req client33
@@ -799,11 +790,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client33'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:27 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -822,11 +813,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client34'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:31 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -845,11 +836,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client35'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:35 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -868,11 +859,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client36'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:39 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -891,19 +882,19 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client37'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:43 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client37 completed
 Add ccd entry for client37
+ccd entry for client37 completed
 Putting entry for client37 into ipp.txt
 ipp.txt entry for client37 completed
-ccd entry for client37 completed
 Running workaround for 38
 workaround for 38 completed
 Running easyrsa sign-req client38
@@ -914,11 +905,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client38'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:00:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:47 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -937,11 +928,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client39'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:51 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -960,11 +951,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client40'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:55 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -983,11 +974,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client41'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:48:59 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1006,11 +997,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client42'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:03 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1029,11 +1020,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client43'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:07 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1052,11 +1043,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client44'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:11 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1075,11 +1066,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client45'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:15 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1098,19 +1089,19 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client46'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:19 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client46 completed
 Add ccd entry for client46
+ccd entry for client46 completed
 Putting entry for client46 into ipp.txt
 ipp.txt entry for client46 completed
-ccd entry for client46 completed
 Running workaround for 47
 workaround for 47 completed
 Running easyrsa sign-req client47
@@ -1121,11 +1112,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client47'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:23 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1144,11 +1135,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client48'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:27 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1167,11 +1158,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client49'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:31 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1190,11 +1181,11 @@ The Subject's Distinguished Name is as follows
 countryName           :PRINTABLE:'US'
 stateOrProvinceName   :ASN.1 12:'OH'
 localityName          :ASN.1 12:'Cincinnati'
-organizationName      :ASN.1 12:'University of Cincinnati .'
-organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. . Eng. Comp. Sci.'
+organizationName      :ASN.1 12:'University of Cincinnati'
+organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client50'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 11 00:01:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 11 11:49:35 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1206,4 +1197,4 @@ ipp.txt entry for client50 completed
 WARNING: can't open config file: /iWars/vpn/ssl/openssl.cnf
 Generating DH parameters, 2048 bit long safe prime, generator 2
 This is going to take a long time
-.........+........................+.......................+.......................................................+...........................+.....................................................................................................................................................................................................................................................................................................................+....................................................................................................................................................................................+..........................................................+................................................................................................................+...............................................................................+.............................................................................................+................................................+..+...............................................................................................+.........................................................................................................................................................................................................................................................+...........................................+...........................................................................................................................+.....................+.........................................................................................................................................................................................................................................................................................................................................+....................................................................................................................................................................................+.....................................................................................................................................+.......................................................................................................................+..............................................+.....................................................+.................................+........................................................+...............+...................................+.....................................................+......................................................+...........................................................+..........................................................+......................+....................................................................................+..............................................................+.........................+..........................................................+.........................................................................................................+............................+..................................................................................................................................................................................................................................................+......................................+.+.........................................+...................................+...............................+......................+............................+......................................................................+............+...............................................................................................................++*++*
+..+..............................................................+..................................................................................+........................................+.............................................................................................................................................................................................................................................................................................................................................................................................+......................................................................................................................................................................................................................+..................................................................+....................................+...............................................................................................+............................................................................................................................................+............................................+...................+............................................................................................................................................+.............................................................................+...............................................................................................................+......................................................+.....................................................................................................................................................................................+.....................................................................................+...........................................+......................................................................................................................................................................................................................+........................................................................+...............................................................................................................+...................................................................................................................................................................................................................................................................................................................................++*++*
