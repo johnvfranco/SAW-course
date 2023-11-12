@@ -6,4 +6,4 @@ if [ ! -f jdk-lin/lib/modules ]; then
   cd $CD
 fi
 cd cdest/src-lin
-xterm -T Scorer -fn 10x20 -geometry 80x24+100+100 -fg black -bg white -e "../../jdk-lin/bin/java -jar cdx-contest.jar"
+xterm -T Scorer -fn 10x20 -geometry 80x24+100+100 -fg black -bg white -e "../../jdk-lin/bin/java -jar cdx-contest.jar" &
