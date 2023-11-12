@@ -121,23 +121,24 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
          BufferedReader br = new BufferedReader(new InputStreamReader(fis));
          String player;
          while ((player = br.readLine()) != null) {
-            if (usingOpenVPN) {
-               command = "../contest/bin/cdir_vpn "+player;
-            } else
-               command = "../contest/bin/cdir_no "+player;
-            try {
-               Runtime.getRuntime().exec(command);
-            } catch (Exception e) {
-               cnt.monitor.text.append("  Unable to tar files for "+player+"\n");
-               continue;
-            }
-            try {
+            if (usingOpenVPN) 
+					command = "tar cf "+player+".tar "+player+"/keys "+player+"/sbin "+player+"/Parms "+player+"/run.client "+player+"/run.vpn "+player+"/stop.client "+player+"/client.conf "+player+"/JAVA.txt "+player+"/README.txt";
+            else
+					command = "tar cf "+player+".tar "+player;
+				try {
+					Runtime.getRuntime().exec(command, null, new File("../Contestants"));
+				} catch (Exception e) {
+					cnt.monitor.text.append("  Unable to tar files for "+player+"\n");
+					continue;
+				}
+
+				try {
                mail = new FileInputStream("../Contestants/"+player+"/email.txt");
                BufferedReader em = new BufferedReader(new InputStreamReader(mail));
                address = em.readLine();
-               command = "../contest/bin/mailit "+player;
+					command = "../contest/bin/mutt -s \"Contest Credentials\" "+address+" -a "+player+".tar < ../contest/contest-setup.txt";
                try {
-                  Runtime.getRuntime().exec(command);
+                  Runtime.getRuntime().exec(command, null, new File("../Contestants"));
                   cnt.monitor.text.append("Sent "+player+"'s files to "+address+"\n");
                } catch (Exception g) {
                   cnt.monitor.text.append("  Unable to send files to "+address+"\n");
@@ -188,9 +189,9 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
             }
 
             if (!done) {
-               command = "./tar-server";
+               command = "tar cf server.tar server/server.conf server/run.server server/stop.server server/ipp.txt server/keys server/ccd server/allkeys server/run.vpn server/sbin server/run.proxy server/stop.proxy server/README.txt";
                try {
-                  Runtime.getRuntime().exec(command);
+                  Runtime.getRuntime().exec(command, null, new File("../contest"));
                } catch (Exception e) {
                   cnt.msgs.setText("Can't tar server files: "+e.toString());
                   return false;
@@ -209,7 +210,7 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
                   Runtime.getRuntime().exec(command);
                } catch (Exception e) {
                   cnt.msgs.setText("Unable to create VPNServer directory");
-		  e.printStackTrace();
+						e.printStackTrace();
                }
             }
          } catch (Exception x) {

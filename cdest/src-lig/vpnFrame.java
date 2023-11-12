@@ -142,6 +142,7 @@ class DistributeKeys extends Thread {
       running = true;
 
       vf.start.setEnabled(false);
+		vf.cf.tf.keys.setEnabled(false);
       vf.save.setEnabled(false);
       vf.cf.cancel.setEnabled(false);
       vf.cf.done.setEnabled(false);
@@ -154,6 +155,7 @@ class DistributeKeys extends Thread {
             vf.cf.msgs.setText("Keys appear not to be made - abort");
             running = false;
             vf.start.setEnabled(true);
+				vf.cf.tf.keys.setEnabled(true);
             vf.save.setEnabled(true);
             vf.cf.cancel.setEnabled(true);
             vf.cf.done.setEnabled(true);
@@ -163,6 +165,7 @@ class DistributeKeys extends Thread {
          vf.cf.msgs.setText("Abort: keys or key directory do not exist");
          running = false;
          vf.start.setEnabled(true);
+			vf.cf.tf.keys.setEnabled(true);
          vf.save.setEnabled(true);
          vf.cf.cancel.setEnabled(true);
          vf.cf.done.setEnabled(true);
@@ -289,6 +292,7 @@ class DistributeKeys extends Thread {
       if (failed) vf.cf.msgs.setText("Failed to create all keys and certificates");
       
       vf.start.setEnabled(true);
+		vf.cf.tf.keys.setEnabled(true);
       vf.save.setEnabled(true);
       vf.cf.cancel.setEnabled(true);
       vf.cf.done.setEnabled(true);
@@ -360,38 +364,76 @@ class MakeKeys extends Thread {
 			// easyrsa init-pki
 			Runtime.getRuntime().exec("./cmd1", null, new File("../contest"));
 			try { Thread.sleep(1000); } catch (Exception e) { }
+			if (!running) {
+				Runtime.getRuntime().exec("killall cmd1");
+				return;
+			}
 			command = "echo making CA key and certificate >> keys.log";
 			Runtime.getRuntime().exec(command, null, new File("../contest"));
 			Runtime.getRuntime().exec("./cmd2", null, new File("../contest"));
-			try { Thread.sleep(1000); } catch (Exception e) { }			
+			try { Thread.sleep(1000); } catch (Exception e) { }
+			if (!running) {
+				Runtime.getRuntime().exec("killall cmd2");
+				return;
+			}
 			command = "echo making server key and certificate >> keys.log";
 			Runtime.getRuntime().exec(command, null, new File("../contest"));
 			Runtime.getRuntime().exec("./cmd3", null, new File("../contest"));
 			try { Thread.sleep(1000); } catch (Exception e) { }			
+			if (!running) {
+				Runtime.getRuntime().exec("killall cmd3");
+				return;
+			}
 			Runtime.getRuntime().exec("./cmd4", null, new File("../contest"));
 			try { Thread.sleep(1000); } catch (Exception e) { }
+			if (!running) {
+				Runtime.getRuntime().exec("killall cmd4");
+				return;
+			}
 			Runtime.getRuntime().exec("rm -rf ../contest/server/ccd");
 			try { Thread.sleep(1000); } catch (Exception e) { }			
+			if (!running) return;
 			Runtime.getRuntime().exec("mkdir ../contest/server/ccd");
 			try { Thread.sleep(1000); } catch (Exception e) { }			
+			if (!running) return;
 			Runtime.getRuntime().exec("rm -f ../contest/server/ipp.txt");
-			for (int i=0 ; i <= cnt ; i++) {
+			for (int i=0 ; i <= cnt && running ; i++) {
 				Runtime.getRuntime().exec("./cmd5 "+i, null, new File("../contest"));
-				try { Thread.sleep(2000); } catch (Exception e) { }				
+				try { Thread.sleep(2000); } catch (Exception e) { }
+				if (!running) {
+					Runtime.getRuntime().exec("killall cmd5");
+					return;
+				}
 				Runtime.getRuntime().exec("./cmd6 "+i, null, new File("../contest"));
 				try { Thread.sleep(1000); } catch (Exception e) { }				
+				if (!running) {
+					Runtime.getRuntime().exec("killall cmd6");
+					return;
+				}
 				vf.cf.msgs.setText("Making keys - might want to take a tea or "+
 										 "coffee break - processing: "+i);
 				Runtime.getRuntime().exec("./cmd7 "+i, null, new File("../contest"));
+				if (!running) {
+					Runtime.getRuntime().exec("killall cmd7");
+					return;
+				}
 				Runtime.getRuntime().exec("./cmd8 "+i, null, new File("../contest"));
 				try { Thread.sleep(1000); } catch (Exception e) { }
+				if (!running) {
+					Runtime.getRuntime().exec("killall cmd8");
+					return;
+				}
 			}
+			if (!running) return;
          command = "chmod -R go-w ../contest/server/ccd";
 			Runtime.getRuntime().exec(command);
+			if (!running) return;			
 			command = "chmod -R go-w ../contest/server/keys";
 			Runtime.getRuntime().exec(command);
+			if (!running) return;			
 			
 			try { Thread.sleep(1000); } catch (Exception e) { }
+			if (!running) return;			
 			vf.cf.msgs.setText("Client, server, CA, diffie-hellman keys being created");
          Runtime.getRuntime().exec("./cmd9", null, new File("../contest"));
       } catch (Exception e) {
@@ -412,7 +454,7 @@ class MakeKeys extends Thread {
          }
          try { sleep(1000); } catch (Exception e) { }
       }
-      vf.cf.msgs.setText("Client, server, CA, diffie-hellman keys created - see contest/keys.log for details");
+      vf.cf.msgs.setText("all done - see contest/keys.log for details");
       running = false;
     }
 }
@@ -428,6 +470,7 @@ class KeySender extends Thread {
       try { sleep(500); } catch (Exception e) { }
 
       vf.start.setEnabled(false);
+		vf.cf.tf.keys.setEnabled(false);
       vf.no_keys.setEnabled(false);
       vf.cancel.setEnabled(false);
 
@@ -443,6 +486,7 @@ class KeySender extends Thread {
       }
 
       vf.start.setEnabled(true);
+      vf.cf.tf.keys.setEnabled(true);		
       vf.no_keys.setEnabled(true);
       vf.cancel.setEnabled(true);
    }
@@ -467,6 +511,7 @@ class KeyMaker extends Thread {
       } else {
          vf.cf.msgs.setText("Making server, CA, client, and diffie-hellman keys");
          vf.start.setEnabled(false);
+			vf.cf.tf.keys.setEnabled(false);
          vf.no_keys.setEnabled(false);
 
          try { sleep(1000); } catch (Exception e) { }            
@@ -479,6 +524,7 @@ class KeyMaker extends Thread {
          }
          
          vf.start.setEnabled(true);
+			vf.cf.tf.keys.setEnabled(true);
          vf.no_keys.setEnabled(true);
       }
    }
@@ -493,6 +539,7 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
    JLabel label;
    configFrame cf;
    JComboBox <String> no_keys;
+	KeyMaker km = null;
 
    public vpnFrame (configFrame c) {
       cf = c;
@@ -687,18 +734,18 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
          return;
       }
       start.setEnabled(false);
+		cf.tf.keys.setEnabled(false);		
       no_keys.setEnabled(false);
       cf.msgs.setText(" ");
       if (evt.getSource() == cancel) {
-         try {
-            Runtime.getRuntime().exec("killall make-keys");
-         } catch (Exception e) { }
+			if (km != null) km.mk.running = false;
          start.setEnabled(true);
+			cf.tf.keys.setEnabled(true);
          no_keys.setEnabled(true);
          cancel.setEnabled(true);
          cf.msgs.setText("");
       } else if (evt.getSource() == start) {  
-         (new KeyMaker(this)).start();
+         (km = new KeyMaker(this)).start();
       }
    }
 }

@@ -1,26 +1,22 @@
-Sat Nov 11 18:57:39 EST 2023: Players loaded from the player database
+Sun Nov 12 08:00:03 EST 2023: Created Parameters and Contestants directories
 
-Sat Nov 11 18:57:44 EST 2023: Players are listed
+Sun Nov 12 08:00:03 EST 2023: Parameters.txt created
 
-Sat Nov 11 19:03:37 EST 2023: Created Parameters and Contestants directories
+Sun Nov 12 08:00:03 EST 2023: Reading players.db to make and populateplayer directories
 
-Sat Nov 11 19:03:37 EST 2023: Parameters.txt created
+Sun Nov 12 08:00:03 EST 2023: Making files for John_Franco
 
-Sat Nov 11 19:03:37 EST 2023: Reading players.db to make and populateplayer directories
+Sun Nov 12 08:00:03 EST 2023: Files for John_Franco completed except for email.txt
 
-Sat Nov 11 19:03:37 EST 2023: Making files for John_Franco
+Sun Nov 12 08:00:03 EST 2023: File email.txt for John_Franco completed
 
-Sat Nov 11 19:03:37 EST 2023: Files for John_Franco completed except for email.txt
+Sun Nov 12 08:00:03 EST 2023: Making files for John_F
 
-Sat Nov 11 19:03:37 EST 2023: File email.txt for John_Franco completed
+Sun Nov 12 08:00:03 EST 2023: Files for John_F completed except for email.txt
 
-Sat Nov 11 19:03:37 EST 2023: Making files for John_F
+Sun Nov 12 08:00:03 EST 2023: File email.txt for John_F completed
 
-Sat Nov 11 19:03:37 EST 2023: Files for John_F completed except for email.txt
+Sun Nov 12 08:00:03 EST 2023: Finished reading players.db successfully
 
-Sat Nov 11 19:03:37 EST 2023: File email.txt for John_F completed
-
-Sat Nov 11 19:03:37 EST 2023: Finished reading players.db successfully
-
-Sat Nov 11 19:03:44 EST 2023: Parameters.txt created
+Sun Nov 12 08:00:10 EST 2023: Parameters.txt created
 

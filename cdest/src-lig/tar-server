@@ -1,4 +1,0 @@
-#!/bin/bash
-cd ../contest
-tar cf server.tar server/server.conf server/run.server server/stop.server server/ipp.txt server/keys server/ccd server/allkeys server/run.vpn server/sbin server/run.proxy server/stop.proxy server/README.txt
-

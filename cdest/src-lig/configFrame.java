@@ -711,7 +711,7 @@ class mouse {
       a1 = new help("How many OpenVPN keys to make", false); 
       a1.append(
 "\n          How many OpenVPN keys should be made.  There is no need"+
-"\n          to make keys for every contest hence the default is 200.");
+"\n          to make keys for every contest hence the default is 150.");
       a1.setSize(510,110);
       a1.setVisible(true);
    }
