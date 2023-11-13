@@ -359,7 +359,7 @@ class MakeKeys extends Thread {
       try { Thread.sleep(1000); } catch (Exception e) { }
 
       try {
-         vf.cf.msgs.setText("Making keys - might want to take a tea or "+
+         vf.cf.msgs.setText("Making keys and certificates - might want to take a tea or "+
 									 "coffee break");
 			// easyrsa init-pki
 			Runtime.getRuntime().exec("./cmd1", null, new File("../contest"));
@@ -410,8 +410,7 @@ class MakeKeys extends Thread {
 					Runtime.getRuntime().exec("killall cmd6");
 					return;
 				}
-				vf.cf.msgs.setText("Making keys - might want to take a tea or "+
-										 "coffee break - processing: "+i);
+				vf.cf.msgs.setText("Making OpenVPN keys and certificate for client "+i);
 				Runtime.getRuntime().exec("./cmd7 "+i, null, new File("../contest"));
 				if (!running) {
 					Runtime.getRuntime().exec("killall cmd7");
@@ -434,7 +433,7 @@ class MakeKeys extends Thread {
 			
 			try { Thread.sleep(1000); } catch (Exception e) { }
 			if (!running) return;			
-			vf.cf.msgs.setText("Client, server, CA, diffie-hellman keys being created");
+			vf.cf.msgs.setText("Server, CA, diffie-hellman OpenVPN keys and certificates being created");
          Runtime.getRuntime().exec("./cmd9", null, new File("../contest"));
       } catch (Exception e) {
          vf.cf.msgs.setText("make-keys failed: "+command);
