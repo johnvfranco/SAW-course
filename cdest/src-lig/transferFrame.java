@@ -170,20 +170,20 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
          try {
             File file = new File("../contest/server");
             if (file == null || !file.exists()) {
-               cnt.monitor.text.append("  Directory 'server' appears not to exist\n");
+               cnt.monitor.text.append("  Directory 'server' appears not to exist - run 'Make Keys' in Configurator\n");
                cnt.monitor.text.append("------------------------------\n");               
                done = true;
             } 
 	    
             file = new File("../contest/server/ccd");
             if (file == null || !file.exists()) {
-               cnt.monitor.text.append("  Directory 'server/ccd' appears not to exist\n");
+               cnt.monitor.text.append("  Directory 'server/ccd' appears not to exist - run 'Make Keys' in Configurator\n");
                cnt.monitor.text.append("------------------------------\n");
                done = true;
             }
             file = new File("../contest/server/keys");
             if (file == null || !file.exists()) {
-               cnt.monitor.text.append("  Directory 'server/keys' appears not to exist\n");
+               cnt.monitor.text.append("  Directory 'server/keys' appears not to exist - run 'Make Keys' in Configurator\n");
                cnt.monitor.text.append("------------------------------\n");
                done = true;
             }
