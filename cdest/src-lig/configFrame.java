@@ -1249,8 +1249,6 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
          monitor.toLog("Created Parameters and Contestants directories", 0);
          fos = new FileOutputStream("../Parameters/Parameters.txt");
          PrintWriter pw = new PrintWriter(fos, true);
-         fps = new FileOutputStream("Parameters.txt");
-         PrintWriter ph = new PrintWriter(fps, true);
          String command = "chmod -R go-w ../Parameters ../Contestants";
          try {
             Runtime.getRuntime().exec(command);
@@ -1278,30 +1276,6 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
          pw.println("END_TIME_UNIX "+contest_end);
          pw.println("END_IIME_CONV "+dc.ending+" "+dc.timez);
          fos.close();
-
-         ph.println("//Database Parameters");
-         ph.println(c[0]+" "+yesNoConvert(b[0].getSelectedItem()));
-         ph.println("");         
-         ph.println("//Recover Parameters");
-         ph.println(c[7]+" "+yesNoConvert(b[7].getSelectedItem()));
-         ph.println("");
-         ph.println("//Logging Parameters");
-         ph.println(c[1]+" "+b[1].getSelectedItem());
-         ph.println(c[2]+" "+b[2].getSelectedIndex());
-         ph.println("");
-         ph.println("//Scorecard Parameters");
-         ph.println(c[3]+" "+b[3].getSelectedItem());
-         ph.println(c[4]+" "+addSlash((String)b[4].getSelectedItem()));
-         ph.println(c[5]+" "+b[5].getSelectedItem());
-         ph.println(c[6]+" "+addSlash((String)b[6].getSelectedItem()));
-         ph.println("");
-         ph.println("//Extra");
-         ph.println("START_TIME_UNIX "+contest_start);
-         ph.println("START_TIME_CONV "+dc.starting+" "+dc.timez);
-         ph.println("END_TIME_UNIX "+contest_end);
-         ph.println("END_IIME_CONV "+dc.ending+" "+dc.timez);
-         fps.close();
-         
          monitor.toLog("Parameters.txt created", 0);
       } catch (Exception e) { }
 
