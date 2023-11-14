@@ -28,9 +28,9 @@ class Monitor extends JFrame implements ActionListener {
 	Font bfnt = new Font("Helvetica", Font.PLAIN, 15);
 	JLabel lbl, title, time_label;
 	configFrame cf = null;
-	String url = "file:///var/www";
+	String url = "file:///home/httpd/html";
 	String name = "standings.html";
-	String fileloc = "/var/www";
+	String fileloc = "/home/httpd/html";
 	String ttl = "Contest";
 	String logfile = "cdx.log";
 	int logopt = 0;
