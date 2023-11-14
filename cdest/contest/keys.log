@@ -2,15 +2,15 @@ Running ./easyrsa init-pki
 init-pki completed
 Running ./easyrsa build-ca
 Generating RSA private key, 2048 bit long modulus
-.........................+++
-...............+++
+...........................+++
+...+++
 e is 65537 (0x10001)
 build-ca complete
 Running ./easyrsa gen-req server
 Generating a 2048 bit RSA private key
-..........................................................+++
-..........+++
-writing new private key to '/home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/server.key.bf6K0N2mxq'
+...............+++
+........................................................................................+++
+writing new private key to '/home/franco/Funding/Galois/IC-2022/ElemCourse/cdest/contest/keys/private/server.key.CezvpZYFAJ'
 -----
 gen-req server completed
 Running sign-req server server
@@ -25,7 +25,7 @@ organizationName      :ASN.1 12:'Copyleft Certificate Co'
 organizationalUnitName:ASN.1 12:'My Organizational Unit'
 commonName            :ASN.1 12:'ChangeMe'
 emailAddress          :IA5STRING:'me@example.net'
-Certificate is to be certified until Nov 12 11:46:21 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:08 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -44,14 +44,14 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client0'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:13 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client0 completed
 Add ccd entry for client0
-ccd entry for client0 completed
 Putting entry for client0 into ipp.txt
+ccd entry for client0 completed
 ipp.txt entry for client0 completed
 Running workaround for 1
 workaround for 1 completed
@@ -67,7 +67,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client1'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:17 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -90,15 +90,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client2'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:21 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client2 completed
 Add ccd entry for client2
+ccd entry for client2 completed
 Putting entry for client2 into ipp.txt
 ipp.txt entry for client2 completed
-ccd entry for client2 completed
 Running workaround for 3
 workaround for 3 completed
 Running easyrsa sign-req client3
@@ -113,7 +113,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client3'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:25 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -136,7 +136,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client4'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:29 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -159,7 +159,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client5'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:33 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -182,7 +182,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client6'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:37 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -205,15 +205,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client7'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client7 completed
 Add ccd entry for client7
-ccd entry for client7 completed
 Putting entry for client7 into ipp.txt
 ipp.txt entry for client7 completed
+ccd entry for client7 completed
 Running workaround for 8
 workaround for 8 completed
 Running easyrsa sign-req client8
@@ -228,15 +228,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client8'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:46:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client8 completed
 Add ccd entry for client8
+ccd entry for client8 completed
 Putting entry for client8 into ipp.txt
 ipp.txt entry for client8 completed
-ccd entry for client8 completed
 Running workaround for 9
 workaround for 9 completed
 Running easyrsa sign-req client9
@@ -251,7 +251,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client9'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:50 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -274,7 +274,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client10'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:54 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -297,7 +297,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client11'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:53:58 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -320,15 +320,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client12'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:02 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client12 completed
 Add ccd entry for client12
+ccd entry for client12 completed
 Putting entry for client12 into ipp.txt
 ipp.txt entry for client12 completed
-ccd entry for client12 completed
 Running workaround for 13
 workaround for 13 completed
 Running easyrsa sign-req client13
@@ -343,7 +343,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client13'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:06 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -366,15 +366,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client14'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:10 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client14 completed
 Add ccd entry for client14
+ccd entry for client14 completed
 Putting entry for client14 into ipp.txt
 ipp.txt entry for client14 completed
-ccd entry for client14 completed
 Running workaround for 15
 workaround for 15 completed
 Running easyrsa sign-req client15
@@ -389,7 +389,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client15'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -412,15 +412,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client16'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client16 completed
 Add ccd entry for client16
-ccd entry for client16 completed
 Putting entry for client16 into ipp.txt
 ipp.txt entry for client16 completed
+ccd entry for client16 completed
 Running workaround for 17
 workaround for 17 completed
 Running easyrsa sign-req client17
@@ -435,7 +435,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client17'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -458,14 +458,14 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client18'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client18 completed
 Add ccd entry for client18
-Putting entry for client18 into ipp.txt
 ccd entry for client18 completed
+Putting entry for client18 into ipp.txt
 ipp.txt entry for client18 completed
 Running workaround for 19
 workaround for 19 completed
@@ -481,7 +481,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client19'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -504,7 +504,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client20'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -527,7 +527,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client21'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:38 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -550,15 +550,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client22'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client22 completed
 Add ccd entry for client22
-ccd entry for client22 completed
 Putting entry for client22 into ipp.txt
 ipp.txt entry for client22 completed
+ccd entry for client22 completed
 Running workaround for 23
 workaround for 23 completed
 Running easyrsa sign-req client23
@@ -573,15 +573,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client23'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:47:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client23 completed
 Add ccd entry for client23
+ccd entry for client23 completed
 Putting entry for client23 into ipp.txt
 ipp.txt entry for client23 completed
-ccd entry for client23 completed
 Running workaround for 24
 workaround for 24 completed
 Running easyrsa sign-req client24
@@ -596,7 +596,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client24'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:50 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -619,7 +619,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client25'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:54 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -642,7 +642,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client26'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:54:58 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -665,15 +665,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client27'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:02 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client27 completed
 Add ccd entry for client27
+ccd entry for client27 completed
 Putting entry for client27 into ipp.txt
 ipp.txt entry for client27 completed
-ccd entry for client27 completed
 Running workaround for 28
 workaround for 28 completed
 Running easyrsa sign-req client28
@@ -688,15 +688,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client28'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:06 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client28 completed
 Add ccd entry for client28
-ccd entry for client28 completed
 Putting entry for client28 into ipp.txt
 ipp.txt entry for client28 completed
+ccd entry for client28 completed
 Running workaround for 29
 workaround for 29 completed
 Running easyrsa sign-req client29
@@ -711,15 +711,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client29'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:10 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client29 completed
 Add ccd entry for client29
+ccd entry for client29 completed
 Putting entry for client29 into ipp.txt
 ipp.txt entry for client29 completed
-ccd entry for client29 completed
 Running workaround for 30
 workaround for 30 completed
 Running easyrsa sign-req client30
@@ -734,7 +734,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client30'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -757,7 +757,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client31'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -780,15 +780,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client32'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client32 completed
 Add ccd entry for client32
-ccd entry for client32 completed
 Putting entry for client32 into ipp.txt
 ipp.txt entry for client32 completed
+ccd entry for client32 completed
 Running workaround for 33
 workaround for 33 completed
 Running easyrsa sign-req client33
@@ -803,14 +803,14 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client33'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client33 completed
 Add ccd entry for client33
-Putting entry for client33 into ipp.txt
 ccd entry for client33 completed
+Putting entry for client33 into ipp.txt
 ipp.txt entry for client33 completed
 Running workaround for 34
 workaround for 34 completed
@@ -826,7 +826,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client34'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -849,7 +849,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client35'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -872,7 +872,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client36'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:50 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:38 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -895,15 +895,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client37'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:54 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:42 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client37 completed
 Add ccd entry for client37
-ccd entry for client37 completed
 Putting entry for client37 into ipp.txt
 ipp.txt entry for client37 completed
+ccd entry for client37 completed
 Running workaround for 38
 workaround for 38 completed
 Running easyrsa sign-req client38
@@ -918,7 +918,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client38'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:48:58 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:46 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -941,7 +941,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client39'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:02 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:50 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -964,7 +964,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client40'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:06 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:54 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -987,7 +987,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client41'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:10 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:55:58 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1010,7 +1010,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client42'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:14 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:02 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1033,15 +1033,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client43'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:18 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:06 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client43 completed
 Add ccd entry for client43
-ccd entry for client43 completed
 Putting entry for client43 into ipp.txt
 ipp.txt entry for client43 completed
+ccd entry for client43 completed
 Running workaround for 44
 workaround for 44 completed
 Running easyrsa sign-req client44
@@ -1056,15 +1056,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client44'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:22 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:10 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client44 completed
 Add ccd entry for client44
+ccd entry for client44 completed
 Putting entry for client44 into ipp.txt
 ipp.txt entry for client44 completed
-ccd entry for client44 completed
 Running workaround for 45
 workaround for 45 completed
 Running easyrsa sign-req client45
@@ -1079,7 +1079,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client45'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:26 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:14 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1102,7 +1102,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client46'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:30 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:18 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1125,15 +1125,15 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client47'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:34 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:22 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
 sign-req for client47 completed
 Add ccd entry for client47
-ccd entry for client47 completed
 Putting entry for client47 into ipp.txt
 ipp.txt entry for client47 completed
+ccd entry for client47 completed
 Running workaround for 48
 workaround for 48 completed
 Running easyrsa sign-req client48
@@ -1148,7 +1148,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client48'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:38 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:26 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1171,7 +1171,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client49'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:42 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:30 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1194,7 +1194,7 @@ organizationName      :ASN.1 12:'University of Cincinnati'
 organizationalUnitName:ASN.1 12:'Dept. Elec. Comp. Eng. Comp. Sci.'
 commonName            :ASN.1 12:'client50'
 emailAddress          :IA5STRING:'franco@gauss.ececs.uc.edu'
-Certificate is to be certified until Nov 12 11:49:46 2024 GMT (365 days)
+Certificate is to be certified until Nov 13 10:56:34 2024 GMT (365 days)
 
 Write out database with 1 new entries
 Data Base Updated
@@ -1206,4 +1206,4 @@ ipp.txt entry for client50 completed
 WARNING: can't open config file: /iWars/vpn/ssl/openssl.cnf
 Generating DH parameters, 2048 bit long safe prime, generator 2
 This is going to take a long time
-............................................................................+..................+...........................+...................................................................................................................................................................................................................................................+...................................+........................................................................................+.............................................................................+............................................................................................................................................................................................................................................................+...........................................................................................+.............................+..........................................................................................................................................................................................................+.......+................+......................................................................................................................................................................................................................................+.....................................................................................................................................................+.........................................................................................................................................................................................+.......................................................................................................................................................................+...............................................................................................................................................................................................................+..................................+.........................................................................+...........................................+....+...............................................................................................................................+...........................................................................................................................................................................................+................................................................................+............................................................................................................................+.................+...+......................................................................................+..................................................................................+...................................................................................................................................................................+..............................................................................................................................................................................................................................................................................+...................................................................................................................................................................................................................................................................................+...........+.....................................................+.......................................................................................................................................................................................................................................................+........................................................................................................................................................................................................+...............+....................................................................+........................................................................................+................................................................+....+......................................................................+................................................................................................+.............................................................................................................+.......................................................................................................................................................+.+.....+....................................................................................................+........................................................................................................................................................................................................................................................+.....+..+.......................+................................................................................................................................+................................................................................................................................................................................................................................................................................................................+.....................................................................................................................................+...............................................................................................+...........................................................................................................+...............................................................................+.................+.........................................................................................................................................+......+...............................................................................................................................................................................................+....+........................................................................................................................................................................................+.................................................+............................................................................................................................................................................................................................................................+.................................................................................................................................................+...........................+......................................................................+....................................................+....................+..................................+..............+..............................................................................................................................+.........................................................................................+.........................+.......................................................................................................................................................................................+...................................................................................................................+..............................................................+.........................................................+...................................................................................................+...................................+...............................................................................................................................................+....................................................................................................................................................+.....................................+...........................................................................................................................................................................................................+.............................................................................+.............+............................................................................................................+............................................................................................................................+..................................+................................................................+.............................+............+......................+....................+............................................................................................................................................+............................+............................................................................+..................................................................+.................................................+.....................................................................................................................................+...............................+................................+.....................................................+............................................+............................................................+..........................+......................+..................................+................................+...............................................................................+..............................................+.................................................+............................................+................................+..............................................................+...............................................................................................................................................................................................................................................................................................................................+.....+..........................................................................................+...............................+..................+.......................+...........................................................+.......................................................+.......+..........................................+...............................................................................................................................................................................................................................................................................................................................................................+...............................................................+...................................................................................................................................+.........+..........................................................................................................................................................+......+......+.............................................................................................................................................................................................................+...............................................................................................................................................................................+...........+..............................................................................................................................+.....................................................................................................+...................................................................+..............................................................................................+.....+...........................................+.....+..............................................+..........................+........................+........................................+....................+...................+....................................................................................+.......+.........................................................................................................................................................................................+...........+.............................................................................................................................................++*++*
+..............................+.....................................................................................+......................................+......................................................................................................................+............................................................+..........................................................................................................................................................................................................................................................+.................................................................................................+........................................................................................................................................+.........................................................+....................................................................................................+.........................................................................................+..............................+................+.........................................................+......................................................................................................+..........................+.........................+..............+..............................................................................++*++*
