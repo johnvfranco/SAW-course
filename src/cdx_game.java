@@ -152,7 +152,7 @@ class cdx_game extends JFrame implements ActionListener {
          try { Thread.sleep(500); } catch (Exception e) { }
          dispose();
       }
-      else if (evt.getSource() == c[0]) getDoc(fpath+"/manual.pdf");
+      else if (evt.getSource() == c[0]) getDoc(fpath+"/cdest_manual.pdf");
       else if (evt.getSource() == c[3]) getDoc(fpath+"/contest.pdf");
       else if (evt.getSource() == c[1]) {
 			try {
