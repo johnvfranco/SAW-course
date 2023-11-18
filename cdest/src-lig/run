@@ -1,3 +1,3 @@
 #!/bin/bash
-../../jdk-lin/bin/java -jar cdx-contest.jar
-reset
+../../jdk-lin/bin/java -jar cdx-contest.jar &
+

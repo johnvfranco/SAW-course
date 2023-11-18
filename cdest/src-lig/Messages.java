@@ -25,19 +25,17 @@ public class Messages {
 
 	public static void no_db_memory (Output out) {
 		out.print("  Notice: no player database exists in memory");
-		out.print("    A player database should be created before contest is "+
-					 "started,");
-		out.print("      either automatically via the timer or manually via "+
-					 "START.");
-		out.print("    To create a player database in memory invoke ADD "+
-					 "commands or");
-		out.print("      load a database from the '"+
-					 GameParameters.PLAYER_DB_FILE+"' file, if it exists,");
-		out.print("      using the LOAD command");
+		out.print("    A player database should be created before the contest is started,");
+		out.print("      either automatically via the timer or manually via START.");
+		out.print("    To create a player database in memory invoke ADD commands");
+		out.print("      or load a database from the '"+
+					 GameParameters.PLAYER_DB_FILE+"' file, if it exists, using the");
+		out.print("      LOAD command.");
 		out.print("    To save the player database to file '"+
-					 GameParameters.PLAYER_DB_FILE+"' invoke the SAVE command");
+					 GameParameters.PLAYER_DB_FILE+"' invoke the SAVE");
+		out.print("      command.");
 		out.print("    To list players that are in the database invoke the "+
-					 "LIST command");
+					 "LIST command.");
 		out.print("------------------------------");
 	}
 
@@ -62,18 +60,15 @@ public class Messages {
 
 	public static void no_parameters (Output out) {
 		out.print("    A contest may only be run manually using START and STOP");
-		out.print("    commands.  To set up a contest for automatic starting "+
-					 "and");
-		out.print("    stopping exit this program and run the Configurator "+
-					 "(the GUI),");
-		out.print("    set dates and other options, particularly regarding "+
-					 "scoreboard");
-		out.print("    locations and title, exit the Configurator to create "+
-					 "file");
-		out.print("    Parameters.txt and place the freshly created "+
-					 "Parameters.txt in");
-		out.print("    the directory from which this program is run and "+
-					 "rerun the program.");
+		out.print("    commands.  To set up a contest for automatic starting and");
+		out.print("    stopping run the Configurator by clicking 'Configure' below, then");
+		out.print("    set dates, options regarding the scoreboard locations and title, and");
+		out.print("    create OpenVPN keys if necessary or desired.  Exit the Configurator");
+		out.print("    Configurator to create file Parameters.txt and, if necessary, the");
+		out.print("    competitor credentials that will be sent to competitors.  Exit the");
+		out.print("    Control Panel then re-run this program, this time to use the Control");
+		out.print("    Panel to control the competition with updated parameters.  See the");
+		out.print("    manual, Appendices A and C, for details and if there is a problem.");
 		out.print("------------------------------");
 	}
 
