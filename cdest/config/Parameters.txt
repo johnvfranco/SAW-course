@@ -2,7 +2,7 @@
 PLAYER_DATABASE_STATE 0
 
 //Recover Parameters
-RECOVERY_STATE 1
+RECOVERY_STATE 0
 
 //Logging Parameters
 LOG_FILE cdx.log

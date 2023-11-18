@@ -6,5 +6,5 @@ if [ ! -f jdk-lin/lib/modules ]; then
   echo "n" | unzip -o modules.zip
   cd $CD
 fi
-jdk-lin/bin/java -Dsun.java2d.uiScale=1.0 -jar game.jar
-/home/franco/Funding/Galois/IC-2022/cleaner
+jdk-lin/bin/java -Dsun.java2d.uiScale=1.0 -jar game.jar &
+
