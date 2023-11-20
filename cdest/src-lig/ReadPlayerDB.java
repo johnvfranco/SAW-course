@@ -7,7 +7,7 @@ import java.net.*;
 class ReadPlayerDB {
    public static void readPlayerDB() {
       try {
-         FileInputStream fis = new FileInputStream("../config/"+   /******/
+         FileInputStream fis = new FileInputStream("../config/"+ 
 																	GameParameters.PLAYER_DB_FILE);
 			BufferedReader br = new BufferedReader(new FileReader(fis.getFD()));
 

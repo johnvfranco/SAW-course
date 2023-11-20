@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #LINE=`pstree -paul | grep ssh | grep 8080 | grep visitor`
 #IFS=',' read -ra N <<< $LINE
 #PID=${N[1]}

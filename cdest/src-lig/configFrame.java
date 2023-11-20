@@ -1292,7 +1292,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       monitor.toLog("Reading "+GameParameters.PLAYER_DB_FILE+" to make and populate"+
                     "player directories", 0);
       try {
-         fis = new FileInputStream("../config/"+GameParameters.PLAYER_DB_FILE); /******/
+         fis = new FileInputStream("../config/"+GameParameters.PLAYER_DB_FILE); 
          BufferedReader br = new BufferedReader(new InputStreamReader(fis));
          vpnfos = new FileOutputStream("../contest/vpnKeyIds.txt");
          vpnKeyIds = new PrintWriter(vpnfos, true);

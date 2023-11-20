@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #sudo killall openvpn
 #sleep 2
 sudo nohup ./run.vpn 

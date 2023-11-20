@@ -1,4 +1,4 @@
-#!/bin/sh
-./sbin/openvpn client.conf &
+#!/bin/bash
+openvpn client.conf &
 echo $! > vpn.pid
 

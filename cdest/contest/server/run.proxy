@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # This is just an example - replace visitor@... with the user and
 # location of your proxy server
 ssh -N -f -T -D 8080 visitor@helios.ececs.uc.edu

@@ -635,10 +635,11 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
       
       p.add(new JLabel("   #keys:"));
       p.add(no_keys = new JComboBox <String> ());
+      no_keys.addItem("10");		
       no_keys.addItem("50");
       no_keys.addItem("100");
       no_keys.addItem("150");
-      no_keys.setSelectedIndex(2);
+      no_keys.setSelectedIndex(3);
       p.add(new JLabel("  "));      
       p.add(start = new JButton("Make Keys"));
       p.add(new JLabel("  "));

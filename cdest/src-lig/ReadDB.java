@@ -7,7 +7,7 @@ public class ReadDB {
       Player [] players = new Player[100];
       for (int i=0 ; i < 100 ; i++) players[i] = null;
       try {
-			FileInputStream fis = new FileInputStream("../config/"+   /******/
+			FileInputStream fis = new FileInputStream("../config/"+ 
 																	GameParameters.PLAYER_DB_FILE);
 			BufferedReader br = new BufferedReader(new FileReader(fis.getFD()));
 
