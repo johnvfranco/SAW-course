@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class SaveDB {
-   public static void saveArray (Player[] players, Monitor m) {
+   public static void saveArray (Player[] players, Scorer m) {
       FileOutputStream fos;
       FileWriter fw;
       byte[] addr;

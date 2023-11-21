@@ -1,26 +1,26 @@
 public class Output {
-	Monitor monitor;
+	Scorer scorer;
 
-	public Output (Monitor m) { monitor = m; }
+	public Output (Scorer m) { scorer = m; }
 	
 	void print(String text) {
 		System.out.println(text);
 	}
 
 	void time_label (String str) {
-		monitor.time_label = str;
+		scorer.time_label = str;
 	}
 
 	void timeleft (String str) {
-		monitor.timeleft = str;
+		scorer.timeleft = str;
 	}
 
 	void ended (boolean e) {
-		monitor.ended = e;
+		scorer.ended = e;
 	}
 
 	void startup(boolean a, boolean b) {
-		monitor.started = a;
+		scorer.started = a;
 	}
 
 	String gettime (long days, long hours, long mins, long secs) {

@@ -2,22 +2,22 @@ import java.io.*;
 
 public class Go {
    public void go () {
-		Monitor monitor = new Monitor();
+		Scorer scorer = new Scorer();
 		try {
-			File fs = new File("../config/"+monitor.logfile);
+			File fs = new File("../config/"+scorer.logfile);
 			if (fs.exists()) {
-				FileOp.copy("../config/"+monitor.logfile,
-								"../config/"+monitor.logfile+".old",
-								monitor);
+				FileOp.copy("../config/"+scorer.logfile,
+								"../config/"+scorer.logfile+".old",
+								scorer);
 			}
 		} catch (Exception e) { }
-		FileOp.create("../config/"+monitor.logfile, monitor);
+		FileOp.create("../config/"+scorer.logfile, scorer);
 		try {
 			File fs = new File("../config/"+GameParameters.PLAYER_DB_FILE);
 			if (fs.exists()) {
 				FileOp.copy("../config/"+GameParameters.PLAYER_DB_FILE,
 						"../config/"+GameParameters.PLAYER_DB_FILE+".bak",
-						monitor);
+						scorer);
 			}
 		} catch (Exception e) { }
    }

@@ -131,11 +131,11 @@ public class Messages {
 		out.print("------------------------------");
 	}
 
-	public static void print_vars (Output out, Monitor monitor) {
+	public static void print_vars (Output out, Scorer scorer) {
 		out.print("");
-		out.print("suspended: "+monitor.suspended);
-		out.print("started:   "+monitor.started);
-		out.print("ended:     "+monitor.ended);
+		out.print("suspended: "+scorer.suspended);
+		out.print("started:   "+scorer.started);
+		out.print("ended:     "+scorer.ended);
 		out.print("------------------------------");
 	}
 
@@ -195,8 +195,8 @@ public class Messages {
 		out.print("------------------------------");
 	}
 
-	public static void show_time (Output out, Monitor monitor) {
-		out.print("  "+monitor.time_label+" "+monitor.timeleft);
+	public static void show_time (Output out, Scorer scorer) {
+		out.print("  "+scorer.time_label+" "+scorer.timeleft);
 		out.print("------------------------------");
 	}
 

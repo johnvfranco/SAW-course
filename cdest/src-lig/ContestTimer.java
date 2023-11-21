@@ -3,36 +3,36 @@ import java.math.*;
 
 public class ContestTimer extends Thread {
 	boolean running = true;
-	Monitor monitor = null;
+	Scorer scorer = null;
 
-	public ContestTimer (Monitor mn) { monitor = mn; }
+	public ContestTimer (Scorer mn) { scorer = mn; }
 
 	public void run () {
 		while (running) {
-			monitor.current_time =
+			scorer.current_time =
 				new BigInteger(String.valueOf(Instant.now().getEpochSecond()));
-			if (monitor.current_time.compareTo(monitor.end_time) >= 0) {
-				if (!monitor.ended) {
-					monitor.out.ended(true);
-					monitor.stopContest();
+			if (scorer.current_time.compareTo(scorer.end_time) >= 0) {
+				if (!scorer.ended) {
+					scorer.out.ended(true);
+					scorer.stopContest();
 				}
-				monitor.out.time_label("Contest:");
-				monitor.out.timeleft("Finished");
+				scorer.out.time_label("Contest:");
+				scorer.out.timeleft("Finished");
 				running = false;
-			} else if (monitor.current_time.compareTo(monitor.start_time) >= 0) {
-				if (!monitor.started) {
-					monitor.out.startup(true);
-					monitor.startContest();
+			} else if (scorer.current_time.compareTo(scorer.start_time) >= 0) {
+				if (!scorer.started) {
+					scorer.out.startup(true);
+					scorer.startContest();
 				}
-				monitor.out.time_label("Time to end:");
+				scorer.out.time_label("Time to end:");
 				long diff =
-					(monitor.end_time.subtract(monitor.current_time)).longValue();
-				monitor.out.timeleft(secsToMinsAndHours(diff));
+					(scorer.end_time.subtract(scorer.current_time)).longValue();
+				scorer.out.timeleft(secsToMinsAndHours(diff));
 			} else {
-				monitor.out.time_label("Time to start:");
+				scorer.out.time_label("Time to start:");
 				long diff =
-					(monitor.start_time.subtract(monitor.current_time)).longValue();
-				monitor.out.timeleft(secsToMinsAndHours(diff));
+					(scorer.start_time.subtract(scorer.current_time)).longValue();
+				scorer.out.timeleft(secsToMinsAndHours(diff));
 			}
 			try { sleep(1000); } catch (Exception e) { }
 		}
@@ -43,6 +43,6 @@ public class ContestTimer extends Thread {
 		long hours = (seconds - (days * 86400)) / 3600;
 		long mins = (seconds - (days * 86400) - (hours * 3600)) / 60;
 		long secs = seconds % 60;
-		return monitor.out.gettime(days, hours, mins, secs);
+		return scorer.out.gettime(days, hours, mins, secs);
 	}
 }

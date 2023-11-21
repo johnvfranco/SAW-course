@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.*;
 
 public class ReadDB {
-   public static Player[] readPlayerArray (Monitor monitor) {
+   public static Player[] readPlayerArray (Scorer scorer) {
       Player [] players = new Player[100];
       for (int i=0 ; i < 100 ; i++) players[i] = null;
       try {
@@ -28,7 +28,7 @@ public class ReadDB {
 					String email = t.nextToken();
 					String identity = t.nextToken();
 					while (t.hasMoreTokens()) identity += " "+t.nextToken();
-					players[i] = new Player(identity, ip, email, monitor, port, score);
+					players[i] = new Player(identity, ip, email, scorer, port, score);
 					i++;
 				} catch (Exception e) { }
 			}
@@ -37,7 +37,7 @@ public class ReadDB {
 			return players;
       }
       catch (Exception e) {
-			Messages.no_db_file(monitor.out);
+			Messages.no_db_file(scorer.out);
       }
       return null;
    }

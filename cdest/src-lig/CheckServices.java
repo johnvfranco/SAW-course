@@ -4,7 +4,7 @@ import java.net.*;
 import java.util.*;
 
 public class CheckServices extends Thread implements Serializable {
-   Monitor monitor = null;
+   Scorer scorer = null;
    String ipaddr, phrase;
    Player player;
    InetAddress ipaddress;
@@ -17,12 +17,13 @@ public class CheckServices extends Thread implements Serializable {
    int nservices;
    public boolean clear = true;
    
-   CheckServices (Player plr, Monitor m) {
-      monitor = m;
+   CheckServices (Player plr, Scorer m) {
+      scorer = m;
       player = plr;
       ipaddress = player.getInetAddress();
       ipaddr = ipaddress.toString().substring(1);
       nservices = 5;
+		if (player.identity.toUpperCase().equals("SCORER")) return;
       for (int i=0 ; i < 20 ; i++) services[i] = false;
       srvports[0] = "13/tcp";
       srvports[1] = "21/tcp";
@@ -41,12 +42,12 @@ public class CheckServices extends Thread implements Serializable {
 
    synchronized void startSection (Player player) {
       String plr = player.getIdentity();
-      monitor.toLog("---- "+plr+" starting ----", 3);
+      scorer.toLog("---- "+plr+" starting ----", 3);
    }
 
    synchronized void endSection (Player player) {
       String plr = player.getIdentity();
-      monitor.toLog("---- "+plr+" ending ----", 3);
+      scorer.toLog("---- "+plr+" ending ----", 3);
    }
 
    // Uses nmap to determine if services are up.  One of the lines returned
@@ -63,8 +64,8 @@ public class CheckServices extends Thread implements Serializable {
       try {
          is = Runtime.getRuntime().exec(cmd).getInputStream(); 
       } catch (Exception e) {
-			Messages.checkservices_exception(monitor.out, cmd, e.toString());
-         monitor.toLog("Command exec failed ("+cmd+"): "+e.toString(), 3);
+			Messages.checkservices_exception(scorer.out, cmd, e.toString());
+         scorer.toLog("Command exec failed ("+cmd+"): "+e.toString(), 3);
       }
       if (is != null) br = new BufferedReader(new InputStreamReader(is));
       return br;
@@ -83,7 +84,8 @@ public class CheckServices extends Thread implements Serializable {
       cmd ="nmap "+ipaddr;
       br = getCommandResponse(cmd);
 
-      try { 
+      try {
+			if (player.identity.toUpperCase().equals("SCORER")) return;
          startSection(player);  //------------------ start section
          String str;
          for (int i=0 ; i < 20 ; i++) services[i] = false;
@@ -97,7 +99,7 @@ public class CheckServices extends Thread implements Serializable {
                    state != null && state.equals("open") && !services[j]) {
                   services[j] = true;
                   player.bumpScore(1);
-                  monitor.toLog("\""+player.getIdentity()+"\": service "+
+                  scorer.toLog("\""+player.getIdentity()+"\": service "+
                                 entry[j]+" at "+srvports[j]+" is up", 3);
                   break;
                }
@@ -105,13 +107,13 @@ public class CheckServices extends Thread implements Serializable {
          }
          br.close();
       } catch (Exception e) {
-			Messages.probe_exception(monitor.out, cmd, e.toString());
-         monitor.toLog("Command exec failed ("+cmd+"): "+e, 3);
+			Messages.probe_exception(scorer.out, cmd, e.toString());
+         scorer.toLog("Command exec failed ("+cmd+"): "+e, 3);
       }
 
       try { if (is != null) is.close(); } catch (Exception e) {
-			Messages.close_nmap_exception(monitor.out, e.toString());
-         monitor.toLog("Unable to close IS due to nmap: "+e, 3);
+			Messages.close_nmap_exception(scorer.out, e.toString());
+         scorer.toLog("Unable to close IS due to nmap: "+e, 3);
       }
       
       is = null;
@@ -125,17 +127,17 @@ public class CheckServices extends Thread implements Serializable {
          while ((str = br.readLine()) != null) result += str;
          if (!result.contains("100% packet loss")) {
             player.bumpScore(1);
-            monitor.toLog("\""+player.getIdentity()+"\": service ping is up", 3);
+            scorer.toLog("\""+player.getIdentity()+"\": service ping is up", 3);
          }
          br.close();
       } catch (Exception e) { }
       
       try { if (is != null) is.close(); } catch (Exception e) {
-			Messages.close_ping_exception(monitor.out, e.toString());
-         monitor.toLog("Unable to close IS due to ping:"+e, 3);
+			Messages.close_ping_exception(scorer.out, e.toString());
+         scorer.toLog("Unable to close IS due to ping:"+e, 3);
       }
       
-      (new HTTPQuery(player, "wordpress", 80, "wordpress", monitor)).run();
+      (new HTTPQuery(player, "wordpress", 80, "wordpress", scorer)).run();
 
       endSection(player);   //---------------- end Section
       clear = true;

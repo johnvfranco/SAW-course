@@ -128,7 +128,7 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
 				try {
 					Runtime.getRuntime().exec(command, null, new File("../Contestants"));
 				} catch (Exception e) {
-					cnt.monitor.text.append("  Unable to tar files for "+player+"\n");
+					cnt.scorer.text.append("  Unable to tar files for "+player+"\n");
 					continue;
 				}
 
@@ -139,15 +139,15 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
 					command = "../contest/bin/mutt -s \"Contest Credentials\" "+address+" -a "+player+".tar < ../contest/contest-setup.txt";
                try {
                   Runtime.getRuntime().exec(command, null, new File("../Contestants"));
-                  cnt.monitor.text.append("Sent "+player+"'s files to "+address+"\n");
+                  cnt.scorer.text.append("Sent "+player+"'s files to "+address+"\n");
                } catch (Exception g) {
-                  cnt.monitor.text.append("  Unable to send files to "+address+"\n");
+                  cnt.scorer.text.append("  Unable to send files to "+address+"\n");
                   mail.close();
                   continue;
                }
                mail.close();
             } catch (Exception f) {
-               cnt.monitor.text.append("  Unable to find email.txt for "+player+"\n");
+               cnt.scorer.text.append("  Unable to find email.txt for "+player+"\n");
                continue;
             }
          }
@@ -170,21 +170,21 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
          try {
             File file = new File("../contest/server");
             if (file == null || !file.exists()) {
-               cnt.monitor.text.append("  Directory 'server' appears not to exist - run 'Make Keys' in Configurator\n");
-               cnt.monitor.text.append("------------------------------\n");               
+               cnt.scorer.text.append("  Directory 'server' appears not to exist - run 'Make Keys' in Configurator\n");
+               cnt.scorer.text.append("------------------------------\n");               
                done = true;
             } 
 	    
             file = new File("../contest/server/ccd");
             if (file == null || !file.exists()) {
-               cnt.monitor.text.append("  Directory 'server/ccd' appears not to exist - run 'Make Keys' in Configurator\n");
-               cnt.monitor.text.append("------------------------------\n");
+               cnt.scorer.text.append("  Directory 'server/ccd' appears not to exist - run 'Make Keys' in Configurator\n");
+               cnt.scorer.text.append("------------------------------\n");
                done = true;
             }
             file = new File("../contest/server/keys");
             if (file == null || !file.exists()) {
-               cnt.monitor.text.append("  Directory 'server/keys' appears not to exist - run 'Make Keys' in Configurator\n");
-               cnt.monitor.text.append("------------------------------\n");
+               cnt.scorer.text.append("  Directory 'server/keys' appears not to exist - run 'Make Keys' in Configurator\n");
+               cnt.scorer.text.append("------------------------------\n");
                done = true;
             }
 
@@ -214,12 +214,12 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
                }
             }
          } catch (Exception x) {
-            cnt.monitor.text.append("  Problem: "+x.toString()+"\n");
-            cnt.monitor.text.append("-------------------------------\n");
+            cnt.scorer.text.append("  Problem: "+x.toString()+"\n");
+            cnt.scorer.text.append("-------------------------------\n");
          }
       }
-      cnt.monitor.text.append("  Finished tar and send files to players\n");
-      cnt.monitor.text.append("-------------------------------\n");
+      cnt.scorer.text.append("  Finished tar and send files to players\n");
+      cnt.scorer.text.append("-------------------------------\n");
       
       return true;
    }
@@ -254,7 +254,7 @@ public class transferFrame extends JPanel implements ActionListener, MouseListen
             cnt.msgs.setText("File keys/dh2048.pem appears not to exist");
             return;
          }
-         String svrloc = cnt.monitor.svrlocation.getText();
+         String svrloc = cnt.scorer.svrlocation.getText();
          if (svrloc == null || svrloc.equals("")) {
             cnt.msgs.setText("OpenVPN server location field needs an ip address");
             return;

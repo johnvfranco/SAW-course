@@ -1,27 +1,27 @@
 public class Output {
-	Monitor monitor = null;
+	Scorer scorer = null;
 
-	public Output (Monitor m) { monitor = m; }
+	public Output (Scorer m) { scorer = m; }
 	
 	void print(String str) {
-		monitor.text.append(str+"\n");
-		monitor.text.setCaretPosition(monitor.text.getDocument().getLength());
+		scorer.text.append(str+"\n");
+		scorer.text.setCaretPosition(scorer.text.getDocument().getLength());
 	}
 
 	void time_label (String str) {
-		monitor.time_label.setText(str);
+		scorer.time_label.setText(str);
 	}
 
 	void timeleft (String str) {
-		monitor.timeleft.setText(str);
+		scorer.timeleft.setText(str);
 	}
 
 	void ended (boolean e) {
-		monitor.ended = e;
+		scorer.ended = e;
 	}
 
 	void startup(boolean a) {
-		monitor.started = a;
+		scorer.started = a;
 	}
 
 	String gettime (long days, long hours, long mins, long secs) {

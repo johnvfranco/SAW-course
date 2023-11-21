@@ -6,7 +6,7 @@ public class FileOp {
 	public static String str = null;
 	public static BufferedReader br = null;
 	
-	public static void copy (String in, String out, Monitor monitor) {
+	public static void copy (String in, String out, Scorer scorer) {
       try {
 			File file = new File(out);
 			if (file.exists()) {
@@ -23,11 +23,11 @@ public class FileOp {
 			fout.close();
 			fin.close();
 		} catch (Exception e) {
-			Messages.log_error(monitor.out, e.toString());
+			Messages.log_error(scorer.out, e.toString());
 		}
 	}
 
-	public static void create (String in, Monitor monitor) {
+	public static void create (String in, Scorer scorer) {
 		try {
 			File file = new File(in);
 			if (file.exists()) {
@@ -42,7 +42,7 @@ public class FileOp {
 				fout.close();
 			}
 		} catch (Exception e) {
-			Messages.log_error(monitor.out, e.toString());
+			Messages.log_error(scorer.out, e.toString());
 		}
 	}
 }

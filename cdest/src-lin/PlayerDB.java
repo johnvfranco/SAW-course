@@ -4,14 +4,14 @@ import java.security.*;
 import java.io.*;
 
 class PlayerDB implements Serializable {
-   public Monitor monitor;
+   public Scorer scorer;
    public int nplayers;
    public Player[] players;
    public CheckServices[] services;
    
    /* The database is just a hashtable keyed on the player's name */
-   PlayerDB (Monitor m) {
-      monitor = m;
+   PlayerDB (Scorer m) {
+      scorer = m;
       nplayers = 0;
       players = new Player[100];
       services = new CheckServices[100];      
@@ -30,7 +30,7 @@ class PlayerDB implements Serializable {
    /* add a player to the database */
    synchronized void add(Player p) {
       players[nplayers] = p;
-      services[nplayers] = new CheckServices(p, monitor);
+      services[nplayers] = new CheckServices(p, scorer);
       nplayers++;
    }
 
@@ -53,8 +53,8 @@ class PlayerDB implements Serializable {
 				}
 			}
       }
-		Messages.no_player(monitor.out, player);
-      monitor.toLog("Player ["+player+"] is not in the database", 2);
+		Messages.no_player(scorer.out, player);
+      scorer.toLog("Player ["+player+"] is not in the database", 2);
 		return false;
    }
 
@@ -64,8 +64,8 @@ class PlayerDB implements Serializable {
       for (int i=0 ; i < nplayers ; i++) {
 			if (players[i].getIdentity().equals(player)) return players[i];
       }
-		Messages.no_player(monitor.out, player);
-      monitor.toLog("Player ["+player+"] is not in the player database", 2);
+		Messages.no_player(scorer.out, player);
+      scorer.toLog("Player ["+player+"] is not in the player database", 2);
       return null;
    }
 }

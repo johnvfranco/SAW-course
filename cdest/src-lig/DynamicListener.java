@@ -63,15 +63,15 @@ public class DynamicListener extends Thread {
 							ip[i] = (byte)Integer.parseInt(tk);
 						}
 						Player plr =
-							new Player(player, ip, "bogus@localhost", contest.monitor, 0, 0);
-						contest.monitor.playerDB.add(plr);
+							new Player(player, ip, "bogus@localhost", contest.scorer, 0, 0);
+						contest.scorer.playerDB.add(plr);
 						out.println("Player "+player+" added to the database");
-						contest.monitor.toLog("Player "+player+" added at "+ipalt[0]+"."+
+						contest.scorer.toLog("Player "+player+" added at "+ipalt[0]+"."+
 													 ipalt[1]+"."+ipalt[2]+"."+ipalt[3]+
 													 " remotely", 2);
 					} catch (Exception e) {
 						out.println("Add player exception: "+e.toString());
-						contest.monitor.toLog("Addplayer, exception: "+e.toString(), 3);
+						contest.scorer.toLog("Addplayer, exception: "+e.toString(), 3);
 						if (connect != null) connect.close();
 						connect = null;
 						continue;
@@ -86,23 +86,23 @@ public class DynamicListener extends Thread {
 						connect = null;
 						continue;
 					}
-					if (contest.monitor.playerDB.delete(player)) {
+					if (contest.scorer.playerDB.delete(player)) {
 						out.println("Player "+player+" deleted from the database");
-						contest.monitor.toLog("Player "+player+" deleted remotely from the "+
+						contest.scorer.toLog("Player "+player+" deleted remotely from the "+
 													 "database", 2);
 					} else {
 						out.println("Player "+player+" not in the database");
 					}
 				} else if (command.toUpperCase().equals("SAVE")) {
-					SaveDB.saveArray(contest.monitor.playerDB.players, contest.monitor);
+					SaveDB.saveArray(contest.scorer.playerDB.players, contest.scorer);
 					out.println("Players saved");
-					contest.monitor.toLog("Database saved remotely", 2);
+					contest.scorer.toLog("Database saved remotely", 2);
 				} else {
 					out.println("Command syntax: [add|delete|save] [player] [ipaddress]");
 				}
 				if (connect != null) connect.close();
 			} catch (Exception e) {
-				contest.monitor.toLog("Dynamic Listener killed", 2);
+				contest.scorer.toLog("Dynamic Listener killed", 2);
 			}
 		}
 		try {

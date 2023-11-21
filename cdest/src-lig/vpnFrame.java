@@ -50,7 +50,7 @@ class DistributeKeys extends Thread {
          str += "cert keys/client"+(keyNo-100)+".crt\n";
          str += "key keys/client"+(keyNo-100)+".key\n";
          str += "\n#\n# The hostname/IP and port of the vpn server\n";
-         String svrloc = vf.cf.monitor.svrlocation.getText();
+         String svrloc = vf.cf.scorer.svrlocation.getText();
          if (svrloc == null || svrloc.equals("")) {
             vf.cf.msgs.setText("client.conf not created - OpenVPN server "+
                                        "location field must have an ip address");
@@ -78,7 +78,7 @@ class DistributeKeys extends Thread {
          str = "";
          String tmp = null;
          while ((tmp = br.readLine()) != null) str += tmp + "\n";
-         String svrloc = vf.cf.monitor.svrlocation.getText();
+         String svrloc = vf.cf.scorer.svrlocation.getText();
          if (svrloc == null || svrloc.equals("")) {
             vf.cf.msgs.setText("server.conf not created - OpenVPN server "+
                                "location field must have an ip address");
@@ -218,10 +218,10 @@ class DistributeKeys extends Thread {
                   Runtime.getRuntime().exec(command);
                   command = "cp -fr ../contest/sbin "+svrAddress+"/";
                   Runtime.getRuntime().exec(command);
-                  if (user.toUpperCase().equals("MONITOR")) {
-                     command = "cp ../contest/client/run.monitor "+svrAddress+"/";
+                  if (user.toUpperCase().equals("SCORER")) {
+                     command = "cp ../contest/client/run.scorer "+svrAddress+"/";
                      Runtime.getRuntime().exec(command);
-                     command = "cp ../contest/client/stop.monitor "+svrAddress+"/";
+                     command = "cp ../contest/client/stop.scorer "+svrAddress+"/";
                      Runtime.getRuntime().exec(command);
                   } else {
                      command = "cp ../contest/client/run.player "+svrAddress+"/";
@@ -677,7 +677,7 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
          if (t.hasMoreTokens()) unit.setText(t.nextToken().replaceAll("[!$&\"`]","."));
          if (t.hasMoreTokens()) mail.setText(t.nextToken().replaceAll("[!$&\"`]","."));
       } catch (Exception e) {
-         cf.monitor.text.append("Problem reading game id info from file "+
+         cf.scorer.text.append("Problem reading game id info from file "+
                                 "game-id.txt\n");
       }
 
@@ -720,7 +720,7 @@ public class vpnFrame extends JPanel implements ActionListener, MouseListener {
          pw.println((mail.getText()).replaceAll("[!$&\"`]","."));
          fos.close();
       } catch (Exception e) {
-         cf.monitor.text.append("Problem writing game identification info "+
+         cf.scorer.text.append("Problem writing game identification info "+
                                 "to file game-id.txt");
       }
    }

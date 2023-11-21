@@ -4,17 +4,17 @@ import java.net.*;
 
 public class MakeStandings extends Thread {
    Player[] players = new Player[1500];
-	Monitor mon = null;
+	Scorer mon = null;
 	boolean running = true;
 	int time_between_probes = GameParameters.TIME_BETWEEN_PLAYER_PROBES;		
 
-   MakeStandings (Monitor m) { mon = m; }
+   MakeStandings (Scorer m) { mon = m; }
 
 	void readPlayers() {
 		for (int i=0 ; i < 1500 ; i++) players[i] = null;
 		
       try {
-         FileInputStream fis = new FileInputStream("../config/"+     /******/
+         FileInputStream fis = new FileInputStream("../config/"+ 
 																	GameParameters.PLAYER_DB_FILE);
          BufferedReader br = new BufferedReader(new FileReader(fis.getFD()));
 
@@ -35,6 +35,7 @@ public class MakeStandings extends Thread {
 					String email = t.nextToken();
 					String identity = t.nextToken();
 					while (t.hasMoreTokens()) identity += " "+t.nextToken();
+					if (identity.toUpperCase().equals("SCORER")) continue;
 					players[i] = new Player(identity, ip, email, null, port, score);
 					i++;
             } catch (Exception e) {	}

@@ -6,7 +6,7 @@ RECOVERY_STATE 0
 
 //Logging Parameters
 LOG_FILE cdx.log
-LOGGING_OPTION 0
+LOGGING_OPTION 3
 
 //Scorecard Parameters
 SCORECARD_FILE standings.html

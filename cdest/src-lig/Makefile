@@ -1,4 +1,4 @@
-cdx: Go.java Monitor.java Contest.java GameParameters.java Player.java \
+cdx: Go.java Scorer.java Contest.java GameParameters.java Player.java \
 		Run.java PlayerDB.java ReadDB.java SaveDB.java CheckServices.java \
 		HTTPQuery.java ContestTimer.java Run.java DynamicListener.java \
 		Output.java Messages.java MakeStandings.java ReadParm.java \

@@ -11,20 +11,20 @@ class Pair {
 
 public class Contest extends Thread implements Serializable {
    PrintWriter pw = null;
-   Monitor monitor = null;
+   Scorer scorer = null;
    boolean running = true;
 	MakeStandings ms = null;
 	DynamicListener dl = null;
 
    /* This class has the responsibility of logging everything from the
       CheckServices threads.                                           */
-   Contest (Monitor m) {  monitor = m;  }
+   Contest (Scorer m) {  scorer = m;  }
 
    // Attempt to stop a thread - does not appear to have worked
    synchronized void findAndInterruptPlayer (String plr) {
-      int nplayers = monitor.playerDB.nplayers;
-      Player[] player = monitor.playerDB.players;
-      CheckServices[] services = monitor.playerDB.services;
+      int nplayers = scorer.playerDB.nplayers;
+      Player[] player = scorer.playerDB.players;
+      CheckServices[] services = scorer.playerDB.services;
       for (int i=0 ; i < nplayers ; i++) {
 			if (player[i].getIdentity().equals(plr) && services[i] != null) {
 				services[i].interrupt();
@@ -54,8 +54,8 @@ public class Contest extends Thread implements Serializable {
       CheckServices[] c = new CheckServices[n];
       Player[] p = new Player[n];
       for (int i=0 ; i < n ; i++) {
-			c[i] = monitor.playerDB.services[i];
-			p[i] = monitor.playerDB.players[i];
+			c[i] = scorer.playerDB.services[i];
+			p[i] = scorer.playerDB.players[i];
       }
       return new Pair(c,p,n);
    }
@@ -66,27 +66,27 @@ public class Contest extends Thread implements Serializable {
    public void run () {
 		// If setup is dynamic then start a listener that will add players as
 		// they request to be added
-		if (monitor.dynamic != 0) {
+		if (scorer.dynamic != 0) {
 			(dl = new DynamicListener(this)).start(); // kill dl on stop!!!
 		}
 		// Make score = 0 for all players and save as a new player database file
-		if (monitor.recover != 0) {
-			for (int i=0 ; i < monitor.playerDB.nplayers ; i++) {
-				monitor.playerDB.players[i].reset();
-				SaveDB.saveArray(monitor.playerDB.players, monitor);
+		if (scorer.recover != 0) {
+			for (int i=0 ; i < scorer.playerDB.nplayers ; i++) {
+				scorer.playerDB.players[i].reset();
+				SaveDB.saveArray(scorer.playerDB.players, scorer);
 			}
 		}
 		try {
-			for (int i=0 ; i < monitor.playerDB.nplayers ; i++) {
-				monitor.playerDB.services[i] =
-					new CheckServices(monitor.playerDB.players[i], monitor);
-				if (monitor.playerDB.services[i] != null)
-					monitor.playerDB.services[i].start();
+			for (int i=0 ; i < scorer.playerDB.nplayers ; i++) {
+				scorer.playerDB.services[i] =
+					new CheckServices(scorer.playerDB.players[i], scorer);
+				if (scorer.playerDB.services[i] != null)
+					scorer.playerDB.services[i].start();
 			}
 		} catch (Exception e) { e.printStackTrace(); }
-      monitor.started = true;
+      scorer.started = true;
 
-		ms = new MakeStandings(monitor);
+		ms = new MakeStandings(scorer);
 		ms.start();
 
 		notifyPrompt();
@@ -98,7 +98,7 @@ public class Contest extends Thread implements Serializable {
 			// even if one or more of deletePlayer, addPlayer, or
          // stopAndMaybeStartPlayer are invoked while executing the for
 			// loop below
-			Pair pair = setitup(monitor.playerDB.nplayers);
+			Pair pair = setitup(scorer.playerDB.nplayers);
 			CheckServices[] cs = pair.cs;
 			Player[] pl = pair.pl;
 			int np = pair.np;
@@ -126,31 +126,31 @@ public class Contest extends Thread implements Serializable {
 					cs[i] = null;                     // 1st eliminate the ref
 					if (t != null) t.interrupt();     // then interrupt it
 					t = null;                         // eliminate the temp ref
-					cs[i] = new CheckServices(pl[i], monitor);
+					cs[i] = new CheckServices(pl[i], scorer);
 					cs[i].start();
 				}
 				try { sleep(time_between_probes); } catch (Exception e) { }
 			}
-			SaveDB.saveArray(monitor.playerDB.players, monitor);
+			SaveDB.saveArray(scorer.playerDB.players, scorer);
       }
    }
 	
    synchronized void deletePlayer (Player plr) {
-      monitor.playerDB.delete(plr.getIdentity());
+      scorer.playerDB.delete(plr.getIdentity());
    }
 	
    synchronized void stopAndMaybeStartPlayer (Player plr) {
-      for (int i=0 ; i < monitor.playerDB.nplayers ; i++) {
-			if (monitor.playerDB.players[i] == plr) {
-				Thread t = monitor.playerDB.services[i];
-				monitor.playerDB.services[i] = null;
+      for (int i=0 ; i < scorer.playerDB.nplayers ; i++) {
+			if (scorer.playerDB.players[i] == plr) {
+				Thread t = scorer.playerDB.services[i];
+				scorer.playerDB.services[i] = null;
 				if (t != null) t.interrupt();
 				t = null;
 				try { Thread.sleep(500); } catch (Exception e) {}
-				if (monitor.started) {
-					monitor.playerDB.services[i] = new CheckServices(plr, monitor);
-					if (monitor.playerDB.services[i] != null)
-						monitor.playerDB.services[i].start();
+				if (scorer.started) {
+					scorer.playerDB.services[i] = new CheckServices(plr, scorer);
+					if (scorer.playerDB.services[i] != null)
+						scorer.playerDB.services[i].start();
 				}
 				return;
 			}
@@ -163,26 +163,26 @@ public class Contest extends Thread implements Serializable {
 		if (dl != null) dl.stopListener();
 		dl = null;
 
-		if (monitor == null) {
-			System.out.println("stopContest: monitor is null");
+		if (scorer == null) {
+			System.out.println("stopContest: scorer is null");
 			System.out.println("------------------------------");			
 			return;
-		} else if (monitor.playerDB == null) {
+		} else if (scorer.playerDB == null) {
 			System.out.println("  Contest is already stopped");
 			System.out.println("------------------------------");			
 			return;
 		}
 
-      for (int i=0 ; i < monitor.playerDB.nplayers ; i++) {
-			Thread t = monitor.playerDB.services[i];
-			monitor.playerDB.services[i] = null;
+      for (int i=0 ; i < scorer.playerDB.nplayers ; i++) {
+			Thread t = scorer.playerDB.services[i];
+			scorer.playerDB.services[i] = null;
 			if (t != null) t.interrupt();
 			t = null;
       }
       try { sleep(10000); } catch (Exception e) { }
 		running = false;
-      monitor.ended = true;
-		monitor.suspended = false;
+      scorer.ended = true;
+		scorer.suspended = false;
 		notifyPrompt();
    }
 	

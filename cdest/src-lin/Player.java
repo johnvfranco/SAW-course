@@ -10,30 +10,30 @@ public class Player implements Serializable {
    InetAddress ipaddress;
    int port;
    long score;
-   Monitor monitor;
+   Scorer scorer;
    
-   Player (String who, byte[] addr, String em, Monitor m) {
+   Player (String who, byte[] addr, String em, Scorer m) {
       identity = who;
-      monitor = m;
+      scorer = m;
 		email = em;
       try {
          ipaddress = InetAddress.getByAddress(addr);
       } catch (Exception e) {
-			Messages.unknown_host(monitor.out);
+			Messages.unknown_host(scorer.out);
       }
       score = 0;
    }
 
-   Player (String who, byte[] iaddr, String em, Monitor m, int p, long s) {
+   Player (String who, byte[] iaddr, String em, Scorer m, int p, long s) {
       identity = who;
-      monitor = m;
+      scorer = m;
 		email = em;
       score = s;
       port = p;
 		try {
 			ipaddress = InetAddress.getByAddress(iaddr);
 		} catch (Exception e) {
-			Messages.unknown_host(monitor.out);
+			Messages.unknown_host(scorer.out);
 		}
    }
 
@@ -55,7 +55,7 @@ public class Player implements Serializable {
 
 	/**
    Player copyPlayer () {
-      return new Player(identity, ipaddress, email, monitor, port, score);
+      return new Player(identity, ipaddress, email, scorer, port, score);
    }
 	**/
 

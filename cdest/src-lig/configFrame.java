@@ -586,7 +586,7 @@ class mouse {
    public void xlate (int i) {
       switch (i) {
       case 0: player_database_state(); break;
-      case 1: monitor_log_file(); break;
+      case 1: scorer_log_file(); break;
       case 2: logging_option(); break;
       case 3: scoreboard_file(); break;
       case 4: scoreboard_url(); break;
@@ -748,11 +748,11 @@ class mouse {
    
    public void recover_database() {
       exit();
-      a1 = new help("Allow database to be recovered on monitor restart?", false); 
+      a1 = new help("Allow database to be recovered on scorer restart?", false); 
       a1.append(
-"\n          YES if database should be reloaded on restart of monitor\n"+
+"\n          YES if database should be reloaded on restart of scorer\n"+
 "\n          NO, if the database files should be cleared before restarting"+
-"\n          the monitor.");
+"\n          the scorer.");
       a1.setSize(510,160);
       a1.setVisible(true);
    }
@@ -779,9 +779,9 @@ class mouse {
       a1.setVisible(true);
    }
 
-   public void monitor_log_file () {
+   public void scorer_log_file () {
       exit();
-      a1 = new help("Monitor Log File", false); 
+      a1 = new help("Scorer Log File", false); 
       a1.append(
 "\n          The name of the log file.  The Contest Administrator"+
 "\n          may decide to share this with Contestants, especially"+
@@ -860,15 +860,15 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
    DateChoose dc = null;
    long contest_start = 0;
    long contest_end = 0;
-   Monitor monitor;
+   Scorer scorer;
    boolean shouldQuit = false;
    vpnFrame vf = null;
    transferFrame tf = null;
 
-   public configFrame (Monitor cf) {
+   public configFrame (Scorer cf) {
       this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
       super.setTitle("contest configurator");
-      monitor = cf;
+      scorer = cf;
 
       setLayout(new BorderLayout());
       setBackground(bkgd);
@@ -979,7 +979,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       g = new JPanel(new BorderLayout());
       g.setBackground(bkgd);
       g.add("Center", b[1] = new JComboBox <String> ());
-      g.add("North", parm("Monitor", "log file"));
+      g.add("North", parm("Scorer", "log file"));
       p.add(g);
 
       g = new JPanel(new BorderLayout());
@@ -1094,28 +1094,28 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       // game parameters
       b[0].addItem("Static");
       b[0].addItem("Dynamic");
-      b[0].setSelectedIndex(monitor.dynamic);
-      b[1].addItem(monitor.logfile);
+      b[0].setSelectedIndex(scorer.dynamic);
+      b[1].addItem(scorer.logfile);
       b[1].setSelectedIndex(0);
       b[2].addItem("1");
       b[2].addItem("2");
       b[2].addItem("3");
       b[2].addItem("4");
-      b[2].setSelectedIndex(monitor.logopt);
-      b[3].addItem(monitor.name);
+      b[2].setSelectedIndex(scorer.logopt);
+      b[3].addItem(scorer.name);
       b[3].setSelectedIndex(0);
-      b[4].addItem(monitor.url);
+      b[4].addItem(scorer.url);
       b[4].setSelectedIndex(0);
       b[4].setEditable(true);
-      b[5].addItem(monitor.ttl);
+      b[5].addItem(scorer.ttl);
       b[5].setSelectedIndex(0);
       b[5].setEditable(true);
-      b[6].addItem(monitor.fileloc);
+      b[6].addItem(scorer.fileloc);
       b[6].setSelectedIndex(0);
       b[6].setEditable(true);
       b[7].addItem("Yes");
       b[7].addItem("No");
-      b[7].setSelectedIndex(monitor.recover);
+      b[7].setSelectedIndex(scorer.recover);
 
       listRenderer = new DefaultListCellRenderer();
       listRenderer.setHorizontalAlignment(DefaultListCellRenderer.CENTER);
@@ -1151,30 +1151,30 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
    public void actionPerformed (ActionEvent evt) {
       if (evt.getSource() == leave) {
          mousehelp.exit();
-         monitor.cf = null;
+         scorer.cf = null;
          dispose();
       } else if (evt.getSource() == cancel) {
          mousehelp.exit();
-         monitor.url = (String)b[4].getSelectedItem();
-         monitor.name = (String)b[3].getSelectedItem();
-         monitor.fileloc = (String)b[6].getSelectedItem();
-         monitor.ttl = (String)b[5].getSelectedItem();
-         monitor.logopt = (int)b[2].getSelectedIndex();
-         monitor.recover = (int)b[7].getSelectedIndex();
-         monitor.dynamic = (int)b[0].getSelectedIndex();
-         monitor.cf = null;
+         scorer.url = (String)b[4].getSelectedItem();
+         scorer.name = (String)b[3].getSelectedItem();
+         scorer.fileloc = (String)b[6].getSelectedItem();
+         scorer.ttl = (String)b[5].getSelectedItem();
+         scorer.logopt = (int)b[2].getSelectedIndex();
+         scorer.recover = (int)b[7].getSelectedIndex();
+         scorer.dynamic = (int)b[0].getSelectedIndex();
+         scorer.cf = null;
          createParms();
          dispose();
       } else if (evt.getSource() == done) {
          mousehelp.exit();
-         monitor.url = (String)b[4].getSelectedItem();
-         monitor.name = (String)b[3].getSelectedItem();
-         monitor.fileloc = (String)b[6].getSelectedItem();
-         monitor.ttl = (String)b[5].getSelectedItem();
-         monitor.logopt = (int)b[2].getSelectedIndex();
-         monitor.recover = (int)b[7].getSelectedIndex();
-         monitor.dynamic = (int)b[0].getSelectedIndex();
-         monitor.cf = null;
+         scorer.url = (String)b[4].getSelectedItem();
+         scorer.name = (String)b[3].getSelectedItem();
+         scorer.fileloc = (String)b[6].getSelectedItem();
+         scorer.ttl = (String)b[5].getSelectedItem();
+         scorer.logopt = (int)b[2].getSelectedIndex();
+         scorer.recover = (int)b[7].getSelectedIndex();
+         scorer.dynamic = (int)b[0].getSelectedIndex();
+         scorer.cf = null;
          createParms();
          if (tf.tarAndSendFiles(tf.willSend)) dispose();
       } else if (evt.getSource() == help) {
@@ -1235,7 +1235,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
          pw.println("END_IIME_CONV "+dc.ending+" "+dc.timez);
          fos.close();
          
-         monitor.toLog("Parameters.txt created", 0);  
+         scorer.toLog("Parameters.txt created", 0);  
       } catch (Exception e) { }
    }
 
@@ -1246,7 +1246,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       try {
          new File("../Parameters").mkdir();
          new File("../Contestants").mkdir();
-         monitor.toLog("Created Parameters and Contestants directories", 0);
+         scorer.toLog("Created Parameters and Contestants directories", 0);
          fos = new FileOutputStream("../Parameters/Parameters.txt");
          PrintWriter pw = new PrintWriter(fos, true);
          String command = "chmod -R go-w ../Parameters ../Contestants";
@@ -1276,7 +1276,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
          pw.println("END_TIME_UNIX "+contest_end);
          pw.println("END_IIME_CONV "+dc.ending+" "+dc.timez);
          fos.close();
-         monitor.toLog("Parameters.txt created", 0);
+         scorer.toLog("Parameters.txt created", 0);
       } catch (Exception e) { }
 
       FileInputStream fis = null;
@@ -1289,7 +1289,7 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
       cancel.setEnabled(false);
       done.setEnabled(false);
       
-      monitor.toLog("Reading "+GameParameters.PLAYER_DB_FILE+" to make and populate"+
+      scorer.toLog("Reading "+GameParameters.PLAYER_DB_FILE+" to make and populate"+
                     "player directories", 0);
       try {
          fis = new FileInputStream("../config/"+GameParameters.PLAYER_DB_FILE); 
@@ -1340,10 +1340,10 @@ public class configFrame extends JFrame implements ActionListener, MouseListener
 	    Runtime.getRuntime().exec(command);
 	 } catch (Exception e) { e.printStackTrace(); }
 	      
-         monitor.toLog("Finished reading "+GameParameters.PLAYER_DB_FILE+" successfully", 0);
+         scorer.toLog("Finished reading "+GameParameters.PLAYER_DB_FILE+" successfully", 0);
       } catch (Exception e) {
          msgs.setText("Could not read "+GameParameters.PLAYER_DB_FILE);
-         monitor.toLog("Reading "+GameParameters.PLAYER_DB_FILE+" is unsuccessful", 0);
+         scorer.toLog("Reading "+GameParameters.PLAYER_DB_FILE+" is unsuccessful", 0);
       }
       
       vf.start.setEnabled(true);
@@ -1404,7 +1404,7 @@ class PlantKeys {
 
       long cur_time = Instant.now().getEpochSecond();
 
-      config.monitor.toLog("Making files for "+contestant, 0);
+      config.scorer.toLog("Making files for "+contestant, 0);
 
       try {
          new File(contdir).mkdir();
@@ -1435,7 +1435,7 @@ class PlantKeys {
          config.msgs.setText("Can't make keys file");
       }
       
-      config.monitor.toLog("Files for "+contestant+" completed except for email.txt", 0);
+      config.scorer.toLog("Files for "+contestant+" completed except for email.txt", 0);
       
       try {
          FileOutputStream fos = new FileOutputStream(contdir+"/email.txt");
@@ -1443,10 +1443,10 @@ class PlantKeys {
          out.println(email);
          out.flush();
          out.close();
-         config.monitor.toLog("File email.txt for "+contestant+" completed", 0);
+         config.scorer.toLog("File email.txt for "+contestant+" completed", 0);
       } catch (Exception e) {
          config.msgs.setText("Can't make email file");
-         config.monitor.toLog("Making email.txt for "+contestant+" failed", 0);
+         config.scorer.toLog("Making email.txt for "+contestant+" failed", 0);
       }
    }
 }

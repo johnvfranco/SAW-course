@@ -3,17 +3,17 @@ import java.net.*;
 import java.util.*;
 
 public class HTTPQuery extends Thread {
-   Monitor monitor = null;
+   Scorer scorer = null;
    String payload, phrase;
    Player player;
    int port;
 
-   HTTPQuery (Player plr, String pyld, int prt, String phs, Monitor m) {
+   HTTPQuery (Player plr, String pyld, int prt, String phs, Scorer m) {
       player = plr;
       payload = pyld;
       port = prt;
       phrase = phs;
-      monitor = m;
+      scorer = m;
    }
 
    public void run () {
@@ -31,9 +31,9 @@ public class HTTPQuery extends Thread {
          while ((line = bis.readLine()) != null) result += line;
          if (result.contains(phrase)) {
             player.bumpScore(1);
-            if (monitor != null) monitor.toLog("\""+plr+"\": bump score (WP)", 2);
+            if (scorer != null) scorer.toLog("\""+plr+"\": bump score (WP)", 2);
          }
-         monitor.toLog("\""+plr+"\" result="+result, 3);
+         scorer.toLog("\""+plr+"\" result="+result, 3);
       } catch (Exception e) {  }
    }
 }

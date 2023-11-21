@@ -4,7 +4,7 @@ import java.util.*;
 public class ReadParm {
 	static boolean parm_file_marker = true;
 	
-	static public String getSetup (String key, Monitor monitor) {
+	static public String getSetup (String key, Scorer scorer) {
       String str, ret = "";
 		FileInputStream fin = null;
       
@@ -28,18 +28,18 @@ public class ReadParm {
 			return ret;
       } catch (Exception e) {
 			if (parm_file_marker) {
-				monitor.out.print("  Warning: Parameters.txt file cannot be found - "+
+				scorer.out.print("  Warning: Parameters.txt file cannot be found - "+
 										"defaults are used:");
-				monitor.out.print("    Player database state defaults to dynamic");
-				monitor.out.print("    Logging option defaults to strict");
-				monitor.out.print("    Recovery option defaults to recover saved database");
-				monitor.out.print("    Scoreboard URL defaults to "+monitor.url);
-				monitor.out.print("    Scoreboard file name defaults to "+monitor.name);
-				monitor.out.print("    Scoreboard title defaults to "+monitor.ttl);
-				monitor.out.print("    Scoreboard directory defaults to "+monitor.fileloc);
-				monitor.out.print("    Name of log file defaults to "+monitor.logfile);
-				monitor.out.print("    Contest start time is set to 0");
-				monitor.out.print("    Contest end time is set to 0");
+				scorer.out.print("    Player database state defaults to dynamic");
+				scorer.out.print("    Logging option defaults to strict");
+				scorer.out.print("    Recovery option defaults to recover saved database");
+				scorer.out.print("    Scoreboard URL defaults to "+scorer.url);
+				scorer.out.print("    Scoreboard file name defaults to "+scorer.name);
+				scorer.out.print("    Scoreboard title defaults to "+scorer.ttl);
+				scorer.out.print("    Scoreboard directory defaults to "+scorer.fileloc);
+				scorer.out.print("    Name of log file defaults to "+scorer.logfile);
+				scorer.out.print("    Contest start time is set to 0");
+				scorer.out.print("    Contest end time is set to 0");
 				parm_file_marker = false;
 			}
 		}
