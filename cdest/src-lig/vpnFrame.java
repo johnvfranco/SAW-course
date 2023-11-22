@@ -218,17 +218,10 @@ class DistributeKeys extends Thread {
                   Runtime.getRuntime().exec(command);
                   command = "cp -fr ../contest/sbin "+svrAddress+"/";
                   Runtime.getRuntime().exec(command);
-                  if (user.toUpperCase().equals("SCORER")) {
-                     command = "cp ../contest/client/run.scorer "+svrAddress+"/";
-                     Runtime.getRuntime().exec(command);
-                     command = "cp ../contest/client/stop.scorer "+svrAddress+"/";
-                     Runtime.getRuntime().exec(command);
-                  } else {
-                     command = "cp ../contest/client/run.player "+svrAddress+"/";
-                     Runtime.getRuntime().exec(command);
-                     command = "cp ../contest/client/stop.player "+svrAddress+"/";
-                     Runtime.getRuntime().exec(command);
-                  }
+						command = "cp ../contest/client/run.player "+svrAddress+"/";
+						Runtime.getRuntime().exec(command);
+						command = "cp ../contest/client/stop.player "+svrAddress+"/";
+						Runtime.getRuntime().exec(command);
                   command = "cp ../contest/client/instructions.pdf "+svrAddress+"/";
                   Runtime.getRuntime().exec(command);
                   command = "cp ../contest/client/run.client "+svrAddress+"/";

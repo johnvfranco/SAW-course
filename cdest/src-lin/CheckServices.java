@@ -23,7 +23,6 @@ public class CheckServices extends Thread implements Serializable {
       ipaddress = player.getInetAddress();
       ipaddr = ipaddress.toString().substring(1);
       nservices = 5;
-		if (player.identity.toUpperCase().equals("SCORER")) return;
       for (int i=0 ; i < 20 ; i++) services[i] = false;
       srvports[0] = "13/tcp";
       srvports[1] = "21/tcp";
@@ -57,9 +56,7 @@ public class CheckServices extends Thread implements Serializable {
    // occurrence of the service is counted on each block of nmap queries.
    // each time a service is counted, the player's score is bumped.  A 
    // maximum of 20 services may be counted.  
-   public void run () {
-		if (!player.identity.toUpperCase().equals("SCORER")) probe();
-	}
+   public void run () {	probe();	}
 
    BufferedReader getCommandResponse (String cmd) {
       br = null;

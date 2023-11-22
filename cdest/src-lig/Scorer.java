@@ -633,7 +633,6 @@ class Scorer extends JFrame implements ActionListener {
 			for (int i=0 ; i < playerDB.nplayers ; i++) {
 				Player player = playerDB.players[i];
 				String ident = player.getIdentity();
-				if (ident.toUpperCase().equals("SCORER")) continue;
 				int len = ident.length();
 				for (int j=len ; j < 25 ; j++) ident += " ";
 				this.out.print("  "+ident+" \t"+

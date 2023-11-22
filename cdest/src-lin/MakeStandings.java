@@ -35,7 +35,6 @@ public class MakeStandings extends Thread {
 					String email = t.nextToken();
 					String identity = t.nextToken();
 					while (t.hasMoreTokens()) identity += " "+t.nextToken();
-					if (identity.toUpperCase().equals("SCORER")) continue;
 					players[i] = new Player(identity, ip, email, null, port, score);
 					i++;
             } catch (Exception e) {	}
