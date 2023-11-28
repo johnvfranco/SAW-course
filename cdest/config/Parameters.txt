@@ -1,0 +1,21 @@
+//Database Parameters
+PLAYER_DATABASE_STATE 0
+
+//Recover Parameters
+RECOVERY_STATE 1
+
+//Logging Parameters
+LOG_FILE cdx.log
+LOGGING_OPTION 0
+
+//Scorecard Parameters
+SCORECARD_FILE standings.html
+WEB_URL file:///home/httpd/html/
+SCORECARD_TITLE Contest
+WEB_DIRECTORY /home/httpd/html/
+
+//Extra
+START_TIME_UNIX 1701154800
+START_TIME_CONV 28.11.2023  02:00:00 Eastern
+END_TIME_UNIX 1701338400
+END_IIME_CONV 31.11.2023  05:00:00 Eastern
