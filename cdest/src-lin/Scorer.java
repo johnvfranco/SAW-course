@@ -10,9 +10,9 @@ class Scorer extends Thread {
 	ContestTimer ct = null;
    PlayerDB playerDB = null;
    Contest contest = null;
-	String url = "file:///var/www";
+	String url = "file:///home/httpd/html";
 	String name = "standings.html";
-	String fileloc = "/var/www";
+	String fileloc = "/home/httpd/html";
 	String ttl = "Contest";
 	String logfile = "cdx.log";
 	int logopt = 0;

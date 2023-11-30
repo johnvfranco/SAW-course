@@ -51,7 +51,7 @@ class DateChoose extends JPanel implements ActionListener, MouseListener {
       t.setBackground(bkgd);
       t.add("North", label = new JLabel(" "));
       label.setFont(new Font("Helvetica", Font.BOLD, 12));
-      t.add("Center", label = new JLabel("Contest Dates and Times", JLabel.LEFT));
+      t.add("Center", label = new JLabel("Competition Dates and Times", JLabel.LEFT));
       label.setFont(new Font("Helvetica", Font.BOLD, 16));
       label.setForeground(ttlcolor);
       
