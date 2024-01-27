@@ -18,6 +18,7 @@ class lab2 extends JFrame implements ActionListener {
    lab2E ar = null;
    aFrame parent = null;
    String fpath = null;
+   String hpath = null;	
    
    public lab2 (aFrame pnt) {
       super("Cryptol Syntax and Semantics");
@@ -28,6 +29,7 @@ class lab2 extends JFrame implements ActionListener {
 
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/";
+         hpath = new java.io.File(".").getCanonicalPath();			
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }

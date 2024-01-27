@@ -22,7 +22,8 @@ class intr extends JFrame implements ActionListener {
    aFrame parent = null;
    JFileChooser fc = null;
    String fpath = null;
-   String cpath = null;	
+   String cpath = null;
+   String hpath = null;		
    
    public intr (aFrame pnt) {
       super("Introduction to the course");
@@ -40,7 +41,8 @@ class intr extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/intr/";
-         cpath = (new java.io.File(".").getCanonicalPath())+"/src/common/";			
+         cpath = (new java.io.File(".").getCanonicalPath())+"/src/common/";
+         hpath = new java.io.File(".").getCanonicalPath();			
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
@@ -189,8 +191,9 @@ class intr extends JFrame implements ActionListener {
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/introduction.pdf");
       else if (evt.getSource() == z[0]) {
-         String command = "cryptol "+fpath;
+         String command;
          try {
+				command = hpath+"/bin/cryptol "+fpath;
             Runtime.getRuntime().exec(command);
          } catch (Exception e) {
             System.out.println("Runtime: "+e.toString());

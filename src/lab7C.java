@@ -20,6 +20,7 @@ class lab7C extends JFrame implements ActionListener {
    lab7 parent = null;
    JFileChooser fc = null;
    String fpath = null;
+   String hpath = null;	
    
    public lab7C (lab7 pnt) {
       super("Type Safety");
@@ -37,6 +38,7 @@ class lab7C extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab7C/";
+         hpath = new java.io.File(".").getCanonicalPath();
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }

@@ -21,6 +21,7 @@ class lab6D extends JFrame implements ActionListener {
    lab6 parent = null;
    JFileChooser fc = null;
    String fpath = null;
+   String hpath = null;	
    
    public lab6D (lab6 pnt) {
       super("Cryptol/SAW Safety Checks");
@@ -38,6 +39,7 @@ class lab6D extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab6D/";
+         hpath = new java.io.File(".").getCanonicalPath();
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
@@ -135,8 +137,9 @@ class lab6D extends JFrame implements ActionListener {
          if (z[i] != null) z[i].addActionListener(this);
       }
       
-      String command = "cryptol "+fpath;
+      String command; 
       try {
+			command = hpath+"/bin/cryptol "+fpath;
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());

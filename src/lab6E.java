@@ -22,6 +22,7 @@ class lab6E extends JFrame implements ActionListener {
    lab6 parent = null;
    JFileChooser fc = null;
    String fpath = null;
+   String hpath = null;	
    
    public lab6E (lab6 pnt) {
       super("Conclusions");
@@ -39,6 +40,7 @@ class lab6E extends JFrame implements ActionListener {
       }
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab6E/";
+         hpath = new java.io.File(".").getCanonicalPath();
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
@@ -139,8 +141,9 @@ class lab6E extends JFrame implements ActionListener {
          if (z[i] != null) z[i].addActionListener(this);
       }
       
-      String command = "cryptol "+fpath;
+      String command;
       try {
+			command = hpath+"/bin/cryptol "+fpath;
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());

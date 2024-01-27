@@ -23,6 +23,7 @@ class lab7A extends JFrame implements ActionListener {
    JFileChooser fc = null;
    String fpath = null;
 	String cpath = null;
+	String hpath = null;	
    
    public lab7A (lab7 pnt) {
       super("Proving Functional Correctness");
@@ -41,6 +42,7 @@ class lab7A extends JFrame implements ActionListener {
       try {
          fpath = (new java.io.File(".").getCanonicalPath())+"/src/lab7A/";
 			cpath = (new java.io.File(".").getCanonicalPath())+"/src/common";
+			hpath = new java.io.File(".").getCanonicalPath();
       } catch (Exception e) {
          System.out.println("fpath is not set!!");
       }
@@ -183,8 +185,9 @@ class lab7A extends JFrame implements ActionListener {
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
       else if (evt.getSource() == z[0]) {
-         String command = "cryptol "+fpath;
+         String command;
          try {
+				command = hpath+"/bin/cryptol "+fpath;
             Runtime.getRuntime().exec(command);
          } catch (Exception e) {
             System.out.println("Runtime: "+e.toString());
