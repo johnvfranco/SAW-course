@@ -1,3 +1,4 @@
 #!/bin/bash
 cd $1
-gnome-terminal
+#gnome-terminal
+xterm -T Cryptol -fa "monospace" -fs 14 -fg black -bg white
