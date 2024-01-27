@@ -1,4 +1,5 @@
 #!/bin/bash
+export DIR=`pwd`
+export PATH=`pwd`:`pwd`/bin:$HOME/.bin:`pwd`/src:/usr/bin:/bin
 cd $1
-#gnome-terminal
-xterm -T Cryptol -fa "monospace" -fs 14 -fg black -bg white
+gnome-terminal -- bash -c "set PATH $PATH; tcsh" &
