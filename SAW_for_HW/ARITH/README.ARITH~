@@ -1,0 +1,41 @@
+/*
+   A simple example, similar to the one in the AES directory, to
+   demonstrate how one can FEV two different designs of arithmetic
+   adder and subtration logic.
+   
+   Read the README.AES in the AES directory for more explanations of
+   the below
+*/
+yosys
+read_verilog -sv "ArithOps.sv";
+hierarchy -top AddSub1;
+prep -top AddSub1;
+proc;
+write_json  "AddSub1.json";
+
+yosys
+read_verilog -sv "ArithOps.sv";
+hierarchy -top AddSub2;
+prep -top AddSub2;
+proc;
+write_json  "AddSub2.json";
+
+saw;
+enable_experimental;
+m_AddSub1 <- yosys_import "AddSub1.json";
+m_AddSub2 <- yosys_import "AddSub2.json";
+
+let ss0 = cryptol_ss();
+
+let verify name prop tac = time do { print (str_concat (str_concat "Verifying " name) "..."); prove_print tac (rewrite ss0 prop); };
+
+//prove_print w4 {{ \op x y -> (m_AddSub1.AddSub1 { op = op, x = x, y = y }).res == (m_AddSub2.AddSub2 { op = op, x = x, y = y }).res }};
+
+AddSub_EQ <- verify "AddSub_EQ" {{ \op x y -> (m_AddSub1.AddSub1 { op = op, x = x, y = y}).res == (m_AddSub2.AddSub2 { op = op, x = x, y = y }).res }} rme;
+
+prove_print w4 {{ \op x y -> (m_AddSub1.AddSub1 { op = op, x = x, y = y }).res == (m_AddSub2.AddSub2 { op = op, x = x, y = y }).res }};
+
+
+###
+
+

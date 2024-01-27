@@ -1,0 +1,273 @@
+{
+  "creator": "Yosys 0.33+34 (git sha1 b84ed5d3a, clang 14.0.3 -fPIC -Os)",
+  "modules": {
+    "Add1": {
+      "attributes": {
+        "src": "ArithOps.sv:2.1-8.10"
+      },
+      "ports": {
+        "x": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ]
+        },
+        "y": {
+          "direction": "input",
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
+        },
+        "sum": {
+          "direction": "output",
+          "bits": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
+        }
+      },
+      "cells": {
+        "$add$ArithOps.sv:7$1": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "ArithOps.sv:7.17-7.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "B": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "Y": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
+          }
+        }
+      },
+      "netnames": {
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+          "attributes": {
+            "src": "ArithOps.sv:5.23-5.26"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "ArithOps.sv:3.23-3.24"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "ArithOps.sv:4.23-4.24"
+          }
+        }
+      }
+    },
+    "AddSub1": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "ArithOps.sv:49.1-62.10"
+      },
+      "ports": {
+        "op": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "x": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        },
+        "y": {
+          "direction": "input",
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
+        },
+        "res": {
+          "direction": "output",
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26 ]
+        }
+      },
+      "cells": {
+        "$ternary$ArithOps.sv:61$7": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "ArithOps.sv:61.17-61.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 27, 28, 29, 30, 31, 32, 33, 34 ],
+            "B": [ 35, 36, 37, 38, 39, 40, 41, 42 ],
+            "S": [ 2 ],
+            "Y": [ 19, 20, 21, 22, 23, 24, 25, 26 ]
+          }
+        },
+        "Add1_inst": {
+          "hide_name": 0,
+          "type": "Add1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "ArithOps.sv:56.9-56.30"
+          },
+          "port_directions": {
+            "sum": "output",
+            "x": "input",
+            "y": "input"
+          },
+          "connections": {
+            "sum": [ 27, 28, 29, 30, 31, 32, 33, 34 ],
+            "x": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "y": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
+          }
+        },
+        "Sub1_inst": {
+          "hide_name": 0,
+          "type": "Sub1",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "ArithOps.sv:59.9-59.30"
+          },
+          "port_directions": {
+            "res": "output",
+            "x": "input",
+            "y": "input"
+          },
+          "connections": {
+            "res": [ 35, 36, 37, 38, 39, 40, 41, 42 ],
+            "x": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "y": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
+          }
+        }
+      },
+      "netnames": {
+        "op": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "ArithOps.sv:50.23-50.25"
+          }
+        },
+        "res": {
+          "hide_name": 0,
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26 ],
+          "attributes": {
+            "src": "ArithOps.sv:53.23-53.26"
+          }
+        },
+        "sub": {
+          "hide_name": 0,
+          "bits": [ 35, 36, 37, 38, 39, 40, 41, 42 ],
+          "attributes": {
+            "src": "ArithOps.sv:58.16-58.19"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 27, 28, 29, 30, 31, 32, 33, 34 ],
+          "attributes": {
+            "src": "ArithOps.sv:55.16-55.19"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "ArithOps.sv:51.23-51.24"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+          "attributes": {
+            "src": "ArithOps.sv:52.23-52.24"
+          }
+        }
+      }
+    },
+    "Sub1": {
+      "attributes": {
+        "src": "ArithOps.sv:40.1-46.10"
+      },
+      "ports": {
+        "x": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ]
+        },
+        "y": {
+          "direction": "input",
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
+        },
+        "res": {
+          "direction": "output",
+          "bits": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
+        }
+      },
+      "cells": {
+        "$sub$ArithOps.sv:45$5": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "ArithOps.sv:45.17-45.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "B": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "Y": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
+          }
+        }
+      },
+      "netnames": {
+        "res": {
+          "hide_name": 0,
+          "bits": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+          "attributes": {
+            "src": "ArithOps.sv:43.23-43.26"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "ArithOps.sv:41.23-41.24"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "ArithOps.sv:42.23-42.24"
+          }
+        }
+      }
+    }
+  }
+}

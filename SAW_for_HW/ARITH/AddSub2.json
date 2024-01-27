@@ -1,0 +1,145 @@
+{
+  "creator": "Yosys 0.33+34 (git sha1 b84ed5d3a, clang 14.0.3 -fPIC -Os)",
+  "modules": {
+    "AddSub2": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "ArithOps.sv:65.1-78.10"
+      },
+      "ports": {
+        "op": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "x": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        },
+        "y": {
+          "direction": "input",
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
+        },
+        "res": {
+          "direction": "output",
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26 ]
+        }
+      },
+      "cells": {
+        "$add$ArithOps.sv:73$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "ArithOps.sv:73.17-73.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "B": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+            "Y": [ 27, 28, 29, 30, 31, 32, 33, 34 ]
+          }
+        },
+        "$sub$ArithOps.sv:74$9": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "ArithOps.sv:74.17-74.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "B": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+            "Y": [ 35, 36, 37, 38, 39, 40, 41, 42 ]
+          }
+        },
+        "$ternary$ArithOps.sv:76$11": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "ArithOps.sv:76.17-76.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 27, 28, 29, 30, 31, 32, 33, 34 ],
+            "B": [ 35, 36, 37, 38, 39, 40, 41, 42 ],
+            "S": [ 2 ],
+            "Y": [ 19, 20, 21, 22, 23, 24, 25, 26 ]
+          }
+        }
+      },
+      "netnames": {
+        "op": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "ArithOps.sv:66.25-66.27"
+          }
+        },
+        "res": {
+          "hide_name": 0,
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26 ],
+          "attributes": {
+            "src": "ArithOps.sv:69.25-69.28"
+          }
+        },
+        "sub": {
+          "hide_name": 0,
+          "bits": [ 35, 36, 37, 38, 39, 40, 41, 42 ],
+          "attributes": {
+            "src": "ArithOps.sv:71.22-71.25"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 27, 28, 29, 30, 31, 32, 33, 34 ],
+          "attributes": {
+            "src": "ArithOps.sv:71.17-71.20"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "ArithOps.sv:67.24-67.25"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+          "attributes": {
+            "src": "ArithOps.sv:68.25-68.26"
+          }
+        }
+      }
+    }
+  }
+}
