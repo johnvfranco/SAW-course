@@ -144,7 +144,7 @@ class lab5C extends JFrame implements ActionListener {
       }
 
 		/*
-      String command = "cryptol "+fpath;
+      String command = "runcryptol "+fpath;
       try {
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
@@ -187,7 +187,7 @@ class lab5C extends JFrame implements ActionListener {
       else if (evt.getSource() == z[0]) {
          String command;
          try {
-				command = hpath+"/bin/cryptol "+fpath;
+				command = hpath+"/bin/runcryptol "+fpath;
             Runtime.getRuntime().exec(command);
          } catch (Exception e) {
             System.out.println("Runtime: "+e.toString());

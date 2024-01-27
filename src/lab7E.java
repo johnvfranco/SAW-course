@@ -135,7 +135,7 @@ class lab7E extends JFrame implements ActionListener {
       
       String command;
       try {
-			command = hpath+"/bin/cryptol "+fpath;
+			command = hpath+"/bin/runcryptol "+fpath;
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
@@ -172,7 +172,7 @@ class lab7E extends JFrame implements ActionListener {
       else if (evt.getSource() == c[0]) getDoc(fpath+"/lab.pdf");
       else if (evt.getSource() == y[0]) getDoc(fpath+"/background.pdf");
       else if (evt.getSource() == z[0]) {
-         String command = "cryptol "+fpath;
+         String command = hpath+"/bin/runcryptol "+fpath;
          try {
             Runtime.getRuntime().exec(command);
          } catch (Exception e) {

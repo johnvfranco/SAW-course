@@ -143,7 +143,7 @@ class lab6E extends JFrame implements ActionListener {
       
       String command;
       try {
-			command = hpath+"/bin/cryptol "+fpath;
+			command = hpath+"/bin/runcryptol "+fpath;
          Runtime.getRuntime().exec(command);
       } catch (Exception e) {
          System.out.println("Runtime: "+e.toString());
