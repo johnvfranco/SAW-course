@@ -1,10 +1,5 @@
 #!/bin/bash
-export PATH=`pwd`:`pwd`/src:`pwd`/bin:$PATH
+export PATH=`pwd`:$HOME/.bin:`pwd`/src:`pwd`/bin:/usr/bin:bin
 export CD=`pwd`
-if [ ! -f jdk-lin/lib/modules ]; then
-  cd jdk-lin/lib
-  echo "n" | unzip -o modules.zip
-  cd $CD
-fi
-jdk-lin/bin/java -Dsun.java2d.uiScale=1.0 -jar game.jar &
+java -Dsun.java2d.uiScale=1.0 -jar game.jar &
 

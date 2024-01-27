@@ -1,10 +1,43 @@
+Installing SAW-course:
+----------------------
+
+Installation instructions for:
+
+- Ubuntu are found in INSTALL.Ubuntu
+- Mac OS X are found in INSTALL.MacOSX
+- Windows ... TBD?
+
+Following these or similar instructions should make it possible to run
+SAW-course on any Linux and MacOSX machine.
+
+Independent on your machine (X86, ARM, ...) and OS (Linux, MacOSX,
+Windows, ...) you will need to install at least Haskell, Cryptol, SAW,
+openjdk-17, abc, cvc4, yices, yices-smt2, boolector, z3, potentialy
+libcanberra-gtk-module, and maybe additional missing tools.
+
+Yosys from YosysHQ is needed if you want to FEV whether a cryptol
+specification is equivalent to a (System)Verilog circuit as yosys is
+used to compile the circuit Verilog into a JSON format that can be
+loaded into SAW (see lecture examples). 
+
+If you are working with VHDL implementations and are using the open
+source version of yosys, you can install and use GHDL to translate the
+VHDL to Verilog and then use yosys again to generate the JSON file.
+The licensed version of yosys supports both full SystemVerilog and
+VHDL.
+
+SBY is only needed if you want to formally verify (temporal logic)
+properties (assertions) required to be satisfied by your Verilog
+implementation.
+
 Orientation:
 -----------
 Read intro.pdf
 
 Running:
 -------
-To run the application issue command 'run' from, say, gnome-terminal.
+To run the application issue command 'run' from, say, xterm (or
+gnome-terminal).
 Each lesson has documentation suitable for that lesson.
 
 The following should be installed on the host: gnome-terminal, xterm,
