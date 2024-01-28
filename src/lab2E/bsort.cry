@@ -34,8 +34,8 @@ valid lst = z ! 0
 // Q.E.D.
 // (Total Elapsed Time: 12.325s, using "CVC4")
 isAPerm : [16][4] -> Bit
-//property isAPerm lst = ~(valid lst) \/ (perm lst (bsort lst))
-property isAPerm lst = if (valid lst) then (perm lst (bsort lst)) else True
+property isAPerm lst = ~(valid lst) \/ (perm lst (bsort lst))
+//property isAPerm lst = if (valid lst) then (perm lst (bsort lst)) else True
 
 res00 = bsort []
 res01 = bsort [1]
