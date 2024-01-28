@@ -182,7 +182,7 @@ class lab6 extends JFrame implements ActionListener {
       if (evt.getSource() == exit) {
          if (parent != null) parent.setVisible(true);
          (new PlaySound("leave-12.wav")).start();
-         String command = "killall cryptol-bin";
+         String command = "killall cryptol";
          try {
             Runtime.getRuntime().exec(command);
          } catch (Exception e) {
