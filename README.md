@@ -1,137 +1,146 @@
-install the VM - detailed instructions to follow
-Enter the home directory: cd ~/
-Note: no changes to any of the files in the virgin install (yet)
+Installing SAW-course:
+----------------------
 
-sudo apt update
-sudo apt upgrade
-sudo apt install git # get git to install packages from github.com
+Installation instructions for the course:
 
-# get course content, in SAW-course directory
-git clone https://github.com/johnvfranco/SAW-course.git 
+- In an Ubuntu VM are found in INSTALL-Ubuntu.md
+- In a Mac OS X VM are found in INSTALL-MacOSX.md
+- Windows ... TBD?
 
-# some needed OS tools to install
-sudo apt install xterm tcsh emacs-nox curl libffi-dev libgmp-dev
-libncurses-dev libncurses5 zlib1g-dev clang
+Following these or similar instructions should make it possible to run
+SAW-course on any Linux and MacOSX machine.
 
-# but make sure the following are already there
-- evince, gnome-terminal, gedit, build-essential, libgmp10, libtinfo5, libffi8ubuntu1 
-# use sudo apt install ... for any of these that might be missing
+Installation Overview:
+---------------------
+Independent of your machine (X86, ARM, ...) and OS (Linux, MacOSX,
+Windows, ...) you will need to install at least Haskell, Cryptol, SAW,
+openjdk-17, abc, cvc4, yices, yices-smt2, boolector, z3, potentialy
+libcanberra-gtk-module, clang and some supporting applications and
+libraries.
 
-# Install the Haskel compiler
-curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh 
-  -  Enter to proceed
-  -  N (do not add the required path variable)
-  -  N (do not install haskell-language-server) 
-  -  Y (better integration)
-  -  Enter (all the dependencies have been added above)
-# Observe ghc-9.4.8 is being installed
+Yosys from YosysHQ is needed if you want to FEV whether a cryptol
+specification is equivalent to a (System) Verilog circuit as yosys is
+used to compile the circuit Verilog into a JSON format that can be
+loaded into SAW (examples are forthcoming). 
 
-# At the long-awaited prompt:
-source ~/.ghcup/env
-ghcup tui
-# Use up,down arrows to move cursor to a line in the table
-move line cursor to recommended HLS and hit Enter
-Hit enter to continue
-# make sure the recommended application from each section of the table is installed
-# (install as above)
-# test: run ghci to get prompt then hit control-D
+If you are working with VHDL implementations and are using the open
+source version of yosys, you can install and use GHDL to translate the
+VHDL to Verilog and then use yosys again to generate the JSON file.
+The licensed version of yosys supports both full SystemVerilog and
+VHDL.
 
-# Install Yosys - for hardware verification - VHDL and RTL
-git clone https://github.com/YosysHQ/yosys.git
-cd yosys
-git submodule update --init
-cd ..
+SBY is only needed if you want to formally verify (temporal logic)
+properties (assertions) required to be satisfied by your Verilog
+implementation.
 
-# Install SBY to verify properties of RTL
-git clone https://github.com/YosysHQ/sby.git
-cd sby
-git submodule update --init
-cd ..
+Orientation:
+-----------
+Read intro.pdf
 
-# Install Galois Cryptol
-# This allows us to specify algorithms and later use them as golden
-# reference to formally verify whether another implementation in
-# e.q. cryptol, C, SystemVerilog, or VHDL is equivalent to the
-# reference.
-git clone https://github.com/GaloisInc/cryptol.git
-cd cryptol
-git submodule update --init
-./cry build
+Running:
+-------
+To run the application enter directory SAW-course and issue command './run'
+from, say, xterm (or gnome-terminal). Each lesson has documentation suitable
+for that lesson.
 
-# Install z3
-sudo apt install z3
+The following should be installed on the host: gnome-terminal, xterm,
+emacs, evince.  Applications evince and gnome-terminal are likely already
+installed.  Evince is the pdf viewer and gnome-terminal is the terminal
+and also supports running 'emacs -nw'.  If not, do this in a terminal
+running on the host:
 
-# Run cryptol
-./cry run
+   sudo apt install gnome-terminal
+	sudo apt install evince
 
-# Test cryptol - but this may hang and anyway takes a long time
-# so you may want to skip this step
-./cry test
+Emacs is the default text editor and is not already installed in most cases.
+Do this to install emacs:
 
-# Create ~/.bin directory for executables
-mkdir ~/.bin
+   sudo apt install emacs
 
-# Install cryptol into ~/.bin directory (current directory is still the cryptol directory)
-cabal v2-install --overwrite-policy=always --installdir=$HOME/bin
+It may be that xterm is not installed.  Xterm is used to run Cryptol.
+To install do this:
 
-# Test cryptol in ~/.bin
-~/.bin/cryptol
+   sudo apt install xterm
 
-# Build Galois SAW - - Supports advanced FEV between cryptol,
-# (System)Verilog and VHDL specifications/implementations, i.e.
-# refinement development and formal verification.
-# First cd to parent of the cryptol directory
-cd ..
-# Then prepare the directory containing SAW
-git clone https://github.com/GaloisInc/saw-script
-cd saw-script
-git submodule update --init
+An alternative to emacs is gedit which surely is already installed on
+the host.
 
-# Now the build
-./build.sh
-sudo cp bin/saw /usr/bin
+Compiling:
+---------
+To compile the application issue command './compile' from, say, gnome-terminal
+in directory SAW-course.  You should not have to compile anything unless you
+make a change to some Java code.  Compiling or running gives this output:
 
-# Install cvc4
-sudo apt install cvc4
+  rm -f *.class
+  rm -f game.jar
+  javac a.java
+  jar cfm game.jar .perms *.class sounds images \
+          lab1 lab2 lab2A lab2B lab2C lab2D lab2E lab3 lab3A lab3B lab3C \
+          lab3D lab3E lab4 lab5 lab5A lab5B lab5C lab5D lab6 cdest intr \
+          lab6A lab6B lab6C lab6D lab6E lab7 lab7A lab7B linx common
+  find . -name "*.class" -exec rm {} \;
+  mv game.jar ..
 
-# Install yices
-sudo add-apt-repository ppa:sri-csl/formal-methods
-sudo apt-get update
-sudo apt-get install yices2
+HiDPI:
+-----
+If you are running this application on a high definition monitor and the
+windows and fonts are uncomfortably small, edit the run 'script' and change
+the line
 
-# Install abc
-sudo apt install berkely-abc
-pushd
-cd /usr/bin
-sudo ln -s berkeley-abc abc
-popd
+   jdk-lin/bin/java -Dsun.java2d.uiScale=1.0 -jar game.jar
 
-# Install boolector
-sudo apt install boolector
+to
 
-# Install libcanberra-gtk-module
-sudo apt-get install libcanberra-gtk-module
+   jdk-lin/bin/java -Dsun.java2d.uiScale=2.0 -jar game.jar
 
-# Install Java
-sudo apt install openjdk-17-jre
-sudo apt install openjdk-17-jdk
+or
 
-# Find java files
-# Note: pushd / changes directory to / so find can search all directories
-# What find returns will look like ./usr/lib/... so the actual location
-# of the searched for directory is /usr/lib/...
-pushd /
-sudo find . -iname "java-17-openjdk*" | grep -v proc | grep -v snap
-popd
+   jdk-lin/bin/java -Dsun.java2d.uiScale=3.0 -jar game.jar (for really hi dpi)
 
-# Example: it may be in /usr/lib/jvm/java-17-openjdk-amd64
-# Set links to the java executables - use the above example location
-pushd ~/.bin
-ln -s /usr/lib/jvm/java-17-openjdk-amd64/bin/j* .
-popd
+and then invoke ./run.  Doing this will enlarge the Java windows and Dialogs,
+including the File Chooser, proportionally.  This will not affect the size
+of the Cryptol application, the Text Editor, the Terminal, or the pdf viewer
+(evince) windows.  The following shows how to change sizes for those.
 
-# Add some scripts to the home directory
-cd
-cp SAW-course/.cshrc .
-cp SAW-course/.bashrc .
-cp SAW-course/.dir_colors .
+  Cryptol:
+  -------
+    To enlarge the Cryptol window press the Contol key simultaneouly with the
+    Right mouse button to get the VT Fonts menu and scroll down with the mouse
+    thumb-wheel to select 'Large', 'Huge', or 'Enormous'.
+
+  Terminal:
+  --------
+    The terminal is now gnome-terminal.  To enlarge the terminal, and get
+	 some good looking fonts as well, drop the terminal's 'View' menu and
+	 select 'Zoom In' or 'Zoom Out' as needed.  To keep the large fonts
+	 for future invocations drop the terminal's 'Edit' menu, select
+	 Preferences, click Custom font, click the font name, which is likely
+	 Monospace, and click '+' or '-' until you are happy with the size.
+  
+  Text Editor:
+  -----------
+    If the text editor is the default (gnome-terminal running emacs),
+	 drop the view menu and select 'Zoom In' or 'Zoom Out' as needed.
+	 Remember the font size as for the case of the terminal above.  If
+	 the text editor is gedit you have to install the text size plugin
+	 like this:
+  
+       sudo apt-get install -y gedit-plugin-text-size
+
+    then click the 3 horizontal bars atop each other icon and select
+	 preferences, then select plugins then scroll down and select the
+	 text size plugin.  To change content size hold the control key
+	 while scrolling with the mouse thumb-wheel.  Other text editors
+	 have their own ways to control content size.
+
+  PDF Viewer (evince):
+  -------------------
+    To control the size of the pdf viewer content first adjust the
+	 size of the pdf viewer window by grabbing a corner with the mouse
+	 and dragging it until you have the size you want and second, drop
+	 the size menu (last on the left in the rightmost group of widgets)
+	 and select a number repeatedly until you are happy with the content
+	 size.  You can set that size as the default when the viewer is
+	 showing something by clicking the menu icon that looks like three
+	 horizontal bars atop each other and choosing 'Save Current Settings
+    as Default'.
