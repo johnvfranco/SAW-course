@@ -14,7 +14,7 @@ cd yosys
 git submodule update --init
 
 ### Install Yosys SBY - this will allow us to verify properties about RTL:
-
+cd ..
 git clone https://github.com/YosysHQ/sby.git
 cd sby
 git submodule update --init
