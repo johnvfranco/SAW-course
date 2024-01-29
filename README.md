@@ -1,14 +1,15 @@
 install the VM - detailed instructions to follow
 Enter the home directory: cd ~/
-Note: no changes to any of the files in the virgin install
+Note: no changes to any of the files in the virgin install (yet)
 
 sudo apt update
 sudo apt upgrade
-sudo apt install git # get git to install packages
+sudo apt install git # get git to install packages from github.com
+
 # get course content, in SAW-course directory
 git clone https://github.com/johnvfranco/SAW-course.git 
 
-# some OS tools
+# some needed OS tools to install
 sudo apt install xterm tcsh emacs-nox curl libffi-dev libgmp-dev
 libncurses-dev libncurses5 zlib1g-dev clang
 
@@ -29,11 +30,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 source ~/.ghcup/env
 ghcup tui
 # Use up,down arrows to move cursor to a line in the table
-move cursor to recommended HLS and hit Enter
+move line cursor to recommended HLS and hit Enter
 Hit enter to continue
-# make sure the recommended from each section of the table is installed
+# make sure the recommended application from each section of the table is installed
 # (install as above)
-# test: run ghci to get promot then hit control-D
+# test: run ghci to get prompt then hit control-D
 
 # Install Yosys - for hardware verification - VHDL and RTL
 git clone https://github.com/YosysHQ/yosys.git
@@ -48,6 +49,10 @@ git submodule update --init
 cd ..
 
 # Install Galois Cryptol
+# This allows us to specify algorithms and later use them as golden
+# reference to formally verify whether another implementation in
+# e.q. cryptol, C, SystemVerilog, or VHDL is equivalent to the
+# reference.
 git clone https://github.com/GaloisInc/cryptol.git
 cd cryptol
 git submodule update --init
@@ -59,24 +64,29 @@ sudo apt install z3
 # Run cryptol
 ./cry run
 
-# Test cryptol
+# Test cryptol - but this may hang and anyway takes a long time
+# so you may want to skip this step
 ./cry test
 
 # Create ~/.bin directory for executables
 mkdir ~/.bin
 
-# Install cryptol into ~/.bin directory (still in cryptol directory)
+# Install cryptol into ~/.bin directory (current directory is still the cryptol directory)
 cabal v2-install --overwrite-policy=always --installdir=$HOME/bin
 
 # Test cryptol in ~/.bin
 ~/.bin/cryptol
 
-# Build Galois SAW - first cd to parent of cryptol directory
+# Build Galois SAW - - Supports advanced FEV between cryptol,
+# (System)Verilog and VHDL specifications/implementations, i.e.
+# refinement development and formal verification.
+# First cd to parent of the cryptol directory
 cd ..
 # Then prepare the directory containing SAW
 git clone https://github.com/GaloisInc/saw-script
 cd saw-script
 git submodule update --init
+
 # Now the build
 ./build.sh
 sudo cp bin/saw /usr/bin
