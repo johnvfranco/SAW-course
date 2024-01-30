@@ -3,9 +3,9 @@ Installing SAW-course:
 
 Installation instructions for the course:
 
-- In an Ubuntu VM are found in INSTALL-Ubuntu.md
-- In a Mac OS X VM are found in INSTALL-MacOSX.md
-- Windows ... TBD?
+- in an Ubuntu VM are found in INSTALL-Ubuntu.md
+- in a Mac OS X VM are found in INSTALL-MacOSX.md
+- in Windows ... TBD?
 
 Following these or similar instructions should make it possible to run
 SAW-course on any Linux and MacOSX machine.
@@ -39,7 +39,7 @@ Read intro.pdf
 
 Running:
 -------
-To run the application enter directory SAW-course and issue command './run'
+To run the application enter directory SAW-course and issue command './run.sh'
 from, say, xterm (or gnome-terminal). Each lesson has documentation suitable
 for that lesson.
 
@@ -67,7 +67,7 @@ the host.
 
 Compiling:
 ---------
-To compile the application issue command './compile' from, say, gnome-terminal
+To compile the application issue command './compile.sh' from, say, gnome-terminal
 in directory SAW-course.  You should not have to compile anything unless you
 make a change to some Java code.  Compiling or running gives this output:
 
@@ -79,6 +79,7 @@ make a change to some Java code.  Compiling or running gives this output:
           lab3D lab3E lab4 lab5 lab5A lab5B lab5C lab5D lab6 cdest intr \
           lab6A lab6B lab6C lab6D lab6E lab7 lab7A lab7B linx common
   find . -name "*.class" -exec rm {} \;
+  chmod a+x game.jar
   mv game.jar ..
 
 HiDPI:
@@ -87,17 +88,17 @@ If you are running this application on a high definition monitor and the
 windows and fonts are uncomfortably small, edit the run 'script' and change
 the line
 
-   jdk-lin/bin/java -Dsun.java2d.uiScale=1.0 -jar game.jar
+   java -Dsun.java2d.uiScale=1.0 -jar game.jar
 
 to
 
-   jdk-lin/bin/java -Dsun.java2d.uiScale=2.0 -jar game.jar
+   java -Dsun.java2d.uiScale=2.0 -jar game.jar
 
 or
 
-   jdk-lin/bin/java -Dsun.java2d.uiScale=3.0 -jar game.jar (for really hi dpi)
+   java -Dsun.java2d.uiScale=3.0 -jar game.jar (for really hi dpi)
 
-and then invoke ./run.  Doing this will enlarge the Java windows and Dialogs,
+and then invoke ./run.sh.  Doing this will enlarge the Java windows and Dialogs,
 including the File Chooser, proportionally.  This will not affect the size
 of the Cryptol application, the Text Editor, the Terminal, or the pdf viewer
 (evince) windows.  The following shows how to change sizes for those.
