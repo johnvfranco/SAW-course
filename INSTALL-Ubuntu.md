@@ -14,7 +14,8 @@ sudo apt install xterm tcsh emacs-nox curl libffi-dev libgmp-dev
 libncurses-dev libncurses5 zlib1g-dev clang
 
 # but make sure the following are already there
--> evince, gnome-terminal, gedit, build-essential, libgmp10, libtinfo5, libffi8ubuntu1 
+-> evince, gnome-terminal, gedit, build-essential, libgmp10, libtinfo5,
+-> libffi8ubuntu1, gcc, git
 # use sudo apt install ... for any of these that might be missing
 
 # Install the Haskel compiler
