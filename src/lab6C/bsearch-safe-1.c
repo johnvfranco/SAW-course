@@ -31,7 +31,7 @@ uint8_t b_search (uint16_t key, uint16_t xs[]) {
 
 int main (int argc, char **argv) {
 
-	uint16_t elems[] = { 23, 103, 157, 290, 378, 454, 602, 670, 738, 854 };
+   uint16_t elems[] = { 23, 103, 157, 290, 378, 454, 602, 670, 738, 854 };
 
    printf("%d\n",b_search(atoi(argv[1]), elems));
 } 
