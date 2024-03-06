@@ -37,8 +37,20 @@ property solution states =
 	(states ! 0 == endState) /\
 	(states @ 0 == startState)
 
-// make sure, in sequence states, that the next state in sequence can be a nextState
-// of the current state in sequence
+// Run it like this:
+// Main> :s base=2
+// Main> :prove solution
+// Counterexample
+// solution
+//   [{left = 0b1111, right = 0b0000}, {left = 0b0000, right = 0b1111},
+//    {left = 0b1111, right = 0b0000}, {left = 0b0000, right = 0b1111},
+//    {left = 0b1111, right = 0b0000}, {left = 0b0001, right = 0b1110},
+//    {left = 0b0110, right = 0b1111}, {left = 0b1111, right = 0b0000}]
+//   = False
+// (Total Elapsed Time: 0.078s, using "Z3")
+
+// make sure, in sequence states, that the next state in sequence can be
+// a nextState of the current state in sequence
 neighborsConsistent states = z ! 0
   where
     z = [True]#[ ((y == nextState x 0) \/
