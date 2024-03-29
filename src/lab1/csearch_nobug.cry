@@ -1,19 +1,14 @@
-// Binary-search
+// Binary search in cryptol - bug is eliminated
 
-// ff finds the maximum index which is no greater than 255
-ff : {a, b, c} (fin c, c >= width a, c >= 8) => [a]b -> [c]
-ff lst = if (length lst) > 255 then 255 else (length lst)-1
-
-//bsearch : {n,a} (Cmp a, 8 >= width n, fin n) => (a, [n]a) -> [8]
-bsearch (key, lst) = search (0, (ff lst), w)
+bsearch : {n} (fin n, 8 >= width n) => ([8],[n][8]) -> [8]
+bsearch (key, lst) = search (0, (length lst)-1, w)
   where 
     w = length lst
     // The function "search" is not symbolically terminating,
     // so we use an "extra" recursion counter (c) for termination purposes
     // Note that this is only needed when doing the proof..
-    search : {d} (fin d, d >= 1) => ([8], [8], [d]) -> [8]
     search (low, high, c) =
-       if (c == 0) \/ (low > high) \/ (high > w) then -1
+       if (c <= 0) \/ (low > high) \/ (high > w-1) then -1
        else if midVal < key then search (mid+1, high, c-1)
        else if midVal > key then search (low, mid-1, c-1)
        else mid
@@ -22,17 +17,14 @@ bsearch (key, lst) = search (0, (ff lst), w)
           mid = computeMid (low, high)
 
 // Good version
-computeMid : ([8], [8]) -> [8]
 computeMid (low, high) = (low + (high-low) / 2)
 
 // Returns the first location of a given key in the given list
 // or -1 if the key is not in the list
-refSearchIdx : {n, a, b} (Literal 1 b, Integral b, Eq a, Eq b, fin n) =>
-				 (a, [n]a) -> b
 refSearchIdx (key, lst) = s!0
    where
      s = [-1]#[ if (key == x /\ h == -1) then c
-	  else h | x <- lst |  h <- s | c <- [0...]]
+         else h | x <- lst |  h <- s | c <- [0...]]
 
 lst3 = [0,   2,   3,   5,   6,   8,   9,  10,  11,  12,  13,  14,  16,  18,
        20,  21,  22,  23,  24,  25,  26,  27,  28,  30,  31,  32,  33,  34,
@@ -51,20 +43,16 @@ lst3 = [0,   2,   3,   5,   6,   8,   9,  10,  11,  12,  13,  14,  16,  18,
       240, 241, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 255]:[210][9]
 
 // bsearch and refSearch are equivalent when the input is
-// nonDecreasing, so recognize such sequences:
-onlyIncreasing : {a,b} (fin a, fin b) => [a][b] -> Bit
+// only increasing in sequence, so recognize such sequences:
 onlyIncreasing lst = pairComps == ~zero
   where pairComps = [ x < x' | x  <- [0] # lst | x' <- lst ]
 
 // The theorem holds, establishing correctness.
-bsearchOK : [8] -> [100][8] -> Bit
+bsearchOK : [8] -> [130][8] -> Bit
 property bsearchOK key lst =
-  if (onlyIncreasing (lst) /\ 0 <= key)
+  if onlyIncreasing (lst) /\ 0 <= key
   then bsearch (key, lst) == refSearchIdx (key, lst)
   else True
-
-try x = bsearch (x, lst3)
-ref x = refSearchIdx (x, lst3)
 
 // Cryptol> :l csearch_bug.cry
 // Loading module Cryptol

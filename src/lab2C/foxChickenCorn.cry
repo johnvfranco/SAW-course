@@ -1,5 +1,5 @@
 // Loading module Cryptol
-// Cryptol> :l foxChickenCornRedux.cry
+// Cryptol> :l foxChickenCorn.cry
 // Loading module Cryptol
 // Loading module Main
 // Main> :s base=2
